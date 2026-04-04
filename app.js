@@ -11,6 +11,12 @@
   let currentSearchFn = null;
 
   document.addEventListener('DOMContentLoaded', () => {
+    // Load cards data
+    fetch('data/cards.json')
+      .then(r => r.json())
+      .then(cards => { CARDS_DATA = cards; })
+      .catch(() => { CARDS_DATA = []; });
+
     pushView('Riftbound Judge', renderHome);
     $('#btn-back').addEventListener('click', goBack);
     setupSearch();
@@ -77,6 +83,10 @@
             <span class="menu-item-text">Rules Library</span>
             <span class="menu-item-chevron">›</span>
           </div>
+          <div class="menu-item" data-action="oracle">
+            <span class="menu-item-text">Oracle Cards</span>
+            <span class="menu-item-chevron">›</span>
+          </div>
           <div class="menu-item" data-action="errata">
             <span class="menu-item-text">Card Errata</span>
             <span class="menu-item-chevron">›</span>
@@ -90,6 +100,9 @@
 
     $('[data-action="rules-library"]', container).addEventListener('click', () => {
       pushView('Rules Library', renderRulesLibrary);
+    });
+    $('[data-action="oracle"]', container).addEventListener('click', () => {
+      pushView('Oracle Cards', renderOracleView);
     });
     $('[data-action="errata"]', container).addEventListener('click', () => {
       pushView('Card Errata', renderErrataView);
@@ -265,6 +278,105 @@
     } else {
       container.innerHTML = `<div class="search-info">${totalCount} result${totalCount !== 1 ? 's' : ''}</div>` + html;
     }
+  }
+
+  // === ORACLE CARDS VIEW ===
+  function renderOracleView(container) {
+    // Show sets as menu items
+    const sets = {};
+    CARDS_DATA.forEach(c => {
+      const s = c.set || 'Unknown';
+      if (!sets[s]) sets[s] = 0;
+      sets[s]++;
+    });
+
+    let html = '<div class="menu-list"><div class="menu-group">';
+    html += `<div class="menu-item" data-action="all-cards">
+      <span class="menu-item-text">All Cards</span>
+      <span class="menu-item-count">${CARDS_DATA.length}</span>
+      <span class="menu-item-chevron">›</span>
+    </div>`;
+    Object.entries(sets).sort().forEach(([setName, count]) => {
+      html += `<div class="menu-item" data-set="${setName}">
+        <span class="menu-item-text">${setName}</span>
+        <span class="menu-item-count">${count}</span>
+        <span class="menu-item-chevron">›</span>
+      </div>`;
+    });
+    html += '</div></div>';
+    container.innerHTML = html;
+
+    $('[data-action="all-cards"]', container).addEventListener('click', () => {
+      pushView('All Cards', c => renderCardList(c, CARDS_DATA));
+    });
+    $$('.menu-item[data-set]', container).forEach(item => {
+      item.addEventListener('click', () => {
+        const setName = item.dataset.set;
+        const filtered = CARDS_DATA.filter(c => c.set === setName);
+        pushView(setName, c => renderCardList(c, filtered));
+      });
+    });
+  }
+
+  function renderCardList(container, cards) {
+    const renderCards = (list, query) => {
+      if (list.length === 0) {
+        container.innerHTML = `<div class="no-results">No cards found${query ? ' for "' + escapeHtml(query) + '"' : ''}</div>`;
+        return;
+      }
+      let html = '';
+      if (query) html += `<div class="search-info">${list.length} result${list.length !== 1 ? 's' : ''}</div>`;
+      html += list.map(c => renderCardEntry(c, query)).join('');
+      container.innerHTML = html;
+    };
+
+    renderCards(cards, '');
+
+    currentSearchFn = (query) => {
+      if (!query) { renderCards(cards, ''); return; }
+      const q = query.toLowerCase();
+      const matches = cards.filter(c =>
+        (c.name || '').toLowerCase().includes(q) ||
+        (c.text || '').toLowerCase().includes(q) ||
+        (c.tags || []).some(t => t.toLowerCase().includes(q)) ||
+        (c.type || '').toLowerCase().includes(q) ||
+        (c.domains || []).some(d => d.toLowerCase().includes(q))
+      );
+      renderCards(matches, query);
+    };
+    $('#search-container').classList.remove('hidden');
+    $('#search-input').placeholder = 'Search cards by name, text, tag...';
+  }
+
+  function renderCardEntry(card, highlight) {
+    const name = highlight ? highlightText(card.name || '', highlight) : escapeHtml(card.name || '');
+    const text = card.text
+      ? (highlight ? highlightText(card.text, highlight) : escapeHtml(card.text))
+      : '';
+
+    let meta = [];
+    if (card.type) meta.push(card.type);
+    if (card.supertypes) meta.push(card.supertypes.join(', '));
+    if (card.domains && card.domains.length) meta.push(card.domains.join('/'));
+    if (card.rarity) meta.push(card.rarity);
+
+    let stats = [];
+    if (card.energy !== undefined) stats.push(`E:${card.energy}`);
+    if (card.might !== undefined) stats.push(`M:${card.might}`);
+    if (card.power !== undefined) stats.push(`P:${card.power}`);
+
+    const tags = (card.tags || []).join(', ');
+
+    return `
+      <div class="card-entry">
+        <div class="card-entry-header">
+          <span class="card-entry-name">${name}</span>
+          ${stats.length ? `<span class="card-entry-stats">${stats.join(' ')}</span>` : ''}
+        </div>
+        <div class="card-entry-meta">${meta.join(' · ')}${tags ? ' · ' + tags : ''}</div>
+        ${text ? `<div class="card-entry-text">${text.replace(/\n/g, '<br>')}</div>` : ''}
+        ${card.code ? `<div class="card-entry-code">${card.code}</div>` : ''}
+      </div>`;
   }
 
   // === ERRATA VIEW ===

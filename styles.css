@@ -271,6 +271,48 @@ mark {
   text-decoration-color: var(--text-muted);
 }
 
+/* Card entries */
+.card-entry {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+}
+.card-entry:first-child { border-top: 1px solid var(--border); margin-top: 12px; }
+.card-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+.card-entry-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.card-entry-stats {
+  font-family: 'SF Mono', 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.card-entry-meta {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+.card-entry-text {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+.card-entry-code {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-family: 'SF Mono', 'JetBrains Mono', monospace;
+}
+
 /* Search results info */
 .search-info {
   padding: 8px 16px;
