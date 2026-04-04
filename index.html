@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#1a1a2e">
+  <meta name="theme-color" content="#0a0a14">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Riftbound Judge</title>
@@ -14,54 +14,21 @@
 </head>
 <body>
   <header id="app-header">
-    <div class="header-top">
-      <h1>Riftbound Judge</h1>
-      <button id="btn-settings" aria-label="Settings">&#9881;</button>
-    </div>
-    <div class="search-bar">
-      <input type="search" id="search-input" placeholder="Search rules, cards, errata..." autocomplete="off">
-      <button id="btn-clear-search" class="hidden" aria-label="Clear search">&times;</button>
-    </div>
+    <button id="btn-back" class="header-btn hidden" aria-label="Back">&#8249;</button>
+    <h1 id="header-title">Riftbound Judge</h1>
+    <div id="header-spacer" class="header-btn"></div>
   </header>
 
-  <nav id="tab-bar">
-    <button class="tab active" data-tab="core-rules">Core Rules</button>
-    <button class="tab" data-tab="tournament">Tournament</button>
-    <button class="tab" data-tab="errata">Errata</button>
-    <button class="tab" data-tab="cards">Cards</button>
-  </nav>
+  <div id="search-container" class="hidden">
+    <div class="search-bar">
+      <input type="search" id="search-input" placeholder="Search..." autocomplete="off">
+      <button id="btn-clear-search" class="hidden" aria-label="Clear">&times;</button>
+    </div>
+  </div>
 
   <main id="content">
-    <!-- Core Rules Tab -->
-    <section id="tab-core-rules" class="tab-content active">
-      <div id="core-rules-toc" class="toc"></div>
-      <div id="core-rules-list" class="rules-list"></div>
-    </section>
-
-    <!-- Tournament Rules Tab -->
-    <section id="tab-tournament" class="tab-content">
-      <div id="tournament-toc" class="toc"></div>
-      <div id="tournament-list" class="rules-list"></div>
-    </section>
-
-    <!-- Errata Tab -->
-    <section id="tab-errata" class="tab-content">
-      <div id="errata-list" class="errata-list"></div>
-    </section>
-
-    <!-- Cards Tab -->
-    <section id="tab-cards" class="tab-content">
-      <div id="cards-content" class="cards-content">
-        <p class="card-info">Search for a card by name above, or browse the full database:</p>
-        <a href="https://piltoverarchive.com/cards" target="_blank" rel="noopener" class="external-link">
-          Browse Cards on Piltover Archive &rarr;
-        </a>
-        <div id="card-results" class="card-results"></div>
-      </div>
-    </section>
+    <!-- Views are rendered here by JS -->
   </main>
-
-  <div id="back-to-top" class="hidden" aria-label="Back to top">&#8679;</div>
 
   <script src="data/core-rules.js"></script>
   <script src="data/tournament-rules.js"></script>
