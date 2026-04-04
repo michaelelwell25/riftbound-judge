@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Riftbound Judge</string>
+    <string name="title_activity_main">Riftbound Judge</string>
+    <string name="package_name">com.riftbound.judge</string>
+    <string name="custom_url_scheme">com.riftbound.judge</string>
+</resources>

@@ -1,0 +1,28 @@
+{
+  "name": "riftbound-judge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build": "rm -rf www && mkdir www && cp -r index.html app.js styles.css manifest.json sw.js data icons www/",
+    "sync": "npm run build && npx cap sync android"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelelwell25/riftbound-judge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/michaelelwell25/riftbound-judge/issues"
+  },
+  "homepage": "https://github.com/michaelelwell25/riftbound-judge#readme",
+  "dependencies": {
+    "@capacitor/android": "^8.3.0",
+    "@capacitor/app": "^8.1.0",
+    "@capacitor/cli": "^8.3.0",
+    "@capacitor/core": "^8.3.0"
+  }
+}

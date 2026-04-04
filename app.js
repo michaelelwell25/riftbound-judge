@@ -21,17 +21,37 @@
     $('#btn-back').addEventListener('click', goBack);
     setupSearch();
     registerSW();
+    setupHardwareBack();
   });
 
+  // === HARDWARE BACK BUTTON (Android) ===
+  function setupHardwareBack() {
+    window.addEventListener('popstate', () => {
+      if (navStack.length > 1) {
+        handlingPopstate = true;
+        goBack();
+        handlingPopstate = false;
+      }
+    });
+  }
+
   // === NAVIGATION ===
+  let handlingPopstate = false;
+
   function pushView(title, renderFn) {
     navStack.push({ title, renderFn });
+    if (navStack.length > 1) {
+      history.pushState({ depth: navStack.length }, '');
+    }
     renderCurrent();
   }
 
   function goBack() {
     if (navStack.length > 1) {
       navStack.pop();
+      if (!handlingPopstate) {
+        history.back();
+      }
       renderCurrent();
     }
   }
