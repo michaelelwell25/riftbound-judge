@@ -115,6 +115,17 @@
             <span class="menu-item-text">Penalty Quick Reference</span>
             <span class="menu-item-chevron">›</span>
           </div>
+          <div class="menu-item" data-action="patch-notes">
+            <span class="menu-item-text">
+              Unleashed Changes
+              <div class="menu-item-subtitle">RUP3 patch notes — 2026-03-30</div>
+            </span>
+            <span class="menu-item-chevron">›</span>
+          </div>
+          <div class="menu-item" data-action="swiss-rounds">
+            <span class="menu-item-text">Swiss Rounds</span>
+            <span class="menu-item-chevron">›</span>
+          </div>
         </div>
       </div>`;
 
@@ -130,6 +141,89 @@
     $('[data-action="penalty-guide"]', container).addEventListener('click', () => {
       pushView('Penalty Guide', renderPenaltyGuide);
     });
+    $('[data-action="patch-notes"]', container).addEventListener('click', () => {
+      pushView('Unleashed Changes', renderPatchNotes);
+    });
+    $('[data-action="swiss-rounds"]', container).addEventListener('click', () => {
+      pushView('Swiss Rounds', renderSwissRounds);
+    });
+  }
+
+  // === PATCH NOTES VIEW ===
+  function renderPatchNotes(container) {
+    const data = PATCH_NOTES_DATA;
+    const renderAll = (list, query) => {
+      let html = '';
+      if (!query) {
+        html += `<div class="patch-intro">
+          <div class="patch-date">${data.date}</div>
+          <div class="patch-intro-text">${escapeHtml(data.intro)}</div>
+        </div>`;
+      } else {
+        html += `<div class="search-info">${list.length} result${list.length !== 1 ? 's' : ''}</div>`;
+      }
+      if (list.length === 0) {
+        container.innerHTML = `<div class="no-results">No changes found for "${escapeHtml(query)}"</div>`;
+        return;
+      }
+      list.forEach(c => { html += renderPatchCard(c, query); });
+      container.innerHTML = html;
+    };
+
+    renderAll(data.changes, '');
+
+    currentSearchFn = (q) => {
+      if (!q) { renderAll(data.changes, ''); return; }
+      const ql = q.toLowerCase();
+      const matches = data.changes.filter(c =>
+        c.title.toLowerCase().includes(ql) ||
+        c.summary.toLowerCase().includes(ql) ||
+        c.details.some(d => d.toLowerCase().includes(ql)) ||
+        (c.tags || []).some(t => t.toLowerCase().includes(ql))
+      );
+      renderAll(matches, q);
+    };
+    $('#search-container').classList.remove('hidden');
+    $('#search-input').placeholder = 'Search patch notes...';
+  }
+
+  function renderPatchCard(change, highlight = '') {
+    const hl = (s) => highlight ? highlightText(s, highlight.toLowerCase()) : formatRuleText(s);
+    const detailsHtml = change.details.map(d => `<li>${hl(d)}</li>`).join('');
+    const tagsHtml = (change.tags || []).map(t => `<span class="patch-tag">${escapeHtml(t)}</span>`).join('');
+    return `
+      <div class="patch-card">
+        <div class="patch-card-title">${hl(change.title)}</div>
+        <div class="patch-card-summary">${hl(change.summary)}</div>
+        <ul class="patch-card-details">${detailsHtml}</ul>
+        ${tagsHtml ? `<div class="patch-card-tags">${tagsHtml}</div>` : ''}
+      </div>`;
+  }
+
+  // === SWISS ROUNDS VIEW ===
+  function renderSwissRounds(container) {
+    const data = SWISS_ROUNDS_DATA;
+    let html = `
+      <div class="swiss-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Players</th>
+              <th>Swiss Rounds</th>
+              <th>Playoff</th>
+            </tr>
+          </thead>
+          <tbody>`;
+    data.rows.forEach(r => {
+      html += `
+        <tr>
+          <td class="swiss-players">${escapeHtml(r.players)}</td>
+          <td>${escapeHtml(r.rounds)}</td>
+          <td>${escapeHtml(r.playoff)}</td>
+        </tr>`;
+    });
+    html += '</tbody></table></div>';
+    container.innerHTML = html;
   }
 
   // === RULES LIBRARY ===

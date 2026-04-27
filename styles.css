@@ -373,6 +373,84 @@ mark {
 .penalty-badge.matchloss { background: rgba(240, 53, 108, 0.15); color: #f0356c; }
 .penalty-badge.dq { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
 
+/* Patch Notes */
+.patch-intro {
+  margin: 12px;
+  padding: 12px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.patch-date {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.patch-intro-text { font-size: 0.88rem; line-height: 1.5; color: var(--text-dim); }
+.patch-card {
+  margin: 10px 12px;
+  padding: 12px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.patch-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.patch-card-summary {
+  font-size: 0.88rem;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.patch-card-details {
+  margin: 0 0 8px 18px;
+  padding: 0;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.patch-card-details li { margin-bottom: 4px; }
+.patch-card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.patch-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(10, 200, 185, 0.12);
+  color: var(--accent-tr);
+  letter-spacing: 0.3px;
+}
+
+/* Swiss Rounds Table */
+.swiss-table { margin: 12px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.swiss-table table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.swiss-table th {
+  background: var(--bg-hover);
+  color: var(--accent);
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.swiss-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.4;
+  color: var(--text);
+}
+.swiss-table tr:last-child td { border-bottom: none; }
+.swiss-table .swiss-players { font-weight: 700; color: var(--accent); white-space: nowrap; }
+
 .hidden { display: none !important; }
 
 @media (min-width: 600px) {
