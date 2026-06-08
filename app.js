@@ -5,6 +5,8 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
+  const APP_VERSION = '1.0.0';
+
   // Navigation stack: [{view, title, render()}]
   const navStack = [];
   let searchTimeout = null;
@@ -20,9 +22,46 @@
     pushView('Riftbound Judge', renderHome);
     $('#btn-back').addEventListener('click', goBack);
     setupSearch();
+    setupTextSize();
+    setupContentDelegation();
     registerSW();
     setupHardwareBack();
   });
+
+  // === CONTENT CLICK DELEGATION (cross-links) ===
+  function setupContentDelegation() {
+    $('#content').addEventListener('click', (e) => {
+      const er = e.target.closest('[data-jump-errata]');
+      if (er) { openErrataFor(er.getAttribute('data-jump-errata')); return; }
+      const cd = e.target.closest('[data-jump-card]');
+      if (cd) { openCardFor(cd.getAttribute('data-jump-card')); return; }
+      const ru = e.target.closest('[data-jump-rule]');
+      if (ru) { openTournamentRule(ru.getAttribute('data-jump-rule')); return; }
+    });
+  }
+
+  // === TEXT SIZE ===
+  const FONT_KEY = 'rbj-font-px', FONT_MIN = 12, FONT_MAX = 26, FONT_STEP = 1.5, FONT_DEFAULT = 15;
+
+  function getFontPx() {
+    let v;
+    try { v = parseFloat(localStorage.getItem(FONT_KEY)); } catch (e) { v = NaN; }
+    return isNaN(v) ? FONT_DEFAULT : v;
+  }
+
+  function applyFontPx(px) {
+    const clamped = Math.min(FONT_MAX, Math.max(FONT_MIN, px));
+    document.documentElement.style.fontSize = clamped + 'px';
+    try { localStorage.setItem(FONT_KEY, clamped); } catch (e) {}
+    $('#btn-text-smaller').disabled = clamped <= FONT_MIN;
+    $('#btn-text-larger').disabled = clamped >= FONT_MAX;
+  }
+
+  function setupTextSize() {
+    applyFontPx(getFontPx());
+    $('#btn-text-smaller').addEventListener('click', () => applyFontPx(getFontPx() - FONT_STEP));
+    $('#btn-text-larger').addEventListener('click', () => applyFontPx(getFontPx() + FONT_STEP));
+  }
 
   // === HARDWARE BACK BUTTON (Android) ===
   function setupHardwareBack() {
@@ -96,11 +135,26 @@
 
   // === HOME VIEW ===
   function renderHome(container) {
+    renderHomeMenu(container);
+    // Global search lives on the home screen
+    currentSearchFn = (q) => {
+      if (!q.trim()) { renderHomeMenu(container); return; }
+      globalSearch(container, q.trim());
+    };
+    $('#search-container').classList.remove('hidden');
+    $('#search-input').placeholder = 'Search rules, cards, errata, keywords…';
+  }
+
+  function renderHomeMenu(container) {
     container.innerHTML = `
       <div class="menu-list">
         <div class="menu-group">
           <div class="menu-item" data-action="rules-library">
             <span class="menu-item-text">Rules Library</span>
+            <span class="menu-item-chevron">›</span>
+          </div>
+          <div class="menu-item" data-action="keywords">
+            <span class="menu-item-text">Keyword Glossary</span>
             <span class="menu-item-chevron">›</span>
           </div>
           <div class="menu-item" data-action="oracle">
@@ -127,26 +181,23 @@
             <span class="menu-item-chevron">›</span>
           </div>
         </div>
+        <div class="menu-group">
+          <div class="menu-item" data-action="about">
+            <span class="menu-item-text">About &amp; Versions</span>
+            <span class="menu-item-chevron">›</span>
+          </div>
+        </div>
       </div>`;
 
-    $('[data-action="rules-library"]', container).addEventListener('click', () => {
-      pushView('Rules Library', renderRulesLibrary);
-    });
-    $('[data-action="oracle"]', container).addEventListener('click', () => {
-      pushView('Oracle Cards', renderOracleView);
-    });
-    $('[data-action="errata"]', container).addEventListener('click', () => {
-      pushView('Card Errata', renderErrataView);
-    });
-    $('[data-action="penalty-guide"]', container).addEventListener('click', () => {
-      pushView('Penalty Guide', renderPenaltyGuide);
-    });
-    $('[data-action="patch-notes"]', container).addEventListener('click', () => {
-      pushView('Unleashed Changes', renderPatchNotes);
-    });
-    $('[data-action="swiss-rounds"]', container).addEventListener('click', () => {
-      pushView('Swiss Rounds', renderSwissRounds);
-    });
+    const go = (sel, title, fn) => $(sel, container).addEventListener('click', () => pushView(title, fn));
+    go('[data-action="rules-library"]', 'Rules Library', renderRulesLibrary);
+    go('[data-action="keywords"]', 'Keyword Glossary', renderKeywords);
+    go('[data-action="oracle"]', 'Oracle Cards', renderOracleView);
+    go('[data-action="errata"]', 'Card Errata', renderErrataView);
+    go('[data-action="penalty-guide"]', 'Penalty Guide', renderPenaltyGuide);
+    go('[data-action="patch-notes"]', 'Unleashed Changes', renderPatchNotes);
+    go('[data-action="swiss-rounds"]', 'Swiss Rounds', renderSwissRounds);
+    go('[data-action="about"]', 'About & Versions', renderAbout);
   }
 
   // === PATCH NOTES VIEW ===
@@ -480,6 +531,7 @@
     if (card.power !== undefined) stats.push(`P:${card.power}`);
 
     const tags = (card.tags || []).join(', ');
+    const hasErrata = card.name && errataIndex()[card.name.toLowerCase()];
 
     return `
       <div class="card-entry">
@@ -489,6 +541,7 @@
         </div>
         <div class="card-entry-meta">${meta.join(' · ')}${tags ? ' · ' + tags : ''}</div>
         ${text ? `<div class="card-entry-text">${text.replace(/\n/g, '<br>')}</div>` : ''}
+        ${hasErrata ? `<div class="link-chip" data-jump-errata="${escapeHtml(card.name)}">⚠ Has errata — view</div>` : ''}
         ${card.code ? `<div class="card-entry-code">${card.code}</div>` : ''}
       </div>`;
   }
@@ -531,6 +584,7 @@
   function renderErrataCard(errata, highlight = '') {
     const name = highlight ? highlightText(errata.name, highlight) : escapeHtml(errata.name);
     const newText = highlight ? highlightText(errata.newText, highlight) : escapeHtml(errata.newText);
+    const hasCard = cardIndex()[errata.name.toLowerCase()];
     return `
       <div class="errata-card">
         <div class="errata-card-header">
@@ -547,6 +601,7 @@
             <div class="errata-text old-text">${escapeHtml(errata.oldText).replace(/\n/g, '<br>')}</div>
           </div>
         </div>
+        ${hasCard ? `<div class="link-chip" data-jump-card="${escapeHtml(errata.name)}">View card →</div>` : ''}
       </div>`;
   }
 
@@ -590,7 +645,7 @@
       }
       const badgeClass = getPenaltyBadgeClass(p.penalty);
       html += `
-        <tr>
+        <tr class="penalty-row" data-jump-rule="${p.num}">
           <td style="font-family:monospace;color:var(--accent);font-size:0.78rem;white-space:nowrap;">${p.num}</td>
           <td>${p.name}</td>
           <td><span class="penalty-badge ${badgeClass}">${p.penalty}</span></td>
@@ -609,6 +664,201 @@
     if (p.includes('warning')) return 'warning';
     if (p.includes('no penalty')) return 'none';
     return 'warning';
+  }
+
+  // === INDEXES (lazy) ===
+  let _errataIndex = null, _cardIndex = null, _keywords = null;
+
+  function errataIndex() {
+    if (_errataIndex) return _errataIndex;
+    _errataIndex = {};
+    ERRATA_DATA.forEach(e => {
+      const k = e.name.toLowerCase();
+      (_errataIndex[k] = _errataIndex[k] || []).push(e);
+    });
+    return _errataIndex;
+  }
+
+  function cardIndex() {
+    if (_cardIndex && Object.keys(_cardIndex).length) return _cardIndex;
+    _cardIndex = {};
+    CARDS_DATA.forEach(c => { if (c.name) _cardIndex[c.name.toLowerCase()] = c; });
+    return _cardIndex;
+  }
+
+  function getKeywords() {
+    if (_keywords) return _keywords;
+    _keywords = [];
+    const sec = CORE_RULES_DATA.sections.find(s => s.num === '727');
+    if (!sec) return _keywords;
+    let current = null;
+    sec.rules.forEach(r => {
+      const isTop = !r.num.includes('.') && parseInt(r.num, 10) >= 729;
+      const m = isTop && r.text.match(/^\*\*(.+?)\*\*\s*:?\s*(.*)$/);
+      if (m) {
+        current = { num: r.num, name: m[1].trim(), desc: m[2].trim(), rules: [] };
+        _keywords.push(current);
+      } else if (current && r.num.startsWith(current.num + '.')) {
+        current.rules.push(r);
+      }
+    });
+    _keywords.sort((a, b) => a.name.localeCompare(b.name));
+    return _keywords;
+  }
+
+  // === KEYWORD GLOSSARY VIEW ===
+  function renderKeywords(container) {
+    const kws = getKeywords();
+    const renderAll = (list, q) => {
+      if (!list.length) {
+        container.innerHTML = `<div class="no-results">No keywords found${q ? ' for "' + escapeHtml(q) + '"' : ''}</div>`;
+        return;
+      }
+      let html = q ? `<div class="search-info">${list.length} result${list.length !== 1 ? 's' : ''}</div>` : '';
+      html += list.map(k => renderKeywordCard(k, q)).join('');
+      container.innerHTML = html;
+    };
+    renderAll(kws, '');
+    currentSearchFn = (q) => {
+      if (!q) { renderAll(kws, ''); return; }
+      const ql = q.toLowerCase();
+      renderAll(kws.filter(k =>
+        k.name.toLowerCase().includes(ql) ||
+        k.desc.toLowerCase().includes(ql) ||
+        k.rules.some(r => r.text.toLowerCase().includes(ql))
+      ), q);
+    };
+    $('#search-container').classList.remove('hidden');
+    $('#search-input').placeholder = 'Search keywords…';
+  }
+
+  function renderKeywordCard(k, highlight = '') {
+    const f = (s) => highlight ? highlightText(s, highlight.toLowerCase()) : formatRuleText(s);
+    const details = k.rules.map(r =>
+      `<li><span class="kw-subnum">${r.num}</span> ${f(r.text)}</li>`).join('');
+    return `
+      <div class="kw-card">
+        <div class="kw-name">${f(k.name)}</div>
+        ${k.desc ? `<div class="kw-desc">${f(k.desc)}</div>` : ''}
+        ${details ? `<ul class="kw-details">${details}</ul>` : ''}
+      </div>`;
+  }
+
+  // === GLOBAL SEARCH ===
+  function globalSearch(container, q) {
+    const ql = q.toLowerCase();
+    const CAP = 20;
+
+    const ruleMatches = (data) => {
+      const out = [];
+      data.sections.forEach(s => s.rules.forEach(r => {
+        if (r.num.toLowerCase().includes(ql) || r.text.toLowerCase().includes(ql)) {
+          out.push({ num: r.num, text: r.text });
+        }
+      }));
+      return out;
+    };
+
+    const core = ruleMatches(CORE_RULES_DATA);
+    const tourn = ruleMatches(TOURNAMENT_RULES_DATA);
+    const errata = ERRATA_DATA.filter(e =>
+      e.name.toLowerCase().includes(ql) || e.newText.toLowerCase().includes(ql) || e.set.toLowerCase().includes(ql));
+    const cards = CARDS_DATA.filter(c =>
+      (c.name || '').toLowerCase().includes(ql) ||
+      (c.text || '').toLowerCase().includes(ql) ||
+      (c.tags || []).some(t => t.toLowerCase().includes(ql)) ||
+      (c.type || '').toLowerCase().includes(ql) ||
+      (c.domains || []).some(d => d.toLowerCase().includes(ql)));
+    const kws = getKeywords().filter(k =>
+      k.name.toLowerCase().includes(ql) || k.desc.toLowerCase().includes(ql) ||
+      k.rules.some(r => r.text.toLowerCase().includes(ql)));
+
+    const total = core.length + tourn.length + errata.length + cards.length + kws.length;
+    if (!total) {
+      container.innerHTML = `<div class="no-results">No results for "${escapeHtml(q)}"</div>`;
+      return;
+    }
+
+    let html = `<div class="search-info">${total} result${total !== 1 ? 's' : ''} across all sources</div>`;
+
+    const ruleGroup = (label, arr) => {
+      if (!arr.length) return '';
+      let h = `<div class="gs-group-label">${label} (${arr.length})</div><div class="rules-view gs-block">`;
+      arr.slice(0, CAP).forEach(r => {
+        h += `<div class="rule-entry depth-${getDepth(r.num)} highlight"><span class="rule-num">${r.num}</span><span class="rule-text">${highlightText(r.text, ql)}</span></div>`;
+      });
+      h += '</div>';
+      if (arr.length > CAP) h += `<div class="gs-more">+${arr.length - CAP} more — refine your search</div>`;
+      return h;
+    };
+
+    if (kws.length) {
+      html += `<div class="gs-group-label">Keywords (${kws.length})</div>`;
+      html += kws.slice(0, CAP).map(k => renderKeywordCard(k, q)).join('');
+    }
+    html += ruleGroup('Core Rules', core);
+    html += ruleGroup('Tournament Rules', tourn);
+    if (errata.length) {
+      html += `<div class="gs-group-label">Errata (${errata.length})</div>`;
+      html += errata.slice(0, CAP).map(e => renderErrataCard(e, q)).join('');
+      if (errata.length > CAP) html += `<div class="gs-more">+${errata.length - CAP} more — refine your search</div>`;
+    }
+    if (cards.length) {
+      html += `<div class="gs-group-label">Cards (${cards.length})</div>`;
+      html += cards.slice(0, CAP).map(c => renderCardEntry(c, q)).join('');
+      if (cards.length > CAP) html += `<div class="gs-more">+${cards.length - CAP} more — open Oracle Cards to see all</div>`;
+    }
+    container.innerHTML = html;
+  }
+
+  // === CROSS-LINK OPENERS ===
+  function openErrataFor(name) {
+    const list = errataIndex()[name.toLowerCase()] || [];
+    pushView(name, (c) => {
+      c.innerHTML = list.length ? list.map(e => renderErrataCard(e)).join('')
+        : `<div class="no-results">No errata found.</div>`;
+    });
+  }
+
+  function openCardFor(name) {
+    const card = cardIndex()[name.toLowerCase()];
+    pushView(name, (c) => {
+      c.innerHTML = card ? renderCardEntry(card) : `<div class="no-results">Card not found.</div>`;
+    });
+  }
+
+  function openTournamentRule(baseNum) {
+    const matched = [];
+    TOURNAMENT_RULES_DATA.sections.forEach(s => s.rules.forEach(r => {
+      if (r.num === baseNum || r.num.startsWith(baseNum + '.')) matched.push(r);
+    }));
+    let title = baseNum;
+    const head = matched.find(r => r.num === baseNum);
+    if (head) { const m = head.text.match(/^\*\*(.+?)\s*\[/); if (m) title = m[1].trim(); }
+    pushView(title, (c) => {
+      c.innerHTML = `<div class="rules-view">` + matched.map(r =>
+        `<div class="rule-entry depth-${getDepth(r.num)}"><span class="rule-num">${r.num}</span><span class="rule-text">${formatRuleText(r.text)}</span></div>`).join('') + `</div>`;
+    });
+  }
+
+  // === ABOUT / VERSIONS VIEW ===
+  function renderAbout(container) {
+    const sets = {};
+    CARDS_DATA.forEach(c => { const s = c.set || 'Unknown'; sets[s] = (sets[s] || 0) + 1; });
+    const setLines = Object.entries(sets).sort().map(([s, n]) => `${escapeHtml(s)}: ${n}`).join(' · ');
+    const errataDate = (typeof ERRATA_UPDATED !== 'undefined') ? ERRATA_UPDATED : 'n/a';
+    const rows = [
+      ['App version', escapeHtml(APP_VERSION)],
+      ['Core Rules', `${escapeHtml(CORE_RULES_DATA.version || '')} — updated ${escapeHtml(CORE_RULES_DATA.lastUpdated || '')}`],
+      ['Tournament Rules', `updated ${escapeHtml(TOURNAMENT_RULES_DATA.lastUpdated || '')}`],
+      ['Patch Notes', `${escapeHtml(PATCH_NOTES_DATA.title || '')} — ${escapeHtml(PATCH_NOTES_DATA.date || '')}`],
+      ['Errata', `${ERRATA_DATA.length} entries — latest ${escapeHtml(errataDate)}`],
+      ['Cards', `${CARDS_DATA.length} cards${setLines ? ' — ' + setLines : ''}`],
+    ];
+    container.innerHTML = `<div class="about-view">` +
+      rows.map(([k, v]) => `<div class="about-row"><div class="about-key">${k}</div><div class="about-val">${v}</div></div>`).join('') +
+      `<div class="about-note">Rules content is sourced from official Riot Games <em>Riftbound</em> documents. For sanctioned events, verify against the live Rules Hub.</div>` +
+      `</div>`;
   }
 
   // === UTILITIES ===

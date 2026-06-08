@@ -1,5 +1,6 @@
 // Riftbound Card Errata Data
-// Sources: UPDATED Riftbound Errata File 1-12-26.pdf, Riftbound Card Errata 10-21-2025.pdf
+// Sources: UPDATED Riftbound Errata File 1-12-26.pdf, Riftbound Card Errata 10-21-2025.pdf,
+//          Unleashed Errata Updates (riftbound.leagueoflegends.com, 2026-04-03)
 
 const ERRATA_DATA = [
   // === UPDATED Errata (Jan 2026) ===
@@ -54,4 +55,16 @@ const ERRATA_DATA = [
   { name: "Unlicensed Armory", set: "Unleashed", newText: "Discard 1, [E]: Choose a friendly unit. The next time it would die this turn, you may pay [C] to heal it, exhaust it, and recall it instead. (Send it to base. This isn't a move.)", oldText: "Discard 1, [E]: Choose a friendly unit. The next time it dies this turn, you may pay [C] to recall it exhausted instead. (Send it to base. This isn't a move.)" },
   { name: "Void Gate", set: "Unleashed", newText: "Spells and abilities deal 1 Bonus Damage to units here. (Each instance of damage the spell deals to a unit here is increased by 1.)", oldText: "Spells and abilities affecting units here each deal 1 Bonus Damage. (Each instance of damage the spell deals is increased by 1.)" },
   { name: "Zhonya's Hourglass", set: "Unleashed", newText: "[Hidden] (Hide now for [A] to react with later for [0].)\nIf a friendly unit would die, kill this instead. Heal that unit, exhaust it, and recall it. (Send it to base. This isn't a move.)", oldText: "[Hidden] (Hide now for [A] to react with later for [0].)\nThe next time a friendly unit would die, kill this instead. Recall that unit exhausted. (Send it to base. This isn't a move.)" },
+
+  // === Unleashed Errata Update (Apr 3, 2026) ===
+  { name: "Guards!", set: "Spiritforged", newText: "[Hidden] (Hide now for [A] to react with later for [0].)\nPlay a 2 [M] Sand Soldier unit token. Then do this: You may pay [C] to ready it.", oldText: "[Hidden] (Hide now for [A] to react with later for [0].)\nPlay a 2 [M] Sand Soldier unit token. You may pay [C] to ready it." },
+  { name: "Relentless Pursuit", set: "Spiritforged", newText: "[Action] (Play on your turn or in showdowns.)\nMove a friendly unit. You may attach up to one Equipment with the same controller to it. This turn, that unit has \"When I conquer, you may move me to my base.\"", oldText: "[Action] (Play on your turn or in showdowns.)\nMove a friendly unit. You may attach an Equipment with the same controller to it. This turn, that unit has \"When I conquer, you may move me to my base.\"" },
+  { name: "Death from Below", set: "Unleashed", newText: "Kill a unit at a battlefield. Then, if it had 3 [M] or less, do this: You may play this from your trash for [A].", oldText: "Kill a unit at a battlefield. Then, if it had 3 [M] or less, you may play this from your trash for [A]." },
+  { name: "Bone Skewer", set: "Unleashed", newText: "[Hidden] Choose a battlefield. Opponent reveals hand. You may choose a unit from it. They play that unit to that battlefield, ignoring costs. If they do, then do this: [Stun] it.", oldText: "[Hidden] Choose a battlefield. Opponent reveals hand. You may choose a unit from it. They play that unit to that battlefield, ignoring costs. When they do, [Stun] it." },
+  { name: "Leblanc, Deceiver", set: "Unleashed", newText: "When you conquer or hold, you may discard 1 and exhaust me to play a ready Reflection unit token there. Then do this: It becomes a copy of another unit there. Give it [Temporary].", oldText: "When you conquer or hold, you may discard 1 and exhaust me to play a ready Reflection unit token there. It becomes a copy of another unit there. Give it [Temporary]." },
+  { name: "Mirror Image", set: "Unleashed", newText: "Choose a unit. Play a ready Reflection unit token to your base. Then do this: It becomes a copy of that unit. Give it [Temporary].", oldText: "Choose a unit. Play a ready Reflection unit token to your base. It becomes a copy of that unit. Give it [Temporary]." },
+  { name: "Keeper of Masks", set: "Unleashed", newText: "[Hidden] [Temporary] When you play me, play two Reflection unit tokens here. Then do this: They become copies of me.", oldText: "[Hidden] [Temporary] When you play me, play two Reflection unit tokens here. They become copies of me." },
+  { name: "Rengar, Trophy Hunter", set: "Unleashed", newText: "[Ambush] I can [Ambush] to a battlefield where there are enemy units, even if you don't have units there.", oldText: "[Ambush] I can be played to a battlefield where there are enemy units (even if you don't have units there)." },
 ];
+
+const ERRATA_UPDATED = "2026-04-03";
