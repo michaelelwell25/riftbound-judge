@@ -1,16 +1,16 @@
-const CACHE_NAME = 'riftbound-judge-v5';
+const CACHE_NAME = 'riftbound-judge-v6';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/app.js',
-  '/data/core-rules.js',
-  '/data/tournament-rules.js',
-  '/data/errata.js',
-  '/data/patch-notes.js',
-  '/data/swiss-rounds.js',
-  '/data/cards.json',
-  '/manifest.json',
+  './',
+  './index.html',
+  './styles.css',
+  './app.js',
+  './data/core-rules.js',
+  './data/tournament-rules.js',
+  './data/errata.js',
+  './data/patch-notes.js',
+  './data/swiss-rounds.js',
+  './data/cards.json',
+  './manifest.json',
 ];
 
 // Install: cache all assets
@@ -47,7 +47,7 @@ self.addEventListener('fetch', e => {
     }).catch(() => {
       // Offline fallback
       if (e.request.destination === 'document') {
-        return caches.match('/index.html');
+        return caches.match('./index.html');
       }
     })
   );
