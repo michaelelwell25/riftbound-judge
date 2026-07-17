@@ -1,4 +1,4 @@
-const CACHE_NAME = 'riftbound-judge-v6';
+const CACHE_NAME = 'riftbound-judge-v7';
 const ASSETS = [
   './',
   './index.html',

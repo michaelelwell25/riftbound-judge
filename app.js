@@ -5,7 +5,7 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
-  const APP_VERSION = '1.0.0';
+  const APP_VERSION = '1.1.0';
 
   // Navigation stack: [{view, title, render()}]
   const navStack = [];
@@ -171,8 +171,8 @@
           </div>
           <div class="menu-item" data-action="patch-notes">
             <span class="menu-item-text">
-              Unleashed Changes
-              <div class="menu-item-subtitle">RUP3 patch notes — 2026-03-30</div>
+              ${PATCH_NOTES_DATA.title}
+              <div class="menu-item-subtitle">RUP4 patch notes — ${PATCH_NOTES_DATA.date.toLowerCase()}</div>
             </span>
             <span class="menu-item-chevron">›</span>
           </div>
@@ -195,7 +195,7 @@
     go('[data-action="oracle"]', 'Oracle Cards', renderOracleView);
     go('[data-action="errata"]', 'Card Errata', renderErrataView);
     go('[data-action="penalty-guide"]', 'Penalty Guide', renderPenaltyGuide);
-    go('[data-action="patch-notes"]', 'Unleashed Changes', renderPatchNotes);
+    go('[data-action="patch-notes"]', PATCH_NOTES_DATA.title, renderPatchNotes);
     go('[data-action="swiss-rounds"]', 'Swiss Rounds', renderSwissRounds);
     go('[data-action="about"]', 'About & Versions', renderAbout);
   }
@@ -689,11 +689,11 @@
   function getKeywords() {
     if (_keywords) return _keywords;
     _keywords = [];
-    const sec = CORE_RULES_DATA.sections.find(s => s.num === '727');
+    const sec = CORE_RULES_DATA.sections.find(s => s.num === '800');
     if (!sec) return _keywords;
     let current = null;
     sec.rules.forEach(r => {
-      const isTop = !r.num.includes('.') && parseInt(r.num, 10) >= 729;
+      const isTop = !r.num.includes('.') && parseInt(r.num, 10) >= 805;
       const m = isTop && r.text.match(/^\*\*(.+?)\*\*\s*:?\s*(.*)$/);
       if (m) {
         current = { num: r.num, name: m[1].trim(), desc: m[2].trim(), rules: [] };

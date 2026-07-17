@@ -1,1282 +1,9677 @@
-// Riftbound Core Rules Data (RUP3, Last Updated: 2026-03-30)
-// Structured for search and navigation
-
+// Riftbound Core Rules Data (RUP4, Last Updated: 2026-07-16)
+// Generated from official Riftbound Core Rules RUP4 PDF.
 const CORE_RULES_DATA = {
-  title: "Riftbound Core Rules",
-  lastUpdated: "2026-03-30",
-  version: "RUP3",
-  sections: [
-    {
-      num: "000", title: "Golden and Silver Rules",
-      rules: [
-        { num: "001", text: "**Golden Rule**" },
-        { num: "002", text: "Card text supersedes rules text. Whenever a card fundamentally contradicts the rules, the card's indication is what is true." },
-        { num: "050", text: "**Silver Rule**" },
-        { num: "051", text: "Card text uses different terminology than rules. Card text should be interpreted according to these rules, not as though it were text within these rules." },
-        { num: "052", text: "**Card**, when written in card effects, is shorthand for \"Main Deck card.\" Runes, legends, and battlefields are *not* considered cards when executing the abilities and effects of game objects. They are considered cards for the purposes of these rules." },
-        { num: "053", text: "Cards refer to themselves in the first person." },
-        { num: "053.1", text: "Units and legends say \"I,\" \"me,\" etc." },
-        { num: "053.2", text: "Gear and spells say \"this.\"" },
-        { num: "053.3", text: "Battlefields say \"here.\"" },
-        { num: "053.4", text: "Cards may refer to themselves by their name for clarity. This is shorthand for the above terms." },
-        { num: "054", text: "\"Can't beats Can\"" },
-        { num: "054.1", text: "Cards that forbid actions or effects, as a broad method of determination, supersede cards that allow or permit that same action or effect." },
-        { num: "055", text: "When executing card text, do as much as you can, ignoring impossible instructions." },
-        { num: "055.1", text: "If all of a card's instructions are impossible, it is still played and resolved, but nothing happens." },
-        { num: "056", text: "Cards a player owns may never be placed into a non-Board zone belonging to another player." },
-        { num: "056.1", text: "Non-Board zones corresponding to a player include Main Deck, Rune Deck, Trash, Hand, Chosen Champion zone, and Banishment." },
-        { num: "056.2", text: "If a card would enter such a zone, it goes to its owner's corresponding zone instead." },
-      ]
-    },
-    {
-      num: "100", title: "Game Concepts",
-      rules: [
-        { num: "101", text: "**Deck Construction**" },
-        { num: "102", text: "*Riftbound* is a Trading Card Game where a player must provide their own cards to play against other players." },
-        { num: "103", text: "To play *Riftbound*, a player must have two **Decks**, a **Champion Legend**, and a number of **Battlefields** determined by the **Mode of Play**." },
-        { num: "103.1", text: "1 **Champion Legend**" },
-        { num: "103.1.a", text: "This is placed in the **Legend Zone** at the start of the game." },
-        { num: "103.1.b", text: "This will dictate the **Domain Identity** of the **Main Deck**." },
-        { num: "103.1.b.1", text: "Cards included in your **Deck** must abide by your **Domain Identity**." },
-        { num: "103.1.b.2", text: "Your deck's **Domain Identity** is dictated by the domains of your **Champion Legend**. In the default card frame, these appear as symbols in the legend's upper left corner." },
-        { num: "103.1.b.3", text: "If a card has a single **Domain**, then that card is permitted in the **Domain Identity** that corresponds to the same **Domain**." },
-        { num: "103.1.b.4", text: "If a card has more than one **Domain**, then that card is permitted *only* in a **Domain Identity** that contains all of the indicated **Domains** on that card." },
-        { num: "103.2", text: "**A Main Deck of at least 40 cards** — 1 Chosen Champion Unit, Units, Gear, Spells" },
-        { num: "103.2.a", text: "**Chosen Champion**" },
-        { num: "103.2.a.1", text: "This will be placed in the **Champion Zone** at the start of the game." },
-        { num: "103.2.a.2", text: "Must be a champion unit with a champion tag that matches the tag on your **Champion Legend**." },
-        { num: "103.2.a.3", text: "A player's **Chosen Champion** is both the specific card chosen for this slot during Deck Building and also any **Champion Unit** with the same name as the specific card selected for this specific slot during the course of play." },
-        { num: "103.2.b", text: "Your **Main Deck** can include up to 3 copies of the same named card." },
-        { num: "103.2.b.1", text: "This includes your **Chosen Champion**." },
-        { num: "103.2.b.2", text: "Cards have different names even if they represent the same character." },
-        { num: "103.2.c", text: "Subject to **Domain Identity**." },
-        { num: "103.2.d", text: "Your deck may only contain 3 total **Signature** cards that have the same Champion tag as your **Champion Legend**." },
-        { num: "103.2.d.1", text: "Regardless of name, a deck may only contain a sum total of 3 Signature cards." },
-        { num: "103.2.d.2", text: "All of the Signature cards must have the Champion tag that corresponds to the **Champion Legend** of the deck." },
-        { num: "103.2.d.3", text: "Signature cards are not Champion units and cannot be placed in the **Champion Zone**." },
-        { num: "103.2.e", text: "During Gameplay, the **Main Deck** is **Secret Information**." },
-        { num: "103.3", text: "**Rune Deck**" },
-        { num: "103.3.a", text: "12 **Rune Cards**" },
-        { num: "103.3.a.1", text: "Cards in this deck must be of the **Domain Identity** of your **Champion Legend**." },
-        { num: "103.3.b", text: "Must be shuffled and kept separate from the **Main Deck**." },
-        { num: "103.4", text: "**Battlefields**" },
-        { num: "103.4.a", text: "The number will be dictated by your **Mode of Play**." },
-        { num: "103.4.b", text: "Subject to **Domain Identity** if applicable." },
-        { num: "103.4.c", text: "Cannot include more than one of a **Battlefield** of the same name when there are more than one required for the deck." },
-      ]
-    },
-    {
-      num: "104", title: "Setup",
-      rules: [
-        { num: "105", text: "Spaces" },
-        { num: "106", text: "The **Play Area** is a collection of logical **Zones** that are defined by their behaviors and relationships to **Players**. These **Zones** are grouped into **The Board** and **Non-Board Zones**." },
-        { num: "107", text: "**The Board**" },
-        { num: "107.1", text: "**Bases** — Each player has their own **Base**. Each Base is a **Location**." },
-        { num: "107.1.c", text: "**Permanents** and **Runes** controlled by a player reside in that player's **Base**." },
-        { num: "107.1.d", text: "**Permanents** and **Runes** in **Bases** are **Public Information**." },
-        { num: "107.2", text: "**Battlefield Zone** — Houses multiple **Battlefields**. Each **Battlefield** is individually a **Location**." },
-        { num: "107.2.c", text: "**Battlefields** and permanents at **Battlefields** are **Public Information**." },
-        { num: "107.3", text: "**Facedown Zones** — Each Battlefield has a sub-zone called a **Facedown Zone**, max occupancy of one card." },
-        { num: "107.4", text: "**Legend Zone** — The space for each player's **Champion Legend**. This is not a location." },
-        { num: "108", text: "**Non-Board Zones**" },
-        { num: "108.1", text: "**The Chain** — Cards and abilities are placed here as part of the process of being **played**. Public Information." },
-        { num: "108.2", text: "**Trashes** — Where cards go when killed or discarded. Unordered. Public Information." },
-        { num: "108.3", text: "**Champion Zones** — Each player puts their **Chosen Champion** here at game start. Public Information." },
-        { num: "108.4", text: "**Main Deck Zones** — Secret Information (card order)." },
-        { num: "108.5", text: "**Rune Deck Zones** — Secret Information (rune order)." },
-        { num: "108.6", text: "**Banishments** — Cards removed from play. Unordered. Public Information." },
-        { num: "108.7", text: "**The Hand** — Private Information. Card count is Public." },
-        { num: "110", text: "Whenever a **Game Object** changes zones to or from a **Non-Board Zone**, all **Temporary Modifications** cease (damage cleared, buffs removed, granted keywords lost)." },
-        { num: "111", text: "**Setup Process**" },
-        { num: "112", text: "Each player separates their **Champion Legend** and places it in the **Legend Zone**." },
-        { num: "113", text: "Each player separates their **Chosen Champion** and places it in the **Champion Zone**." },
-        { num: "114", text: "Each player sets aside their **Battlefields**." },
-        { num: "115", text: "Each player shuffles their decks, separately, then places them into their respective Zones." },
-        { num: "116", text: "Determine **Turn Order** using any fair random method agreed on by all players." },
-        { num: "117", text: "Players each draw 4." },
-        { num: "118", text: "In turn order, players perform their **Mulligan**: set aside up to 2 cards, draw that many, then recycle the set-aside cards." },
-        { num: "119", text: "Begin play with the **First Player** taking their turn." },
-      ]
-    },
-    {
-      num: "120", title: "Game Objects",
-      rules: [
-        { num: "121", text: "A **Game Object** is any game piece that can produce one or more **Game Effects** or grant prerequisites for players to take **Game Actions**." },
-        { num: "122", text: "A **Game Object** does not include nor preclude any inherent properties beyond the ability to produce, or act as the prerequisite for, **Game Effects** and **Game Actions**." },
-        { num: "124", text: "**Game Objects** include: Main Deck cards in any zone, Runes in any zone, Legends, Battlefields, Tokens in any zone, Abilities of any type on the chain, Buffs and other status markers." },
-      ]
-    },
-    {
-      num: "125", title: "Cards",
-      rules: [
-        { num: "127", text: "**Ownership** — A card's **Owner** is the player who brought it into the game." },
-        { num: "128", text: "**Privacy** — Cards have different privacy levels based on their zone." },
-        { num: "128.3", text: "**Secret**: No player may read or look at the face of the card." },
-        { num: "128.4", text: "**Private**: Only the controller/owner of a card on the board or in a zone may read or look at the face." },
-        { num: "128.5", text: "**Public**: Any player may read or look at the face of the card." },
-        { num: "131", text: "**Cost** — Main Deck cards have a **Cost** (upper left corner): **Energy** cost (numeral) and **Power** cost (domain symbols)." },
-        { num: "131.4", text: "Effects that need to determine a card's cost always use its printed cost, even if that cost is altered or ignored as the card is played." },
-        { num: "132", text: "**Name** — Each card has a unique name. Some cards have both a short name and subtitle." },
-        { num: "133", text: "**Category** — Cards have Categories and Sub-Categories (Permanents: Unit/Gear; Spells; Runes; Battlefields; Legends)." },
-        { num: "133.7", text: "**Supertypes**: Champion (units only), Signature (any type), Token (temporary game objects)." },
-        { num: "133.8", text: "**Tags** are Categories that may apply to game objects of multiple types. Tags have no innate rules meaning." },
-        { num: "134", text: "**Domain** — Six domains: Fury [R] (red), Calm [G] (green), Mind [B] (blue), Body [O] (orange), Chaos [P] (purple), Order [Y] (yellow)." },
-        { num: "135", text: "**Rules Text** — Abilities, Instructions, Keywords, Reminder Text, Symbols." },
-        { num: "135.2.e.2", text: "[E] = Exhaust symbol. [M] = Might symbol. [A] = Power of any domain. [C] = Power of card's own domain." },
-        { num: "135.4", text: "A card's printed **Rules Text** is **Inactive** while that card is **Attached** to another card." },
-        { num: "136", text: "**Effect Text** — Additional abilities below Rules Text, inactive unless the card is **Attached** to another card." },
-        { num: "137", text: "**Might Bonus** — Some cards have a **Might Bonus** (lower right corner) that modulates the Might of the card they're Attached to." },
-        { num: "138", text: "**Flavor Text** — No gameplay information. Italics in a shaded bar." },
-      ]
-    },
-    {
-      num: "140", title: "Units",
-      rules: [
-        { num: "141", text: "Units are Game Objects and a Card Type." },
-        { num: "142", text: "**Damage** is a marked value applied to Units. It tracks how close a Unit is to being **Killed**." },
-        { num: "143.1", text: "**Tag**: Represents champions, regions, factions, or species." },
-        { num: "143.2", text: "**Might**: The combat statistic. If a Unit ever has nonzero damage equalling or exceeding its Might, it is **Killed**." },
-        { num: "143.2.b", text: "If a unit's Might is ever less than 0, it is treated as 0 when referenced by spells and abilities." },
-        { num: "143.4", text: "Units enter the Board exhausted (unless altered by Accelerate or similar)." },
-        { num: "144", text: "Units have the **Inherent Ability** to perform a **Standard Move** (exhaust to move from Base to Battlefield or Battlefield to Base). Cannot move during Closed State, Showdown, or Combat." },
-        { num: "144.3", text: "Players may perform multiple Units' standard moves simultaneously (same Destination, costs paid simultaneously)." },
-        { num: "144.4.c", text: "**Ganking** allows Units to use their Standard Move to Move from Battlefield to Battlefield." },
-        { num: "145", text: "Units may have **Activated Abilities** (costs followed by ':', then an effect). Usable during Main Phase Open State, not during Showdowns." },
-        { num: "146", text: "Units have a **Location** (Base or Battlefield they occupy)." },
-      ]
-    },
-    {
-      num: "147", title: "Gear",
-      rules: [
-        { num: "148", text: "Gear are Game Objects and a Card Type." },
-        { num: "149.1", text: "Gear enter play **Ready**." },
-        { num: "149.2", text: "Gear can only be played to a player's **Base** unless an effect specifies otherwise." },
-        { num: "149.3", text: "If unattached Gear is at a Battlefield during cleanup, it is recalled to its controller's Base." },
-        { num: "150", text: "Gear may have **Activated Abilities**." },
-        { num: "151.2", text: "Gear cannot normally become located at a Battlefield unless by some special means (e.g., played from Facedown, or attached to a unit that moves there)." },
-      ]
-    },
-    {
-      num: "152", title: "Spells",
-      rules: [
-        { num: "153", text: "Spell is a card type." },
-        { num: "154", text: "A spell can be played during an **Open State** outside of **Showdowns** on its controller's turn." },
-        { num: "156", text: "A spell creates a game effect according to its instructions and is then placed in the **Trash**." },
-        { num: "157", text: "When resolved, rules text executes from top to bottom." },
-        { num: "157.3", text: "While a spell or ability on the chain is **Resolving**, no other spells or abilities can be finalized on the chain or resolved." },
-        { num: "158.2.a", text: "**Action** keyword: May also be played during Open States during Showdowns." },
-        { num: "158.2.b", text: "**Reaction** keyword: Grants all cases of Action, plus may also be played during all forms of Closed State (resolves before existing chain items)." },
-      ]
-    },
-    {
-      num: "159", title: "Runes",
-      rules: [
-        { num: "160", text: "Rune is a Card Type. A Rune is *not* a Main Deck card and is *not* a Permanent." },
-        { num: "161", text: "Runes produce the resources needed to pay costs." },
-        { num: "162", text: "Runes produce **Energy** (numeric costs, no Domain) and **Power** (Domain-associated costs)." },
-        { num: "163", text: "**Basic Runes**: Fury Rune, Calm Rune, Mind Rune, Body Rune, Chaos Rune, Order Rune. Each has: [E]: [Reaction] — Add [1] and Recycle this: [Reaction] — Add [C]." },
-        { num: "165", text: "The **Rune Pool** is a conceptual collection of available Energy and Power to pay Costs." },
-        { num: "166", text: "Every player's Rune Pool empties at the end of each player's draw phase and the end of each player's turn. Any unspent Energy or Power are lost." },
-      ]
-    },
-    {
-      num: "168", title: "Battlefields",
-      rules: [
-        { num: "169", text: "Battlefields are Game Objects. They are Owned by a player, not shuffled into Decks, not played during regular play, are Locations, cannot be Killed or Moved." },
-        { num: "169.6", text: "Any number of Units can be present at a Battlefield." },
-        { num: "169.10.a", text: "\"Occupied\" = has a Unit present." },
-        { num: "169.10.b", text: "\"Uncontrolled\" = no player controls it." },
-        { num: "169.10.c", text: "\"Open\" = unoccupied and uncontrolled." },
-        { num: "170", text: "Battlefields are *not* Permanents." },
-      ]
-    },
-    {
-      num: "172", title: "Legends",
-      rules: [
-        { num: "173", text: "Legends are Game Objects. Owned by a player, not shuffled, not played, cannot be Killed or Moved. Can be targeted by spells/effects. Can have Passive, Triggered, and Activated Abilities." },
-        { num: "174", text: "Legends are *not* Permanents." },
-        { num: "175.1", text: "The Legend determines the **Domain Identity** of cards its owner can include." },
-      ]
-    },
-    {
-      num: "176", title: "Tokens",
-      rules: [
-        { num: "177", text: "Tokens are Game Objects created by spells and abilities during play." },
-        { num: "182", text: "Tokens are not cards. They do not have costs (treated as 0) or domains." },
-        { num: "183", text: "Tokens are Created on the board or the Chain and cannot exist elsewhere. If put into any Non-Board Zone, they cease to exist." },
-        { num: "184.1", text: "**1 [M] Recruit token** — domainless unit, 1 Might, Recruit tag." },
-        { num: "184.2", text: "**3 [M] Sprite token with Temporary** — domainless unit, 3 Might, Fae tag, Temporary keyword." },
-        { num: "184.3", text: "**2 [M] Sand Soldier token** — domainless unit, 2 Might, Shurima tag." },
-        { num: "184.4", text: "**3 [M] Mech token** — domainless unit, 3 Might, Mech tag." },
-        { num: "184.5", text: "**Gold gear token** — domainless gear with \"[Reaction][>] Kill this, [E]: [Add] [A].\"" },
-        { num: "184.7", text: "**1 [M] Bird token** — domainless unit, 1 Might, Bird tag, Deflect keyword." },
-        { num: "184.8", text: "**Brush battlefield token** — domainless battlefield with \"Bird, Cat, Dog, Poro, and Ivern units here have +1 [M]\" and \"When you score here, you may replace this with the battlefield it replaced.\"" },
-        { num: "184.9", text: "**Baron Pit battlefield token** — domainless battlefield with \"Units can move here from anywhere.\"" },
-      ]
-    },
-    {
-      num: "185", title: "Control",
-      rules: [
-        { num: "186", text: "Control is the concept of a player having influence of a Game Object. Applies differently to different card types." },
-        { num: "187", text: "**Battlefields**: Control is established through play. A Battlefield is either Controlled or Uncontrolled, by a specific player or by no one." },
-        { num: "187.3", text: "**Contested** is a temporary status when a Unit controlled by a Player who does not currently Control that Battlefield Moves or otherwise becomes present there." },
-        { num: "187.4", text: "Control is established by having Units at a Battlefield at the end of a Showdown or Combat." },
-        { num: "188", text: "**Everything Else**: When a player Plays a Card or Game Object, they become its Controller. For Permanents and Runes, the player who makes them Enter the Board is the Controller." },
-      ]
-    },
-    {
-      num: "300", title: "Playing the Game",
-      rules: [
-        { num: "301", text: "**The Turn**" },
-        { num: "302", text: "Play continues cyclically until one player wins." },
-        { num: "303", text: "The phases of a turn are rigid, but the actions within those steps can be done in any order unless otherwise specified." },
-        { num: "304", text: "The **Turn Player** is the player taking the current turn." },
-        { num: "307", text: "**States of the Turn** — A turn is always in either a Neutral State or Showdown State, and either an Open State or Closed State." },
-        { num: "310.1", text: "**Neutral Open**: No Showdown/Combat in progress, no Chain. Cards can be played and abilities activated only by the Turn Player with priority." },
-        { num: "310.2", text: "**Neutral Closed**: No Showdown/Combat in progress, Chain exists." },
-        { num: "310.3", text: "**Showdown Open**: Showdown/Combat in progress, no Chain." },
-        { num: "310.4", text: "**Showdown Closed**: Showdown/Combat in progress, Chain exists." },
-        { num: "311", text: "**Priority and Focus**" },
-        { num: "312", text: "At any given time, up to one player has **Priority** — the singular exclusive right to take Discretionary Actions." },
-        { num: "313", text: "At any given time, up to one player has **Focus** — permission to take Discretionary Actions when turn is in a Showdown Open State." },
-      ]
-    },
-    {
-      num: "314", title: "Phases of the Turn",
-      rules: [
-        { num: "315", text: "**Start of Turn**: Awaken Phase (ready all game objects), Beginning Phase (beginning step, scoring step), Channel Phase (channel 2 runes from Rune Deck), Draw Phase (draw 1, rune pool empties)." },
-        { num: "315.1", text: "**Awaken Phase** — The Turn Player readies all Game Objects they control." },
-        { num: "315.2", text: "**Beginning Phase** — Beginning Step (start-of-turn effects), then Scoring Step (hold all controlled Battlefields, score points)." },
-        { num: "315.3", text: "**Channel Phase** — Channel 2 runes from Rune Deck." },
-        { num: "315.4", text: "**Draw Phase** — Draw 1. If no cards in Main Deck, the player has Burned Out. Rune Pool empties." },
-        { num: "316", text: "**Main Phase**: No defined structure. Turn Player may take any number of Discretionary Actions. Combat and Showdowns occur here." },
-        { num: "316.4", text: "**Combat** occurs when Units controlled by opposing players are at the same Battlefield." },
-        { num: "316.5", text: "**Showdowns** are structured Windows of Opportunity where Players may play cards and activate abilities with Action or Reaction." },
-        { num: "317", text: "**Ending Phase**: Ending Step (end-of-turn effects), Expiration Step (heal all Units, 'this turn' effects expire, Rune Pool empties)." },
-      ]
-    },
-    {
-      num: "318", title: "Cleanups",
-      rules: [
-        { num: "319", text: "A Cleanup will be made an Outstanding Task after: game transitions open/closed, phase transitions, Pending Item added to Chain, Pending Item becomes Legal, Chain Item removed, Game Objects enter/leave Board, status changes, Move completed." },
-        { num: "323", text: "Cleanup tasks (in order): 1. Check victory. 2. Assign/remove Attacker/Defender. 3. Handle board state (Deathknell, kill damaged units, uncontrolled battlefields, recall unattached gear, mark Showdowns/Combats as Staged)." },
-      ]
-    },
-    {
-      num: "325", title: "Chains and Showdowns",
-      rules: [
-        { num: "327", text: "**Chains** — A temporary Non-Board Zone whenever a card is played or ability activated." },
-        { num: "329", text: "Cards/abilities added to chain become **Pending Chain Items** that become **Finalized Chain Items**." },
-        { num: "332", text: "**Steps of Resolving Chain Items**: 1. Finalize (complete the steps of Playing pending items). 2. Execute (play legally timed cards/abilities, or pass priority). 3. Pass (if all players pass with no new items, proceed to Resolve). 4. Resolve (newest item resolves its game effects)." },
-        { num: "334", text: "A **Task** is one or more steps or processes that players must perform before continuing. **HOT FEPR**: Handle Outstanding Tasks; then Finalize, Execute, Pass, Resolve." },
-        { num: "341", text: "**Showdowns** — A Window of Opportunity where Players have Open State to play spells in alternating fashion." },
-        { num: "344", text: "A Showdown begins when Control of a Battlefield is Contested and the turn is in Neutral Open State." },
-      ]
-    },
-    {
-      num: "349", title: "Playing Cards",
-      rules: [
-        { num: "350", text: "Playing a card is the act of a player utilizing their cards." },
-        { num: "353", text: "**The Process of Play**: 1. Remove card from zone, put onto Chain (Closes the State). 2. Make relevant choices (targets, locations, modes). 3. Determine and pay costs. 4. Check Legality. 5. Finalize." },
-        { num: "355.6", text: "**Targeting** — When a card Chooses one or more specific Game Objects to affect, it is Targeted." },
-        { num: "355.9", text: "A target is valid if: it's a permanent/rune on board, spell/ability on chain, player, or zone; it meets all targeting restrictions; and it is not the spell or ability itself." },
-        { num: "355.14", text: "**Splitting** — If damage may be split among Units, each Unit chosen is Targeted. Targets chosen when finalized; damage division decided at resolution." },
-        { num: "355.15", text: "Choices made during finalization cannot be changed after this step." },
-        { num: "355.16", text: "A player may not make choices during this step that will deterministically result in illegal choices or actions later in this process unless they have no choice." },
-        { num: "355.17", text: "If a spell or ability requires one or more players to make choices that are not outlined in this section, they are made on resolution." },
-      ]
-    },
-    {
-      num: "356", title: "Costs",
-      rules: [
-        { num: "356", text: "**3. Determine Total Cost.**" },
-        { num: "356.1", text: "Apply base cost modifications in any order." },
-        { num: "356.1.a", text: "If an ability allows you to play a card \"for [Cost]\", replace the card's **Base Costs** with [Cost]." },
-        { num: "356.1.b", text: "If an ability allows you to \"ignore\" one or more of a card's costs, set the appropriate **Base Cost(s)** to zero." },
-        { num: "356.1.b.1", text: "\"Ignoring its cost\" sets both base **Energy cost** and base **Power cost** to zero." },
-        { num: "356.1.b.2", text: "\"Ignoring its Energy cost\" or \"ignoring its Power cost\" only sets that specific cost to zero." },
-        { num: "356.1.b.3", text: "Further additional costs and/or cost increases applied in subsequent steps may raise the card's **Total Cost** above zero." },
-        { num: "356.2", text: "Apply additional costs in any order." },
-        { num: "356.2.a", text: "**Mandatory Additional Costs**: Specified by Passive Abilities, must be paid. They use \"as an additional cost\" without the word \"may.\"" },
-        { num: "356.2.a.2", text: "The cost imposed by the **Deflect** keyword is a Mandatory Additional Cost." },
-        { num: "356.2.b", text: "**Optional Additional Costs**: Non-Mandatory, paid only if the player chose to in step 2. They use \"as an additional cost\" with the word \"may.\"" },
-        { num: "356.3", text: "Apply cost increases." },
-        { num: "356.4", text: "Apply discounts." },
-        { num: "356.4.a", text: "Discounts may be applied by the card being played or by any other card or effect." },
-        { num: "356.4.b", text: "Discounts may say cards \"cost [amount] less\" or that costs are \"reduced by [amount].\"" },
-        { num: "356.4.c", text: "Discounts that only apply to a component of a cost are applied when that component is added, before any other discounts." },
-        { num: "356.4.d", text: "Discounts that apply to the total cost must be applied after any discount that applies only to a component." },
-        { num: "356.4.e", text: "If a discount applies a minimum cost, that minimum applies only to that discount." },
-        { num: "356.4.f", text: "Discounts can reduce additional costs, including to 0." },
-        { num: "356.4.f.1", text: "An optional additional cost was \"paid\" if the player made the decision to pay it — doesn't matter how much was actually paid." },
-        { num: "356.5", text: "Energy and Power costs can't be reduced below 0." },
-        { num: "356.6", text: "**Costs** may be Energy costs, Power costs, or non-standard costs (e.g., killing a friendly unit)." },
-        { num: "357", text: "**4. Pay the card's costs.**" },
-        { num: "357.1", text: "Pay the combined **Energy** cost (if any) and **Power** cost (if any)." },
-        { num: "357.1.a", text: "The card's controller can use activated abilities with the **Reaction** tag that **Add** Energy and Power to pay costs." },
-        { num: "357.2", text: "Pay any non-standard **Cost** summed in step 3 in any order." },
-        { num: "357.2.a", text: "Costs replaced with other events by replacement effects are still considered paid." },
-        { num: "357.3", text: "A player may not pay costs that will deterministically result in illegal choices or actions later in this process unless they have no choice." },
-      ]
-    },
-    {
-      num: "358", title: "Legality Check",
-      rules: [
-        { num: "358", text: "**5. Check legality.**" },
-        { num: "358.1", text: "Check that all chosen targets are legal." },
-        { num: "358.2", text: "Ensure the outcome would not create an illegal state." },
-        { num: "358.3", text: "Ensure the card has appropriate permissions for this timing (e.g., Action or Reaction keywords if needed)." },
-        { num: "358.4", text: "If the card would create an illegal state, or if a choice or action is illegal, all actions in this process are undone and the action is cancelled." },
-      ]
-    },
-    {
-      num: "359", title: "Finalize and Resolve",
-      rules: [
-        { num: "359", text: "**6. Finish finalizing this card and proceed with its category of Play.**" },
-        { num: "359.1", text: "This card is no longer **Pending**." },
-        { num: "359.2", text: "A **Permanent** leaves the Chain and becomes a **Game Object**." },
-        { num: "359.2.a", text: "Any passive abilities become active." },
-        { num: "359.2.b", text: "Execute all rules text on the card, from top to bottom." },
-        { num: "359.2.c", text: "If it is a **Unit**, it enters the Board **exhausted** at the Location that was chosen." },
-        { num: "359.2.d", text: "If it is **Gear**, it enters the Board **Ready** at the player's Base." },
-        { num: "359.3", text: "A **Spell** lingers on the Chain and becomes a Finalized Chain Item." },
-        { num: "359.3.a", text: "Other players have an opportunity to play **Reactions** before resolution." },
-        { num: "359.3.d", text: "On resolution: execute the spell's rules text top to bottom, then place the card in the owning player's **Trash**." },
-        { num: "359.3.e", text: "**Handling illegal and impossible instructions**:" },
-        { num: "359.3.e.1", text: "The spell resolves even if some or all of its targets are illegal." },
-        { num: "359.3.e.2", text: "A target is illegal if it no longer meets targeting requirements, or has changed Zones to/from a Non-Board Zone." },
-        { num: "359.3.e.3", text: "If a target ceases to meet requirements while on the chain, then meets them again, it's still legal." },
-        { num: "359.3.e.4", text: "If a target changes Zones to/from a Non-Board Zone and returns to its original zone, it's no longer legal (it's not the same object)." },
-        { num: "359.3.e.5", text: "If any targets are no longer legal, those targets are unaffected by the spell as it resolves." },
-        { num: "359.3.e.6", text: "Instructions that can't be followed are ignored." },
-        { num: "359.3.e.7", text: "If **all** of an instruction's Targets become Invalid or Unavailable by resolution, that instruction will not execute." },
-        { num: "359.3.e.8", text: "If fewer than all Targets become Invalid/Unavailable, the instruction executes on the remaining valid Targets." },
-        { num: "359.3.e.9", text: "A choice becoming Invalid or Unavailable is called **mistargeting**." },
-        { num: "359.3.e.10", text: "It is possible for **none** of a spell's instructions to execute (all targets Invalid/Unavailable). The spell has no effect but is still considered played." },
-        { num: "359.3.e.11", text: "Instructions that can be partially followed are followed as much as possible and ignored otherwise." },
-        { num: "359.3.e.14", text: "**Linked instructions**: Some instructions reference Game Objects or Actions from other instructions in the same card. The later linked instruction requires the earlier one to have executed." },
-        { num: "359.3.e.15", text: "A spell or ability that leaves the chain during resolution ceases further execution immediately." },
-        { num: "359.3.f", text: "**Referents**: Some information used by abilities is referenced from the source, targets, or the trigger condition of the ability. Words like \"here,\" \"my,\" or \"its\" indicate referents." },
-      ]
-    },
-    {
-      num: "360", title: "Abilities",
-      rules: [
-        { num: "361", text: "An **Ability** is the structured rules and capabilities of Game Objects or Spells." },
-        { num: "361.1", text: "Ability types: **Passive Abilities**, **Replacement Effects**, **Activated Abilities**, **Triggered Abilities**, **Delayed Abilities**." },
-        { num: "362", text: "A card can have more than one Ability and more than one type of Ability." },
-        { num: "363", text: "**Passive Abilities**" },
-        { num: "364", text: "Conditions, rules, constraints, or statements that affect the course of regular play." },
-        { num: "364.1", text: "They have a wide variety of formats. They can be recognized by being **statements of fact**." },
-        { num: "364.2", text: "They can be recognized by being **statements of fact**." },
-        { num: "364.3", text: "Passive Abilities can be conditional." },
-        { num: "364.3.a", text: "**Conditional Passive Abilities** use \"if\" or \"while\" in the statement." },
-        { num: "365", text: "Passive Abilities of **Permanents** are typically only active while on **the Board**." },
-        { num: "366", text: "Passive Abilities of cards outside of the Board will self-describe their context." },
-        { num: "366.2", text: "Passive Abilities can alter the costs of cards as they are played. These apply at all times in any zone from which the card can be played." },
-      ]
-    },
-    {
-      num: "367", title: "Replacement Effects",
-      rules: [
-        { num: "368", text: "An ability that alters the application of another game effect or game rule." },
-        { num: "368.1", text: "Passive Abilities can be Replacement Effects." },
-        { num: "369", text: "Replacement Effects intercede during the execution of a Game Effect and alter its execution." },
-        { num: "369.1", text: "Identified by the terms \"would\" or \"instead.\"" },
-        { num: "369.2", text: "Some Game Actions are themselves Replacement Effects (e.g., Burning Out, Preventing Damage)." },
-        { num: "370", text: "A Replacement Effect can alter the typical flow of play, including other cards' executions." },
-        { num: "370.1", text: "Replacement Effects apply to any qualifying event. They specify the circumstances under which an event qualifies to be replaced." },
-        { num: "370.1.a", text: "When applied, it replaces the qualifying event with one or more Game Actions or events, or with another instruction." },
-        { num: "370.2", text: "A Replacement Effect can only be applied once to an event, or to any Game Actions/events that replace that event." },
-        { num: "370.3", text: "If a Game Object has a Replacement Effect active in a specific zone, it is evaluated and applied if it enters that zone at the same time its Trigger's condition could be met." },
-        { num: "371", text: "Some Replacement Effects begin with \"once each turn.\"" },
-        { num: "372", text: "If more than one Replacement Effect applies to the same event, the owner of the object being acted on determines the order." },
-        { num: "372.1", text: "If the affected object is a player, that player decides the order." },
-        { num: "372.2", text: "If the affected object is an Uncontrolled Battlefield, the Current Turn Player decides." },
-        { num: "373", text: "If more than one event occurs simultaneously that Replacement Effects could apply to, each event is treated separately. Replacement Effects with the same controller are applied in the order of their controller's choosing." },
-        { num: "373.2", text: "When applying Replacement Effects to simultaneous events, each Replacement Effect may only be applied in one sequence, to any number of qualifying events." },
-        { num: "374", text: "A Replacement Effect's controller is the player who controls the source of the Replacement Effect." },
-        { num: "375", text: "If an event that a Replacement Effect applies to would be modified by a Game Action, or the results of that event would be modified by a Game Action, the Replacement Effect will inherit those modifications." },
-      ]
-    },
-    {
-      num: "376", title: "Activated Abilities",
-      rules: [
-        { num: "377", text: "**Activated Abilities** are repeatable effects with a cost. They follow a process of going onto the chain and resolving, similar to Playing a Card." },
-        { num: "377.1", text: "Recognized by the presence of a \":\" preceded by a cost and succeeded by an effect." },
-        { num: "377.2", text: "Card text will refer to activating Activated Abilities with the word \"use.\"" },
-        { num: "377.2.a", text: "If \"using\" an Activated Ability is part of a trigger condition, that condition is fulfilled when the ability resolves." },
-        { num: "377.2.b", text: "If an Activated Ability has a condition on \"using\" it, that condition must be true to activate it." },
-        { num: "377.3", text: "Activated Abilities use the chain." },
-        { num: "377.3.a", text: "Declare activation. The ability goes on the chain (no card to represent it) — creates a Closed State." },
-        { num: "377.3.b", text: "Proceed with executing the Chain." },
-        { num: "378", text: "The controlling player chooses when and whether to activate an Activated Ability." },
-        { num: "379", text: "Activated abilities are present on Game Objects and some Spells." },
-        { num: "380", text: "Can primarily be activated while on the Board." },
-        { num: "381", text: "All Activated Abilities can only be activated on the Controlling Player's Turn and during an Open State." },
-      ]
-    },
-    {
-      num: "382", title: "Triggered Abilities",
-      rules: [
-        { num: "383", text: "**Triggered Abilities** are repeatable effects that happen when a Condition is met." },
-        { num: "383.1", text: "Recognized by the word \"when\" followed by a game action/event; \"at\" followed by a point in the turn sequence; or \"the [Nth] time\" followed by a game action/event." },
-        { num: "383.1.a", text: "The identifying phrases do not always appear at the beginning of sentences." },
-        { num: "383.1.b", text: "If an ability triggers \"the [Nth] time\" and that condition is met multiple times simultaneously, the controller picks one instance. The ability triggers only once." },
-        { num: "383.2", text: "Triggered Abilities have a **Condition** and an **Effect**." },
-        { num: "383.2.a", text: "The Condition follows the When." },
-        { num: "383.2.b", text: "The Effect is the Instruction that follows the comma after the Condition." },
-        { num: "383.2.c", text: "The Condition is evaluated after a potentially inciting event has been processed." },
-        { num: "383.2.c.1", text: "If a Game Object with a Triggered Ability enters a zone at the same time its Trigger's condition is met, it is evaluated and triggered." },
-        { num: "383.3", text: "When a Condition is met, a Triggered Ability behaves like an Activated Ability and is placed on the Chain." },
-        { num: "383.3.a", text: "If a Triggered Ability says \"you may\" as the first part of its Effect, the controller may choose whether or not to place it on the chain." },
-        { num: "383.3.b", text: "If a Triggered Ability contains a cost within instructions, that cost is the base cost of the Triggered Ability." },
-        { num: "383.3.b.1", text: "The cost must be paid to finalize the Triggered Ability to the Chain." },
-        { num: "383.3.b.2", text: "Costs within instructions for Triggered Abilities are *not* paid on resolution, unlike costs within instructions for Spells." },
-        { num: "383.3.c", text: "Triggered Abilities can be put on the Chain during Closed States or Open States on any player's turn." },
-        { num: "383.3.d", text: "If more than one Triggered Ability is Triggered simultaneously, the player that controls the Abilities selects the order to place them on the Chain." },
-        { num: "383.3.d.1", text: "If multiple players separately control simultaneously Triggered Abilities, ordering starts with the Turn Player and proceeds in Turn Order." },
-        { num: "383.3.e", text: "If a triggered ability has a conditional statement following the Condition, that conditional must be true for the trigger to be placed on the Chain." },
-        { num: "383.3.f", text: "Some Triggered Abilities trigger \"once each turn.\" The controller may choose to place it on the chain when the condition is met; if they don't, it has not Triggered this turn." },
-        { num: "383.4", text: "**Common Triggered Ability Categories:**" },
-        { num: "383.4.a", text: "**Play Effects**: Triggered Abilities with the Condition of a Permanent being played to the board. (\"When you play me...\", \"When you play this...\")" },
-        { num: "383.4.b", text: "**Targeting Effects**: Triggered Abilities with the Condition of a Game Object becoming targeted. (\"When you choose me...\", \"When you choose a [Game Object]...\")" },
-        { num: "383.4.c", text: "**Conquer Effects**: Triggered Abilities with a Condition of a Unit participating in, and successfully Conquering, a Battlefield. (\"When I conquer...\", \"When you conquer...\")" },
-        { num: "383.4.c.2.c", text: "If gaining one point from Conquering is negated or replaced, the Conquer Effect will still trigger." },
-        { num: "383.4.d", text: "**Hold Effects**: Triggered Abilities with a Condition of a Unit being present at a Battlefield during Beginning Phase when a player scores from Holding. (\"When I hold...\", \"When you hold...\")" },
-        { num: "383.4.d.2.c", text: "If gaining one point from Holding is negated or replaced, the Hold Effect will still trigger." },
-        { num: "383.4.e", text: "**Attack Triggers**: Triggered Abilities that trigger when a Unit gains the Attacker designation for the first time during a combat. (\"When I attack...\")" },
-        { num: "383.4.e.2.a", text: "Attack triggers are checked only once per combat, even if a Unit gains/loses the Attacker designation multiple times." },
-        { num: "383.4.f", text: "**Defend Triggers**: Triggered Abilities that trigger when a Unit gains the Defender designation for the first time during a combat. (\"When I defend...\")" },
-        { num: "383.4.f.2.a", text: "Defend triggers are checked only once per combat, even if a Unit gains/loses the Defender designation multiple times." },
-        { num: "384", text: "Triggered Abilities of Permanents are typically active while on the Board and have their Conditions evaluated on the Board." },
-        { num: "385", text: "Triggered Abilities on cards outside of the Board rely on the Information Level of the zone they are in and self-describe their context." },
-      ]
-    },
-    {
-      num: "386", title: "Reflexive Triggers",
-      rules: [
-        { num: "387", text: "**Reflexive Triggers** are a type of Triggered Ability that create one or more Chain Items when their condition is met." },
-        { num: "387.1", text: "Recognized by the phrase \"Do this:\" or \"Do one of the following:\"." },
-        { num: "387.1.a", text: "\"Do this\" can be followed by \"N times.\" The Reflexive Trigger is added to the chain N times." },
-        { num: "387.2", text: "Reflexive Triggers will be preceded by their conditions. If no condition is present, the Reflexive Trigger will always be added to the Chain." },
-        { num: "387.3", text: "If present, the Condition of a Reflexive Trigger follows the same format as a Triggered Ability." },
-        { num: "388", text: "Reflexive Triggers use the Chain." },
-        { num: "388.1", text: "A new ability is created and added to the chain as a Pending Item." },
-        { num: "388.2", text: "If a Reflexive Trigger creates more than one Pending Item, it creates them all in order, but does not go beyond the first step of adding them to the Chain." },
-      ]
-    },
-    {
-      num: "389", title: "Delayed Abilities",
-      rules: [
-        { num: "390", text: "**Delayed Abilities** are a type of Ability whose trigger Condition identifies a specific time during a turn or a specific event." },
-        { num: "390.1", text: "Delayed Abilities can be any other type of Ability, and contain all properties of that type." },
-        { num: "390.2", text: "**Delayed Triggers**: Triggered Abilities recognized by describing a specific time of the turn, or by structuring a specific frame of time as a restriction." },
-        { num: "390.3", text: "**Delayed Replacements**: Replacement Effects recognized by specifying the effect they are replacing at a specific time, or \"the [Nth] time\" in the description." },
-        { num: "390.4", text: "**Delayed Passive Abilities**: Passive Abilities applicable only during a specified window of time." },
-        { num: "390.5", text: "**Delayed Linked Abilities**: Linked Abilities generated by another Ability that reference that Ability or Game Objects it affects. Their window is defined by the Ability they are linked with." },
-        { num: "391", text: "Delayed Abilities will resolve or be active only during the specified time in the effect that created the Delayed Ability." },
-        { num: "392", text: "Delayed Abilities are not associated with Units or Gear; they are created by other Abilities or Spells. They execute regardless of whether the source is still on the board." },
-      ]
-    },
-    {
-      num: "393", title: "Linked Abilities",
-      rules: [
-        { num: "394", text: "**Linked Abilities** are a set of Abilities with one or more component Abilities referencing the other Abilities in the set." },
-        { num: "395", text: "To be Linked, abilities must be present in the printed Effect or Rules Text of the same Game Object, or be granted by the same source to another Game Object." },
-        { num: "396", text: "Linked Abilities can contain component Abilities of any type." },
-        { num: "397", text: "A component Linked Ability that references a Game Object affected by another Ability in the set may only interact with Game Objects affected by the Abilities it is Linked with." },
-      ]
-    },
-    {
-      num: "398", title: "Playing or Activating Abilities",
-      rules: [
-        { num: "399", text: "Playing or activating Abilities follows the same steps of playing cards." },
-        { num: "400", text: "Abilities when added to the Chain become Pending Items until they complete the steps of Playing." },
-        { num: "400.1", text: "When an Ability finishes the steps of playing it becomes a Chain Item just like a Spell." },
-        { num: "400.2", text: "When an Ability with the [Add] action is finalized it resolves immediately instead of becoming a Chain Item, like a Unit or Gear." },
-        { num: "401", text: "**1. Activate or trigger the Ability.** Add a Pending Item to the chain. Creates a Closed State." },
-        { num: "401.2", text: "If a game effect is currently being resolved, continue resolving instead of continuing the following steps." },
-        { num: "402", text: "**2. Make relevant choices** (targets, modes, etc.)." },
-        { num: "402.2", text: "If legal options are not available for an Activated Ability, it is not legal to activate it." },
-        { num: "402.3", text: "If there are not enough legal choices for a Triggered Ability already on the chain, remove it. It ceases to be a Pending Item and never becomes a Chain Item. This is *not* being countered." },
-        { num: "402.3.b", text: "If there are legal options to choose, the ability's controller must choose them. They may not decline this stage of playing a Trigger." },
-        { num: "403", text: "**3. Determine Total Cost.** Same as for playing cards." },
-        { num: "403.1.a", text: "Activated Abilities have a cost listed before the \":\" in their text." },
-        { num: "403.1.b", text: "Triggered Abilities typically have no base cost. If instructions contain a cost (e.g., \"[do X] to [do Y]\"), that cost is the base cost." },
-        { num: "404", text: "**4. Pay Costs.**" },
-        { num: "404.2", text: "At this stage, players may decline to pay for Triggered Abilities that have incurred a cost. If they do, the ability ceases being a Pending Item and is removed from the Chain. This is *not* being countered." },
-        { num: "405", text: "**5. Check Legality.** Ensure targets are legal and the effect would not create an illegal state." },
-        { num: "406", text: "**6. Proceed with Play.** The Ability is no longer Pending, becomes a Chain Item. If there are other Pending Items, their controllers complete the remaining steps. Otherwise, other players may play Reactions, then the Ability executes and clears from the Chain." },
-      ]
-    },
-    {
-      num: "407", title: "Game Actions",
-      rules: [
-        { num: "408", text: "**Game Actions** are actions players may perform at any given time during the game." },
-        { num: "409", text: "A player, unless otherwise specified or prompted, may only perform actions on their turn." },
-        { num: "410", text: "There are two types of Game Actions:" },
-        { num: "410.1", text: "**Discretionary Actions**: May be performed **at any time** during a player's turn during a Neutral Open State. A player may take any number, as long as conditions are met, costs are paid, and no forbidden state results." },
-        { num: "410.2", text: "**Limited Actions**: A game action that a spell, ability, or circumstance of the turn's progression causes the player to perform. Cannot be performed at-will." },
-        { num: "411", text: "**Responsibility**: Game Actions may be the responsibility of up to one player. The player that performs the action is responsible for it." },
-        { num: "411.2", text: "If a Game Action is performed by procedures of the game and not by any player, it is not the responsibility of any player." },
-        { num: "411.4", text: "If an ability triggers when \"you\" do something, it triggers when a Game Action that you are responsible for occurs." },
-        { num: "411.5", text: "Certain Game Actions (specifically Kill) can be attributed to spells and abilities. This attribution is not the same as player responsibility." },
-      ]
-    },
-    {
-      num: "413", title: "Draw",
-      rules: [
-        { num: "413", text: "**Draw**" },
-        { num: "413.1", text: "**Drawing** a card takes a single card from a zone and adds it to the player's Hand." },
-        { num: "413.1.a", text: "Unless specified otherwise, drawing takes cards from the Main Deck." },
-        { num: "413.2", text: "This is a **Limited Action**. Each player draws 1 during the Draw Step." },
-        { num: "413.3", text: "Formatted as \"Draw X.\"" },
-        { num: "413.4", text: "If a player attempts to draw more cards than available in their Main Deck: draw as many as possible, perform a **Burn Out**, then draw the remaining cards needed." },
-      ]
-    },
-    {
-      num: "414", title: "Exhaust",
-      rules: [
-        { num: "414", text: "**Exhaust**" },
-        { num: "414.1", text: "**Exhausting** marks a non-spell Game Object on the board as \"spent.\" Rotate the card 90 degrees so it is lengthwise." },
-        { num: "414.1.b", text: "A Unit that is already Exhausted cannot be Exhausted again." },
-        { num: "414.1.c", text: "If a Unit is instructed to be Exhausted while already Exhausted, nothing additional happens." },
-        { num: "414.2", text: "\"Exhausted\" is a state that other game effects and rules can reference." },
-        { num: "414.3", text: "This is a **Limited Action**." },
-        { num: "414.3.a", text: "Most Exhaust actions will be costs for Activated Abilities or Discretionary Actions (e.g., Standard Move)." },
-        { num: "414.4", text: "When Exhausting is listed as a **Cost**, the Action must be able to be completed for the cost to be paid." },
-        { num: "414.5", text: "In abilities, the **Exhaust symbol** represents the cost \"Exhaust this\" or \"Exhaust me.\"" },
-      ]
-    },
-    {
-      num: "415", title: "Ready",
-      rules: [
-        { num: "415", text: "**Ready**" },
-        { num: "415.1", text: "**Readying** marks a non-spell Game Object on the board as available for action. Rotate the card 90 degrees opposite of Exhausting (vertically oriented)." },
-        { num: "415.1.b", text: "A Unit that is already Ready cannot be Readied again." },
-        { num: "415.2", text: "\"Ready\" is a state that other game effects and rules can reference." },
-        { num: "415.3", text: "This is a **Limited Action**. A player Readies all non-spell Game Objects they Control during the Ready Step of their Beginning Phase." },
-      ]
-    },
-    {
-      num: "416", title: "Recycle",
-      rules: [
-        { num: "416", text: "**Recycle**" },
-        { num: "416.1", text: "**Recycling** cards is the action of taking one or more cards from a specific zone and putting them on the bottom of the corresponding deck." },
-        { num: "416.1.a", text: "Main Deck cards are Recycled to the Main Deck." },
-        { num: "416.1.b", text: "Runes are Recycled to the Rune Deck." },
-        { num: "416.1.c", text: "Each player Recycles to their own decks, regardless of which player is instructed to perform the Recycle." },
-        { num: "416.2", text: "This is a **Limited Action**." },
-        { num: "416.3", text: "When Recycling is listed as a **Cost**, the action must be able to be completed for the cost to be paid." },
-        { num: "416.4", text: "When Recycling is part of an effect, a player must Recycle as many cards as possible from the specified zone(s)." },
-        { num: "416.5", text: "If 2 or more cards are Recycled to the Main Deck simultaneously, they go to the bottom in a random order." },
-        { num: "416.5.a", text: "If 2 or more cards are Recycled to the Rune Deck simultaneously, they go to the bottom in the order of their owner's choosing." },
-        { num: "416.6", text: "\"Recycle X from [Zone]\" means take X cards of the instructed player's choice from that zone and recycle them." },
-      ]
-    },
-    {
-      num: "417", title: "Deal",
-      rules: [
-        { num: "417", text: "**Deal**" },
-        { num: "417.1", text: "Spells, Units, Abilities, and other game effects may **Deal Damage** to units." },
-        { num: "417.1.a", text: "Assigning Damage during the Combat Damage Step is not Dealing Damage, but will cause Damage to be Dealt when assignment is complete." },
-        { num: "417.1.b", text: "To Deal Damage to Units, mark the specified amount of Damage on the Unit." },
-        { num: "417.1.c", text: "Damage is marked on each unit separately." },
-        { num: "417.1.d", text: "Damage can be Dealt to more than one Unit at the same time." },
-        { num: "417.1.e", text: "**Valid Damage** is a positive integer amount, greater than or equal to 1. Only Valid Damage is Dealt." },
-        { num: "417.2", text: "Only Damage can be Dealt." },
-        { num: "417.3", text: "Dealing Damage is a **Limited Action**." },
-        { num: "417.4", text: "Dealing can have the intrinsic property of **Bonus Damage**." },
-        { num: "417.5", text: "**Bonus Damage** is a property granted to the action of Dealing and alters the amount of Damage distributed." },
-        { num: "417.6", text: "Deal actions can originate from one or more sources." },
-        { num: "417.6.a", text: "If no source is specified, the game effect describing the Deal action is the source." },
-        { num: "417.6.b", text: "If a source is specified, that source is the origin of the Damage for the Deal action." },
-        { num: "417.6.b.1", text: "Units and Spells can be the source of Damage for Deal actions." },
-        { num: "417.6.b.2", text: "Abilities can be the source of Damage for Deal actions (in addition to the Spell or Unit that created that Ability)." },
-        { num: "417.6.c", text: "Damage Dealt as a result of being assigned during **Combat** has the Units as its source." },
-        { num: "417.7", text: "Deal actions can distribute Damage as part of combat actions or non-combat actions." },
-      ]
-    },
-    {
-      num: "418", title: "Heal",
-      rules: [
-        { num: "418", text: "**Heal**" },
-        { num: "418.1", text: "Damage being cleared from Units is **Healing**." },
-        { num: "418.1.a", text: "If Damage is cleared for any reason it is considered Healing." },
-        { num: "418.2", text: "More than one Unit can be Healed at the same time." },
-        { num: "418.3", text: "Healing is a **Limited Action**." },
-      ]
-    },
-    {
-      num: "419", title: "Play",
-      rules: [
-        { num: "419", text: "**Play**" },
-        { num: "419.1", text: "A player **Plays** cards by placing them on the chain and queuing them to be finalized." },
-        { num: "419.1.a", text: "By default, a player can only Play cards from their hand or their Chosen Champion zone." },
-        { num: "419.2", text: "This is a **Discretionary Action**." },
-        { num: "419.3", text: "Game effects may result in cards being **played** as part of their resolution. This treats Play as a Limited Action." },
-        { num: "419.4", text: "Some Abilities trigger when cards are played or otherwise check whether cards have been played. These trigger when the act of playing has been *completed* by the resolution of the card." },
-        { num: "419.4.b", text: "If a game effect prevents the resolution of the card (e.g., the card was **countered**), the card wasn't played and no abilities that trigger on playing trigger." },
-      ]
-    },
-    {
-      num: "420", title: "Move",
-      rules: [
-        { num: "420.1", text: "**Moving** is the act of a Game Object moving between two Locations on The Board." },
-        { num: "420.2", text: "Moving is a **Limited Action**." },
-        { num: "420.2.a", text: "Players may only move Game Objects when instructed to do so by Game Effects or costs." },
-        { num: "420.2.b", text: "The **Standard Move** inherent to Units may also cause Movement." },
-        { num: "420.3", text: "The Standard Move inherent to Units is a **Discretionary Action**. The Cost is Exhausting one or more Units. The Effect is Moving those Units." },
-      ]
-    },
-    {
-      num: "421", title: "Hide",
-      rules: [
-        { num: "421.1", text: "**Hiding** a card is the act of placing a card facedown at a Battlefield you control." },
-        { num: "421.2", text: "Hiding is a **Discretionary Action**." },
-        { num: "421.2.a", text: "The **Hidden** keyword allows a player to pay a cost to Hide a card any time they have a Hidden card in hand or Champion Zone and meet prerequisites." },
-        { num: "421.3", text: "Cards facedown at Battlefields have gameplay properties and permissions defined by the effect that put them there." },
-        { num: "421.4", text: "If a facedown card would change zones or the game ends, its owner reveals it to all players." },
-      ]
-    },
-    {
-      num: "422", title: "Discard",
-      rules: [
-        { num: "422.1", text: "**Discarding** a card is moving it from a player's hand directly into their trash without activating or executing its normal rules text." },
-        { num: "422.1.a", text: "The player performing the action chooses which cards to send to their Trash, and may use Private Information to do so." },
-        { num: "422.1.b", text: "\"When I am discarded\" abilities or other Triggered Abilities that trigger on discarding are executed after discarding has occurred." },
-        { num: "422.2", text: "Discarding is a **Limited Action**." },
-        { num: "422.3", text: "When Discarding is listed as a **Cost**, the Action must be able to be completed for the cost to be paid." },
-        { num: "422.4", text: "When Discarding is part of an effect, a player must Discard as many cards as possible from their hand. If instructed to discard more than they have, further discard instructions are ignored." },
-        { num: "422.5", text: "Formatted as \"Discard X.\"" },
-      ]
-    },
-    {
-      num: "423", title: "Stun",
-      rules: [
-        { num: "423.1", text: "**Stunning** is the act of selecting one or more Units on the Board and rendering them Stunned." },
-        { num: "423.1.a", text: "Stunned is a binary state. A Stunned Unit cannot be Stunned again." },
-        { num: "423.1.a.2", text: "Stunned Units lose the Stunned status at the beginning of the next **Ending Step**." },
-        { num: "423.1.b", text: "A Stunned Unit does not contribute its might to damage in the combat damage step." },
-        { num: "423.1.c", text: "A Stunned Unit must still have damage equal to or exceeding its full might value to be killed." },
-        { num: "423.2", text: "Stunning is a **Limited Action**." },
-      ]
-    },
-    {
-      num: "424", title: "Reveal",
-      rules: [
-        { num: "424.1", text: "**Revealing** is the act of presenting a card to *all players* from a zone that one or more players do not have access to." },
-        { num: "424.1.a", text: "Revealed is a temporary state and is not a zone. Cards remain in the zone they are being Revealed from." },
-        { num: "424.1.b", text: "Unless otherwise described, Revealed cards do nothing else beyond become temporarily known information to all players." },
-        { num: "424.2", text: "Revealing is a **Limited Action**. Players may only Reveal cards from Private or Secret zones when instructed to do so by Game Effects." },
-        { num: "424.4", text: "Game Effects can manipulate or modify cards Revealed while they are Revealed." },
-      ]
-    },
-    {
-      num: "425", title: "Counter",
-      rules: [
-        { num: "425.1", text: "**Countering** is the act of negating the execution, activation, or otherwise playing of a card or ability by a player." },
-        { num: "425.1.a", text: "A card or ability that is Countered does nothing and is cleared from the chain." },
-        { num: "425.1.b", text: "A card that is Countered is not considered to have been played." },
-        { num: "425.1.c", text: "Countering does not refund any costs paid to play a card, activate an ability, or trigger an ability. This includes additional costs." },
-        { num: "425.2", text: "Countering is a **Limited Action**." },
-        { num: "425.3", text: "Formatted as \"Counter [a card or ability on the chain].\"" },
-      ]
-    },
-    {
-      num: "426", title: "Buff",
-      rules: [
-        { num: "426.1", text: "**Buffing** is the action of placing a **Buff** counter on a Unit." },
-        { num: "426.1.a", text: "A Buff is also an object." },
-        { num: "426.1.b", text: "To Buff a unit, place a Buff Counter on it if it does not have one already. If it already has one, it does not get another." },
-        { num: "426.1.c", text: "Units with Buff Counters can still be chosen for actions that Buff units, but will *not* be Buffed as part of the execution." },
-        { num: "426.2", text: "Buffing is a **Limited Action**." },
-      ]
-    },
-    {
-      num: "427", title: "Banish",
-      rules: [
-        { num: "427.1", text: "**Banishing** is the action of placing a card from any zone to **Banishment**." },
-        { num: "427.2", text: "When a card is Banished it is placed directly into the Banishment zone from its origin." },
-        { num: "427.2.a", text: "Banish is not a subset of **Kill**." },
-        { num: "427.2.b", text: "Banish is not a subset of **Discard**." },
-        { num: "427.3", text: "Cards and effects can refer to cards that were banished *by the same object*. Separate instances of an object banishing cards do not reference each other." },
-        { num: "427.4", text: "Banishing is a **Limited Action**." },
-      ]
-    },
-    {
-      num: "428", title: "Kill",
-      rules: [
-        { num: "428.1", text: "**Killing** is the action of a Permanent going to the trash from the board." },
-        { num: "428.1.a", text: "This can be **Active** or **Passive**." },
-        { num: "428.1.a.1", text: "**Active Kill** is when the action is taken when instructed by a game effect or as a cost (a **Kill Instruction**). When a unit with a **Deathknell** is to be put in the Trash due to a Kill Instruction, it first has its Deathknell added to the chain as a Pending Item." },
-        { num: "428.1.a.2", text: "**Passive Kill** is when the action is taken as a result of Lethal Damage or as a consequence for any other state." },
-        { num: "428.2", text: "When a permanent is killed it is placed directly in the trash from its place of origin." },
-        { num: "428.2.a", text: "It is only considered Killed if its origin was any zone on the board." },
-        { num: "428.2.b", text: "This is not a subset of Move." },
-        { num: "428.3", text: "Killing is a **Limited Action**." },
-        { num: "428.4", text: "Killing can also be the result of resolving a **Cleanup**." },
-        { num: "428.5", text: "Killing can be attributed to one or more Game Objects." },
-        { num: "428.5.b", text: "A spell or ability that contains a Kill instruction is responsible for Killing the Unit or Gear." },
-        { num: "428.5.c", text: "When units are killed due to a Cleanup, the kill action is attributed to the spell/ability that resolved immediately prior and dealt damage to those Units." },
-        { num: "428.5.e", text: "In order to Kill something \"with\" a spell or ability, the Kill action must be attributed to it, the player must control it, and the player must be responsible for the Kill action." },
-      ]
-    },
-    {
-      num: "429", title: "Add",
-      rules: [
-        { num: "429.1", text: "**Adding** is the action of putting resources into a player's **Rune Pool**." },
-        { num: "429.2", text: "Spells, triggered abilities, and activated abilities that **Add** resources finalize immediately." },
-        { num: "429.2.a", text: "Priority and Focus will not pass from Add abilities being finalized or resolving, and will resolve before any other outstanding items on the chain are finalized." },
-        { num: "429.3", text: "Activated abilities that Add resources and have the Reaction tag can be activated during the playing or resolution of other spells and abilities, any time resources are required." },
-        { num: "429.4", text: "Adding is a **Limited Action**." },
-      ]
-    },
-    {
-      num: "430", title: "Channel",
-      rules: [
-        { num: "430.1", text: "**Channeling** is the action of taking one or more Runes from the top of a player's Rune Deck and putting them on the board." },
-        { num: "430.2", text: "The Game Effect that instructs a player to channel may specify conditions or circumstances under which those runes enter the board." },
-        { num: "430.3", text: "Channeling is a **Limited Action**." },
-        { num: "430.4", text: "Formatted as \"Channel X rune(s),\" optionally followed by conditions or stipulations." },
-      ]
-    },
-    {
-      num: "431", title: "Burn Out",
-      rules: [
-        { num: "431.1", text: "**Burning Out** is an action a player must perform if they attempt to move one or more cards from their Main Deck to any other zone in excess of the number of cards remaining." },
-        { num: "431.1.a", text: "If a player must Draw cards in excess, they Draw as many as possible, perform Burn Out, then Draw the remaining amount." },
-        { num: "431.2", text: "To Burn Out: (a) Perform as much of the prescribed action as possible. (b) Recycle their trash into their Main Deck. (c) Choose an opponent to gain 1 point. (d) Complete the remainder of the action." },
-        { num: "431.3", text: "A player's Main Deck may remain empty after Burn Out. Attempting the original action again will trigger another Burn Out, giving an opponent 1 point each time." },
-        { num: "431.3.b", text: "Points gained after the first Burn Out in sequence cannot be replaced or prevented. Points from Burn Out that cause a player to reach the Victory Score cause that player to win immediately." },
-        { num: "431.4", text: "Burning Out is a **Limited Action**." },
-        { num: "431.5", text: "Burning Out is a **Replacement Effect**." },
-      ]
-    },
-    {
-      num: "432", title: "Double, Swap, Attach, Detach",
-      rules: [
-        { num: "432.1", text: "**Doubling** is the act of increasing a numeric attribute by an amount equal to that attribute's current value." },
-        { num: "432.2", text: "Doubling is a Limited Action." },
-        { num: "433.1", text: "**Swapping** is the act of increasing one numeric value and decreasing another on some number of Game Objects such that their values are reversed." },
-        { num: "433.2", text: "Swapping is a Limited Action." },
-        { num: "434.1", text: "**Attaching** is the act of linking two cards on the board together to combine their effects. One card becomes **Attached** and one becomes the **Top-Most Card**." },
-        { num: "434.1.c", text: "The Top-Most card has all **Effect Text** of all cards Attached to it appended to its **Rules Text**." },
-        { num: "434.1.d", text: "The Top-Most Card has its **Might** modulated by the **Might Bonus** of all cards Attached to it." },
-        { num: "434.1.e", text: "Attaching cards causes those cards' **Rules Text** to become Inactive for as long as they remain Attached." },
-        { num: "434.1.f", text: "Attaching a card to a new Top-Most Card will cause it to Detach from the card to which it is currently Attached." },
-        { num: "434.2", text: "Attaching is a Limited Action." },
-        { num: "434.4", text: "When a card Attaches to a card, its location becomes the same as the new Top-Most Card. This is not a Move." },
-        { num: "435.1", text: "**Detaching** is the act of unlinking two cards that are currently linked through Attaching. The Detached card's Effect Text and Rules Text become Inactive. The Top-Most Card ceases to have that card's Effect Text or Might Bonus." },
-        { num: "435.2", text: "Detaching is a Limited Action." },
-        { num: "435.4", text: "When a card Detaches, its location is the same as the Top-Most Card it Detached from." },
-        { num: "435.4.a", text: "If the Detached card was Gear and this causes it to be at a Battlefield, it will be Recalled during the next Cleanup." },
-      ]
-    },
-    {
-      num: "436", title: "Predict, Prevent, Replace, Create",
-      rules: [
-        { num: "436.1", text: "**Predicting** a card is looking at a single card from the top of the Main Deck and choosing whether or not to Recycle it. When predicting multiple, look at that many and Recycle any number." },
-        { num: "436.2", text: "Predicting is a **Limited Action**. Formatted as \"Predict X.\" If omitted, X is 1." },
-        { num: "437.1", text: "**Preventing** damage is the act of reducing the Damage a set of game objects would take. Prevent is a **Delayed Replacement Effect**." },
-        { num: "437.1.b", text: "Prevent appears as \"Prevent the next X [source] damage that would be dealt to a [unit] this turn.\" X is the Prevent Value." },
-        { num: "437.2", text: "When damage is Prevented, it is replaced with an event that deals that much less damage, reduced by the Prevent Value tracked on the Unit." },
-        { num: "437.4", text: "Damage dealt to a Unit that has had all of that damage Prevented is not considered to have been dealt to it at all." },
-        { num: "437.6", text: "Prevent is a **Limited Action**." },
-        { num: "438.1", text: "**Replacing** is the act of Creating a token in the place of another card or token without playing it while inheriting all effects or statuses of the game object it replaced." },
-        { num: "438.2", text: "Replacing is a **Limited Action**. Formatted as \"Replace [X] with [Y].\"" },
-        { num: "438.4", text: "Replacing is not a subset of Banishing." },
-        { num: "438.5", text: "The card or token that is Replaced is placed in Banishment." },
-        { num: "438.7", text: "Tokens Created through Replace can be \"Swapped back\" — the token stops existing and the original card returns to the space the token occupied, inheriting all current effects and statuses." },
-        { num: "439.1", text: "**Creating** is the act of producing a Game Object that previously did not exist in the game." },
-        { num: "439.2", text: "Effects that Create direct where those Game Objects go. Permanents to any valid Board location, Spells to the Chain, Runes to base, Legends to Legend Zone, Battlefields to Battlefield Zone." },
-        { num: "439.6", text: "Creating is a **Limited Action**." },
-      ]
-    },
-    {
-      num: "440", title: "Movement",
-      rules: [
-        { num: "441", text: "Moving is a **Limited Action**. A Permanent changing its position from any space on the Board to another space on the Board is a Move, unless caused by a corrective Recall." },
-        { num: "441.2", text: "A card changing game zones does not in itself constitute a Move." },
-        { num: "441.3", text: "Moving is instantaneous. There is no state for Permanents between locations. Moving does not use the Chain, nor is it able to be Reacted to." },
-        { num: "442", text: "Moving is defined by the **Origin** and **Destination** of the Permanent." },
-        { num: "442.2.a", text: "In Modes of Play with more than two players, Battlefields with Staged Combats or Combats in Progress are Invalid Destinations for Moves by Units not involved in those Combats." },
-        { num: "442.2.c", text: "If an action would require a Move to an invalid Location, the Unit instead **Recalls** to base." },
-        { num: "442.3", text: "Units are the only Permanents that can Move." },
-        { num: "444.2", text: "Units **cannot** Move to a Battlefield that already has units from 2 other players present." },
-        { num: "445", text: "The Destination becomes **Contested** if it is a Battlefield not controlled by the controller of the Unit(s) that moved." },
-        { num: "446", text: "Units may cause a **Showdown** without a Combat when they Move (Contested with no enemy Units present except those that just moved)." },
-        { num: "447", text: "Units may cause **Combat** when they Move (Contested with opposing Units present)." },
-        { num: "448", text: "When a Move action is complete, perform a Cleanup." },
-      ]
-    },
-    {
-      num: "449", title: "Recalls",
-      rules: [
-        { num: "450", text: "A **Recall** is when a Permanent is relocated from anywhere to its Base without it being a Move." },
-        { num: "451", text: "Recalls are **not Moves**. They do not cause Triggered Abilities that trigger from Move actions." },
-        { num: "451.2", text: "A Recall causes a Permanent to change locations." },
-        { num: "451.3", text: "A Recall cannot be prevented by actions and Game Effects that restrict or block Movement." },
-        { num: "452", text: "Gear can be Recalled. Un-attached Gear at a Battlefield is Recalled to its controller's base during the next Cleanup." },
-        { num: "453", text: "Recalls do not affect the state of the Permanent being recalled. Damage, Exhausted Status, Buffed Status, and Layer alterations remain unaffected unless otherwise stated." },
-      ]
-    },
-    {
-      num: "454", title: "Combat",
-      rules: [
-        { num: "455", text: "A **Combat** occurs when a Cleanup happens, there are no items on the Chain, there is a staged Combat at a Battlefield, and no Showdown or Combat is ongoing at any other Battlefield." },
-        { num: "456", text: "Combat is considered **Staged** if there are units controlled by two opposing players at a Battlefield but the Steps of Combat have not been initiated." },
-        { num: "456.1", text: "If more than one Battlefield has Staged Combat at the same time, the Turn Player decides which Combat to resolve first." },
-        { num: "457", text: "Combat can only occur between Units controlled by exactly two players." },
-        { num: "458", text: "**The Steps of Combat:**" },
-        { num: "459", text: "**Step 1: The Combat Showdown Step** — Combat opens with a Combat Showdown. Establish Attacker (whose units applied Contested status, gains Focus) and Defender. Units gain Attacker/Defender designations. Attack and Defend triggers fire. Players proceed with play on the Chain as normal." },
-        { num: "459.2.b.1", text: "The **Attacker** is the player whose unit(s) applied the Contested status. They gain Focus as the showdown begins." },
-        { num: "459.2.b.2", text: "The **Defender** is the player who did not apply the Contested status." },
-        { num: "460", text: "**Step 2: The Combat Damage Step** — When the Showdown closes, both sides resolve Combat Damage." },
-        { num: "460.2.a", text: "Sum the Might of all Attacking Units. Sum the Might of all Defending Units." },
-        { num: "460.2.c", text: "Starting with the Attacker, each player assigns an amount of damage equal to their summed Might among the other's Units." },
-        { num: "460.2.c.1", text: "Assigning Damage is not Dealing Damage. When all Damage is assigned, it will be Dealt simultaneously." },
-        { num: "460.2.c.2", text: "Abilities or effects may influence assignment order. **Lethal Damage is non-zero damage equaling or exceeding the Might of a Unit.**" },
-        { num: "460.2.c.3", text: "Units must have lethal damage assigned in full before damage is assigned to a different Unit." },
-        { num: "460.2.c.4", text: "Units cannot have more damage assigned than the minimum required for lethal unless no further units remain." },
-        { num: "460.2.d", text: "Deal Damage to each unit equal to the amount assigned to it." },
-        { num: "460.3", text: "Skip the FEPR process and proceed to the Resolution Step." },
-        { num: "461", text: "**Step 3: The Resolution Step** — Perform a Combat Cleanup (heal all units, recall attackers if defenders still present). Determine Combat Result." },
-        { num: "461.3.a", text: "A Player has **won** a combat if they received attacker or defender designation and are the only Player with units remaining at this battlefield." },
-        { num: "461.3.b", text: "A Player has **lost** a combat if they received attacker or defender designation and have no units remaining at this battlefield." },
-        { num: "461.3.d", text: "\"No Result\" if both players have units present, or neither player has units present." },
-        { num: "461.3.d.1", text: "If \"No Result\" and both players have units remaining, stage a Combat at this battlefield." },
-        { num: "461.5", text: "If no Showdown/Combat is staged at this location, the player with Units remaining **Establishes Control**." },
-        { num: "461.5.d", text: "Establishing Control results in a **Conquer** if that player has not yet scored this Battlefield this turn." },
-        { num: "461.7", text: "Combat ends. Remove Attacker/Defender designations. All \"this combat\" effects expire simultaneously." },
-      ]
-    },
-    {
-      num: "462", title: "Scoring",
-      rules: [
-        { num: "463", text: "**Scoring** is the act of a Player gaining a point through seizing or maintaining control over Battlefields." },
-        { num: "464", text: "A player Scores in one of two ways:" },
-        { num: "464.1", text: "**Conquer**: A player gains Control of a Battlefield they did not yet Score this turn." },
-        { num: "464.1.b", text: "A player will gain control of a Battlefield after establishing Control by applying Contested first." },
-        { num: "464.2", text: "**Hold**: A player maintains Control of a Battlefield during their Beginning Phase." },
-        { num: "465", text: "A player may only Score, from either method, once per Battlefield per turn." },
-        { num: "466", text: "When a player Scores, two things occur:" },
-        { num: "466.1", text: "The player **Gains** up to one Point, depending on their current score." },
-        { num: "466.1.a", text: "The **Winning Point** has additional restrictions." },
-        { num: "466.1.b", text: "When a player tries to Gain a Point through a Score and their Point Total is 1 point from the Victory Score or higher:" },
-        { num: "466.1.b.1", text: "If they Scored through **Hold**, they Gain the Winning Point." },
-        { num: "466.1.b.2", text: "If they Scored through **Conquer** and have Scored every Battlefield through either method this turn, they Gain the Winning Point. Otherwise, they draw a card instead." },
-        { num: "466.2", text: "Trigger Score abilities at the Battlefield that Scored. **Conquer abilities** trigger at Conquered Battlefields. **Hold abilities** trigger at Held Battlefields. These trigger only once per turn per player per Battlefield." },
-        { num: "467", text: "When a cleanup occurs and a player has Points greater than or equal to the **Victory Score** for their Mode of Play, and they have more points than any opponent, they **Win the Game**." },
-      ]
-    },
-    {
-      num: "468", title: "Layers",
-      rules: [
-        { num: "469", text: "**Layers** are the mechanism in which Game Effects alter the Traits, Intrinsic Abilities, or other properties of Game Objects." },
-        { num: "470", text: "Layers are an organizational structure to maintain consistency in how effects apply." },
-        { num: "471", text: "Layers are applied repeatedly until all effects have been applied once and no changes have been processed." },
-        { num: "472", text: "Layers are applied in the following order:" },
-        { num: "472.1", text: "**1. Trait-Altering Effects**: Grants, removes, or replaces inherent traits (Name, Super Type, Type, Tags, Controller, Cost, Domain). Might assignment is dealt with here." },
-        { num: "472.1.b", text: "Copy effects are applied in this layer." },
-        { num: "472.1.c", text: "Effects identified by \"become(s)\", \"give,\" \"is,\" or \"are\" in the text." },
-        { num: "472.2", text: "**2. Ability-Altering Effects**: Grants, removes, or replaces abilities or rules text (Keywords, Passive Abilities, appending/removing/duplicating rules text)." },
-        { num: "472.2.c", text: "Abilities of Effect Text of Attached cards are appended in this layer." },
-        { num: "472.3", text: "**3. Arithmetic**: Deals with increasing and decreasing numeric values (Might, Energy Cost, Power Cost)." },
-        { num: "472.3.b", text: "Arithmetic effects with limitations are \"snapshotted\" at the limited level for the duration of the effect." },
-        { num: "472.3.c", text: "**Might Bonuses** of Attached cards are applied in this layer." },
-        { num: "472.3.d", text: "Arithmetic is applied: 1. Increases first, 2. Decreases last." },
-        { num: "473", text: "If more than one effect applies in the **Same Layer**, they may depend on each other (**Dependency**)." },
-        { num: "474", text: "To resolve a dependency: identify which effect Depends on the other, apply the depended-on effect first, then immediately apply the dependent effect." },
-        { num: "475", text: "If no dependency exists, **Timestamp** order is applied (the order in which effects began applying)." },
-        { num: "475.1", text: "When an effect begins applying, it establishes a **Timestamp** for comparison against other Game Effects." },
-        { num: "475.2", text: "Timestamps are not rote values. They are relative comparisons between effects and when they began applying." },
-        { num: "475.3", text: "Timestamps are not referenced by Game Effects in any way. They are only used to finalize layered effects." },
-        { num: "475.4", text: "When Rules Text becomes Inactive for any reason, it loses its Timestamp. When it ceases to be Inactive, a new Timestamp is established." },
-        { num: "475.5", text: "Effects are applied such that the earliest Timestamp within each Layer and Sublayer applies first, followed by other Effects in that Layer and Sublayer in chronological order." },
-      ]
-    },
-    {
-      num: "458", title: "Modes of Play",
-      rules: [
-        { num: "459", text: "There are multiple methods of playing *Riftbound*." },
-        { num: "460", text: "A Mode of Play must define several variables for the game." },
-        { num: "460.1", text: "**Number of Players**: How many people are playing the game." },
-        { num: "460.2", text: "**Formation of Players**: How the players are organized while playing." },
-        { num: "460.2.a", text: "This defines if a player is alone or on a team." },
-        { num: "460.2.b", text: "This defines the number of opponents." },
-        { num: "460.3", text: "**Victory Score**: The point total a player or team must reach to win." },
-        { num: "460.3.a", text: "Victory Scores can be any positive number." },
-        { num: "460.4", text: "**Battlefield Count**: Determines how many Battlefields are in play, contributed by players, during play." },
-        { num: "460.4.a", text: "This may influence deck building requirements in competitive settings." },
-        { num: "460.4.b", text: "This may involve utilizing less Battlefields than there are players." },
-        { num: "460.5", text: "**Setup**: Any changes to initial setup required for this mode." },
-        { num: "460.6", text: "**Format**: Conditions to win or additional rules added over play." },
-        { num: "460.7", text: "**First Turn Process**: Adjustments to each player's first turn." },
-        { num: "460.8", text: "**Unique Rules**: If any, they will be appended here." },
-        { num: "461", text: "**Sanctioned Modes**:" },
-        { num: "462", text: "**1v1 (Duel)**: 2 Players, 1v1, 1 opponent each, no teams. Victory Score: 8. Battlefield Count: 2. Each player provides three (3) Battlefields, included in their deck during deck building. Only 1 will be used, chosen during setup." },
-        { num: "462.1", text: "Setup: Each player randomly selects one (1) of their three (3) Battlefields. The other two are removed and will not be used for this game. The selected Battlefields are placed in the Battlefield Zone." },
-        { num: "462.2", text: "Format: Best of 1. The first player to reach the Victory Score in Points wins the Match." },
-        { num: "462.3", text: "First Turn Process: The player going second channels an extra Rune from their Rune Deck during their first Channel Phase of the game." },
-        { num: "463", text: "**1v1 (Match)**: 2 Players, 1v1, 1 opponent each, no teams. Victory Score: 8. Battlefield Count: 2. Each player provides three (3) Battlefields, included in their deck during deck building. Only 1 will be used, chosen during setup." },
-        { num: "463.1", text: "Setup: Each player selects one (1) of their three (3) Battlefields. The other two are set aside and will not be used for this round of play. The selected Battlefields are placed in the Battlefield Zone. After this game, the Battlefields that were used are to be removed and not selected again for this Match. One of the remaining Battlefields that were set aside must be chosen instead." },
-        { num: "463.2", text: "Format: Best of 3. The first player to reach the Victory Score in Points wins the game. The winner of that game earns One Set Point. Players then reset the game state, remove the Battlefields in play from the game, choose new Battlefields from those set aside, and play again. The first player to earn Two Set Points wins." },
-        { num: "463.3", text: "First Turn Process: The player going second channels an extra Rune from their Rune Deck during their first Channel Phase of the game." },
-        { num: "464", text: "**FFA3 (Skirmish)**: 3 Players, FFA, 2 opponents each, no teams. Victory Score: 8. Battlefield Count: 3. Each player provides three (3) Battlefields, included in their deck during deck building. Only 1 will be used, chosen during setup." },
-        { num: "464.1", text: "Setup: Each player randomly selects one (1) of their three (3) Battlefields. The other two are discarded and will not be used for this game. The selected Battlefields are placed between the three Players before play and will be used for this game." },
-        { num: "464.2", text: "Format: Best of 1. The first player to reach the Victory Score in Points wins the Match." },
-        { num: "464.3", text: "First Turn Process: The player going first does not draw a card during their first Draw Phase of the game. The player going last channels an extra Rune from their Rune Deck during their first Channel Phase of the game." },
-        { num: "465", text: "**FFA4 (War)**: 4 Players, FFA, 3 opponents each, no teams. Victory Score: 8. Battlefield Count: 3." },
-        { num: "465.1", text: "Each player provides three (3) Battlefields, included in their deck during deck building. The player who is taking the first turn removes their Battlefields. They will not be used." },
-        { num: "465.2", text: "Setup: Each player who is not going first randomly selects one (1) of their three (3) Battlefields. The other two are removed and will not be used for this game. The selected Battlefields are placed between the players before play and will be used for this game." },
-        { num: "465.3", text: "Format: Best of 1. The first player to reach the Victory Score in Points wins the Match." },
-        { num: "465.4", text: "First Turn Process: The player going first does not draw a card during their first Draw Phase of the game. The player going last channels an extra Rune from their Rune Deck during their first Channel Phase of the game." },
-        { num: "466", text: "**2v2 (Magma Chamber)**: 4 Players, 2v2, 2 opponents each, 1 teammate. Victory Score: 11. Battlefield Count: 3." },
-        { num: "466.1", text: "Each player provides one (1) Battlefield, included in their deck during deck building. The player who is taking the first turn removes their Battlefields. They will not be used." },
-        { num: "466.2", text: "Setup: Each player who is not going first randomly selects one (1) of their three (3) Battlefields. The other two are removed and will not be used for this game. The selected Battlefields are placed between the players before play and will be used for this game. Turn order alternates teams." },
-        { num: "466.2.a", text: "The first player will be followed by an opponent, then the first player's teammate, then the first opponent's teammate, and so on." },
-        { num: "466.2.b", text: "If allies are sitting across from each other, turn order proceeds clockwise as normal." },
-        { num: "466.2.c", text: "If allies are sitting next to each other, turn order is passed across the table." },
-        { num: "466.3", text: "Format: Best of 1. The first team to reach the Victory Score in Points wins the Match." },
-        { num: "466.3.a", text: "Teammates win or lose together." },
-        { num: "466.3.b", text: "If one player Concedes, then the entire team loses." },
-        { num: "466.3.c", text: "If one player Loses, then the entire team loses." },
-        { num: "466.3.d", text: "If one player Wins, then the entire team wins." },
-        { num: "466.4", text: "First Turn Process: The player going first does not draw a card during their first Draw Phase of the game. The player going last channels an extra Rune from their Rune Deck during their first Channel Phase of the game." },
-        { num: "466.5", text: "**Unique Rules (2v2)**:" },
-        { num: "466.5.a", text: "Players may play spells during their Teammate's Turn." },
-        { num: "466.5.b", text: "Battlefields controlled during the Beginning Phase of a player's turn by that player's teammate are disqualified from being scored by that Team, that turn." },
-        { num: "466.5.c", text: "Control is not shared." },
-        { num: "466.5.d", text: "Players may not Hide cards at Battlefields controlled by their Teammate." },
-        { num: "466.5.e", text: "Players may not issue Standard Movement to their Teammate's Units." },
-        { num: "466.5.f", text: "**Friendly** describes controlled Game Objects by a player or their Teammate." },
-        { num: "466.5.g", text: "Hands are still Private Information. Players are not restricted in what they say to their Teammate, however. Feel free to openly communicate, honestly or cryptically. Revealing Cards is still a game action and cannot be done unless instructed." },
-        { num: "466.5.h", text: "**The Final Point** has an adjustment to the criteria when scoring. When scoring the Final Point from Conquer, a player must Score each Battlefield in the same turn, excepting any that were occupied by their ally during that turn's Beginning Phase. No other changes to Final Point restrictions." },
-        { num: "466.5.i", text: "Teammates may not utilize the same Champion Legend." },
-        { num: "466.5.j", text: "Teammates may not utilize the same Battlefields." },
-      ]
-    },
-    {
-      num: "650", title: "Conceding",
-      rules: [
-        { num: "650.1", text: "A player may concede at any time." },
-        { num: "650.2", text: "When a player concedes, they are removed from the game in progress." },
-        { num: "650.2.a", text: "If only one other player is remaining after a player has conceded, the player remaining Wins." },
-        { num: "650.2.b", text: "If more than one player remains after a concession, follow the steps for the Removal of a Player." },
-        { num: "651", text: "**Removal of a Player**: Removal of a player involves them no longer being able to make choices or otherwise influence the game." },
-        { num: "651.1", text: "If the player has Teammates due to the Mode of Play, that player's Teammates also lose and are removed from the game." },
-        { num: "652", text: "If the game continues, follow these steps for Removal of a Player:" },
-        { num: "652.1", text: "Banish all permanents and runes they currently control and all permanents and runes they own." },
-        { num: "652.2", text: "Remove the Battlefield they contributed to the game if it is in use." },
-        { num: "652.2.a", text: "If it was in use, replace it with a token battlefield with no abilities." },
-        { num: "652.2.b", text: "Any units or hidden cards there do not move and are otherwise unaffected by this process." },
-        { num: "652.2.c", text: "If the removed battlefield was applying any continuous effects, those continuous effects immediately cease, which may cause changes in the characteristics of units or hidden cards there." },
-        { num: "652.3", text: "Remove all cards they own from the game." },
-        { num: "652.4", text: "Counter all spells and abilities of all types controlled by the player that has conceded." },
-        { num: "652.5", text: "Proceed with the game." },
-        { num: "652.5.a", text: "**Turn**: If the removed player was the Turn Player, play proceeds in Turn Order to the next available player in order." },
-        { num: "652.5.b", text: "**Focus**: If the removed player had Focus in a Showdown, the next Player in order receives Focus. If the player being removed creates a state where all Players have Passed their Focus, the Showdown ends and play proceeds as necessary (e.g., Combat is resolved or a Cleanup is completed)." },
-        { num: "652.5.c", text: "**Priority**: If the removed player had Priority during a Chain, the next Player in order receives Priority. If the player being removed creates a state where all Players have passed Priority, then the most recent spell or ability on the Chain will resolve with Priority being re-established as appropriate for the state after the resolution of that spell or ability." },
-      ]
-    },
-    {
-      num: "700", title: "Additional Rules",
-      rules: [
-        { num: "701", text: "**Buffs**" },
-        { num: "702", text: "Buffs are objects placed on Units." },
-        { num: "702.1", text: "Buffs can be tracked with a buff reminder card from a *Riftbound* booster pack or with any spare object in your surroundings." },
-        { num: "702.2", text: "Buffs can be added or spent." },
-        { num: "702.2.a", text: "To Buff a Unit, a player chooses a Unit and then places a buff on it. That Unit is Buffed for as long as the buff remains on it." },
-        { num: "702.3", text: "Spending a Buff removes a single Buff counter from a Unit." },
-        { num: "703", text: "A buff cannot be spent from a Unit that does not have a buff." },
-        { num: "704", text: "A player can only spend buffs on units they control." },
-        { num: "705", text: "There can only be one Buff on a Unit at a time." },
-        { num: "706", text: "If a Buff is added, or instructed to be added, on a Unit that already has a Buff, it is not placed instead." },
-        { num: "709", text: "Each Buff individually contributes +1 Might to a Unit." },
-        { num: "710", text: "Buffs are Game Objects and may be referenced, counted, or targeted by other effects as specified." },
-        { num: "711", text: "If a Unit leaves play, remove all Buffs from it." },
-        { num: "712", text: "Champions do not retain Buffs in the Champion Zone, even if they return there somehow." },
-        { num: "713", text: "**Mighty**" },
-        { num: "714", text: "Mighty is a description that applies to some units. Other game effects can check whether a unit is Mighty." },
-        { num: "715", text: "A Unit \"is Mighty\" as long as its Might is 5 or greater." },
-        { num: "715.1", text: "A Unit \"becomes Mighty\" at the moment its Might changes from being less than 5 to being 5 or greater." },
-        { num: "715.2", text: "Units on the board are evaluated according to their current Might." },
-        { num: "715.3", text: "Units in Non-Board Zones are evaluated according to their inherent Might." },
-        { num: "716", text: "**Bonus Damage**" },
-        { num: "716.1", text: "Bonus Damage is an intrinsic property that can be granted to Deal actions that influence the amount of Damage that the action is distributing." },
-        { num: "716.2", text: "If more than one instance of Bonus Damage is applied or granted to a Deal action, all instances are summed and applied once." },
-        { num: "716.2.a", text: "Bonus Damage can only be a positive value, and can only increase the amount of Damage being distributed." },
-        { num: "716.2.b", text: "If, for any reason, Bonus Damage would be a negative number, then no Bonus Damage is applied to the action." },
-        { num: "716.3", text: "Bonus Damage applies to the total damage Dealt by one instance of the action." },
-        { num: "716.3.a", text: "If the Deal action has a single target, the amount of Damage to that target will be increased by the Bonus Damage granted to it." },
-        { num: "716.3.b", text: "If the Deal action has multiple targets, the amount of Damage dealt to each target is increased by Bonus Damage individually and separately." },
-        { num: "716.4", text: "If the Deal action Splits damage, then the Bonus Damage applies to the amount of Damage that will be Split. This can alter the number of targets eligible to be chosen." },
-        { num: "718", text: "**Attachment**" },
-        { num: "718.1", text: "Attaching is a limited action that causes cards to become linked to each other to combine their effects in some way. This causes one card to become Attached and the other to become a Top-Most Card." },
-        { num: "718.2", text: "See rule 421 Attach for more information." },
-        { num: "718.3", text: "**Attached** is the state of a card being linked to another card in this way. A card remains in this state until Detached." },
-        { num: "718.3.a", text: "While in this state, the card's Rules Text is Inactive. See rule 720 Inactive for more information." },
-        { num: "718.3.b", text: "While in this state, Abilities in the card's Effect Text are appended to the Rules Text of the Top-Most Card." },
-        { num: "718.3.c", text: "While in this state, the card's Might Bonus modulates the Top-Most Card's Might by the value listed." },
-        { num: "718.3.d", text: "Attached cards still have all properties of being a card on the board while in this state." },
-        { num: "718.3.e", text: "Attached cards still have all Types and Tags while Attached." },
-        { num: "718.3.f", text: "Attached cards still can be chosen or targeted by game effects while Attached." },
-        { num: "718.3.g", text: "Attached cards cannot be moved separately from the Top-Most Card they are Attached to." },
-        { num: "718.3.h", text: "A card may be Attached only to a single Top-Most card at a time." },
-        { num: "718.3.i", text: "Attached cards may have different Controllers from their Top-Most card. Changes in Control of the Top-Most card do not impact Control of Attached cards and vice versa." },
-        { num: "719", text: "A **Top-Most Card** is a card that has one or more cards linked to it through the process of Attaching." },
-        { num: "719.1", text: "The Effect Text of all cards Attached to this card are appended to the Rules Text of this card for as long as they remain Attached." },
-        { num: "719.2", text: "This card ceases being a Top-Most Card when there are no longer any cards Attached to it." },
-        { num: "719.3", text: "A Top-Most Card and all cards Attached to it are at the same location. When the Top-Most Card moves, all Attached cards move with it." },
-        { num: "719.4", text: "The Exhausted and Ready state of the Top-Most card does not affect nor change the status of the Attached cards and vice versa." },
-        { num: "720", text: "When a Top-Most Card changes zones from a board zone to a non-board zone, all Attached cards Detach from it, remaining in their current zones." },
-        { num: "720.1", text: "The player that controls the Top-Most Card that changed zones decides the order these cards Detach in, and thus the order of any relevant effects that occur due to the Detach occurring." },
-        { num: "722", text: "**Inactive**" },
-        { num: "723", text: "Card text can occasionally be assigned to be ignored, disregarded, or otherwise rendered as not applicable during the course of play. This state is referred to as Inactive." },
-        { num: "724", text: "Text marked this way is not applied at all while in this state." },
-        { num: "725", text: "Inactive Abilities do not trigger, do not apply, and cannot be activated. Inactive instructions are not processed." },
-        { num: "725.1", text: "Inactive text is still present on cards." },
-        { num: "725.2", text: "Cards with Inactive text still have keywords for the sake of Game Effects that want to reference or see if a card has a keyword." },
-        { num: "725.3", text: "Game Effects that parse or interpret text to determine target eligibility may still parse Inactive text for the sake of eligibility." },
-        { num: "726", text: "Rules Text is never Inactive by default." },
-        { num: "726.1", text: "Effect Text is Inactive unless the card with the Effect Text is Attached." },
-        { num: "726.2", text: "Inactive text can partially cease to be Inactive under specific circumstances and exceptions." },
-        { num: "726.2.a", text: "If an Attached card has a Passive or Replacement ability that applies during the process of Attaching or a Triggered ability that triggers off of Attaching, that text exists and can be processed as it Attaches." },
-        { num: "726.2.b", text: "If an Attached card has a Passive or Replacement ability that applies during the process of Detaching or a Triggered ability that triggers off of Detaching, that text exists and can be processed as it Detaches." },
-        { num: "726.2.c", text: "If an Attached card has an Equip ability, the Weaponmaster keyword can reference that Equip ability and any abilities that passively modify that Equip ability." },
-      ]
-    },
-    {
-      num: "727", title: "Keywords",
-      rules: [
-        { num: "727.1", text: "A Keyword is a specific term that appears on Cards that acts as a shorthand for a specific game effect, or ability of any variety." },
-        { num: "727.1.a", text: "A Keyword can be an ability." },
-        { num: "727.1.b", text: "Keywords can be identified by having a colored highlight behind them. The color of the highlight has no effect on gameplay." },
-        { num: "727.2", text: "Keywords can be referenced or specified by other Game Effects." },
-        { num: "727.2.a", text: "Other effects may grant Keywords. The definition and rules of the specific Keyword will determine the behavior if a Keyword is granted while it is already present." },
-        { num: "727.2.b", text: "The effect that granted the Keyword will specify the duration for which it is granted. If an effect that grants a Keyword does not specify a duration, the duration is as long as that Game Object remains on the Board or in its current Non-Board Zone." },
-        { num: "727.3", text: "Other effects may remove Keywords. The effect that removed the Keyword will specify the duration it is removed. If an effect that removes a Keyword does not specify a duration, the duration is as long as that Game Object remains on the Board or in its current Non-Board Zone." },
-        { num: "727.4", text: "A card can have any number of Keywords." },
-        { num: "727.5", text: "Similar to other rules text, execute any effects of Keywords in the order listed when reading the card from top to bottom of the rules text." },
-        { num: "728", text: "**Keyword Glossary**" },
-        { num: "729", text: "**Accelerate**: Accelerate is a Unit ability. It is functionally short for \"As you play me, you may pay [1] and 1 Power as an additional cost. If you do, I enter ready.\"" },
-        { num: "729.1", text: "If the unit has a single domain, the Power portion of the Accelerate cost can be paid only with a Power that matches the domain of the unit. If the unit has no domain or more than one domain, the Power portion of the Accelerate cost can be paid with [A] (a Power of any domain)." },
-        { num: "729.2", text: "Accelerate is an Optional Additional Cost to be paid as a player plays the unit with the ability. Accelerate costs cannot be paid while the unit is on the board, only as part of the steps of playing a card." },
-        { num: "729.3", text: "Accelerate has no function while on the board." },
-        { num: "729.4", text: "Multiple instances of Accelerate are redundant." },
-        { num: "729.5", text: "Accelerate, and whether or not a unit has Accelerate, is a characteristic of the Unit and may be checked or referenced by other Game Effects." },
-        { num: "729.6", text: "Accelerate influences the state of the unit entering the Board. It does not enter exhausted and then become ready. Accelerate will not interact with, or trigger, abilities that are affected by units becoming ready." },
-        { num: "730", text: "**Action**: Action is a Permissive keyword. It can be present on Spells, Units, Rune Abilities, Legend Abilities or Permanent Abilities." },
-        { num: "730.1", text: "Action grants the corresponding card or effect permission to be played or activated during Showdowns, even when it is not the Controlling player's turn." },
-        { num: "730.2", text: "Action is functionally short for: On Spells and Units: \"This can be played during showdowns on any player's turn.\" On Rune, Legend, or Permanent Abilities: \"This can be activated during showdowns on any player's turn.\"" },
-        { num: "730.3", text: "The card or effect with this keyword is not restricted to showdowns. This permission is inclusive of all other timings and options available to the ability as written or by default." },
-        { num: "730.4", text: "Action does not alter the function of any instruction of the corresponding card or effect it is on. It is only permission." },
-        { num: "730.5", text: "Action is a referenceable characteristic. Whether or not a Game Object has Action is a characteristic of that Game Object and may be checked or referenced by other Game Effects." },
-        { num: "731", text: "**Assault**: Assault is a Passive Ability keyword. It is present on Units." },
-        { num: "731.1", text: "Assault is formatted as \"Assault [X]\". The X is the Assault Value. If X is omitted, it is presumed to be 1." },
-        { num: "731.2", text: "It is functionally short for \"While I am an attacker, I have +X [M].\" Being an attacker means the Unit has gained the Attacker designation during Combat." },
-        { num: "731.3", text: "Assault remains in effect as long as the Unit maintains the Attacker designation." },
-        { num: "731.4", text: "If a Unit has Assault or has been granted Assault and is granted Assault by an additional source, the Assault Value of all granted Assault keywords is summed." },
-        { num: "731.5", text: "Assault, and whether or not a unit has Assault, is a characteristic of the Unit and may be checked or referenced by other Game Effects." },
-        { num: "732", text: "**Deathknell**: Deathknell is a Triggered Ability keyword. It is present on Permanents." },
-        { num: "732.1", text: "It is formatted as \"Deathknell -- [Effect]\". [Effect] is the rules text for the specific instance of Deathknell, referred to as the Deathknell effect." },
-        { num: "732.2", text: "It is functionally short for \"When I die, [Effect].\"" },
-        { num: "732.3", text: "The Trigger for this effect is the Permanent being Killed and sent to the Trash. If the Permanent with the effect is not sent to the Trash (e.g., its \"killed\" event was replaced with a recall), the Deathknell will not occur." },
-        { num: "732.4", text: "The trigger will be added to the chain as a Pending Item before the card with Deathknell is moved to the trash due to a Kill instruction or a Cleanup." },
-        { num: "732.5", text: "Before the card with Deathknell is moved to the Trash, note its location, its attributes, and any other details related to the effect of its Deathknell to process the trigger after it has been Finalized." },
-        { num: "732.6", text: "Each instance of Deathknell a Permanent may have will trigger separately. The controller will choose the order to add these Triggers to the chain." },
-        { num: "732.7", text: "Deathknell, and whether or not a permanent has Deathknell, is a characteristic of the permanent and may be checked or referenced by other Game Effects." },
-        { num: "733", text: "**Deflect**: Deflect is a Passive Ability keyword. It is present on Permanents." },
-        { num: "733.1", text: "Deflect is formatted as \"Deflect [X]\". The X is the Deflect Value. If X is omitted, it is presumed to be 1." },
-        { num: "733.2", text: "It is functionally short for \"Spells and abilities an opponent controls that choose me cost an amount of Power equal to [Deflect Value] more to play as an additional cost.\"" },
-        { num: "733.2.a", text: "The Power used to pay this cost may always be of any Domain." },
-        { num: "733.3", text: "It is an effect that imposes a Mandatory Additional Cost on Spells and Abilities that choose the permanent that has this ability." },
-        { num: "733.4", text: "If a Unit has Deflect, or has been granted Deflect, and is granted Deflect by an additional source, the Deflect Value of all granted Deflect keywords is summed." },
-        { num: "733.5", text: "Deflect, and whether or not a permanent has Deflect, is a characteristic of the permanent and may be checked or referenced by other Game Effects." },
-        { num: "734", text: "**Ganking**: Ganking is a Passive Ability keyword. It is present on Units." },
-        { num: "734.1", text: "It is functionally short for \"I may move to a battlefield from another battlefield.\"" },
-        { num: "734.2", text: "It is a passive ability that adds permissions to the Unit's Standard Move. It does not restrict or remove options from the Unit's Standard Move." },
-        { num: "734.3", text: "It does not have an activation cost. It does not give additional abilities or activations of Movement, only new options for the Standard Move." },
-        { num: "734.4", text: "Multiple instances of Ganking are redundant." },
-        { num: "734.5", text: "Ganking, and whether or not a unit has Ganking, is a characteristic of the Unit and may be checked or referenced by other Game Effects." },
-        { num: "735", text: "**Hidden**: Hidden is a keyword that acts as a prerequisite to perform the Hide Discretionary Action. It is present on Spells, Units, and Gear." },
-        { num: "735.1", text: "It is functionally short for \"While this card is in your hand or in the Champion Zone on your turn during an Open State, you may pay [A] to hide this facedown at a battlefield you control that doesn't already have a facedown card hidden there for as long as you control that battlefield. Beginning on the next turn, this gains [Reaction] and you may play this, ignoring its base cost.\"" },
-        { num: "735.2", text: "It allows the player to take the Discretionary Action Hide. Hide is not a subset of Play. Hiding a card does not open a chain. Playing a card from facedown (or \"from Hidden\") does open a chain." },
-        { num: "735.3", text: "Some choices made while playing a card from Hidden are restricted to the battlefield where it was hidden. A card cannot be played from Hidden if it is a spell with no valid targets under these restrictions." },
-        { num: "735.3.a", text: "A hidden unit must be played to that battlefield." },
-        { num: "735.3.b", text: "If a hidden spell or a play effect of a hidden permanent chooses any targets, those targets must be chosen from among options at that battlefield, unless the ability explicitly restricts targeting in a way that makes this impossible." },
-        { num: "735.3.c", text: "If a hidden spell or a play effect of a hidden permanent causes you to play a unit, you must choose to play that unit at that battlefield." },
-        { num: "735.4", text: "Abilities and instructions of hidden cards other than the choices listed above function as normal." },
-        { num: "735.5", text: "Instead of being hidden, a card with Hidden may be played for its cost as normal, at its normal timing with no restrictions on targeting." },
-        { num: "735.6", text: "Multiple instances of Hidden are redundant." },
-        { num: "735.7", text: "Hidden, and whether or not a card has Hidden, is a characteristic of the card and may be checked or referenced by other Game Effects. This is independent of the state of being facedown." },
-        { num: "735.8", text: "A card that is Hidden gains Reaction while facedown, and may be played any time a card with Reaction may be played as a result. The property is granted to the card in its facedown state, and is not publicly known." },
-        { num: "736", text: "**Legion**: Legion is a **Dependent Keyword**." },
-        { num: "736.1", text: "It is formatted as \"[Legion][>] [Text]\". Starting from the Keyword to the end of the clause, the entire statement is the Legion Ability." },
-        { num: "736.1.a", text: "Legion is functionally short for \"If you have played another card this turn, this card gains [Text].\" The [Text] is the Dependent Ability." },
-        { num: "736.2", text: "As long as a card different than the one with the Legion ability has been Finalized on the same turn, the Dependent Ability is Active on the card with Legion." },
-        { num: "736.4", text: "Legion's conditional can apply to passive abilities, activated abilities, spell instructions, or even abilities active in zones outside of the board." },
-        { num: "736.5", text: "All instances of Legion on cards a player controls are satisfied by that player playing a single card." },
-        { num: "736.6", text: "Legion, and whether or not a card has Legion, is a characteristic of the card and may be checked or referenced by other Game Effects." },
-        { num: "737", text: "**Reaction**: Reaction is a Permissive keyword. It can be present on Spells, Units, Rune Abilities, Legend Abilities and Permanent Abilities." },
-        { num: "737.1", text: "Reaction grants the corresponding card or effect all abilities and permissions of Action." },
-        { num: "737.2", text: "Reaction, additionally, is functionally short for: On Spells: \"This can be played during Closed States on any player's turn.\" On Units: \"This can be played during Closed States on any player's turn.\" On Rune, Legend, or Permanent Abilities: \"This can be activated during Closed States on any player's turn.\"" },
-        { num: "737.3", text: "The corresponding card or effect with this keyword is not restricted to Closed States or Showdowns. This permission is inclusive of all other timings and options available to the ability as written, Action's permissions, or by default." },
-        { num: "737.4", text: "Reaction does not alter the function of any instruction of the Card, Rune, or Effect it is on. It is only Permission." },
-        { num: "737.5", text: "Playing Units with Reaction still has the inherent restrictions of playing Units without Reaction. It can only be played to the controlling player's base or a battlefield they control." },
-        { num: "737.6", text: "Reaction is a referenceable characteristic. Whether or not a Game Object has Reaction is a characteristic of that Game Object and may be checked or referenced by other Game Effects." },
-        { num: "738", text: "**Shield**: Shield is a Passive Ability keyword. It is present on Units." },
-        { num: "738.1", text: "Shield is formatted as \"Shield [X]\". The X is the Shield Value. If X is omitted, it is presumed to be 1." },
-        { num: "738.2", text: "It is functionally short for \"While I am a defender, I have +X [M].\" Being a defender means the Unit has gained the Defender designation during Combat." },
-        { num: "738.3", text: "Shield remains in effect as long as the Unit maintains the Defender designation." },
-        { num: "738.4", text: "If a Unit has Shield, or has been granted Shield, and is granted Shield by an additional source, the Shield Value of all granted Shield keywords is summed." },
-        { num: "738.5", text: "Shield, and whether or not a unit has Shield, is a characteristic of the Unit and may be checked or referenced by other Game Effects." },
-        { num: "739", text: "**Tank**: Tank is a Passive Ability keyword. It is present on Units." },
-        { num: "739.1", text: "It is functionally short for \"I must be assigned lethal damage before any other unit with the same controller as me that does not have [Tank] during combat resolution.\"" },
-        { num: "739.2", text: "It alters how players can elect to assign combat damage during combat. Players must still assign lethal damage to a unit before moving to the next when assigning their damage." },
-        { num: "739.3", text: "If more than one unit with Tank is present with the same controller in Combat, damage may be assigned to any of them. Units without Tank are invalid assignments until all units with Tank have lethal damage assigned to them." },
-        { num: "739.4", text: "Multiple instances of Tank are redundant." },
-        { num: "739.5", text: "Tank, and whether or not a unit has Tank, is a characteristic of the Unit and may be checked or referenced by other Game Effects." },
-        { num: "740", text: "**Temporary**: Temporary is a Triggered Ability keyword. It is present on Permanents." },
-        { num: "740.1", text: "It is functionally short for \"At the start of this permanent's controller's Beginning Phase, before scoring, kill this.\"" },
-        { num: "740.2", text: "The Trigger Condition is the controller of the permanent's Beginning Phase occurring." },
-        { num: "740.3", text: "Multiple instances of Temporary are redundant." },
-        { num: "740.4", text: "Temporary, and whether or not a permanent has Temporary, is a characteristic of the permanent and may be checked or referenced by other Game Effects." },
-        { num: "741", text: "**Vision**: Vision is a Triggered Ability keyword. It is present on Permanents." },
-        { num: "741.1", text: "It is functionally short for \"When this is played, look at the top card of your Main Deck. You may recycle it.\"" },
-        { num: "741.2", text: "The trigger is the permanent entering the Board." },
-        { num: "741.3", text: "Multiple instances of Vision trigger separately. The player may choose to recycle or not recycle for each instance of Vision separately." },
-        { num: "741.4", text: "If the player does not recycle the top card and nothing else happens in between the triggers resolving, each instance of Vision will see the same card." },
-        { num: "741.5", text: "Vision, and whether or not a permanent has Vision, is a characteristic of the permanent and may be checked or referenced by other Game Effects." },
-        { num: "742", text: "**Equip**: Equip is an Activated Ability keyword. It is normally present on Gear with the tag Equipment." },
-        { num: "742.1", text: "Equip has a cost to activate and Attaches the card with Equip to a chosen Unit when the cost is paid. Equip's choice is a Target. The chosen Unit will become the Top-Most Card for the Attach action." },
-        { num: "742.2", text: "Equip is formatted as \"Equip [Cost]\". If paying costs or making choices for this ability causes triggered abilities to trigger, they will be placed on the chain above this ability in a Pending state." },
-        { num: "742.3", text: "Equip is functionally short for \"[Cost]: Attach this gear to a unit you control.\"" },
-        { num: "742.4", text: "Equip costs may include both resource costs and non-resource costs." },
-        { num: "742.5", text: "Equip abilities may also include text that alters the Equip cost. Such text is taken into account when determining a card's Equip cost for any reason." },
-        { num: "742.6", text: "Equip abilities may include text that alters the timing or targeting of the Equip ability." },
-        { num: "742.7", text: "When the Attach action completes from this keyword, the Unit that was chosen is considered to have been Equipped by the Gear with this ability. This is an event other Game Effects and Triggered Abilities can reference." },
-        { num: "742.8", text: "**Equipped** is the state of a Top-Most Card being Attached by one or more cards that are Equipment. The state of being Equipped is synchronous with that of the Attached state of the Equipment." },
-        { num: "742.9", text: "Multiple instances of Equip are equivalent to multiple Activated Abilities and can each be activated separately by paying the corresponding costs." },
-        { num: "742.10", text: "Equip, and whether or not a Gear has Equip, is a characteristic of the Gear and may be checked or referenced by other Game Effects. Whether or not a Gear has Equip may be referenced even if the Rules Text of the Gear is Inactive." },
-        { num: "743", text: "**Quick-Draw**: Quick-Draw is a Triggered Ability keyword. It is also a Permissive keyword. Quick-Draw is present on Gear with Equip abilities." },
-        { num: "743.1", text: "Cards with Quick-Draw have Reaction inherently." },
-        { num: "743.2", text: "Quick-Draw allows cards to be played and Attached using Reaction timing." },
-        { num: "743.3", text: "Quick-Draw is functionally short for \"[Reaction]\" and \"When you play this, attach it to a Unit you control.\"" },
-        { num: "743.4", text: "Multiple instances of Quick-Draw do not trigger separately and have no effect beyond the first." },
-        { num: "743.5", text: "Quick-Draw has no function while on the board." },
-        { num: "743.6", text: "Quick-Draw, and whether or not a gear has Quick-Draw, is a characteristic of the Gear and may be checked or referenced by other Game Effects." },
-        { num: "744", text: "**Repeat**: Repeat is an Optional Additional Cost keyword. Repeat is present on Spells." },
-        { num: "744.1", text: "Repeat is an optional cost that a player may pay to execute the effect of their spells a second time." },
-        { num: "744.2", text: "Repeat is formatted as \"Repeat [Cost]\". The Cost is an Additional Cost to be paid during the steps of playing the spell." },
-        { num: "744.3", text: "If a spell has more than one instance of Repeat, each Cost may be paid or not paid individually. Each Repeat Cost can be paid only a single time." },
-        { num: "744.4", text: "Repeat is functionally short for \"You may pay [Cost] as an additional cost as you play this spell. If you do, execute the instructions of this spell one additional time.\"" },
-        { num: "744.5", text: "When a spell's effect is performed an additional time with Repeat, choices must be made at the usual time during the Make Relevant Choices step of Playing a Card. Choices made for the additional execution do not have to be the same as the choices made for the initial execution." },
-        { num: "744.6", text: "Multiple instances of Repeat can be paid for separately. The spell's instructions will be executed an additional time for each instance of Repeat that is paid for. Regardless of the number of times a spell's instructions are executed with this keyword, the spell is only Played once." },
-        { num: "744.7", text: "Repeat, and whether or not a spell has Repeat, is a characteristic of the Spell and may be checked or referenced by other Game Effects." },
-        { num: "745", text: "**Weaponmaster**: Weaponmaster is a Triggered Ability keyword. It is present on Units." },
-        { num: "745.1", text: "Weaponmaster is a Play Effect that chooses an Equipment you control and allows you to pay its Equip cost at a discount, regardless of the usual timing of the Equip ability, to Attach that Equipment to the unit with Weaponmaster." },
-        { num: "745.2", text: "Weaponmaster is functionally short for: \"When you play me, choose a Card you control with the Equipment tag. Necessary portions of its Rules Text are no longer Inactive if they are currently Inactive. Pay the cost of its Equip ability, reduced by [A], to attach it to this unit.\"" },
-        { num: "745.3", text: "Weaponmaster can choose an Equipment whether it has an Equip ability or not." },
-        { num: "745.4", text: "The cost of the Equip ability is determined as though that Equip ability was being activated choosing the unit with the Weaponmaster ability, as modulated by any abilities that alter Equip costs." },
-        { num: "745.4.a", text: "If the chosen card's Equip cost does not contain [A], it can still be paid, but will not be reduced." },
-        { num: "745.4.b", text: "If the chosen card doesn't have an Equip cost, it can't be paid." },
-        { num: "745.4.c", text: "If the chosen card's Equip cost can't be paid, if it can't be detached from its current Top-Most card, or if it can't be attached to the unit with the Weaponmaster ability, it stays in its current location, Attached to anything it was already Attached to. The Equip ability is not activated this way, and the unit with the Weaponmaster ability is not chosen." },
-        { num: "745.5", text: "Multiple instances of Weaponmaster trigger separately, and can choose different targets. If you choose the same target with multiple instances of Weaponmaster, each will resolve separately." },
-        { num: "745.6", text: "Weaponmaster has no function while on the board." },
-        { num: "745.7", text: "Weaponmaster, and whether or not a unit has Weaponmaster, is a characteristic of the Unit and may be checked or referenced by other Game Effects." },
-        { num: "746", text: "**Ambush**: Ambush is a Passive Ability keyword. It is present on Units." },
-        { num: "746.1", text: "It is functionally short for \"I may be played to a battlefield where you control Units\" and \"I have [Reaction] as long as I'm being played to a battlefield where you control Units.\"" },
-        { num: "746.2", text: "It is a passive ability that adds options to locations that are valid for a Unit to be played to during the Make Relevant Choices step of Playing a Card." },
-        { num: "746.3", text: "Multiple instances of Ambush are redundant." },
-        { num: "746.4", text: "If there are no units at the location chosen before Finalization completes for any reason, then it is no longer a valid location by Ambush's reasoning and cannot be played there." },
-        { num: "746.4.a", text: "Other effects and permissions may still enable this Unit to be played to the selected location, but Ambush's permission will not be valid." },
-        { num: "746.5", text: "Ambush, and whether or not a unit has Ambush, is a characteristic of the Unit and may be checked or referenced by other Game Effects." },
-        { num: "747", text: "**Hunt**: Hunt is a Triggered Ability keyword. It is present on Units." },
-        { num: "747.1", text: "Hunt is both a Conquer and a Hold effect." },
-        { num: "747.2", text: "Hunt is formatted as \"Hunt X\". It is functionally short for \"When I Conquer or Hold, my controller gains X XP.\"" },
-        { num: "747.2.a", text: "If X is omitted, it is presumed to be 1. X is referred to as the Hunt Value." },
-        { num: "747.3", text: "If a Unit has Hunt, or has been granted Hunt, and is granted Hunt by an additional source, the Hunt Value of all granted Hunt keywords is summed." },
-        { num: "747.4", text: "Hunt, and whether or not a unit has Hunt, is a characteristic of the Unit and may be checked or referenced by other Game Effects." },
-        { num: "748", text: "**Level**: Level is a Dependent Keyword." },
-        { num: "748.1", text: "It is formatted as \"[Level N][>] [Text]\". Starting from the Keyword to the end of the clause, the entire statement is the Level Ability." },
-        { num: "748.1.a", text: "It is functionally short for \"While you have [N] or more XP, this card gains [Text].\" The [Text] is the Dependent Ability." },
-        { num: "748.2", text: "As long as the controlling player has [N] XP, the Dependent Ability is Active on the card with Level." },
-        { num: "748.2.a", text: "If the controller of the card with Level changes, the Dependent Ability becomes Active or Inactive based on the new controller's XP." },
-        { num: "748.3", text: "The Dependent Ability becomes Inactive as soon as the controlling player has less than [N] XP." },
-        { num: "748.4", text: "Level, and whether or not a card has Level, is a characteristic of the card and may be checked or referenced by other Game Effects." },
-        { num: "749", text: "**Unique**: Unique is a Deck Constraint Permission." },
-        { num: "749.1", text: "Unique is not functionally short for any rules text — it provides a restriction during Deck Construction." },
-        { num: "749.1.a", text: "A Deck can contain only one card of a given name if the card has Unique." },
-        { num: "749.1.b", text: "If a card is a Signature card and is also Unique, the Deck can contain any combination of three Signature cards, but still only one of each named Unique card." },
-        { num: "749.2", text: "Cards with Unique have no additional effects during gameplay." },
-        { num: "749.3", text: "Unique, and whether or not a Card has Unique, is a characteristic of the Unit and may be checked or referenced by other Game Effects." },
-        { num: "750", text: "**Backline**: Backline is a Passive Ability keyword. It is present on Units." },
-        { num: "750.1", text: "It is functionally short for \"I must be assigned lethal damage after any other unit with the same controller as me that does not have [Backline] during the Combat Damage step.\"" },
-        { num: "750.2", text: "It alters how players can elect to assign combat damage during combat. Players must still assign lethal damage to a unit before moving to the next when assigning their damage." },
-        { num: "750.3", text: "If more than one unit with Backline is present with the same controller in Combat, damage may be assigned to any of them. Units with Backline are invalid assignments until all units without Backline have lethal damage assigned to them." },
-        { num: "750.4", text: "Multiple instances of Backline are redundant." },
-        { num: "750.5", text: "Backline, and whether or not a unit has Backline, is a characteristic of the Unit and may be checked or referenced by other Game Effects." },
-      ]
-    },
-    {
-      num: "760", title: "Dependent Keywords",
-      rules: [
-        { num: "761", text: "Keywords can be **Dependent Keywords**." },
-        { num: "761.1", text: "A Dependent Keyword is comprised of both a **Condition** that it is short for, and an ability of some format immediately after the Keyword itself. *Example:* Nexus Hopeful has \"[Legion][>] I cost [2] less.\" [Legion] is short for the condition \"if you have played another card this turn, this card gains [Text],\" while \"I cost [2] less\" is the dependent ability." },
-        { num: "761.1.a", text: "A Dependent Keyword will always be functionally short for a **Condition**." },
-        { num: "761.1.a.1", text: "This Condition may also have a determined Duration, Time, or Limitation as part of its definition." },
-        { num: "761.1.b", text: "The **Dependent Ability** associated with the Dependent Keyword is **Inactive** on the card with the Dependent Keyword until the Condition is met, when it becomes **Active**." },
-        { num: "761.1.b.1", text: "The Dependent Ability is present on the card for the sake of reference or evaluation until the Condition is met." },
-        { num: "761.1.b.2", text: "The Dependent Ability is Active exactly as written while the Condition is true. *Example:* Gustwalker has \"[Level 3][>] I have +1 [M] and Ganking.\" As long as its controller has 3 XP, Gustwalker's Ganking is active." },
-        { num: "761.1.c", text: "The Dependent Abilities of Dependent Keywords can be of any type." },
-        { num: "761.1.c.1", text: "**Triggered Abilities** of Dependent Keywords must be Active for their trigger to be evaluated. If a Triggered Ability becomes active at the same time as its trigger condition would be fulfilled, it triggers." },
-        { num: "761.1.c.2", text: "**Passive Abilities** begin applying at the same time the Dependent Keyword becomes true." },
-        { num: "761.1.c.3", text: "**Activated Abilities** that become Active from Dependent Keywords can be activated at their associated timing after that ability has been granted." },
-        { num: "761.1.c.3.a", text: "If the condition for the Dependent Keyword causes the Activated Ability to become Inactive after it has been added to the chain as a Pending Item, that chain item will not be affected and will proceed with being played as normal." },
-      ]
-    },
-    {
-      num: "770", title: "XP",
-      rules: [
-        { num: "771", text: "**XP** is a resource that is accrued, spent, or otherwise modified by Players through the course of play." },
-        { num: "771.1", text: "The amount of XP that a player has should be marked clearly. XP is a value that can be tracked by counters, dice, cards, or any method that clearly displays the specific value of XP currently on a Player." },
-        { num: "771.2", text: "The amount of XP a Player has is **Public Information**." },
-        { num: "772", text: "XP can be **Gained** and **Spent**." },
-        { num: "772.1", text: "To Gain XP, increase the value of XP marked on the Player gaining it." },
-        { num: "772.2", text: "To Spend XP, reduce the value of XP marked on the Player spending it." },
-        { num: "773", text: "XP is not a Game Object." },
-        { num: "773.1", text: "XP cannot be targeted, readied, or exhausted." },
-        { num: "774", text: "XP is not shared between Allies in Game Modes with Teammates." },
-        { num: "775", text: "There is no limit to an amount of XP a player can accrue." },
-      ]
-    },
-    {
-      num: "780", title: "Additional Turns",
-      rules: [
-        { num: "781", text: "Certain Game Effects will instruct a player to \"take a turn after this.\" These effects create a temporary **Additional Turn** owned by that player that is inserted into the turn queue after the current turn." },
-        { num: "782", text: "Turn order is established when the game begins as a repeating set of players. This populates a looping queue of turns that each player will take, starting with the first turn taken by the First Player, and repeating indefinitely." },
-        { num: "783", text: "When an Additional Turn is inserted into this queue, it does not change the **Turn Order** of the game. The owner of the Additional Turn just has the next queued turn. After that turn is completed, it will be removed and the queue will proceed with its previously queued turns." },
-        { num: "784", text: "If multiple Additional Turns are queued, they are added to the queue in the order the Game Effects that generated them occurred." },
-      ]
-    },
-    {
-      num: "790", title: "Special Terms",
-      rules: [
-        { num: "791", text: "Some card text refers to **Game Objects** in particular ways:" },
-        { num: "791.1", text: "Two Game Objects are **friendly** if they share a controller, or if one's controller is teammates with the other's." },
-        { num: "791.2", text: "Two Game Objects are **enemies** if one's controller is an opponent of the other's." },
-        { num: "792", text: "Some card text refers to **Units** in particular ways:" },
-        { num: "792.1", text: "A unit is **alone** when there are no other friendly units at the same location." },
-        { num: "792.2", text: "A unit is **one on one** when it and the enemy unit at the same location are both **alone**." },
-        { num: "792.3", text: "A unit is **in combat** if it is occupying a battlefield where combat is ongoing and has a combat designation." },
-        { num: "793", text: "Some terms in this document are used in particular ways:" },
-        { num: "793.1", text: "**Costs within instructions** are instructions that take a particular form (\"[do X] to [do Y]\"). [Do X] is the cost associated with the instruction, and [do Y] is the effect." },
-        { num: "793.1.a", text: "For spells, costs within instructions are paid on resolution of the spell. In order to get the effect, the cost must be paid." },
-        { num: "793.1.b", text: "For triggered abilities, costs within instructions are paid on finalization of the triggered ability. In order to place the triggered ability on the chain, the cost must be paid." },
+  "title": "Riftbound Core Rules",
+  "lastUpdated": "2026-07-16",
+  "version": "RUP4",
+  "sections": [
+    {
+      "num": "000",
+      "title": "Golden and Silver Rules",
+      "rules": [
+        {
+          "num": "001",
+          "text": "**Golden Rule**"
+        },
+        {
+          "num": "002",
+          "text": "Card text supersedes rules text. Whenever a card fundamentally contradicts the rules, the card's indication is what is true."
+        },
+        {
+          "num": "050",
+          "text": "**Silver Rule**"
+        },
+        {
+          "num": "051",
+          "text": "Card text uses different terminology than rules. Card text should be interpreted according to these rules, not as though it were text within these rules."
+        },
+        {
+          "num": "052",
+          "text": "Card, when written in card effects, is shorthand for \"Main Deck card.\" Runes, legends, and battlefields are not considered cards when executing the abilities and effects of game objects. They are considered cards for the purposes of these rules."
+        },
+        {
+          "num": "053",
+          "text": "Cards refer to themselves in the first person."
+        },
+        {
+          "num": "053.1",
+          "text": "* Units and legends say \"I,\" \"me,\" etc."
+        },
+        {
+          "num": "053.2",
+          "text": "* Gear and spells say \"this.\""
+        },
+        {
+          "num": "053.3",
+          "text": "* Battlefields say \"here.\""
+        },
+        {
+          "num": "053.4",
+          "text": "* Cards may refer to themselves by their name for clarity. This is shorthand for the above terms."
+        },
+        {
+          "num": "054",
+          "text": "**\"Can't beats Can\"**"
+        },
+        {
+          "num": "054.1",
+          "text": "Cards that forbid actions or effects, as a broad method of determination, supersede cards that allow or permit that same action or effect."
+        },
+        {
+          "num": "054.2",
+          "text": "If a card specifies that an action can \"only\" be performed under certain circumstances, it cannot be performed under any other circumstances."
+        },
+        {
+          "num": "055",
+          "text": "When executing card text, do as much as you can, ignoring impossible instructions."
+        },
+        {
+          "num": "055.1",
+          "text": "If all of a card's instructions are impossible, it is still played and resolved, but nothing happens."
+        },
+        {
+          "num": "056",
+          "text": "Cards a player owns may never be placed into a non-Board zone belonging to another player."
+        },
+        {
+          "num": "056.1",
+          "text": "Non-Board zones corresponding to a player include Main Deck, Rune Deck, Trash, Hand, Chosen Champion zone, and Banishment."
+        },
+        {
+          "num": "056.2",
+          "text": "If a card would enter such a zone, it goes to its owner's corresponding zone instead."
+        }
+      ]
+    },
+    {
+      "num": "100",
+      "title": "Game Concepts",
+      "rules": [
+        {
+          "num": "101",
+          "text": "**Deck Construction**"
+        },
+        {
+          "num": "102",
+          "text": "Riftbound is a Trading Card Game where a player must provide their own cards to play against other players."
+        },
+        {
+          "num": "103",
+          "text": "To play Riftbound, a player must have a Main Deck, a Rune Deck, a Champion Legend, and a number of Battlefields determined by the Mode of Play. These are collectively referred to as a player's deck."
+        },
+        {
+          "num": "103.1",
+          "text": "1 Champion Legend"
+        },
+        {
+          "num": "103.1.a",
+          "text": "This is placed in the Legend Zone at the start of the game."
+        },
+        {
+          "num": "103.1.b",
+          "text": "This will dictate the Domain Identity of the deck."
+        },
+        {
+          "num": "103.1.b.1",
+          "text": "Cards included in your deck must abide by your Domain Identity."
+        },
+        {
+          "num": "103.1.b.2",
+          "text": "Your deck's Domain Identity is dictated by the domains of your Champion Legend. In the default card frame, these domains appear as symbols in the legend's upper left corner."
+        },
+        {
+          "num": "103.1.b.3",
+          "text": "If a card has a single Domain, then that card is permitted in the Domain Identity that corresponds to the same Domain."
+        },
+        {
+          "num": "103.1.b.4",
+          "text": "If a card has more than one Domain, then that card is permitted only in a Domain Identity that contains all of the indicated Domains on that card."
+        },
+        {
+          "num": "103.1.b.5",
+          "text": "Some Game Effects may allow a player to add cards to their deck irrespective of those cards' Domains. Those cards are considered part of their deck's Domain Identity, regardless of their Domain."
+        },
+        {
+          "num": "103.2",
+          "text": "A Main Deck of at least 40 cards: A Chosen Champion Unit, as well as Units, Gear, and Spells"
+        },
+        {
+          "num": "103.2.a",
+          "text": "Chosen Champion"
+        },
+        {
+          "num": "103.2.a.1",
+          "text": "This will be placed in the Champion Zone at the start of the game."
+        },
+        {
+          "num": "103.2.a.2",
+          "text": "Must be a champion unit with a champion tag that matches the tag on your Champion Legend. Example: Loose Cannon has the tag Jinx. Therefore, a player could choose Jinx, Rebel or Jinx, Demolitionist as their Chosen Champion, because they also have the tag Jinx. Example: Tibbers has the tag Annie, but it is a signature unit, not a champion unit. It cannot be your Chosen Champion, even if your Champion Legend has the tag Annie."
+        },
+        {
+          "num": "103.2.a.3",
+          "text": "A player's Chosen Champion is both the specific card chosen for this slot during Deck Building and also any Champion Unit with the same name as the specific card selected for this specific slot during the course of play. Example: A player chose Jinx, Rebel as their Chosen Champion. One copy of Jinx, Rebel starts the game in their Chosen Champion zone. Any additional copies of Jinx, Rebel in their Main Deck, their hand, their trash, or on the board also count as their Chosen Champion for any game rules and effects that care about Chosen Champion status during the game."
+        },
+        {
+          "num": "103.2.b",
+          "text": "Your Main Deck can include up to 3 copies of the same named card."
+        },
+        {
+          "num": "103.2.b.1",
+          "text": "This includes your Chosen Champion. Example: A deck could include Volibear, Furious as its Chosen Champion and still include 2 more copies of Volibear, Furious in their Main Deck."
+        },
+        {
+          "num": "103.2.b.2",
+          "text": "Cards have different names even if they represent the same character. Example: A deck could include 3 copies of Yasuo, Remorseful and 3 copies of Yasuo, Windrider, because they have different names."
+        },
+        {
+          "num": "103.2.c",
+          "text": "Subject to Domain Identity."
+        },
+        {
+          "num": "103.2.d",
+          "text": "Your deck may only contain 3 total Signature cards that have the same Champion tag as your Champion Legend."
+        },
+        {
+          "num": "103.2.d.1",
+          "text": "Regardless of name, a deck may only contain a sum total of 3 Signature cards."
+        },
+        {
+          "num": "103.2.d.2",
+          "text": "All of the Signature cards must have the Champion tag that corresponds to the Champion Legend of the deck."
+        },
+        {
+          "num": "103.2.d.3",
+          "text": "Signature cards are not Champion units and cannot be placed in the Champion Zone."
+        },
+        {
+          "num": "103.2.e",
+          "text": "Subject to card legality of the Format being played."
+        },
+        {
+          "num": "103.3",
+          "text": "Rune Deck"
+        },
+        {
+          "num": "103.3.a",
+          "text": "12 Rune Cards"
+        },
+        {
+          "num": "103.3.a.1",
+          "text": "Cards in the Rune Deck must be of the Domain Identity of your Champion Legend."
+        },
+        {
+          "num": "103.3.b",
+          "text": "Must be shuffled and kept separate from the Main Deck."
+        },
+        {
+          "num": "103.4",
+          "text": "Battlefields"
+        },
+        {
+          "num": "103.4.a",
+          "text": "The number will be dictated by your Mode of Play."
+        },
+        {
+          "num": "103.4.b",
+          "text": "Subject to Domain Identity if applicable."
+        },
+        {
+          "num": "103.4.c",
+          "text": "Cannot include more than one of a Battlefield of the same name when there are more than one required for the deck."
+        }
+      ]
+    },
+    {
+      "num": "104",
+      "title": "Setup",
+      "rules": [
+        {
+          "num": "105",
+          "text": "**Spaces**"
+        },
+        {
+          "num": "106",
+          "text": "The Play Area is a collection of logical Zones that are defined by their behaviors and relationships to Players. These Zones are grouped into The Board and Non-Board Zones."
+        },
+        {
+          "num": "107",
+          "text": "**The Board**"
+        },
+        {
+          "num": "107.1",
+          "text": "Bases"
+        },
+        {
+          "num": "107.1.a",
+          "text": "Each player has their own Base."
+        },
+        {
+          "num": "107.1.b",
+          "text": "Each Base is a Location. See rule 197. Locations for more information."
+        },
+        {
+          "num": "107.1.c",
+          "text": "Permanents and Runes controlled by a player reside in that player's Base."
+        },
+        {
+          "num": "107.1.c.1",
+          "text": "Permanents attached to Permanents controlled by a player may also be found in that player's Base, regardless of their controller."
+        },
+        {
+          "num": "107.1.d",
+          "text": "Permanents and Runes in Bases are Public Information."
+        },
+        {
+          "num": "107.2",
+          "text": "Battlefield Zone"
+        },
+        {
+          "num": "107.2.a",
+          "text": "The Battlefield Zone houses multiple Battlefields."
+        },
+        {
+          "num": "107.2.b",
+          "text": "Each Battlefield is individually a Location. See rule 197. Locations for more information."
+        },
+        {
+          "num": "107.2.c",
+          "text": "Battlefields and permanents at Battlefields are Public Information."
+        },
+        {
+          "num": "107.3",
+          "text": "Facedown Zones"
+        },
+        {
+          "num": "107.3.a",
+          "text": "Each Battlefield is associated with a sub-zone called a Facedown Zone, a single logical space that a card can be put facedown in through various Game Effects."
+        },
+        {
+          "num": "107.3.b",
+          "text": "Each Facedown Zone has a maximum occupancy of one card."
+        },
+        {
+          "num": "107.3.b.1",
+          "text": "The maximum occupancy of a Facedown Zone can increase or decrease."
+        },
+        {
+          "num": "107.3.b.2",
+          "text": "If the maximum occupancy of a Facedown Zone decreases to a number less than the number of cards currently located there, the controller of that Facedown Zone must put a number of cards equal to the difference in the trash from the Facedown Zone."
+        },
+        {
+          "num": "107.3.c",
+          "text": "Cards can only be placed in or occupy the Facedown Zone if the controller of the card also controls the associated Battlefield."
+        },
+        {
+          "num": "107.3.d",
+          "text": "If a player loses Control of a Battlefield, any cards in the Facedown Zone associated with that Battlefield are removed during the next Cleanup. See rule 318. Cleanups for more information. See rule 421. Hide for more information."
+        },
+        {
+          "num": "107.3.e",
+          "text": "Facedown Zones are not locations."
+        },
+        {
+          "num": "107.3.f",
+          "text": "Facedown Zones are Public Zones, though facedown cards located there are Private."
+        },
+        {
+          "num": "107.4",
+          "text": "Legend Zone"
+        },
+        {
+          "num": "107.4.a",
+          "text": "The space for each player's Champion Legend."
+        },
+        {
+          "num": "107.4.b",
+          "text": "This is not a location."
+        },
+        {
+          "num": "107.4.c",
+          "text": "The Champion Legend here is a Game Object. See rule 119. Game Objects for more information."
+        },
+        {
+          "num": "107.4.d",
+          "text": "The Champion Legend cannot be removed, moved, or displaced from this zone."
+        },
+        {
+          "num": "107.4.d.1",
+          "text": "Some effects may add a legend card or token to the Legend Zone. These legends are not Champion Legends."
+        },
+        {
+          "num": "107.4.d.2",
+          "text": "Non-Champion legends may be removed from the Legend Zone. They cannot exist in any zone other than the Legend Zone or Banishment."
+        },
+        {
+          "num": "108",
+          "text": "**Non-Board Zones**"
+        },
+        {
+          "num": "108.1",
+          "text": "The Chain"
+        },
+        {
+          "num": "108.1.a",
+          "text": "Cards and abilities are placed here as part of the process of being played. See rule 327. Chains for more information."
+        },
+        {
+          "num": "108.1.b",
+          "text": "Cards and abilities on the Chain are Public Information."
+        },
+        {
+          "num": "108.2",
+          "text": "Trashes"
+        },
+        {
+          "num": "108.2.a",
+          "text": "Each player has their own Trash."
+        },
+        {
+          "num": "108.2.b",
+          "text": "This space is where cards are placed when they are killed or discarded, when they finish being executed as spells, when they are moved to the trash as an effect, etc."
+        },
+        {
+          "num": "108.2.c",
+          "text": "Cards in each player's Trash are unordered. Their sequence does not matter, and they may be reorganized."
+        },
+        {
+          "num": "108.2.d",
+          "text": "Cards in a player's Trash are Public Information. See rule 128. Privacy for more information."
+        },
+        {
+          "num": "108.3",
+          "text": "Champion Zones"
+        },
+        {
+          "num": "108.3.a",
+          "text": "Each player has their own Champion Zone."
+        },
+        {
+          "num": "108.3.b",
+          "text": "The space each player puts their Chosen Champion at the start of the game."
+        },
+        {
+          "num": "108.3.c",
+          "text": "The Chosen Champion cannot be returned to this zone by normal means."
+        },
+        {
+          "num": "108.3.c.1",
+          "text": "If a Chosen Champion is instructed to be returned to this zone, it can only do so if there is not a card already in this zone."
+        },
+        {
+          "num": "108.3.d",
+          "text": "The Chosen Champion can be played from here as normal, following the rules of Playing a Card. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "108.3.e",
+          "text": "Cards in a player's Champion Zone are Public Information."
+        },
+        {
+          "num": "108.4",
+          "text": "Main Deck Zones"
+        },
+        {
+          "num": "108.4.a",
+          "text": "Each player has their own Main Deck Zone."
+        },
+        {
+          "num": "108.4.b",
+          "text": "The space for the player's Main Deck."
+        },
+        {
+          "num": "108.4.c",
+          "text": "Primarily houses the face-down Main Deck during gameplay."
+        },
+        {
+          "num": "108.4.d",
+          "text": "The order of cards in the Main Deck is Secret Information during the course of play. See rule 128. Privacy for more information."
+        },
+        {
+          "num": "108.5",
+          "text": "Rune Deck Zones"
+        },
+        {
+          "num": "108.5.a",
+          "text": "Each player has their own Rune Deck Zone."
+        },
+        {
+          "num": "108.5.b",
+          "text": "The space for the player's Rune Deck."
+        },
+        {
+          "num": "108.5.c",
+          "text": "Primarily houses the face-down runes during gameplay."
+        },
+        {
+          "num": "108.5.d",
+          "text": "The order of runes in the Rune Deck is Secret Information during the course of play. See rule 128. Privacy for more information."
+        },
+        {
+          "num": "108.6",
+          "text": "Banishments"
+        },
+        {
+          "num": "108.6.a",
+          "text": "Each player has their own Banishment."
+        },
+        {
+          "num": "108.6.b",
+          "text": "This space is where cards are placed when they are banished by a spell or effect."
+        },
+        {
+          "num": "108.6.c",
+          "text": "Represents cards that have been removed from play in a more difficult-to-recover way, or a temporary space to hold cards while effects are being processed."
+        },
+        {
+          "num": "108.6.d",
+          "text": "The cards in the banishment are unordered. Their sequence does not matter, and they may be reorganized."
+        },
+        {
+          "num": "108.6.e",
+          "text": "The cards in any player's Banishment are Public Information. See rule 128. Privacy for more information."
+        },
+        {
+          "num": "108.7",
+          "text": "The Hand"
+        },
+        {
+          "num": "108.7.a",
+          "text": "Each player has their own Hand."
+        },
+        {
+          "num": "108.7.b",
+          "text": "This is the location cards go when Drawn."
+        },
+        {
+          "num": "108.7.c",
+          "text": "The cards in a player's hand are Private Information."
+        },
+        {
+          "num": "108.7.d",
+          "text": "The cards in a player's hand are Unordered. Their sequence does not matter and they may be reorganized."
+        },
+        {
+          "num": "108.7.e",
+          "text": "The number of cards in a player's hand is Public Information."
+        },
+        {
+          "num": "108.7.f",
+          "text": "The hand can be targeted as a zone, and cards there can be affected by spells and effects when specified."
+        },
+        {
+          "num": "109",
+          "text": "All Game Objects in the collective Play Areas are Public Information."
+        },
+        {
+          "num": "109.1",
+          "text": "Any player may view, or be provided with the details of the face-up information printed on the cards in the Play Area."
+        },
+        {
+          "num": "109.2",
+          "text": "The State of all Game Objects in the Play Area is also Public Information. Examples: If a Unit is Buffed If a Gear is Exhausted Etc."
+        },
+        {
+          "num": "110",
+          "text": "**Setup Process**"
+        },
+        {
+          "num": "111",
+          "text": "Each player separates their Champion Legend and places it in the Legend Zone."
+        },
+        {
+          "num": "112",
+          "text": "Each player separates their Chosen Champion and places it in the Champion Zone."
+        },
+        {
+          "num": "113",
+          "text": "Each player sets aside their Battlefields."
+        },
+        {
+          "num": "113.1",
+          "text": "Your Mode of Play will dictate how these are used and placed into the Battlefield Zone. See rule 481. Modes of Play for more information."
+        },
+        {
+          "num": "114",
+          "text": "Each player shuffles their Main and Rune Decks, separately, then places them into their respective Zones."
+        },
+        {
+          "num": "114.1",
+          "text": "The Main Deck is placed in the Main Deck Zone."
+        },
+        {
+          "num": "114.2",
+          "text": "The Rune Deck is placed in the Rune Deck Zone."
+        },
+        {
+          "num": "115",
+          "text": "Determine Turn Order using any fair random method agreed on by all players."
+        },
+        {
+          "num": "115.1",
+          "text": "Turn Order is established as a repeating set of the players."
+        },
+        {
+          "num": "115.1.a",
+          "text": "The Mode of Play will specify how to determine a First Player."
+        },
+        {
+          "num": "115.1.b",
+          "text": "If not otherwise specified, Seating then determines the sequence, play proceeding clockwise from the First Player."
+        },
+        {
+          "num": "115.1.b.1",
+          "text": "The First Player is the player who becomes the Turn Player first."
+        },
+        {
+          "num": "115.1.c",
+          "text": "The Turn Order generates a looping queue of turns, starting with the First Player and repeating until the game ends."
+        },
+        {
+          "num": "115.2",
+          "text": "See the selected Mode of Play for any adjustments to each player's first turn. See rule 481. Modes of Play for more information."
+        },
+        {
+          "num": "116",
+          "text": "Players each draw 4."
+        },
+        {
+          "num": "117",
+          "text": "In turn order, players perform their Mulligan."
+        },
+        {
+          "num": "117.1",
+          "text": "A player may choose up to two cards in their hand. They set those cards aside."
+        },
+        {
+          "num": "117.2",
+          "text": "Then, that player draws as many cards as they set aside."
+        },
+        {
+          "num": "117.3",
+          "text": "Finally, that player Recycles the cards that were set aside. See rule 416. Recycle for more information."
+        },
+        {
+          "num": "118",
+          "text": "Begin play with the First Player taking their turn."
+        }
+      ]
+    },
+    {
+      "num": "119",
+      "title": "Game Objects",
+      "rules": [
+        {
+          "num": "120",
+          "text": "A Game Object is any game piece that can produce one or more Game Effects or grant prerequisites for players to take Game Actions."
+        },
+        {
+          "num": "121",
+          "text": "A Game Object does not include nor preclude any inherent properties beyond the ability to produce, or act as the prerequisite for, Game Effects and Game Actions."
+        },
+        {
+          "num": "122",
+          "text": "A Game Object can be a literal object or a logical object."
+        },
+        {
+          "num": "123",
+          "text": "Game Objects include, but are not limited to, the following: Main Deck cards in any zone Runes in any zone Legends Battlefields Tokens in any zone Abilities of any type on the chain Counters and other status markers"
+        },
+        {
+          "num": "124",
+          "text": "A Game Object that changes zones to or from a Non-Board Zone becomes a new object for the purposes of tracking that object."
+        },
+        {
+          "num": "124.1",
+          "text": "Whenever a Game Object changes zones to or from a Non-Board Zone, all Temporary Modifications of all kinds cease to be tracked on it in all capacities. Examples: Damage is cleared. Counters are removed. Granted Keywords are no longer granted. Statuses are cleared."
+        },
+        {
+          "num": "124.2",
+          "text": "A Game Object can have any of the following statuses (non-exhaustive): Attached, Attacking, Buffed, Banished, Controlled, Defending, Empowered, Equipped, Exhausted, Facedown, Readied, Replaced, Revealed, Stunned, and any applied Layer alternations."
+        }
+      ]
+    },
+    {
+      "num": "125",
+      "title": "Cards",
+      "rules": [
+        {
+          "num": "126",
+          "text": "Riftbound games are composed of players playing the cards in their respective decks."
+        },
+        {
+          "num": "127",
+          "text": "**Ownership**"
+        },
+        {
+          "num": "127.1",
+          "text": "For gameplay purposes, a card's Owner is the player who brought it into the game, either as their Champion Legend, one of their Battlefields, as part of their Main Deck or Rune Deck, or Created during the process of play. The legal owner of a card doesn't matter during gameplay. Example: Bo didn't bring a deck, so Alice loans him a deck. During the game, Bo is considered the owner of those cards, even though legally they belong to Alice."
+        },
+        {
+          "num": "128",
+          "text": "**Privacy**"
+        },
+        {
+          "num": "128.1",
+          "text": "A card will always exist in one of the many Zones described during Setup."
+        },
+        {
+          "num": "128.2",
+          "text": "A card will have a different level of Privacy based on its state or where it resides at a given time."
+        },
+        {
+          "num": "128.2.a",
+          "text": "Unless specified otherwise by the state of the card, a card's Privacy is the same as the zone it is located in."
+        },
+        {
+          "num": "128.3",
+          "text": "**Secret**: This level of Privacy indicates that no player may read or look at the face of the card."
+        },
+        {
+          "num": "128.4",
+          "text": "**Private**: This level of Privacy indicates that only the controller of a card on the board or the owner of a card in any other zone may read or look at the face of the card. Example: Cards in a player's hand are owned by that player. Only that player may read or look at their faces. Example: If a player controls a facedown card at a battlefield, that player and only that player may read or look at that card's face, regardless of who owns that card."
+        },
+        {
+          "num": "128.5",
+          "text": "**Public**: This level of Privacy indicates that any player may read or look at the face of the card."
+        },
+        {
+          "num": "128.6",
+          "text": "A player cannot be compelled to perform an action on cards whose privacy is secret or private if that action specifies a type or quality of card. Example: A card effect reads, \"Play a unit from your hand, ignoring its costs.\" Although the effect does not say \"may\", the player can choose not to perform the action even if they have a unit in their hand, because the effect specifies a card type."
+        },
+        {
+          "num": "128.6.a",
+          "text": "If an effect would compel a player to perform an action on cards whose privacy is secret or private, and if that effect specifies a type or quality of card, the player in question may choose to ignore that instruction. Ignored instructions are deemed impossible."
+        },
+        {
+          "num": "129",
+          "text": "**Back Side**"
+        },
+        {
+          "num": "129.1",
+          "text": "The back side of a card is the side with the Riftbound logo."
+        },
+        {
+          "num": "129.2",
+          "text": "There is a unique pattern of back side for each of the three categories of card: Main Deck cards, Rune Deck cards, and Battlefields and Champion Legends."
+        },
+        {
+          "num": "129.3",
+          "text": "The back side of a card is presented to conceal information for Private and Secret information cards. For example, cards in the Main Deck and cards in hand have their back side presented."
+        },
+        {
+          "num": "129.4",
+          "text": "The term facedown is used to describe the state during regular play of having a card's back side presented on the Board. A facedown card's front side is considered Private Information."
+        },
+        {
+          "num": "130",
+          "text": "**Front Side**"
+        },
+        {
+          "num": "130.1",
+          "text": "The front side of a card is the opposite of its back."
+        },
+        {
+          "num": "130.2",
+          "text": "This is also referred to as a front face."
+        },
+        {
+          "num": "130.3",
+          "text": "This can be identified in situations where the back is not easily discernible by the presence of the Play Cost in the upper left corner of the card."
+        },
+        {
+          "num": "130.4",
+          "text": "Cards, when played, are played with their front face presented."
+        },
+        {
+          "num": "130.5",
+          "text": "The term face up is used to describe the state during regular play of having a card's front face presented"
+        },
+        {
+          "num": "130.6",
+          "text": "Cards are considered to be Public Information while in this state, even if obscured by other cards in a pile. Example: The Trash is Public Information because all cards there have their front face presented even while stacked."
+        },
+        {
+          "num": "131",
+          "text": "**Cost**"
+        },
+        {
+          "num": "131.1",
+          "text": "Main Deck cards have a Cost, listed in the upper left corner of the front face of the card. See rule 165. Rune Pools for more information."
+        },
+        {
+          "num": "131.2",
+          "text": "Energy Cost"
+        },
+        {
+          "num": "131.2.a",
+          "text": "The numeral listed in the Cost element in the upper left corner of the card."
+        },
+        {
+          "num": "131.3",
+          "text": "Power cost"
+        },
+        {
+          "num": "131.3.a",
+          "text": "The symbols, listed vertically, in the Cost element in the upper left corner of the card."
+        },
+        {
+          "num": "131.3.b",
+          "text": "This section may not be present on every card."
+        },
+        {
+          "num": "132",
+          "text": "**Name**"
+        },
+        {
+          "num": "132.1",
+          "text": "Each card has a name that identifies it uniquely."
+        },
+        {
+          "num": "132.2",
+          "text": "This is usually located in the middle of the card."
+        },
+        {
+          "num": "132.3",
+          "text": "Cards that are printed in different languages but represent the same card are considered to have the same name for the purposes of deckbuilding and gameplay. Example: Chemtech Enforcer in English and its counterpart in Chinese are considered the same card, despite the Name element on the card reading differently."
+        },
+        {
+          "num": "132.4",
+          "text": "Some cards have both a short name and a subtitle. For all purposes, including rules and deckbuilding, such a card's name is \"[Short Name], [Subtitle]\". Example: Kai'Sa, Evolutionary and Kai'Sa, Survivor both have the short name Kai'Sa, but they have different names. You can include 3 of each in your deck under normal deckbuilding rules. If one of them is your Chosen Champion, the other is not."
+        },
+        {
+          "num": "133",
+          "text": "**Category**"
+        },
+        {
+          "num": "133.1",
+          "text": "A card can have one or more Categories and Sub-Categories based on the properties of its front and back sides."
+        },
+        {
+          "num": "133.2",
+          "text": "These Categories and Sub-Categories dictate the behaviors of the card during play."
+        },
+        {
+          "num": "133.3",
+          "text": "Spells and other effects can refer to categories, sub-categories, supertypes, card types, tags, and other characteristics inclusively or exclusively. Example: A \"non-unit card\" is any card that is not a unit. Example: A \"unit\" is any game object that is a unit, regardless of any other categories it belongs to."
+        },
+        {
+          "num": "133.4",
+          "text": "Main Deck Cards begin the game in the Main Deck or (in the case of a Chosen Champion) the Champion Zone."
+        },
+        {
+          "num": "133.4.a",
+          "text": "Permanents"
+        },
+        {
+          "num": "133.4.a.1",
+          "text": "An umbrella sub-category encompassing Main Deck Game Objects that remain on the board after being played."
+        },
+        {
+          "num": "133.4.a.2",
+          "text": "Unit and Gear are permanent types."
+        },
+        {
+          "num": "133.4.b",
+          "text": "Spells"
+        },
+        {
+          "num": "133.4.b.1",
+          "text": "A sub-category encompassing Main Deck cards with the spell type, which do not remain on the board after being played."
+        },
+        {
+          "num": "133.5",
+          "text": "Rune Deck Cards begin the game in the Rune Deck."
+        },
+        {
+          "num": "133.5.a",
+          "text": "Runes"
+        },
+        {
+          "num": "133.5.a.1",
+          "text": "A sub-category encompassing cards with the rune type. These are channeled rather than played. They remain on the board after being channeled, but they are not permanents, as they are not Main Deck cards."
+        },
+        {
+          "num": "133.6",
+          "text": "Other Cards are not part of either the Main or Rune Decks and begin the game in a zone determined by their type."
+        },
+        {
+          "num": "133.6.a",
+          "text": "Battlefields"
+        },
+        {
+          "num": "133.6.a.1",
+          "text": "A sub-category encompassing cards with the battlefield type. They are not played or channeled. They start the game on the board."
+        },
+        {
+          "num": "133.6.b",
+          "text": "Legends"
+        },
+        {
+          "num": "133.6.b.1",
+          "text": "A sub-category encompassing cards with the legend type. They are not played or channeled. They start the game in the Legend Zone and cannot typically leave it during play."
+        },
+        {
+          "num": "133.7",
+          "text": "Supertypes are Categories that may apply to game objects of multiple types. They are listed before a card's type."
+        },
+        {
+          "num": "133.7.a",
+          "text": "Champion is a supertype that applies exclusively to units. It impacts the rules for deckbuilding. See rule 103.2.a. Chosen Champion for more information."
+        },
+        {
+          "num": "133.7.b",
+          "text": "Signature is a supertype that may apply to game objects of any card type. It impacts the rules for deckbuilding. See rule 103.2.d. for more information about Signature cards."
+        },
+        {
+          "num": "133.8",
+          "text": "Tags are Categories that may apply to game objects of multiple types. They are listed after a card's type."
+        },
+        {
+          "num": "133.8.a",
+          "text": "Tags have no innate rules meaning, but may be referenced by game rules and card effects."
+        },
+        {
+          "num": "133.8.b",
+          "text": "Tags used to link Legends, Champion Units, and Signature cards are known as Champion Tags."
+        },
+        {
+          "num": "134",
+          "text": "**Domain**"
+        },
+        {
+          "num": "134.1",
+          "text": "Most cards belong to one or more of six Domains, identified by one or more symbols in the lower right corner."
+        },
+        {
+          "num": "134.2",
+          "text": "Each Domain has an associated color, a unique symbol, and a shorthand used to represent that symbol in written text."
+        },
+        {
+          "num": "134.2.a",
+          "text": "Fury is associated with the color red and represented by a circular symbol with three projecting points. Its shorthand is [R]."
+        },
+        {
+          "num": "134.2.b",
+          "text": "Calm is associated with the color green and represented by a symbol resembling a leaf. Its shorthand is [G]."
+        },
+        {
+          "num": "134.2.c",
+          "text": "Mind is associated with the color blue and represented by a symbol resembling a sun and moon. Its shorthand is [B]."
+        },
+        {
+          "num": "134.2.d",
+          "text": "Body is associated with the color orange and represented by a blocky diamond-shaped symbol. Its shorthand is [O]."
+        },
+        {
+          "num": "134.2.e",
+          "text": "Chaos is associated with the color purple and represented by a hexagonal symbol with swirls emanating from its center. Its shorthand is [P]."
+        },
+        {
+          "num": "134.2.f",
+          "text": "Order is associated with the color yellow and represented by an angular winged symbol. Its shorthand is [Y]."
+        },
+        {
+          "num": "135",
+          "text": "**Rules Text**"
+        },
+        {
+          "num": "135.1",
+          "text": "All cards have a section that describes how they affect the game. This section is known as the Rules Text of the card."
+        },
+        {
+          "num": "135.2",
+          "text": "This section may contain:"
+        },
+        {
+          "num": "135.2.a",
+          "text": "Abilities"
+        },
+        {
+          "num": "135.2.a.1",
+          "text": "Abilities are discrete pieces of text that describe what a card may or must do. See rule 360. Abilities for more information."
+        },
+        {
+          "num": "135.2.a.2",
+          "text": "They may appear on any card."
+        },
+        {
+          "num": "135.2.b",
+          "text": "Instructions"
+        },
+        {
+          "num": "135.2.b.1",
+          "text": "Instructions are a type of text that appears on spells and within abilities."
+        },
+        {
+          "num": "135.2.b.2",
+          "text": "They describe actions to be performed by one or more players."
+        },
+        {
+          "num": "135.2.b.3",
+          "text": "Instructions will self-describe when they are to be executed. If there is no timing described, they will execute during resolution. Example: An instruction says \"as you play me, kill a unit as an additional cost.\" That instruction will execute as the card is being played. If the card is given Repeat and the Repeat cost is paid, this instruction will not execute because the Repeat execution does not happen until resolution of the spell, after this instruction has executed."
+        },
+        {
+          "num": "135.2.b.4",
+          "text": "Instructions can usually be recognized by the way they are written. An instruction is written in the imperative mood, using the base form of a verb and omitting the subject unless necessary."
+        },
+        {
+          "num": "135.2.b.5",
+          "text": "A single instruction is made up of a game action and its complement."
+        },
+        {
+          "num": "135.2.b.5.a",
+          "text": "The complement of a game action is made up of the players or Game Objects that perform that game action, that that game action is performed on, the condition under which it is performed, and the duration for its effect to last. Some game actions omit a complement entirely. Example: Void Seeker is made up of two instructions. The first is \"deal 4 to a unit at a battlefield.\" Here \"deal 4\" is the game action, while \"a unit at a battlefield,\" is its complement. The second instruction, \"draw 1,\" has no complement. Example: Teemo, Strategist's defend trigger reads \"When I defend, choose an enemy unit here and reveal the top 5 cards of your Main Deck. Deal 1 to that unit for each card with Hidden revealed this way, then recycle the revealed cards.\" There are four instructions here: \"choose an enemy unit here,\" \"reveal the top 5 cards of your Main Deck,\" \"deal 1 to that unit for each card with Hidden revealed this way,\" and \"recycle the revealed cards.\""
+        },
+        {
+          "num": "135.2.b.6",
+          "text": "Instructions do not include trigger conditions or the events or actions that a replacement effect defines as being eligible to be replaced. Example: An ability reads \"When you play me, draw 1.\" The trigger condition for this ability is not an instruction. \"Draw 1,\" is the only instruction included in the ability. Example: An ability reads \"If a unit would die, banish it instead.\" The text \"If a unit would die,\" is not an instruction of the ability. Example: An ability reads \"As I'm revealed from your Main Deck, Add [2].\" The text \"As I'm revealed from your Main Deck,\" is not an instruction of the ability."
+        },
+        {
+          "num": "135.2.c",
+          "text": "Keywords"
+        },
+        {
+          "num": "135.2.c.1",
+          "text": "Keywords are short words or phrases that represent longer abilities or instructions. See rule 800. Keywords for more information."
+        },
+        {
+          "num": "135.2.c.2",
+          "text": "Keywords may or may not have reminder text."
+        },
+        {
+          "num": "135.2.d",
+          "text": "Reminder Text"
+        },
+        {
+          "num": "135.2.d.1",
+          "text": "Reminder text appears in italics and parentheses."
+        },
+        {
+          "num": "135.2.d.2",
+          "text": "Its purpose is to summarize relevant rules, including keywords and other rules."
+        },
+        {
+          "num": "135.2.d.3",
+          "text": "The presence, absence, or exact wording of reminder text has no effect on game function."
+        },
+        {
+          "num": "135.2.e",
+          "text": "Symbols"
+        },
+        {
+          "num": "135.2.e.1",
+          "text": "Rules text sometimes contains symbols that express game concepts. Each symbol also has a shorthand used to represent it in written text."
+        },
+        {
+          "num": "135.2.e.2",
+          "text": "The cost of Exhausting a Permanent is represented by the \"exhaust symbol,\" which resembles a card turning sideways. Its shorthand is [E]. (Some previous rules information has given its shorthand as [T].)"
+        },
+        {
+          "num": "135.2.e.3",
+          "text": "Might is represented by the \"Might symbol,\" which resembles a sword and shield. Its shorthand is [M]. (Some previous rules information has given its shorthand as [S].)"
+        },
+        {
+          "num": "135.2.e.4",
+          "text": "Power of a specific Domain is represented by its domain symbol and the corresponding shorthand. See rule 134. Domain for more information."
+        },
+        {
+          "num": "135.2.e.5",
+          "text": "Power of any Domain is represented by a swirling rainbow symbol. Its shorthand is [A]."
+        },
+        {
+          "num": "135.2.e.5.a",
+          "text": "When required as a cost, [A] can be paid by Power of any Domain."
+        },
+        {
+          "num": "135.2.e.5.b",
+          "text": "When Added to a player's Rune Pool, [A] can be spent to pay a Power cost of any Domain."
+        },
+        {
+          "num": "135.2.e.6",
+          "text": "Power of a domain corresponding to a card's own Domain is not represented by a symbol, but appears in these rules similarly to other symbols. Its shorthand is [C]."
+        },
+        {
+          "num": "135.2.e.6.a",
+          "text": "When a [C] shorthand is printed on a card as reminder text, it assumes that card's usual Domain, but it still means \"one Power of this card's Domain.\""
+        },
+        {
+          "num": "135.2.e.6.b",
+          "text": "A [C] shorthand on a card with no Domain is processed as [A] instead."
+        },
+        {
+          "num": "135.2.e.6.c",
+          "text": "A [C] shorthand on a card with multiple Domains is processed as any power of that card's Domains. Example: Defiant Dance is a Calm and Chaos spell. Its cost is [1][C]. The power component of that cost can be paid with either [G] or [P]. Example: Tibbers is a Fury and Chaos Unit. If Tibbers is granted the Accelerate keyword, the power component of the optional additional cost can be paid with either [R] or [P]."
+        },
+        {
+          "num": "135.2.e.7",
+          "text": "A keyword associated with an ability is indicated by the [>] symbol."
+        },
+        {
+          "num": "135.2.e.7.a",
+          "text": "This could be a dependent keyword like [Legion][>] or [Level][>], a triggered ability with a keyworded trigger condition like [Deathknell] or it could be a permissive keyword associated with an ability like [Action][>] or [Reaction][>]."
+        },
+        {
+          "num": "135.2.e.7.b",
+          "text": "Whatever instruction or ability comes after the [>] is modified by the keyword that comes before the [>]. It will either be inactive, in the case of a dependent keyword; the trigger effect, in the case of a keyword triggered ability; or it will receive the permission granted by the keyword in the case of a permissive keyword."
+        },
+        {
+          "num": "135.3",
+          "text": "Rules text can be blank."
+        },
+        {
+          "num": "135.4",
+          "text": "A card's printed Rules Text is Inactive while that card is Attached to another card. See rule 716. Attachment for more information. See rule 720. Inactive for more information."
+        },
+        {
+          "num": "135.4.a",
+          "text": "The presence of text, rules, Keywords, and other effects can still be referenced and detected by other game effects, even while Rules Text is Inactive."
+        },
+        {
+          "num": "135.4.b",
+          "text": "Any granted or appended Rules Text on a card is still Active even if that card is Attached to another card."
+        },
+        {
+          "num": "136",
+          "text": "**Effect Text**"
+        },
+        {
+          "num": "136.1",
+          "text": "Some cards have a separate section of text below the Rules Text. This is referred to as the Effect Text."
+        },
+        {
+          "num": "136.2",
+          "text": "Effect Text can contain additional Abilities."
+        },
+        {
+          "num": "136.2.a",
+          "text": "Effect Text can be blank."
+        },
+        {
+          "num": "136.2.b",
+          "text": "Effect Text is inactive unless the card with the Effect Text is Attached to another card. See rule 716. Attachment for more information. See rule 720. Inactive for more information."
+        },
+        {
+          "num": "136.2.c",
+          "text": "The abilities in the Effect Text section of a card are appended to the Rules Text of the card to which the card with the Effect Text is Attached."
+        },
+        {
+          "num": "136.2.d",
+          "text": "Effect Text may refer to \"this\" or to the name of the Attached game object that appended the Effect Text. Doing so refers to the Attached game object and not the Top-Most Card, even if the Top-Most Card shares a name with the Attached game object. Example: Guardian Angel's effect text reads \"If I would die, kill Guardian Angel instead. Heal me, exhaust me, and recall me.\" Example: Brutalizer's effect text reads \"If this was attached to me this turn, I have an additional +2 [M].\" The \"this\" in the effect text refers to the attached Brutalizer."
+        },
+        {
+          "num": "137",
+          "text": "**Might Bonus**"
+        },
+        {
+          "num": "137.1",
+          "text": "Some cards have a Might Bonus in their lower right corner, expressed as an operator plus an integer."
+        },
+        {
+          "num": "137.2",
+          "text": "A card's Might Bonus can be +0."
+        },
+        {
+          "num": "137.3",
+          "text": "A card's Might Bonus modulates the Might of the card to which the card that has the Might Bonus is Attached. See rule 716. Attachment for more information."
+        },
+        {
+          "num": "137.3.a",
+          "text": "The Might Bonus is applied while Attached and stops applying as soon as the card with the Might Bonus is no longer Attached."
+        },
+        {
+          "num": "137.3.b",
+          "text": "If the card to which a card with a Might Bonus is Attached has no Might value, the Might Bonus is ignored."
+        },
+        {
+          "num": "138",
+          "text": "**Flavor Text**"
+        },
+        {
+          "num": "138.1",
+          "text": "Flavor text is text that appears at the bottom of some cards to provide aesthetic enjoyment. It conveys no gameplay information. Example: The card Void Seeker features a quote from the character Kai'Sa. It does not have the Kai'Sa tag and has no gameplay connection to the Champion unit Kai'Sa."
+        },
+        {
+          "num": "138.2",
+          "text": "Flavor text is located at the bottom of the section provided for rules text, usually in a shaded bar. It appears in italics."
+        },
+        {
+          "num": "139",
+          "text": "**Illustration**"
+        },
+        {
+          "num": "139.1",
+          "text": "Each card has an illustration. It conveys no gameplay information."
+        }
+      ]
+    },
+    {
+      "num": "140",
+      "title": "Units",
+      "rules": [
+        {
+          "num": "141",
+          "text": "**Unit is:**"
+        },
+        {
+          "num": "141.1",
+          "text": "A Game Object"
+        },
+        {
+          "num": "141.1.a",
+          "text": "While on the Board:"
+        },
+        {
+          "num": "141.1.a.1",
+          "text": "Units are at one of several Locations while on the Board: a Battlefield or their Base."
+        },
+        {
+          "num": "141.1.a.2",
+          "text": "Units and their details are Public Information while on the Board."
+        },
+        {
+          "num": "141.1.a.3",
+          "text": "Units can be chosen, affected, or manipulated by spells, affects, or game actions that specify Units."
+        },
+        {
+          "num": "141.1.a.4",
+          "text": "Units can be Killed. See rule 428. Kill for more information."
+        },
+        {
+          "num": "141.1.b",
+          "text": "While in the Trash:"
+        },
+        {
+          "num": "141.1.b.1",
+          "text": "Units are treated as Cards, similar to when in the Hand."
+        },
+        {
+          "num": "141.1.b.2",
+          "text": "They retain the properties of being a Unit, but are not on the Board and thus cannot take actions or be affected by spells, abilities, or game actions that target Units on the Board."
+        },
+        {
+          "num": "141.1.b.3",
+          "text": "Units can be affected by spells and game effects that target Units in the Trash."
+        },
+        {
+          "num": "141.2",
+          "text": "A Card Type"
+        },
+        {
+          "num": "141.2.a",
+          "text": "This is a unique identifier that some spells or abilities will use to restrict what they can choose or affect."
+        },
+        {
+          "num": "141.2.b",
+          "text": "The card type is relevant in all zones."
+        },
+        {
+          "num": "142",
+          "text": "Damage is a marked value that is applied to Units."
+        },
+        {
+          "num": "142.1",
+          "text": "Damage is not a Game Object."
+        },
+        {
+          "num": "142.2",
+          "text": "Damage is a value tracked per-Unit."
+        },
+        {
+          "num": "142.3",
+          "text": "Damage is marked on Units by players."
+        },
+        {
+          "num": "142.3.a",
+          "text": "The player responsible for the Deal action that caused the Damage to be marked is the player who marked that Damage."
+        },
+        {
+          "num": "142.3.b",
+          "text": "Game Effects may refer to that player's Damage. This means the Damage marked by that player. Example: A unit reads in part \"Your damage can't be prevented.\" This refers to the damage marked by that player."
+        },
+        {
+          "num": "142.4",
+          "text": "Damage tracks how close a Unit is to being Killed. See rule 428. Kill for more information."
+        },
+        {
+          "num": "142.4.a",
+          "text": "Lethal Damage is the amount of marked Damage that will cause a unit to die in a cleanup."
+        },
+        {
+          "num": "142.4.b",
+          "text": "Lethal Damage for a Unit is a non-zero amount greater than or equal to that Unit's Might. Example: A unit has 5 [M] and 3 damage marked on it. Frigid Touch is played targeting that unit. When it resolves, the unit's Might becomes 3, and it will have lethal damage marked on it. Example: A unit has 0 [M]. In order to have lethal damage marked on it, it must have at least 1 damage marked on it."
+        },
+        {
+          "num": "142.4.c",
+          "text": "Some effects may alter this amount. These effects will refer to the amount of damage needed to kill a unit. Example: Elder Dragon's passive ability reads \"Any amount of your damage is enough to kill enemy units.\" This alters the Lethal Damage value for enemy units that have damage marked by you."
+        },
+        {
+          "num": "142.5",
+          "text": "Damage can be Healed. See rule 418. Heal for more information."
+        },
+        {
+          "num": "143",
+          "text": "Units have multiple Intrinsic Properties unique to them:"
+        },
+        {
+          "num": "143.1",
+          "text": "**Tag**: A Unit has zero or more Tags representing one or more champions, regions, factions, or species it belongs to."
+        },
+        {
+          "num": "143.1.a",
+          "text": "These have no intrinsic rules or behaviors by themselves."
+        },
+        {
+          "num": "143.1.b",
+          "text": "Spells, abilities, and game actions can reference these types as part of their execution."
+        },
+        {
+          "num": "143.2",
+          "text": "**Might**: The combat statistic of a Unit. Used to determine a Unit's contribution to Combat, as well as when it is Killed by damaging effects."
+        },
+        {
+          "num": "143.2.a",
+          "text": "If a Unit ever has nonzero damage marked on it equalling or exceeding its Might, it is Killed."
+        },
+        {
+          "num": "143.2.b",
+          "text": "If a unit's Might is ever less than 0, it is treated as 0 when referenced by spells and abilities, and when summing Might to be assigned as damage in the Combat Damage Step. See rule 465. The Combat Damage Step for more information."
+        },
+        {
+          "num": "143.2.b.1",
+          "text": "Although the unit's Might is treated as 0, it is not 0. Effects that calculate Might increases and decreases use the actual value of the unit's Might."
+        },
+        {
+          "num": "143.3",
+          "text": "Units can have damage marked on them."
+        },
+        {
+          "num": "143.3.a",
+          "text": "When spells, abilities, or other game effects deal damage, Units mark that damage on them temporarily. This can be tracked with coins, dice, or other markers, or by memory."
+        },
+        {
+          "num": "143.3.b",
+          "text": "Damage is Healed from Units at two specific times:"
+        },
+        {
+          "num": "143.3.b.1",
+          "text": "At the end of each player's turn. See rule 317.2. Ending Phase for more information."
+        },
+        {
+          "num": "143.3.b.2",
+          "text": "During a Combat Cleanup. See rule 466.1. for more information about Combat Cleanups."
+        },
+        {
+          "num": "143.4",
+          "text": "Units enter the Board exhausted."
+        },
+        {
+          "num": "143.4.a",
+          "text": "This can be altered by Accelerate or similar game effects. See rule 805. Accelerate for more information."
+        },
+        {
+          "num": "144",
+          "text": "Units have the Inherent Ability to perform a Standard Move."
+        },
+        {
+          "num": "144.1",
+          "text": "This action is limited in when it can be performed."
+        },
+        {
+          "num": "144.1.a",
+          "text": "This action can be done any time during a player's Main Phase."
+        },
+        {
+          "num": "144.1.b",
+          "text": "This action cannot be performed during a Closed State."
+        },
+        {
+          "num": "144.1.c",
+          "text": "This action cannot be performed during a Showdown or Combat."
+        },
+        {
+          "num": "144.2",
+          "text": "Exhausting the Unit is the Cost for this action."
+        },
+        {
+          "num": "144.3",
+          "text": "Players may perform multiple Units' standard move simultaneously. This is treated as one game action performed on multiple Units."
+        },
+        {
+          "num": "144.3.a",
+          "text": "When a Move like this is declared by a player, the units' Destination must be the same."
+        },
+        {
+          "num": "144.3.b",
+          "text": "When a Move like this is declared by a player, the Origins do not need to be the same."
+        },
+        {
+          "num": "144.3.c",
+          "text": "The Costs of Exhausting the Units are also paid Simultaneously."
+        },
+        {
+          "num": "144.4",
+          "text": "The Destinations where Units can Move to with their Standard Move are restricted:"
+        },
+        {
+          "num": "144.4.a",
+          "text": "Units may move from their Base to a Battlefield."
+        },
+        {
+          "num": "144.4.a.1",
+          "text": "Units cannot Move to a Battlefield that already has units from 2 other players present, or where a Combat is ongoing that has 2 other players as participants. See rule 447.2. For more information on valid destinations for movement."
+        },
+        {
+          "num": "144.4.b",
+          "text": "Units may move from a Battlefield to their Base."
+        },
+        {
+          "num": "144.4.c",
+          "text": "Ganking is a unique ability that affects a Unit's Standard Move"
+        },
+        {
+          "num": "144.4.c.1",
+          "text": "Units with Ganking may use their Standard Move to Move from Battlefield to Battlefield. See rule 810. Ganking for more information."
+        },
+        {
+          "num": "145",
+          "text": "Units may have Activated Abilities."
+        },
+        {
+          "num": "145.1",
+          "text": "Activated Abilities are Game Effects that are written as Costs followed by a \":\", and then succeeded by an effect. See rule 376. Activated Abilities for more information."
+        },
+        {
+          "num": "145.2",
+          "text": "The Activated Ability of Units may be executed at any time during the controlling player's Main Phase during an Open State, and not during a Showdown."
+        },
+        {
+          "num": "145.2.a",
+          "text": "This follows the same process as playing a card. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "145.2.a.1",
+          "text": "This behaves, once activated, like a spell without an associated card."
+        },
+        {
+          "num": "146",
+          "text": "Units have a Location."
+        },
+        {
+          "num": "146.1",
+          "text": "A Unit's Location is the Base or Battlefield it currently occupies. See rule 197. Locations for more information."
+        }
+      ]
+    },
+    {
+      "num": "147",
+      "title": "Gear",
+      "rules": [
+        {
+          "num": "148",
+          "text": "**Gear are:**"
+        },
+        {
+          "num": "148.1",
+          "text": "A Game Object"
+        },
+        {
+          "num": "148.1.a",
+          "text": "While on the Board."
+        },
+        {
+          "num": "148.1.a.1",
+          "text": "Gear can only be played to a player's Base unless an effect specifies otherwise."
+        },
+        {
+          "num": "148.1.a.2",
+          "text": "Gear and their details are Public Information while on the Board."
+        },
+        {
+          "num": "148.1.a.3",
+          "text": "Gear can be chosen, affected, or manipulated by spells, effects, or game actions that specify Gear."
+        },
+        {
+          "num": "148.1.a.4",
+          "text": "Gear can be Killed. See rule 428. Kill for more information."
+        },
+        {
+          "num": "148.1.b",
+          "text": "While in the Trash"
+        },
+        {
+          "num": "148.1.b.1",
+          "text": "Gear are treated as Cards before Game Objects, similar to the Hand."
+        },
+        {
+          "num": "148.1.b.2",
+          "text": "They retain the properties of being Gear, but are not on the Board and thus cannot take actions or be affected by spells, abilities, or game actions that affect Gear on the Board."
+        },
+        {
+          "num": "148.1.b.3",
+          "text": "Gear can be affected by spells and game effects that affect Gear in the Trash."
+        },
+        {
+          "num": "148.2",
+          "text": "A Card Type"
+        },
+        {
+          "num": "148.2.a",
+          "text": "This is a unique identifier that some spells or abilities will use to restrict what they can choose or affect."
+        },
+        {
+          "num": "148.2.b",
+          "text": "The card type is relevant in all zones."
+        },
+        {
+          "num": "149",
+          "text": "Gear have several Intrinsic Properties unique to them."
+        },
+        {
+          "num": "149.1",
+          "text": "Gear enter play Ready."
+        },
+        {
+          "num": "149.2",
+          "text": "Gear can only be played to a player's Base unless an effect specifies otherwise."
+        },
+        {
+          "num": "149.3",
+          "text": "If an unattached non- Unit Gear is at a Battlefield for any reason during a cleanup, then it is recalled to its controller's Base as a corrective action. See rule 454. Recalls for more information. See rule 318. Cleanups for more information."
+        },
+        {
+          "num": "150",
+          "text": "Gear can have the Equipment tag."
+        },
+        {
+          "num": "150.1",
+          "text": "These Gear are referred to as Equipment."
+        },
+        {
+          "num": "150.2",
+          "text": "Equipment have effect text and a Might bonus. See rule 136. Effect Text for more information on effect text. See rule 137. Might Bonus for more information on Might bonuses."
+        },
+        {
+          "num": "150.3",
+          "text": "Equipment can have the Equip or Quick-Draw keywords. See rule 818. Equip for more information on the Equip keyword. See rule 819. Quick-Draw for more information on the Quick-Draw keyword."
+        },
+        {
+          "num": "150.4",
+          "text": "Equipment are still Gear and have the same intrinsic properties and rules that Gear do."
+        },
+        {
+          "num": "150.5",
+          "text": "Equipment and whether a Gear has the Equipment tag is a characteristic of the Gear may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "151",
+          "text": "Gear may have Activated Abilities."
+        },
+        {
+          "num": "151.1",
+          "text": "Activated Abilities are Game Effects that are written as Costs followed by a \":\", and then succeeded by an effect. See rule 376. Activated Abilities for more information."
+        },
+        {
+          "num": "151.2",
+          "text": "The Activated Ability of Gear may be executed at any time during the controlling player's Main Phase during an Open State, and not during a Showdown."
+        },
+        {
+          "num": "151.2.a",
+          "text": "This follows the same process as playing a card. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "151.2.a.1",
+          "text": "This behaves, once activated, like a spell without an associated card."
+        },
+        {
+          "num": "152",
+          "text": "Gear have a Location."
+        },
+        {
+          "num": "152.1",
+          "text": "A Gear's Location is the Base or Battlefield it currently occupies. See rule 197. Locations for more information."
+        },
+        {
+          "num": "152.2",
+          "text": "Non-Unit Gear cannot normally become located at a Battlefield unless by some special means. Example: Gear are played to Base unless an effect specifies otherwise. A gear played from Facedown, which is specified to be played to the Battlefield it was played from, will enter at that Battlefield. Gear can also become located at a Battlefield if they are attached to a unit who becomes located at a Battlefield. A Gear that is a Unit can move to a Battlefield. See rule 811. Hidden for more information. See rule 716. Attachment for more information."
+        }
+      ]
+    },
+    {
+      "num": "153",
+      "title": "Spells",
+      "rules": [
+        {
+          "num": "154",
+          "text": "Spell is a card type."
+        },
+        {
+          "num": "155",
+          "text": "A spell can be played during an Open State outside of Showdowns on its controller's turn."
+        },
+        {
+          "num": "156",
+          "text": "A spell is controlled by the player who played it."
+        },
+        {
+          "num": "157",
+          "text": "A spell creates a game effect according to its instructions and is then placed in the Trash of the player who owns it."
+        },
+        {
+          "num": "158",
+          "text": "When a spell is successfully played, a player executes the rules text of the spell. This is called Resolving the spell."
+        },
+        {
+          "num": "158.1",
+          "text": "Spells have their rules text executed from top to bottom when they are Resolved."
+        },
+        {
+          "num": "158.2",
+          "text": "If a later part of a spell applies a Replacement Effect that alters earlier parts of the spell, apply those replacement effects as appropriate. Example: A spell says \"Choose a unit. Kill it the next time it takes damage this turn.\" and \"[Legion] — Kill it now instead. (Get the effect if you've played another card this turn.) \"If the Legion condition is satisfied, the unit is killed immediately and the instruction to kill it the next time it takes damage is ignored, even if the unit remains on the board somehow. See rule 367. Replacement Effects for more information."
+        },
+        {
+          "num": "158.3",
+          "text": "While a spell or ability on the chain is Resolving, no other spells or abilities can be finalized on the chain or resolved, including triggered abilities or game effects that would occur as a result of the execution of the spell."
+        },
+        {
+          "num": "158.3.a",
+          "text": "Finish resolving all effects of a spell before addressing any chain items or Tasks the spell may have added or made outstanding through execution."
+        },
+        {
+          "num": "159",
+          "text": "Certain Keywords on spells are not executable rules text, but instead intrinsic properties of the spell."
+        },
+        {
+          "num": "159.1",
+          "text": "These determine inherent properties and behaviors of the spell before being played or while on the chain."
+        },
+        {
+          "num": "159.2",
+          "text": "These keywords are:"
+        },
+        {
+          "num": "159.2.a",
+          "text": "Action"
+        },
+        {
+          "num": "159.2.a.1",
+          "text": "This indicates that, in addition to being able to be played during an Open State, this spell may also be played during Open States during Showdowns. See rule 806. Action for more information."
+        },
+        {
+          "num": "159.2.b",
+          "text": "Reaction"
+        },
+        {
+          "num": "159.2.b.1",
+          "text": "Grants all cases and rules of Action."
+        },
+        {
+          "num": "159.2.b.2",
+          "text": "In addition to all prior cases, may also be played during all forms of Closed State."
+        },
+        {
+          "num": "159.2.b.3",
+          "text": "This will result in this spell resolving before spells and abilities that are already on the chain. See rule 813. Reaction for more information."
+        }
+      ]
+    },
+    {
+      "num": "160",
+      "title": "Runes",
+      "rules": [
+        {
+          "num": "161",
+          "text": "Rune is a Card Type."
+        },
+        {
+          "num": "161.1",
+          "text": "A Rune is not a Main Deck card."
+        },
+        {
+          "num": "161.1.a",
+          "text": "This means, despite remaining on the Board until Recycled or otherwise removed from the board, it is not a Permanent."
+        },
+        {
+          "num": "161.2",
+          "text": "Runes are kept in the Rune Deck."
+        },
+        {
+          "num": "161.2.a",
+          "text": "Exactly 12 Rune cards chosen during Deck Construction. See rule 103.3. Rune Deck for more information."
+        },
+        {
+          "num": "161.2.b",
+          "text": "When a Rune is Recycled it is returned to the Rune Deck, not the Main Deck. See rule 416. Recycle for more information."
+        },
+        {
+          "num": "162",
+          "text": "Runes produce the resources needed to pay costs."
+        },
+        {
+          "num": "163",
+          "text": "Runes produce Energy and Power."
+        },
+        {
+          "num": "163.1",
+          "text": "Energy is used to pay numeric Energy costs."
+        },
+        {
+          "num": "163.1.a",
+          "text": "Energy has no Domain."
+        },
+        {
+          "num": "163.1.b",
+          "text": "Energy has no type."
+        },
+        {
+          "num": "163.2",
+          "text": "Power is used to pay Domain-associated Power Costs."
+        },
+        {
+          "num": "163.2.a",
+          "text": "Power has a Domain."
+        },
+        {
+          "num": "163.2.a.1",
+          "text": "Power 's Domain usually corresponds to the Domain of the Rune that produced it."
+        },
+        {
+          "num": "163.2.b",
+          "text": "Some Power is Universal and can be used to pay for costs of any Domain."
+        },
+        {
+          "num": "164",
+          "text": "**Basic Runes**"
+        },
+        {
+          "num": "164.1",
+          "text": "There are six Basic Runes, each with a Domain corresponding to its name: Fury Rune Calm Rune Mind Rune Body Rune Chaos Rune Order Rune"
+        },
+        {
+          "num": "164.2",
+          "text": "A Basic Rune always has the following two Abilities:"
+        },
+        {
+          "num": "164.2.a",
+          "text": "[E]: [Reaction] — Add [1]."
+        },
+        {
+          "num": "164.2.b",
+          "text": "**Recycle this**: [Reaction] — Add [C]."
+        },
+        {
+          "num": "164.2.b.1",
+          "text": "The Power added this way corresponds to the Domain of the Rune that is being Recycled."
+        },
+        {
+          "num": "165",
+          "text": "**Rune Pools**"
+        },
+        {
+          "num": "166",
+          "text": "The Rune Pool is a conceptual collection of a player's available Energy and Power available to pay Costs."
+        },
+        {
+          "num": "166.1",
+          "text": "When a card adds Energy or Power, it is added to the controlling player's Rune Pool."
+        },
+        {
+          "num": "166.2",
+          "text": "Players must add Energy and Power to their Rune Pool in order to be able to spend it to play cards or pay for Abilities with costs."
+        },
+        {
+          "num": "166.3",
+          "text": "Energy and Power do not have a physical marker or tracker, although players may wish to use a physical tracker if they are retaining unspent Energy and Power over the course of their turn."
+        },
+        {
+          "num": "167",
+          "text": "Every player's Rune Pool empties at the start of each player's Main Phase and the end of each player's turn."
+        },
+        {
+          "num": "167.1",
+          "text": "Any unspent Energy or Power are lost."
+        },
+        {
+          "num": "168",
+          "text": "All Abilities that include the action \"Add \"are abilities that are adding Energy or Power to the Rune Pool. See rule 429. Add for more information."
+        }
+      ]
+    },
+    {
+      "num": "169",
+      "title": "Battlefields",
+      "rules": [
+        {
+          "num": "170",
+          "text": "Battlefields are Game Objects."
+        },
+        {
+          "num": "170.1",
+          "text": "Battlefields are Owned by a player."
+        },
+        {
+          "num": "170.2",
+          "text": "Battlefields are not shuffled into Decks at the start of a game."
+        },
+        {
+          "num": "170.2.a",
+          "text": "Battlefields are not played during the course of regular play."
+        },
+        {
+          "num": "170.2.b",
+          "text": "Battlefields are established at the start of a game and remain in place for the duration of regular play."
+        },
+        {
+          "num": "170.3",
+          "text": "Battlefields cannot be Killed during the course of regular play."
+        },
+        {
+          "num": "170.4",
+          "text": "Battlefields cannot be Moved."
+        },
+        {
+          "num": "170.5",
+          "text": "Battlefields are Locations."
+        },
+        {
+          "num": "170.5.a",
+          "text": "Battlefields can be Origins of moves."
+        },
+        {
+          "num": "170.5.b",
+          "text": "Battlefields can be Destinations of moves."
+        },
+        {
+          "num": "170.6",
+          "text": "Any number of Units can be present at a Battlefield."
+        },
+        {
+          "num": "170.7",
+          "text": "Battlefields can be targeted by spells or game effects."
+        },
+        {
+          "num": "170.8",
+          "text": "Battlefields can have Passive Abilities. See rule 363. Passive Abilities for more information."
+        },
+        {
+          "num": "170.9",
+          "text": "Battlefields can have Triggered Abilities. See rule 382. Triggered Abilities for more information."
+        },
+        {
+          "num": "170.10",
+          "text": "Battlefields can have Activated Abilities. See rule 376. Activated Abilities for more information."
+        },
+        {
+          "num": "170.11",
+          "text": "Battlefields can be referenced in different states in card text:"
+        },
+        {
+          "num": "170.11.a",
+          "text": "Battlefields can be \"occupied.\" This means they have a Unit present."
+        },
+        {
+          "num": "170.11.b",
+          "text": "Battlefields can be \"uncontrolled.\" This means no player controls them."
+        },
+        {
+          "num": "170.11.c",
+          "text": "Battlefields can be \"open.\" This means they are unoccupied and uncontrolled."
+        },
+        {
+          "num": "171",
+          "text": "Battlefields are not Permanents."
+        },
+        {
+          "num": "172",
+          "text": "The number of Battlefields on the Board is determined by the Mode of Play."
+        }
+      ]
+    },
+    {
+      "num": "173",
+      "title": "Legends",
+      "rules": [
+        {
+          "num": "174",
+          "text": "Legends are Game Objects."
+        },
+        {
+          "num": "174.1",
+          "text": "Legends are Owned by a player."
+        },
+        {
+          "num": "174.2",
+          "text": "Legends are not shuffled into Decks at the start of a game."
+        },
+        {
+          "num": "174.2.a",
+          "text": "Legends are not played during the course of regular play."
+        },
+        {
+          "num": "174.2.b",
+          "text": "Legends are established at the start of a game, and remain in place for the duration of regular play."
+        },
+        {
+          "num": "174.3",
+          "text": "Legends cannot be Killed during the course of regular play."
+        },
+        {
+          "num": "174.4",
+          "text": "Legends cannot be Moved."
+        },
+        {
+          "num": "174.5",
+          "text": "Legends can be targeted by spells or game effects."
+        },
+        {
+          "num": "174.6",
+          "text": "Legends can have Passive Abilities. See rule 363. Passive Abilities for more information."
+        },
+        {
+          "num": "174.7",
+          "text": "Legends can have Triggered Abilities. See rule 382. Triggered Abilities for more information."
+        },
+        {
+          "num": "174.8",
+          "text": "Legends can have Activated Abilities. See rule 376. Activated Abilities for more information."
+        },
+        {
+          "num": "175",
+          "text": "Legends are not Permanents."
+        },
+        {
+          "num": "176",
+          "text": "Legends may have one or more Domains."
+        },
+        {
+          "num": "176.1",
+          "text": "The Champion Legend determines the Domain Identity of cards its owner can include. See rule 101. Deck Construction for more information."
+        },
+        {
+          "num": "177",
+          "text": "**Multiple Types**"
+        },
+        {
+          "num": "178",
+          "text": "Game Objects can have multiple types."
+        },
+        {
+          "num": "178.1",
+          "text": "A Game Object that is more than one type has the properties of all of their types, except where they are mutually exclusive."
+        },
+        {
+          "num": "178.1.a",
+          "text": "Regardless of a Game Objects' other types, there are some properties that are true of Game Objects of certain types. These properties take precedence when properties are mutually exclusive."
+        },
+        {
+          "num": "178.1.a.1",
+          "text": "If a Game Object is a Unit, regardless of its other types, it has Might, can have damage marked on it, enters exhausted, and can be played to any valid location."
+        },
+        {
+          "num": "178.1.a.1.a",
+          "text": "It will not be recalled to base in step 5 of a cleanup."
+        },
+        {
+          "num": "178.1.a.2",
+          "text": "If a Game Object is a Rune, regardless of its other types, it will be recycled to the Rune Deck."
+        },
+        {
+          "num": "178.2",
+          "text": "A Game Object that is more than one type maintains all of the permissions of all types."
+        },
+        {
+          "num": "178.2.a",
+          "text": "If a Game Object is a Unit, it has the standard move inherent ability."
+        },
+        {
+          "num": "178.2.a.1",
+          "text": "It can move and become located at a Battlefield."
+        },
+        {
+          "num": "178.3",
+          "text": "A Game Object that is more than one type can be affected by Game Effects that modify or interact with any of its types. Example: A unit that is also a gear can be affected by spells and abilities like the Ruination or Thermo Beam that say \"Kill all units,\" or \"Kill all gear.\" A unit that is also a gear can be targeted by spells and abilities like Vengeance or Rocket Barrage that say \"Kill a unit,\" or \"Kill a gear.\""
+        }
+      ]
+    },
+    {
+      "num": "179",
+      "title": "Tokens",
+      "rules": [
+        {
+          "num": "180",
+          "text": "Tokens are Game Objects created by spells and abilities during play."
+        },
+        {
+          "num": "181",
+          "text": "Tokens can be represented by anything. Printed tokens are included in Riftbound booster packs, but they are not required to play a token."
+        },
+        {
+          "num": "182",
+          "text": "A token's controller is the controller of the spell or ability that created it, unless the token's type innately determines control or that spell or ability specifies that a different player is the token's controller."
+        },
+        {
+          "num": "183",
+          "text": "A token's owner is the player who controlled the effect that created it."
+        },
+        {
+          "num": "184",
+          "text": "The effect that creates a token may specify the conditions or circumstances under which it enters the board. These stipulations may alter the usual steps for playing a card if the token is played."
+        },
+        {
+          "num": "184.1",
+          "text": "The effect may state that the token enters ready or exhausted, if that state is contrary to the default for the token's type."
+        },
+        {
+          "num": "184.2",
+          "text": "The effect may restrict the location to which the token may be played."
+        },
+        {
+          "num": "184.3",
+          "text": "The effect may grant temporary abilities or modifications to the token."
+        },
+        {
+          "num": "185",
+          "text": "Tokens are not cards."
+        },
+        {
+          "num": "185.1",
+          "text": "\"Token\" is an intrinsic category of Game Objects, in the same way \"card\" is."
+        },
+        {
+          "num": "185.1.a",
+          "text": "Token Game Objects cannot lose their token nature by any means."
+        },
+        {
+          "num": "185.1.b",
+          "text": "Card Game Objects cannot become tokens by any means."
+        },
+        {
+          "num": "185.2",
+          "text": "Tokens have some properties in common with cards."
+        },
+        {
+          "num": "185.2.a",
+          "text": "Tokens can be played by their owner if their card type is played, following all the applicable steps for playing a card plus any restrictions or modifications from the effect that created the token. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "185.2.b",
+          "text": "Token units have a Might."
+        },
+        {
+          "num": "185.2.c",
+          "text": "Tokens may have one or more tags."
+        },
+        {
+          "num": "185.2.d",
+          "text": "Tokens have a type. They follow all rules for their type unless otherwise specified. Example: A token unit is a unit. It enters exhausted, can take the standard move action, deals damage equal to its Might in combat, is destroyed if it takes damage equal to or greater than its might, can be chosen or otherwise affected by spells or abilities that choose or affect units, etc."
+        },
+        {
+          "num": "185.2.e",
+          "text": "Tokens inherit the recycle destination of their type. Example: Token runes will be recycled to the Rune Deck. Token units, gear, and spells will be recycled to the Main Deck. Token battlefields and legends can't be recycled."
+        },
+        {
+          "num": "185.3",
+          "text": "Tokens differ from cards in some ways."
+        },
+        {
+          "num": "185.3.a",
+          "text": "Tokens do not have costs."
+        },
+        {
+          "num": "185.3.a.1",
+          "text": "Although tokens do not have costs, their cost is treated as being 0 for all purposes."
+        },
+        {
+          "num": "185.3.a.2",
+          "text": "Tokens can have costs appended to them via applied Layer effects. Example: Deceiver's conquer effect creates a 0 [M] Reflection unit token and applies a copy effect to that token. The copy effect will append all copyable traits, including the cost of the unit to be copied. This appends a cost to the Reflection token."
+        },
+        {
+          "num": "185.3.b",
+          "text": "Tokens do not have domains."
+        },
+        {
+          "num": "185.3.b.1",
+          "text": "Tokens can have domains appended to them via applied Layer effects. Example: A card reads in part \"As you play this, pick a domain. All units and gear are that domain.\" If that card is in play, any unit and gear tokens will have the chosen domain appended to them."
+        },
+        {
+          "num": "186",
+          "text": "Tokens are Created on the board or the Chain and cannot exist elsewhere."
+        },
+        {
+          "num": "186.1",
+          "text": "If a token is put into any Non-Board Zone besides the chain, it ceases to exist immediately after moving to its new zone."
+        },
+        {
+          "num": "187",
+          "text": "The spell or ability that Creates a token specifies some of its characteristics. It may have other characteristics, as listed below."
+        },
+        {
+          "num": "187.1",
+          "text": "A 1 [M] Recruit token is a domainless unit token with 1 Might and the Recruit tag."
+        },
+        {
+          "num": "187.2",
+          "text": "A 3 [M] Sprite token with Temporary is a domainless unit token with 3 Might, the Fae tag, and the Temporary keyword. See rule 816. Temporary for more information."
+        },
+        {
+          "num": "187.3",
+          "text": "A 2 [M] Sand Soldier token is a domainless unit token with 2 Might and the Shurima tag."
+        },
+        {
+          "num": "187.4",
+          "text": "A 3 [M] Mech token is a domainless unit token with 3 Might and the Mech tag."
+        },
+        {
+          "num": "187.5",
+          "text": "A Gold gear token is a domainless gear token with \"[Reaction][>] Kill this, [E]: [Add] [A].\""
+        },
+        {
+          "num": "187.6",
+          "text": "A 0 [M] Reflection token is a domainless unit token with 0 Might."
+        },
+        {
+          "num": "187.7",
+          "text": "A 1 [M] Bird token is a domainless unit token with 1 Might, the Bird tag, and the Deflect keyword. See rule 809. Deflect for more information."
+        },
+        {
+          "num": "187.8",
+          "text": "A Brush battlefield token is a domainless battlefield token with \"Bird, Cat, Dog, Poro, and Ivern units here have +1 [M]\" and \"When you score here, you may replace this with the battlefield it replaced.\""
+        },
+        {
+          "num": "187.9",
+          "text": "The Baron Pit battlefield token is a domainless battlefield token with \"Units can move here from anywhere.\""
+        },
+        {
+          "num": "187.10",
+          "text": "A 1 [M] Tentacle token is a domainless unit token with 1 Might and the Bilgewater tag."
+        },
+        {
+          "num": "187.11",
+          "text": "A 0 [M] Shadow Clone token is a domainless unit token with 0 Might and \"When I attack, you may banish a unit from your trash. If you do, give me [Assault 4] this turn.\" See rule 807. Assault for more information."
+        }
+      ]
+    },
+    {
+      "num": "188",
+      "title": "Control",
+      "rules": [
+        {
+          "num": "189",
+          "text": "Control is the concept of a player having influence of a Game Object and applies differently to different card types."
+        },
+        {
+          "num": "190",
+          "text": "**Battlefields**"
+        },
+        {
+          "num": "190.1",
+          "text": "Control is established over Battlefields through the course of play."
+        },
+        {
+          "num": "190.2",
+          "text": "Control is a binary state for Battlefields and an Identifier for players."
+        },
+        {
+          "num": "190.2.a",
+          "text": "A Battlefield is Controlled or Uncontrolled."
+        },
+        {
+          "num": "190.2.b",
+          "text": "A Battlefield is Controlled by a specific player or Controlled by no one."
+        },
+        {
+          "num": "190.3",
+          "text": "Control can be Contested through the course of play."
+        },
+        {
+          "num": "190.3.a",
+          "text": "Contested is a temporary status applied to the battlefield when a Unit controlled by a Player who does not currently Control that Battlefield Moves or otherwise becomes present there."
+        },
+        {
+          "num": "190.3.a.1",
+          "text": "Units moving to or being played to a battlefield apply Contested status if that battlefield is not already Contested and that Unit 's controller does not already control that battlefield."
+        },
+        {
+          "num": "190.3.b",
+          "text": "Once a Showdown or Combat begins at a Battlefield, it remains Contested until Control is established or re-established."
+        },
+        {
+          "num": "190.3.b.1",
+          "text": "If a player who applied Contested status to a Battlefield controls no Units there and there is no ongoing Showdown or Combat at that Battlefield, then Contested status is removed in the following Cleanup."
+        },
+        {
+          "num": "190.3.c",
+          "text": "The state of a Battlefield being Contested is used to determine when Combat should occur and when a Non-Combat Showdown should occur."
+        },
+        {
+          "num": "190.3.d",
+          "text": "At this time Game Effects cannot reference this status."
+        },
+        {
+          "num": "190.4",
+          "text": "Control is established by having Units at a Battlefield at the end of a Showdown or Combat after applying the contested status."
+        },
+        {
+          "num": "190.4.a",
+          "text": "If a player controls Units at a Battlefield, outside of Combat, they maintain Control of that Battlefield for as long as they have Units at that Battlefield."
+        },
+        {
+          "num": "190.4.b",
+          "text": "While a Combat or Showdown is ongoing at a Battlefield, Control of that Battlefield cannot change until instructed by steps of the Combat or Showdown."
+        },
+        {
+          "num": "190.4.c",
+          "text": "If a player has no Units at a Battlefield and the turn is in an Open state, they lose Control of that Battlefield in the following cleanup unless there is a Combat or Showdown ongoing there."
+        },
+        {
+          "num": "190.5",
+          "text": "Control is a constant state."
+        },
+        {
+          "num": "190.6",
+          "text": "Control of a Battlefield determines Control of its Abilities."
+        },
+        {
+          "num": "190.6.a",
+          "text": "While a Battlefield is Controlled, its Controller controls its Abilities unless that ability indicates another player does. The controlling player takes responsibility for adding them to the Chain if applicable, and makes all choices required by them unless otherwise specified."
+        },
+        {
+          "num": "190.6.b",
+          "text": "While a Battlefield is Uncontrolled, its Abilities are also Uncontrolled unless that ability indicates a player controls it. If there is no such indication, the Turn Player takes responsibility for adding them to the Chain if applicable, makes all choices required by them unless otherwise specified, and is treated as their Controller if any game rule or effect requires one. Example: The Arena's Greatest is a battlefield that reads \"At the start of each player's first Beginning Phase, that player gains 1 point.\" This ability will usually trigger while the battlefield has no controller. If it does, the Turn Player goes through the steps of adding the ability to the chain and receives priority after doing so, exactly as if they controlled the ability."
+        },
+        {
+          "num": "190.6.c",
+          "text": "If an Ability of a Battlefield indicates that a specific player makes a choice, that player is the Ability's controller. They take responsibility for adding it to the chain if applicable and make all choices required by the ability. They and only they control the ability, regardless of who controls the Battlefield. Example: Abandoned Hall is a battlefield that reads \"When a player plays a spell, they may give a unit they control here +1 might this turn.\" The ability indicates that the player who played the spell makes the choice, so that player takes responsibility for putting the ability on the chain and makes all choices. They control the triggered ability."
+        },
+        {
+          "num": "190.6.d",
+          "text": "\"You\" in a battlefield's abilities refers to the battlefield's Controller, as does the implied \"you\" in instructions that don't specify a player like \"draw 1.\" If the battlefield has no Controller, \"you\" refers to no one, and all such instructions are ignored."
+        },
+        {
+          "num": "191",
+          "text": "**Everything Else**"
+        },
+        {
+          "num": "191.1",
+          "text": "When a player Plays, Hides, or Creates a Card or other Game Object, they are established as that Game Object's Controller."
+        },
+        {
+          "num": "191.2",
+          "text": "For Spells, they are the Spell's Controller."
+        },
+        {
+          "num": "191.2.a",
+          "text": "That player chooses targets."
+        },
+        {
+          "num": "191.2.b",
+          "text": "That player chooses modes."
+        },
+        {
+          "num": "191.2.c",
+          "text": "That player pays costs."
+        },
+        {
+          "num": "191.3",
+          "text": "For Permanents and Runes, when they Enter the Board, that player is assigned as that Game Object's Controller."
+        },
+        {
+          "num": "191.3.a",
+          "text": "That player may make decisions about the Game Object's Inherent Abilities."
+        },
+        {
+          "num": "191.3.b",
+          "text": "That player may make decisions about the Game Object's Unique Abilities."
+        },
+        {
+          "num": "191.3.c",
+          "text": "That player may make decisions about any game effects or decisions necessary while the card is being played."
+        },
+        {
+          "num": "191.3.d",
+          "text": "That player may make decisions about any game effects created from \"When you play me\" effects of Permanents."
+        },
+        {
+          "num": "191.4",
+          "text": "For Abilities, they are the Ability's Controller."
+        },
+        {
+          "num": "191.4.a",
+          "text": "By default, the Controller of an Ability's Source is the Controller of that Ability."
+        },
+        {
+          "num": "191.4.a.1",
+          "text": "If an Ability's Source is located in a non-Board Zone, the Ability's Controller is the Owner of the Source."
+        },
+        {
+          "num": "191.4.b",
+          "text": "Changes to Control of an Ability's Source do not change Control of that Ability."
+        },
+        {
+          "num": "191.4.c",
+          "text": "That player chooses targets."
+        },
+        {
+          "num": "191.4.d",
+          "text": "That player chooses modes."
+        },
+        {
+          "num": "191.4.e",
+          "text": "That player pays costs."
+        },
+        {
+          "num": "192",
+          "text": "When a game effect or rules text refers to the Controller of a specific object, it can be referring to either context interchangeably."
+        },
+        {
+          "num": "192.1",
+          "text": "The method of assignment of control is different, but the status of Control is the same across all Game Objects."
+        }
+      ]
+    },
+    {
+      "num": "193",
+      "title": "Winning",
+      "rules": [
+        {
+          "num": "194",
+          "text": "Players win Riftbound games primarily through gaining points."
+        },
+        {
+          "num": "194.1",
+          "text": "Players can gain points a number of ways:"
+        },
+        {
+          "num": "194.1.a",
+          "text": "Holding a Battlefield. See rule 467. Scoring for more information."
+        },
+        {
+          "num": "194.1.b",
+          "text": "Conquering a Battlefield. See rule 467. Scoring for more information."
+        },
+        {
+          "num": "194.1.c",
+          "text": "Spells, Triggered Abilities and Activated Abilities that instruct them to gain one or more points."
+        },
+        {
+          "num": "194.1.d",
+          "text": "When an opponent Burns Out and picks that player to gain 1 point. See rule 431. Burn Out for more information."
+        },
+        {
+          "num": "194.2",
+          "text": "A player wins the game if, in a cleanup, they have points greater than or equal to the Victory Score and more points than any other player. See rule 318. Cleanups for more information."
+        },
+        {
+          "num": "194.2.a",
+          "text": "If more than one player has points greater than or equal to the Victory Score, whichever player has more points wins."
+        },
+        {
+          "num": "194.2.b",
+          "text": "If those players have the same number of points, play continues until one player has more points in a cleanup."
+        },
+        {
+          "num": "194.3",
+          "text": "The Victory Score is 8 points by default."
+        },
+        {
+          "num": "194.3.a",
+          "text": "Some game modes or card effects may alter the Victory Score. See rule 481. Modes of Play for more information."
+        },
+        {
+          "num": "194.4",
+          "text": "Players cannot have less than 0 points."
+        },
+        {
+          "num": "194.4.a",
+          "text": "If a player would lose 1 or more points while they have 0 points, nothing occurs."
+        },
+        {
+          "num": "194.4.b",
+          "text": "Any effects that trigger on a player losing points do not trigger."
+        },
+        {
+          "num": "195",
+          "text": "A player also wins the game if an effect instructs them to do so, or if they are the only player remaining in the game."
+        },
+        {
+          "num": "195.1",
+          "text": "If an effect instructs a player to lose the game, that player is immediately removed from the game. See rule 649. Conceding for more information about being removed from the game."
+        },
+        {
+          "num": "196",
+          "text": "When a player wins the game, the game ends."
+        }
+      ]
+    },
+    {
+      "num": "197",
+      "title": "Locations",
+      "rules": [
+        {
+          "num": "198",
+          "text": "Locations are the Game Objects and Zones where permanents and runes may be located."
+        },
+        {
+          "num": "198.1",
+          "text": "Locations include the Battlefields and the Bases."
+        },
+        {
+          "num": "198.2",
+          "text": "A permanent's Location is a characteristic of that permanent that may be referenced by Game Effects."
+        },
+        {
+          "num": "199",
+          "text": "A Game Object that comprises a Location is also a Game Object at that location."
+        },
+        {
+          "num": "199.1",
+          "text": "A Battlefield is both a location and also a Game Object at that location."
+        },
+        {
+          "num": "200",
+          "text": "Locations can be Destinations and Origins for movement. See rule 445. Movement for more information."
+        }
+      ]
+    },
+    {
+      "num": "201",
+      "title": "Costs",
+      "rules": [
+        {
+          "num": "202",
+          "text": "Some Game Effects will instruct players to pay resources, spend counters or XP, or perform game actions as a Cost in order to perform a linked Effect."
+        },
+        {
+          "num": "203",
+          "text": "Costs must be paid in order to get their linked Effect."
+        },
+        {
+          "num": "203.1",
+          "text": "Paying a Cost requires a player to perform the appropriate game action: pay resources, spend counters or XP, kill units, etc."
+        },
+        {
+          "num": "203.2",
+          "text": "The Cost is still considered paid even if the associated game action is replaced."
+        },
+        {
+          "num": "203.3",
+          "text": "If the game action associated with a Cost is impossible for any reason such that a player cannot perform it, then they cannot pay the Cost and they will not execute the linked Effect."
+        },
+        {
+          "num": "204",
+          "text": "**Costs paid in this way might be:**"
+        },
+        {
+          "num": "204.1",
+          "text": "**Base Costs**: These costs are the most fundamental costs that must be paid to finalize a spell or ability."
+        },
+        {
+          "num": "204.1.a",
+          "text": "On cards, the Base Cost is found in the upper left corner of the card."
+        },
+        {
+          "num": "204.1.b",
+          "text": "On activated abilities, the Base Cost is the resource or instruction written before the \":\"."
+        },
+        {
+          "num": "204.2",
+          "text": "**Additional Costs**: These Costs are in addition to the base cost of the spell or ability and will include \"as an additional cost.\""
+        },
+        {
+          "num": "204.2.a",
+          "text": "Additional Costs must be paid to finalize the spell or ability, in addition to the base cost."
+        },
+        {
+          "num": "204.3",
+          "text": "**Costs within Instructions**: These Costs are part of the resolution of a spell or ability, and will take the form \"[do X] to [do Y].\""
+        },
+        {
+          "num": "204.3.a",
+          "text": "When Costs within Instructions appear as the first part of the effect in triggered abilities, the cost is taken to be the base cost of the triggered ability. It must be paid to finalize the triggered ability. Example: Overzealous Fan is a unit that reads \"When I defend, you may kill me to move an attacking unit to its base.\" In order to finalize the ability to the chain, its controller must kill Overzealous Fan."
+        },
+        {
+          "num": "204.3.b",
+          "text": "When Costs within Instructions appear in spells, activated abilities, or in later parts of triggered abilities, the cost must be paid to get the effect during resolution of the spell or ability. Example: Bullet Time is a spell that reads \"Pay any amount of [A] to deal that much damage to all enemy units at a battlefield.\" As the spell resolves, its controller pays any amount of [A] as a cost, and deals that much damage to all units at a battlefield as the effect. Example: Ancient Henge is a gear that reads \"[Reaction][>] [E]: Pay any amount of Energy to Add that much [A].\" As the ability resolves, its controller pays any amount of Energy as a cost, and Adds that much [A] as the effect. Example: Insightful Investigator is a unit that reads \"When you play me, choose an opponent. They reveal their hand. You may pay 2 XP to choose a card from their hand. If you do, they discard that card and draw 1.\" As the ability resolves, its controller may pay 2 XP as a cost, and chooses a card from that player's hand as the effect."
+        },
+        {
+          "num": "204.4",
+          "text": "**Applied Costs**: These Costs are applied to one or more Game Actions, and typically take the form of a passive ability with a Cost within Instructions preceded by \"must.\" Example: Mageseeker Investigator reads in part \"Opponents must pay [A] for each unit beyond the first to move multiple units to my battlefield at the same time.\" This is an applied cost."
+        },
+        {
+          "num": "204.4.a",
+          "text": "The associated Game Action is the linked Effect for the Cost."
+        },
+        {
+          "num": "204.4.b",
+          "text": "Applied Costs are paid as the Game Action is performed. They do not use the chain and cannot be reacted to."
+        },
+        {
+          "num": "204.4.b.1",
+          "text": "Abilities that Add resources with the Reaction keyword can be activated at any time when costs need to be paid. See rule 429. Add for more information."
+        },
+        {
+          "num": "204.4.c",
+          "text": "If a player can't pay or chooses not to pay the Applied Cost, they cannot perform the associated Game Action."
+        },
+        {
+          "num": "205",
+          "text": "An instruction that requires a player to pay resources or spend counters or XP that does not also have a linked Effect, is not a Cost. Example: A card effect reads, \"When I attack, you may pay [4][C]. If you do, kill a unit here.\" Paying [4][C] in this way is not a cost of the ability, base or otherwise, but a game action being performed by a player. The later instruction checks whether the game action was performed, not whether a cost was paid—if paying [4][C] was replaced for any reason, the later linked instruction will not execute."
+        },
+        {
+          "num": "206",
+          "text": "Effects that need to determine a card's cost for any purpose always use its printed or copied cost, even if that cost is increased, decreased, or ignored as the card is played. Example: Sky Splitter is a spell that costs [8] and says in part \"This spell's Energy cost is reduced by the highest Might among units you control.\" Lux, Illuminated is a unit that says \"When you play a spell that costs 5 or more, give me +3 [M] this turn.\" If a player who controls Lux plays Sky Splitter, Lux's ability will trigger, regardless of how much was actually paid for Sky Splitter. Example: Defy is a spell which reads \"Counter a spell that costs no more than [4] and no more than [A].\" Rocket Barrage is a spell that costs [4][C] and has a Repeat cost of [4][C]. Rocket Barrage is a legal target for Defy even if Rocket Barrage's Repeat cost is paid, because Defy only checks the printed or copied cost of its target. Example: Atakhan is a unit that reads in part \"You may kill a friendly unit as an additional cost to play me. If you do, I cost [1] less for each Energy it costs and [Y] less for each Power it costs.\" If a player plays Atakhan and chooses to kill a Reflection token that is currently a copy of Noxus Hopeful, Atakhan will cost [4] less."
+        },
+        {
+          "num": "206.1",
+          "text": "Effects that need to determine an ability's cost for any purpose use its base cost, ignoring any alterations to that base cost unless otherwise specified. Example: A card reads \"When you play an activated ability with Energy cost [7] or more, you may exhaust me to ready up to 2 runes.\" A gear has an activated ability that reads \"[12], Banish this: Choose an opponent. Banish all units they control. This ability costs [1] less for each point the chosen opponent has.\" The ability of the first card will trigger when the activated ability is played, even if the chosen opponent has 6 or more points. Example: An equipment has an ability that reads \"Equip [4][A]. This ability costs [1] less for each occupied enemy battlefield.\" If its controller plays a unit with Weaponmaster, the Weaponmaster trigger will refer to the cost including the alterations. This is because Weaponmaster specifies that it includes modifications to the cost."
+        }
+      ]
+    },
+    {
+      "num": "300",
+      "title": "Playing the Game",
+      "rules": [
+        {
+          "num": "301",
+          "text": "**The Turn**"
+        },
+        {
+          "num": "302",
+          "text": "Play continues cyclically until one player wins."
+        },
+        {
+          "num": "303",
+          "text": "The phases of a turn are rigid, but the actions taken during those steps can be done in any order, unless otherwise specified."
+        },
+        {
+          "num": "303.1",
+          "text": "Game Actions of any nature are performed one at a time and are executed completely."
+        },
+        {
+          "num": "303.2",
+          "text": "Game Actions cannot be performed simultaneously for any reason."
+        },
+        {
+          "num": "303.2.a",
+          "text": "If one or more game actions, game effects, or Triggered Abilities are activated simultaneously, then Turn Order is referenced to organize the sequence of actions, starting with the current Turn Player. See rule 382. Triggered Abilities for more information."
+        },
+        {
+          "num": "304",
+          "text": "The Turn Player is the player taking the current turn."
+        },
+        {
+          "num": "305",
+          "text": "When there are no items on the Chain and the Turn Player cannot or chooses not to perform any Discretionary Actions, the current phase or step of the turn ends and the next phase, step, or turn begins."
+        },
+        {
+          "num": "306",
+          "text": "The Turn Player changes when the current Turn Player reaches the End of all of the Phases of their Turn."
+        },
+        {
+          "num": "307",
+          "text": "**States of the Turn**"
+        },
+        {
+          "num": "308",
+          "text": "At any given time, the turn is in either a Neutral State or a Showdown State."
+        },
+        {
+          "num": "308.1",
+          "text": "If a Showdown or Combat is in progress, the turn is in a Showdown State."
+        },
+        {
+          "num": "308.1.a",
+          "text": "Only cards and abilities with the Action or Reaction keywords can be played or activated in a Showdown State."
+        },
+        {
+          "num": "308.2",
+          "text": "If no Showdown or Combat is in progress, the turn is in a Neutral State."
+        },
+        {
+          "num": "309",
+          "text": "At any given time, the turn is in either an Open State or a Closed State."
+        },
+        {
+          "num": "309.1",
+          "text": "If a Chain exists, the turn is in a Closed State."
+        },
+        {
+          "num": "309.1.a",
+          "text": "Only cards and abilities with the Reaction keyword can be played or activated in a Closed State."
+        },
+        {
+          "num": "309.2",
+          "text": "If no Chain exists, the turn is in an Open State."
+        },
+        {
+          "num": "310",
+          "text": "These descriptions can be combined, such that the turn is always in one of these four states:"
+        },
+        {
+          "num": "310.1",
+          "text": "**Neutral Open**: There is no Showdown or Combat in progress and no Chain exists."
+        },
+        {
+          "num": "310.1.a",
+          "text": "By default, cards can be played and abilities activated only when a player has priority on their turn in a Neutral Open state."
+        },
+        {
+          "num": "310.2",
+          "text": "**Neutral Closed**: There is no Showdown or Combat in progress and a Chain exists."
+        },
+        {
+          "num": "310.3",
+          "text": "**Showdown Open**: A Showdown or Combat is in progress and no Chain exists."
+        },
+        {
+          "num": "310.4",
+          "text": "**Showdown Closed**: A Showdown or Combat is in progress and a Chain exists."
+        },
+        {
+          "num": "311",
+          "text": "**Priority and Focus**"
+        },
+        {
+          "num": "312",
+          "text": "At any given time, up to one player has Priority."
+        },
+        {
+          "num": "312.1",
+          "text": "Priority is the singular exclusive right to take Discretionary Actions. See rule 410.1. Discretionary Actions for more information."
+        },
+        {
+          "num": "312.1.a",
+          "text": "The player with Priority can take appropriately timed Discretionary Actions."
+        },
+        {
+          "num": "312.1.b",
+          "text": "If no player has Priority, no player can take Discretionary Actions."
+        },
+        {
+          "num": "312.1.b.1",
+          "text": "Players can always take and make choices for Limited Actions when instructed, regardless of Priority."
+        },
+        {
+          "num": "312.2",
+          "text": "A player receives Priority at the following times:"
+        },
+        {
+          "num": "312.2.a",
+          "text": "When the turn is in a Neutral Open State during their Main Phase."
+        },
+        {
+          "num": "312.2.b",
+          "text": "When the turn is in a Showdown State and they gain Focus."
+        },
+        {
+          "num": "312.2.c",
+          "text": "When the turn is in a Closed State, all pending chain items finish being finalized, and they control the next item on the Chain."
+        },
+        {
+          "num": "312.2.d",
+          "text": "When the turn is in a Closed State, they are the next Player in Turn Order, and the player with Priority passes."
+        },
+        {
+          "num": "312.3",
+          "text": "When a player is granted Priority, it is either created if no player has it or taken from the player with Priority."
+        },
+        {
+          "num": "313",
+          "text": "At any given time, up to one player has Focus."
+        },
+        {
+          "num": "313.1",
+          "text": "Focus is the permission to take appropriately timed Discretionary Actions when the turn is in a Showdown Open State. See rule 307. States of the Turn for more information."
+        },
+        {
+          "num": "313.1.a",
+          "text": "The player with Focus must obey any additional restrictions on which Discretionary Actions may be performed. Example: A player with Focus may not play spells or activate abilities that don't have the Action or Reaction keywords."
+        },
+        {
+          "num": "313.2",
+          "text": "A player who gains Focus also gains Priority."
+        },
+        {
+          "num": "313.3",
+          "text": "A player who passes Priority retains Focus."
+        },
+        {
+          "num": "313.4",
+          "text": "A player may not make discretionary actions with Focus unless they also possess Priority."
+        },
+        {
+          "num": "313.5",
+          "text": "If the turn is in a Neutral State, no player has Focus."
+        }
+      ]
+    },
+    {
+      "num": "314",
+      "title": "Phases of the Turn",
+      "rules": [
+        {
+          "num": "315",
+          "text": "**Start of Turn**"
+        },
+        {
+          "num": "315.1",
+          "text": "Awaken Phase"
+        },
+        {
+          "num": "315.1.a",
+          "text": "The following Task becomes Outstanding:"
+        },
+        {
+          "num": "315.1.b",
+          "text": "1. The Turn Player readies all Game Objects they control that are able to be readied. See rule 415. Ready for more information."
+        },
+        {
+          "num": "315.2",
+          "text": "Beginning Phase"
+        },
+        {
+          "num": "315.2.a",
+          "text": "Beginning Step"
+        },
+        {
+          "num": "315.2.a.1",
+          "text": "At the start of Beginning Phase game effects take place."
+        },
+        {
+          "num": "315.2.b",
+          "text": "Scoring Step"
+        },
+        {
+          "num": "315.2.b.1",
+          "text": "The following Task becomes Outstanding:"
+        },
+        {
+          "num": "315.2.b.2",
+          "text": "1. The Turn Player Holds all Battlefields they Control. See rule 467. Scoring for more information."
+        },
+        {
+          "num": "315.2.b.3",
+          "text": "**Reminder**: In Modes of Play with Teams, Battlefields controlled by a Teammate of the Turn Player during this step are disqualified from being scored this turn by the Turn Player."
+        },
+        {
+          "num": "315.3",
+          "text": "Channel Phase"
+        },
+        {
+          "num": "315.3.a",
+          "text": "The following Task becomes Outstanding:"
+        },
+        {
+          "num": "315.3.b",
+          "text": "1. The Turn Player channels 2 runes from their Rune Deck. See rule 430. Channel for more information."
+        },
+        {
+          "num": "315.3.b.1",
+          "text": "If there are fewer than 2 runes in the Rune Deck, they channel as many as possible."
+        },
+        {
+          "num": "315.4",
+          "text": "Draw Phase"
+        },
+        {
+          "num": "315.4.a",
+          "text": "The following Task becomes Outstanding:"
+        },
+        {
+          "num": "315.4.b",
+          "text": "1. The Turn Player draws 1."
+        },
+        {
+          "num": "315.4.b.1",
+          "text": "If there are no cards remaining in their Main Deck to draw, the Turn Player has been Burned Out. See rule 431. Burn Out for more information."
+        },
+        {
+          "num": "315.4.b.2",
+          "text": "After completing the Burn Out the Turn Player still Draws 1."
+        },
+        {
+          "num": "316",
+          "text": "**Main Phase**"
+        },
+        {
+          "num": "316.1",
+          "text": "When all steps of the Start of Turn have been completed, the Main Phase begins."
+        },
+        {
+          "num": "316.2",
+          "text": "The following Tasks become Outstanding in the specified order:"
+        },
+        {
+          "num": "316.3",
+          "text": "1. Each player's Rune Pool empties. Any unspent Energy and Power are lost. See rule 165. Rune Pools for more information."
+        },
+        {
+          "num": "316.4",
+          "text": "2. At the start of Main Phase game effects take place."
+        },
+        {
+          "num": "316.5",
+          "text": "The Main Phase has no defined structure."
+        },
+        {
+          "num": "316.5.a",
+          "text": "A player may take any number of Discretionary Actions they are able to perform during this phase. See rule 410.1. Discretionary Actions for more information."
+        },
+        {
+          "num": "316.5.b",
+          "text": "This is denoted as a Neutral Open State, and only the Turn Player has the ability to play spells or activate abilities. See rule 307. States of the Turn for more information."
+        },
+        {
+          "num": "316.5.b.1",
+          "text": "In Modes of Play with teammates, the Turn Player's teammates may play spells and activate abilities, including ones without Action or Reaction. They can only do so when the Turn Player invites them to do so with their own Priority."
+        },
+        {
+          "num": "316.6",
+          "text": "As a result of a player taking Discretionary Actions, one or more structured phases may occur."
+        },
+        {
+          "num": "316.7",
+          "text": "Combat"
+        },
+        {
+          "num": "316.7.a",
+          "text": "A Combat occurs as a result of Units controlled by opposing players being present at the same Battlefield."
+        },
+        {
+          "num": "316.7.b",
+          "text": "This could be the result of a Standard Move Intrinsic Ability, a Spell, or other Game Effect."
+        },
+        {
+          "num": "316.7.c",
+          "text": "The source effect does not change the structure or flow of Combat once initiated."
+        },
+        {
+          "num": "316.7.d",
+          "text": "A Combat can only occur between two players. See rule 459. Combat for more information."
+        },
+        {
+          "num": "316.7.e",
+          "text": "Play proceeds following the steps of combat. See rule 463. The Steps of Combat for more information."
+        },
+        {
+          "num": "316.7.f",
+          "text": "Combat will also include a Showdown."
+        },
+        {
+          "num": "316.8",
+          "text": "Showdowns"
+        },
+        {
+          "num": "316.8.a",
+          "text": "A Showdown occurs when a Combat occurs."
+        },
+        {
+          "num": "316.8.a.1",
+          "text": "Showdowns that occur as a result of Combat are a Sub-Phase of Combat."
+        },
+        {
+          "num": "316.8.b",
+          "text": "A Showdown is marked as Staged at a Battlefield in the cleanup after the Contested status is applied to that Battlefield."
+        },
+        {
+          "num": "316.8.b.1",
+          "text": "Showdowns that occur as a result of a player moving to an empty Battlefield are a stand-alone Phase and do not create a Combat."
+        },
+        {
+          "num": "316.8.b.1.a",
+          "text": "These Showdowns are called Non-Combat Showdowns. During the proceedings of a Non-Combat Showdown, units controlled by a different player may become present at the Battlefield where the Showdown is ongoing. This will cause the Showdown to become a Combat Showdown in the following cleanup."
+        },
+        {
+          "num": "316.8.c",
+          "text": "A Showdown is a structured Window of Opportunity where Players may play cards and activate abilities with Action or Reaction. See rule 341. Showdowns for more information."
+        },
+        {
+          "num": "316.9",
+          "text": "When a player has no more Discretionary Actions they wish to execute, they must indicate they are ending their turn."
+        },
+        {
+          "num": "316.9.a",
+          "text": "This ends the Main Phase."
+        },
+        {
+          "num": "316.9.b",
+          "text": "Play proceeds to the Ending Phase."
+        },
+        {
+          "num": "317",
+          "text": "**Ending Phase**"
+        },
+        {
+          "num": "317.1",
+          "text": "Ending Step"
+        },
+        {
+          "num": "317.1.a",
+          "text": "At the end of the turn Game Effects take place."
+        },
+        {
+          "num": "317.1.b",
+          "text": "Specific game effects and abilities will reference this timing and phase as necessary."
+        },
+        {
+          "num": "317.2",
+          "text": "Expiration Step"
+        },
+        {
+          "num": "317.2.a",
+          "text": "Invoke an Ending Special Cleanup. See rule 318. Cleanups for more information."
+        },
+        {
+          "num": "317.2.b",
+          "text": "Insert \"3c. Heal all Units.\""
+        },
+        {
+          "num": "317.2.c",
+          "text": "Insert \"3d. All 'this turn' effects expire simultaneously.\""
+        },
+        {
+          "num": "317.2.d",
+          "text": "Insert \"3e. Each player's Rune Pool empties. Any unspent Energy and Power are lost.\""
+        },
+        {
+          "num": "317.2.e",
+          "text": "The following Task becomes Outstanding:"
+        },
+        {
+          "num": "317.2.f",
+          "text": "1. If any items underwent the FEPR process, return to the start of the Expiration Step"
+        },
+        {
+          "num": "317.3",
+          "text": "The next player with their Turn queued becomes the Turn Player."
+        }
+      ]
+    },
+    {
+      "num": "318",
+      "title": "Cleanups",
+      "rules": [
+        {
+          "num": "319",
+          "text": "A Cleanup will be made an Outstanding Task at the following times:"
+        },
+        {
+          "num": "319.1",
+          "text": "After the game transitions to or from an Open or Closed state"
+        },
+        {
+          "num": "319.2",
+          "text": "After the game transitions between Phases, unless specified otherwise"
+        },
+        {
+          "num": "319.3",
+          "text": "After a Pending Item is added to the Chain"
+        },
+        {
+          "num": "319.4",
+          "text": "After a Pending Item becomes a Finalized Item on the Chain"
+        },
+        {
+          "num": "319.5",
+          "text": "After a Chain Item is removed from the Chain for any reason"
+        },
+        {
+          "num": "319.6",
+          "text": "After any number of Game Objects enter or leave the Board"
+        },
+        {
+          "num": "319.7",
+          "text": "After the status of any number of Game Objects changes for any reason"
+        },
+        {
+          "num": "319.8",
+          "text": "After a Move is completed"
+        },
+        {
+          "num": "320",
+          "text": "While a Cleanup is occurring, Chain Items cannot be Finalized or Resolved."
+        },
+        {
+          "num": "320.1",
+          "text": "New Pending Items can be added, but Finalized Items cannot be executed and Priority and Focus are not passed or awarded."
+        },
+        {
+          "num": "321",
+          "text": "Similarly, while Chain Items are Resolving, a Cleanup cannot occur."
+        },
+        {
+          "num": "321.1",
+          "text": "If an event occurs during the Resolution of a Chain Item that qualifies for a Cleanup, that Cleanup will be made an Outstanding Task."
+        },
+        {
+          "num": "322",
+          "text": "If an event occurs during a Cleanup that qualifies for a Cleanup, another Cleanup will occur immediately after the first completes, repeating until a Cleanup occurs with no new change in the game's state."
+        },
+        {
+          "num": "322.1",
+          "text": "These new Cleanups are themselves Outstanding Tasks."
+        },
+        {
+          "num": "323",
+          "text": "When a Cleanup occurs, the following Tasks become Outstanding in the order described:"
+        },
+        {
+          "num": "323.1",
+          "text": "1. If a player has points greater than or equal to the Victory Score, and more points than any opponent, that player wins."
+        },
+        {
+          "num": "323.2",
+          "text": "2. Assign or Remove the Attacker or Defender designation from Units as needed if there is a Combat in progress"
+        },
+        {
+          "num": "323.2.a",
+          "text": "If there are Units present at the Battlefield the Combat is taking place at, but do not have a designation, they gain the same designation as their Controller now"
+        },
+        {
+          "num": "323.2.b",
+          "text": "If there are Units present at the Battlefield the Combat is taking place at, but have the opposite designation of their controller, they lose that designation, and gain the same designation as their controller now"
+        },
+        {
+          "num": "323.2.c",
+          "text": "If there are Units at locations other than the Battlefield that the Combat is taking place at, but have either Attacker or Defender designations, they lose those designations now"
+        },
+        {
+          "num": "323.3",
+          "text": "3. Handle outstanding board state"
+        },
+        {
+          "num": "323.4",
+          "text": "3a. All Units that have Lethal Damage marked on them and that have Deathknell or other abilities that trigger on their own death will trigger such abilities now, making note of their current location, attributes, and other information relevant to add the trigger as a Pending Item See rule 808 Deathknell for more information."
+        },
+        {
+          "num": "323.5",
+          "text": "3b. All Units that have LethalDamage marked on themare killed and placed in their owners' Trash. See rule 142.4. For more information on lethal damage."
+        },
+        {
+          "num": "323.6",
+          "text": "4. Players lose control of any controlled Battlefields without their Units occupying them if the turn is in an Open State and there is no Showdown or Combat ongoing there."
+        },
+        {
+          "num": "323.7",
+          "text": "5. Recall all Unattached non- Unit Gear and non- Unit Runes at Battlefields, and all Permanents and Runes in Bases other than their controller's. Remove all Hidden cards from all Battlefields that are not controlled by the same player and place them in their owner's Trash."
+        },
+        {
+          "num": "323.8",
+          "text": "6. Mark a Showdown as Staged at each Battlefield that Contested was applied to."
+        },
+        {
+          "num": "323.8.a",
+          "text": "The Showdown remains Staged at that Battlefield as long as it is Contested and has units present controlled by the player that applied Contested."
+        },
+        {
+          "num": "323.9",
+          "text": "7. Mark a Combat as Staged at each Battlefield that Contested was applied to that have Units present controlled by opposing players."
+        },
+        {
+          "num": "323.9.a",
+          "text": "The Combat remains Staged at that Battlefield as long as there are Units present from two opposing players there."
+        },
+        {
+          "num": "323.10",
+          "text": "7a. If Units of two opposing players are no longer present at a Battlefield that has a Combat Staged before it has opened, the Combat will cease being Staged"
+        },
+        {
+          "num": "323.11",
+          "text": "8. Remove Contested status from each Battlefield without Units controlled by the player who applied Contested to that Battlefield and without a Showdown or Combat ongoing there."
+        },
+        {
+          "num": "323.11.a",
+          "text": "If as a result of the removal of Contested status there are Units located at an uncontested Battlefield that their controller does not control, their controller applies Contested status to that Battlefield."
+        },
+        {
+          "num": "323.12",
+          "text": "9. If the current state is a Neutral Open State and one or more Showdowns are Staged at Battlefields without a Combat staged, the Turn Player chooses one of those Battlefields. A Showdown begins there."
+        },
+        {
+          "num": "323.13",
+          "text": "10. If the current state is a Neutral Open State and one or more Combats are Staged at Battlefields, the Turn Player chooses one of those Battlefields. Combat begins there."
+        },
+        {
+          "num": "323.14",
+          "text": "10a. If the current state is Showdown Open State and Combat is Staged at a Battlefield where there is a Non-Combat Showdown ongoing, that Showdown becomes a Combat Showdown."
+        },
+        {
+          "num": "324",
+          "text": "Special Cleanups are Cleanup steps invoked at specific times that have additional steps not present in a normal Cleanup."
+        },
+        {
+          "num": "324.1",
+          "text": "When a Special Cleanup is invoked, the unique steps added will be inserted and defined by the sub-section that invokes it. Example: When a Combat Cleanup is invoked, the Combat section defines what steps are added to the Cleanup. See rule 466. The Resolution Step for more information. Example: When an End of Turn Cleanup is invoked, the End of Turn Phase subsection defines what steps are added to the Cleanup. See rule 317. The Ending Phase for more information."
+        },
+        {
+          "num": "324.2",
+          "text": "If events during a Special Cleanup require another Cleanup, a normal Cleanup is invoked, not another iteration of the Special Cleanup."
+        }
+      ]
+    },
+    {
+      "num": "325",
+      "title": "Chains and Showdowns",
+      "rules": [
+        {
+          "num": "326",
+          "text": "Players can act during the following Windows of Opportunity that occur during the course of regular play:"
+        },
+        {
+          "num": "326.1",
+          "text": "During a Chain"
+        },
+        {
+          "num": "326.2",
+          "text": "During a Showdown"
+        },
+        {
+          "num": "327",
+          "text": "**Chains**"
+        },
+        {
+          "num": "328",
+          "text": "The Chain is a Non-Board Zone that temporarily exists whenever a card is played or an ability is activated."
+        },
+        {
+          "num": "328.1",
+          "text": "Cards, abilities, and tokens are placed here as part of the process of being played. See rule 349. The Process of Play for more information. See rule 360. Abilities for more information on Abilities."
+        },
+        {
+          "num": "329",
+          "text": "Cards, tokens, and abilities added to the chain are added as Pending Chain Items that become Finalized Chain Items."
+        },
+        {
+          "num": "329.1",
+          "text": "Pending Items are on the Chain."
+        },
+        {
+          "num": "329.2",
+          "text": "Chain Items are Pending until the \"Check Legality\" step of playing a card. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "329.3",
+          "text": "When a Pending Chain Item is no longer Pending it is finalized and becomes a Finalized Chain Item."
+        },
+        {
+          "num": "330",
+          "text": "The Chain exists as long as a Chain Item is on it."
+        },
+        {
+          "num": "330.1",
+          "text": "Only one Chain can exist at a time."
+        },
+        {
+          "num": "330.2",
+          "text": "If a card or token would begin to be played while a Chain already exists, it is placed on the existing Chain."
+        },
+        {
+          "num": "331",
+          "text": "The State of the Turn is partially determined by whether or not the Chain currently exists."
+        },
+        {
+          "num": "331.1",
+          "text": "The turn is said to be in a Closed State if a Chain exists."
+        },
+        {
+          "num": "331.1.a",
+          "text": "Cards of all Categories, by default, cannot be played during a Closed State."
+        },
+        {
+          "num": "331.1.b",
+          "text": "Card abilities, by default, cannot be played during a Closed State."
+        },
+        {
+          "num": "331.2",
+          "text": "The turn is said to be in an Open State if no Chain exists."
+        },
+        {
+          "num": "332",
+          "text": "**Handling Tasks and Resolving Chain Items**"
+        },
+        {
+          "num": "333",
+          "text": "A Task is one or more steps or processes that one or more Players must perform before continuing with any other actions."
+        },
+        {
+          "num": "333.1",
+          "text": "Tasks include, but are not limited to: Cleanups, the actions performed during the Start of Turn Process, throughout Combat in its various steps, and the actions performed during the End of Turn Process. See rule 318. Cleanups for more information on Cleanups See rule 315. Start of Turn for more information on the Start of Turn process See rule 459. Combat for more information on the steps of Combat See rule 317. Ending Phase for more information."
+        },
+        {
+          "num": "334",
+          "text": "Whenever a Player takes one or more actions that incur Tasks they should refer to the process of HOT FEPR: H andle O utstanding T asks; then F inalize, E xecute, P ass, R esolve."
+        },
+        {
+          "num": "334.1",
+          "text": "In the course of Handling Outstanding Tasks, Chain Items may be added to the Chain. They will remain there until the Tasks are complete."
+        },
+        {
+          "num": "334.2",
+          "text": "When all Outstanding Tasks are completed, all pending Chain Items will subsequently be processed by the FEPR process."
+        },
+        {
+          "num": "334.2.a",
+          "text": "During the FEPR process, new Tasks may be incurred. Complete the current step of the process and then pause and complete the necessary Tasks before continuing."
+        },
+        {
+          "num": "335",
+          "text": "If there are no Outstanding Tasks, no pending Chain Items, no ongoing Showdown or Combat, and it is the Main Phase, the Turn Player receives priority. If there are no Outstanding Tasks, no pending Chain Items, no ongoing Showdown, and it is any other phase of the turn, proceed to the next substep, step, phase, or turn."
+        },
+        {
+          "num": "335.1",
+          "text": "If there are no Outstanding Tasks, no pending Chain Items, and there is an ongoing Showdown, the player with Focus receives priority."
+        },
+        {
+          "num": "336",
+          "text": "When there are no outstanding Tasks and there are pending Chain Items on the Chain, players should refer to the FEPR process to proceed."
+        },
+        {
+          "num": "336.1",
+          "text": "In the sequence of resolving FEPR more Chain Items may become Pending Chain Items. These will be processed by the same FEPR process that produced them."
+        },
+        {
+          "num": "337",
+          "text": "**Step 1: Finalize**"
+        },
+        {
+          "num": "337.1",
+          "text": "If there is at least one Chain Item Pending, the controller of the oldest Pending Chain Item must complete the steps of Playing that Pending Item until it is a Finalized Item or leaves the Chain. See rule 349. Playing Cards for more information on finalizing chain items."
+        },
+        {
+          "num": "337.1.a",
+          "text": "Finalizing an item to the chain does not pass Priority."
+        },
+        {
+          "num": "337.1.b",
+          "text": "Chain Items are Finalized in the order they were appended to the Chain."
+        },
+        {
+          "num": "337.2",
+          "text": "If, after finalizing the Chain Item, that item is a Unit, Gear, or an ability that Adds resources, it resolves immediately—Move to Step 4: Resolve. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "337.3",
+          "text": "If, after finalizing the Chain Item, there are still Pending Chain Items, return to step 1. Finalize."
+        },
+        {
+          "num": "337.4",
+          "text": "If, after finalizing the Chain Item, there are no more items on the chain to be Finalized, the controller of the next item on the chain gains Priority. Move to step 2: Execute."
+        },
+        {
+          "num": "338",
+          "text": "**Step 2: Execute**"
+        },
+        {
+          "num": "338.1",
+          "text": "The player with Priority may do any the following:"
+        },
+        {
+          "num": "338.1.a",
+          "text": "Play a Card or Activated Ability that is legally timed."
+        },
+        {
+          "num": "338.1.a.1",
+          "text": "Cards and Activated Abilities, by default, cannot be played during a Closed State."
+        },
+        {
+          "num": "338.1.a.2",
+          "text": "A Legally Timed Card or Activated Ability would be one with Reaction or one that will have Reaction when played under appropriate circumstances."
+        },
+        {
+          "num": "338.1.a.3",
+          "text": "Other exceptions may be created during regular play."
+        },
+        {
+          "num": "338.1.a.4",
+          "text": "The Card or Activated Ability will be added to the chain as a Pending Item, following the steps of playing a card."
+        },
+        {
+          "num": "338.1.a.5",
+          "text": "This can be an additional item to the item that Started the Chain in the case of the first player with Priority after creating the Chain."
+        },
+        {
+          "num": "338.1.a.6",
+          "text": "Whether a Card or Activated Ability is legally timed is evaluated during the \"Check Legality\" step of Playing a Card. See rule 349. Playing Cards for more information. See rule 398. Playing or Activating Abilities for more information."
+        },
+        {
+          "num": "338.1.a.7",
+          "text": "Playing a Card or Activated Ability will create one or more Pending Items. Return to Step 1: Finalize."
+        },
+        {
+          "num": "338.1.b",
+          "text": "Pass Priority"
+        },
+        {
+          "num": "338.1.b.1",
+          "text": "The player with Priority passes Priority to the next Player in Turn Order. Proceed to Step 3: Pass."
+        },
+        {
+          "num": "339",
+          "text": "**Step 3: Pass**"
+        },
+        {
+          "num": "339.1",
+          "text": "If all players have passed Priority in sequence without adding any items to the Chain, proceed to Step 4: Resolve."
+        },
+        {
+          "num": "339.2",
+          "text": "Otherwise, the player with Priority passes Priority to the next Player in Turn Order. Return to Step 2: Execute."
+        },
+        {
+          "num": "340",
+          "text": "**Step 4: Resolve**"
+        },
+        {
+          "num": "340.1",
+          "text": "The newest Finalized Chain Item resolves. Execute its game effects in their entirety. See rule 349. Playing Cards for more information on resolving spells. See rule 398. Playing or Activating Abilities for more information on resolving abilities."
+        },
+        {
+          "num": "340.2",
+          "text": "If the Chain is empty, play proceeds in an Open State."
+        },
+        {
+          "num": "340.2.a",
+          "text": "If this occurs during a Showdown and the chain wasn't initiated by a triggered ability or an ability that Adds resources, focus passes to the next player in turn order."
+        },
+        {
+          "num": "340.3",
+          "text": "If the Chain is not empty and there are one or more Pending Items, return to Step 1: Finalize."
+        },
+        {
+          "num": "340.4",
+          "text": "If the Chain is not empty and there are no Pending Items, the controller of the newest item on the chain gains Priority. Return to Step 2: Execute."
+        },
+        {
+          "num": "341",
+          "text": "**Showdowns**"
+        },
+        {
+          "num": "342",
+          "text": "A Showdown is a Window of Opportunity in which Players have an Open State in which they may play Spells in an alternating fashion."
+        },
+        {
+          "num": "342.1",
+          "text": "Each spell played this way creates a Chain as normal."
+        },
+        {
+          "num": "343",
+          "text": "The State of the turn is partially determined by whether or not a Showdown or Combat is in progress."
+        },
+        {
+          "num": "343.1",
+          "text": "The turn is said to be in a Showdown State if a Showdown or Combat is in progress."
+        },
+        {
+          "num": "343.1.a",
+          "text": "Cards of all Categories, by default, cannot be played during a Showdown State."
+        },
+        {
+          "num": "343.1.b",
+          "text": "Card abilities, by default, cannot be played during a Showdown State."
+        },
+        {
+          "num": "343.2",
+          "text": "The turn is said to be in a Neutral State if no Showdown or Combat is in progress."
+        },
+        {
+          "num": "344",
+          "text": "A Showdown begins when Control of a Battlefield is Contested during a Cleanup and the turn is in a Neutral Open State."
+        },
+        {
+          "num": "344.1",
+          "text": "If Control of a Battlefield is Contested between two players, then a Showdown will be opened as the first step of Combat. If a Showdown is already ongoing at that Battlefield, it will become a Combat Showdown and a Combat will initiate there. See rule 459. Combat for more information."
+        },
+        {
+          "num": "344.2",
+          "text": "If Control of a Battlefield is Contested, there aren't units controlled by different players there, and the turn is in a Neutral Open State, a Showdown is opened during the next Cleanup. See rule 318. Cleanups for more information."
+        },
+        {
+          "num": "345",
+          "text": "As a Showdown begins, the player who applied Contested status to the Battlefield gains Focus."
+        },
+        {
+          "num": "346",
+          "text": "When the last item on the chain resolves and the turn returns to an Open State during a Showdown, Focus passes, and the next Player gains both Focus and Priority."
+        },
+        {
+          "num": "346.1",
+          "text": "Focus will not pass in this way if the chain opened as a result of a triggered ability being added to the chain, nor if it opened as a result of an Add ability being added to the chain. Example: the Combat Chain opens as a result of triggered abilities being added to the chain, so when the last item on the Combat Chain resolves and the turn returns to an Open State, Focus will not pass."
+        },
+        {
+          "num": "347",
+          "text": "During a Showdown, the player with Focus may do one of the following:"
+        },
+        {
+          "num": "347.1",
+          "text": "Play a Card or Activated Ability that is legally timed."
+        },
+        {
+          "num": "347.1.a",
+          "text": "The card or activated ability will start a Chain as normal."
+        },
+        {
+          "num": "347.1.b",
+          "text": "When that Chain closes, Focus passes to the next Player in Turn Order."
+        },
+        {
+          "num": "347.2",
+          "text": "Pass."
+        },
+        {
+          "num": "347.2.a",
+          "text": "If all Players have passed once in sequence, the Showdown ends."
+        },
+        {
+          "num": "347.2.b",
+          "text": "Otherwise, Focus passes to the next Player in Turn Order."
+        },
+        {
+          "num": "348",
+          "text": "If all players pass Focus without playing a spell or activating an ability, then the Showdown Closes."
+        },
+        {
+          "num": "348.1",
+          "text": "If it is a Combat Showdown, proceed with the remaining steps of Combat to resolve the phase. See rule 463. The Steps of Combat for more information."
+        },
+        {
+          "num": "348.2",
+          "text": "If it is a Non-Combat Showdown, do the following:"
+        },
+        {
+          "num": "348.2.a",
+          "text": "If only one player's Units remain at the Battlefield, and if that player does not already Control the Battlefield, that player establishes Control over the Battlefield. See rule 188. Control for more information on Control. See rule 469.1. for more information on Conquering."
+        },
+        {
+          "num": "348.2.a.1",
+          "text": "This results in a Conquer if that player has not yet scored that Battlefield this turn."
+        }
+      ]
+    },
+    {
+      "num": "349",
+      "title": "Playing Cards",
+      "rules": [
+        {
+          "num": "350",
+          "text": "Playing a card is the act of a player utilizing their cards."
+        },
+        {
+          "num": "350.1",
+          "text": "A card is Played when it has finished this process in its entirety."
+        },
+        {
+          "num": "350.2",
+          "text": "Tokens are not cards, but can still be Played. See rule 179. Tokens for more information."
+        },
+        {
+          "num": "351",
+          "text": "Cards have different behaviors when played."
+        },
+        {
+          "num": "351.1",
+          "text": "Permanents become Game Objects when Played."
+        },
+        {
+          "num": "351.2",
+          "text": "Spells create game effects that are executed, then the card is placed in the trash when Played."
+        },
+        {
+          "num": "352",
+          "text": "Cards have different states during the process of being played."
+        },
+        {
+          "num": "352.1",
+          "text": "When initially being played cards are Pending, as Pending Chain Items."
+        },
+        {
+          "num": "352.2",
+          "text": "Near the end of the process cards will cease being Pending and become Finalized Chain Items."
+        }
+      ]
+    },
+    {
+      "num": "353",
+      "title": "The Process of Play",
+      "rules": [
+        {
+          "num": "354",
+          "text": "1. Move the card from its current zone to the Chain."
+        },
+        {
+          "num": "354.1",
+          "text": "This Closes the State. See rule 307. States of the Turn for more information."
+        },
+        {
+          "num": "354.2",
+          "text": "This item becomes Pending, awaiting the finalization process (steps 2 - 5)"
+        },
+        {
+          "num": "354.3",
+          "text": "If another Card Effect or ability is currently resolving, continue resolving it before proceeding with any further steps of this process."
+        },
+        {
+          "num": "354.4",
+          "text": "If there are Tasks outstanding or currently being handled, finish those Tasks before continuing this process. See rule 332. for more information on Tasks."
+        },
+        {
+          "num": "355",
+          "text": "2. Make relevant choices."
+        },
+        {
+          "num": "355.1",
+          "text": "If the card has an effect that specifies a choice \"As I am played,\" those choices are made now."
+        },
+        {
+          "num": "355.1.a",
+          "text": "This includes the choice of whether or not to pay an Optional Additional Cost."
+        },
+        {
+          "num": "355.2",
+          "text": "For Units, choose a valid Location where that Unit will enter upon being Played."
+        },
+        {
+          "num": "355.2.a",
+          "text": "By default, Valid locations include the controller's Base or a Battlefield the controller controls."
+        },
+        {
+          "num": "355.2.b",
+          "text": "Some Game Effects may grant players permission to play Units to locations that are not normally Valid. Such locations become Valid for the purposes of Playing the Unit."
+        },
+        {
+          "num": "355.3",
+          "text": "For Spells and Abilities with a bulleted list of modes to choose from, make the appropriate choices now."
+        },
+        {
+          "num": "355.4",
+          "text": "For Spells and Abilities that Move one or more Units, choose a valid Location as the Move Destination for each Move that will be performed."
+        },
+        {
+          "num": "355.4.a",
+          "text": "A valid Location for a Move Effect is one other than the Units' current Location where they are allowed to be present."
+        },
+        {
+          "num": "355.5",
+          "text": "If a card requires you to specifically choose one or more Game Objects, that choice is made now."
+        },
+        {
+          "num": "355.5.a",
+          "text": "This does not include cards that affect one or more Game Objects based on criteria. Example: \"Stun a unit at a battlefield\" is a Choice. Example: \"Kill all gear\" is not a Choice."
+        },
+        {
+          "num": "355.5.b",
+          "text": "This does not include making choices for Triggered Abilities of permanents, or Delayed or Reflexive Triggers generated by the item being finalized, even if those abilities trigger when the chain item is played. Example: A unit with a triggered ability that says \"When I'm played, kill a unit\" does not require you to choose a target as it's played. The target will be chosen when the ability triggers. Example: Targon's Peak reads \"When you conquer here, ready up to 2 runes at the end of this turn.\" Readying up to 2 runes at the end of the turn is the effect of a delayed trigger; any choices involved are not made when finalizing the conquer effect but when finalizing the resulting delayed trigger at the end of the turn. See rule 382. Triggered Abilities for more information."
+        },
+        {
+          "num": "355.6",
+          "text": "Targeting"
+        },
+        {
+          "num": "355.7",
+          "text": "When a card Chooses one or more specific Game Objects to affect, it is Targeted unless indicated otherwise by the rules in this section."
+        },
+        {
+          "num": "355.8",
+          "text": "In order to put a spell or ability on the chain, valid choices must be made for all targets."
+        },
+        {
+          "num": "355.9",
+          "text": "A target is a valid choice if it meets all of the following requirements:"
+        },
+        {
+          "num": "355.9.a",
+          "text": "It is a permanent or rune on the board, a spell or ability on the chain, a player or zone, or specified explicitly or implicitly as being in some other zone. e.g., \"Kill a unit\" targets a unit on the board. e.g., \"Recycle a unit from your trash\" targets a unit card in your trash."
+        },
+        {
+          "num": "355.9.a.1",
+          "text": "\"Unit,\" \"gear,\" and \"rune\" refer to objects on the Board unless specified otherwise."
+        },
+        {
+          "num": "355.9.a.2",
+          "text": "\"Spell\" and \"ability\" refer to objects on the Chain unless specified otherwise."
+        },
+        {
+          "num": "355.9.a.3",
+          "text": "\"Facedown card\" refers to a card in a Facedown Zone unless specified otherwise."
+        },
+        {
+          "num": "355.9.a.4",
+          "text": "\"Legend\" refers to a legend in the Legend Zone."
+        },
+        {
+          "num": "355.9.a.5",
+          "text": "\"Chosen Champion\" and \"unit in the Champion Zone\" refer to a unit in the Champion Zone unless specified otherwise."
+        },
+        {
+          "num": "355.9.b",
+          "text": "It meets all targeting restrictions. e.g., A unit is a valid target for a spell that refers to a \"unit at a battlefield,\" \"enemy unit,\" \"unit you control,\" or \"unit with Might 4 or greater\" only if it meets the appropriate criteria. e.g. A unit that reads \"I can't be chosen by enemy spells or abilities.\" is not a valid target for any enemy spell or ability, even if it meets other targeting restrictions."
+        },
+        {
+          "num": "355.9.c",
+          "text": "It is not the spell or ability itself. e.g., A spell that says \"Counter a spell\" cannot target itself. e.g., An ability of a permanent can target that permanent, because abilities and their sources are separate objects."
+        },
+        {
+          "num": "355.10",
+          "text": "A game object, player, or zone mentioned in the text of a spell, activated ability, or triggered ability is a target UNLESS any of the following are true:"
+        },
+        {
+          "num": "355.10.a",
+          "text": "It is in a zone whose information status is not Public. e.g., \"Ready a legend\" targets a legend, because the Legend Zone is Public. e.g., \"Return a unit from your trash to your hand\" targets a unit card in your trash, because your trash is Public. e.g., \"You may play a unit from your hand, ignoring its costs\" does not target a unit card in your hand, because your hand is not a public zone."
+        },
+        {
+          "num": "355.10.a.1",
+          "text": "Public zones are Battlefield Zones, Bases, Trashes, Legend Zones, Champion Zones, and Facedown Zones."
+        },
+        {
+          "num": "355.10.b",
+          "text": "It is included only as part of a targeting restriction for another choice or only as a restriction or permission for a game action. e.g., \"Kill a unit at a battlefield\" targets a unit, but not a battlefield, because the units are targets and \"at a battlefield\" is a restriction. e.g., \"Kill all units at a battlefield\" targets a battlefield, but not any units. e.g., \"Play a unit from your hand to a battlefield\" doesn't target a battlefield."
+        },
+        {
+          "num": "355.10.c",
+          "text": "It is included only as part of a cost, trigger condition, or replacement effect. e.g., \"As an additional cost to play me, kill a friendly unit\" doesn't target anything. e.g., \"When a friendly unit dies, kill a gear\" targets a gear, but not a friendly unit. e.g., \"When you play me, the next time a friendly unit would die this turn, return it to your hand instead\" doesn't target anything. The replacement effect applies when any friendly unit dies. e.g., \"Choose a friendly unit. The next time it would die this turn, return it to your hand instead\" targets a friendly unit, because \"choose a friendly unit\" is not part of the replacement effect."
+        },
+        {
+          "num": "355.10.c.1",
+          "text": "This includes costs within instructions, identified by phrases like \"[do X] to [do Y].\" The cost within that instruction is \"[do X].\" e.g., \"When I hold, you may kill another friendly unit here to draw 1\" does not target anything. e.g., \"When you play me, you may spend a buff to move a friendly unit\" targets the friendly unit, but not the buff."
+        },
+        {
+          "num": "355.10.d",
+          "text": "It is programmatically selected based on its characteristics rather than chosen by the spell or ability's controller. e.g., \"Kill all units at a battlefield\" targets a battlefield, but does not target any units. e.g., \"Kill all units at battlefields\" doesn't target anything. e.g., \"Kill a unit. Its controller draws 2\" targets the unit, but not its controller. e.g., \"Ready your legend\" doesn't target anything, because you can only have one legend. e.g., \"Ready a friendly legend\" targets a legend, because in a 2v2 game there are two friendly legends. e.g., \"Recycle all cards in your trash\" doesn't target anything, because it affects all cards and you only have one trash."
+        },
+        {
+          "num": "355.10.d.1",
+          "text": "This exception applies solely to objects for which no choice is ever possible."
+        },
+        {
+          "num": "355.10.d.2",
+          "text": "This exception does not apply to objects that are the only valid choice at the moment a spell or ability is placed on the chain, but which would require a choice under other circumstances. e.g., \"Kill a unit at a battlefield\" always targets a unit, even if that unit is the only unit currently at a battlefield."
+        },
+        {
+          "num": "355.10.e",
+          "text": "It is part of a set of objects chosen in whole or in part by other players. e.g., \"Each player kills a unit they control\" does not target. Each player, including the one who played the spell, chooses a unit to kill as the spell or ability resolves."
+        },
+        {
+          "num": "355.10.f",
+          "text": "It is identified in an instruction that a player \"must\" complete. e.g., \"You must recycle one of your runes\" doesn't target anything. You choose from among your runes as the spell or ability resolves. e.g., \"Recycle a rune you control\" targets a rune. You choose a rune you control as you put the spell or ability on the chain."
+        },
+        {
+          "num": "355.11",
+          "text": "Some cards identify a group of Targets with Targeting Requirements that must be met by the group as a whole."
+        },
+        {
+          "num": "355.11.a",
+          "text": "As they're finalized on the chain, such cards can choose any group of valid targets that collectively fulfill the targeting restriction."
+        },
+        {
+          "num": "355.11.b",
+          "text": "If the group of targets no longer collectively fulfill the targeting restriction as the spell or ability resolves, that spell or ability's controller can choose a subset of the original targets that fulfills the targeting requirement for the spell or ability to affect. Example: A player plays Fox-Fire, a spell that says in part \"Kill any number of units at a battlefield with total Might 4 or less.\" That player chooses four 1 [M] Recruit tokens at a single battlefield. As a Reaction, another player gives two of those Recruits +1 [M], so the Recruits' Mights are 1, 1, 2, and 2. Then Fox-Fire resolves. The Recruits no longer have total Might 4 or less, so Fox-Fire's controller must choose a legal subset of the original targets to affect. They could choose to kill the two 2 [M] Recruits, or the two 1 [M] Recruits plus one 2 [M] Recruit. The units they choose are Fox-Fire's remaining legal targets. They can't choose to affect units at the same battlefield that weren't initially chosen as targets. They can, however, choose to affect units that were initially chosen as targets that left the chosen battlefield before Fox-Fire resolved as long as those units are all located at the same battlefield."
+        },
+        {
+          "num": "355.12",
+          "text": "If a spell specifies that a player may perform a Game Action on some number of Game Objects, then all choices are considered targeted and chosen independently of the decision to perform the Game Action."
+        },
+        {
+          "num": "355.13",
+          "text": "If a card specifies that a player chooses \"any number\" or \"up to\" some number of Game Objects to be affected, they may choose any number of available targets, including zero. If they choose zero, the spell or ability can be played without any targets."
+        },
+        {
+          "num": "355.14",
+          "text": "Splitting"
+        },
+        {
+          "num": "355.14.a",
+          "text": "If a card specifies that an amount of damage may be split among some number of Units, then each Unit chosen is Targeted."
+        },
+        {
+          "num": "355.14.b",
+          "text": "The Targets are chosen when the spell or ability is finalized on the chain."
+        },
+        {
+          "num": "355.14.c",
+          "text": "A number of Targets can only be chosen up to, and not exceeding, the initial amount of damage available when the spell is played. Example: A player playing a spell that instructs them to \"Split 5 damage\" may only choose up to 5 units, but may choose fewer."
+        },
+        {
+          "num": "355.14.d",
+          "text": "Each Target is valid, and contributes to Targeting Effects individually."
+        },
+        {
+          "num": "355.14.e",
+          "text": "The choice of how much damage is divided across the split is not decided until the resolution of the spell or ability."
+        },
+        {
+          "num": "355.14.f",
+          "text": "Each Target must receive a valid amount of damage."
+        },
+        {
+          "num": "355.14.g",
+          "text": "Valid damage is a positive integer amount, greater than or equal to 1 damage. See rule 417. Deal for more information."
+        },
+        {
+          "num": "355.14.h",
+          "text": "If, at resolution of the spell or effect, there are more Targets than available damage to divide, then the player who controls the effect dealing damage determines which Targets cease being Targets."
+        },
+        {
+          "num": "355.14.h.1",
+          "text": "That player cannot choose to have fewer Targets than they have damage to split when choosing which Targets cease being Targets. Example: A player plays Alpha Strike, which reads in part \"Choose a friendly unit. It deals damage equal to its Might split among enemy units at battlefields.\" They target their 5 [M] unit and five 1 [M] enemy Recruits at battlefields. In reaction, their opponent plays Feral Strength targeting one of their recruits, and Frigid Touch targeting the 5 [M] unit. When Alpha Strike resolves, they have 3 damage to split, and must choose which targets cease being targets. They can't choose for 4 of the units to cease being targets so that they can deal 3 to the 3 [M] recruit. They can only choose at most 2 of the targets to cease being targets."
+        },
+        {
+          "num": "355.14.i",
+          "text": "Any costs that were paid, or effects that were triggered as a result of those Game Objects being chosen as Targets remain in effect, paid, or otherwise triggered."
+        },
+        {
+          "num": "355.15",
+          "text": "These choices cannot be changed after this step unless instructed to by a spell or ability. See rule 750. Making New Choices for more information."
+        },
+        {
+          "num": "355.16",
+          "text": "A player may not make choices during this step that will deterministically result in illegal choices or actions later in this process unless they have no choice. Example: A player plays a card which reads \"As an additional cost to play this, kill the unit you control with the most Might. Give a friendly unit +[M] equal to the killed unit's Might this turn. Predict 2.\" They cannot choose to target their unit with the highest Might during this step of finalization."
+        },
+        {
+          "num": "355.17",
+          "text": "If a spell or ability requires one or more players to make choices that are not outlined in this section, they are made on resolution."
+        },
+        {
+          "num": "356",
+          "text": "3. Determine Total Cost."
+        },
+        {
+          "num": "356.1",
+          "text": "Apply base cost modifications in any order."
+        },
+        {
+          "num": "356.1.a",
+          "text": "If an ability or instruction allows you to play a card \"for [Cost]\", replace the card's Base Costs with [Cost]."
+        },
+        {
+          "num": "356.1.b",
+          "text": "If an ability or instruction allows you to \"ignore\" one or more of a card's costs, set the appropriate Base Cost(s) of the card to zero."
+        },
+        {
+          "num": "356.1.b.1",
+          "text": "If a card allows a player to play a card \"ignoring its cost,\" its base Energy cost and base Power cost are set to zero."
+        },
+        {
+          "num": "356.1.b.2",
+          "text": "If a card instructs a player to play a card \"ignoring its Energy cost\" or \"ignoring its Power cost,\" only the appropriate cost is set to zero, and the remaining cost still applies."
+        },
+        {
+          "num": "356.1.b.3",
+          "text": "Further additional costs and/or cost increases applied in subsequent steps may raise the card's Total Cost above zero. Example: Legion Rearguard is a Fury unit that costs 2 Energy and 0 Power and has Accelerate. A player plays Legion Rearguard and is instructed to ignore its costs, but chooses to pay the Accelerate cost. They ignore Legion Rearguard's Base Cost of 2 Energy, but the optional additional cost of 1 Energy and 1 Fury Power is added to its Total Cost and must be paid."
+        },
+        {
+          "num": "356.1.c",
+          "text": "Effects that refer to the Base Cost of the card refer to the Printed or Copied Base Cost of said card, and not the modified Base Cost that is used when determining the total cost of the card."
+        },
+        {
+          "num": "356.2",
+          "text": "Apply additional costs in any order."
+        },
+        {
+          "num": "356.2.a",
+          "text": "Mandatory Additional Costs"
+        },
+        {
+          "num": "356.2.a.1",
+          "text": "Some Additional Costs specified by Passive Abilities on the card being played or another card are Mandatory, and must be paid to complete playing the card. They use the phrase \"as an additional cost\" and don't include the word \"may.\" Example: A unit has the passive ability \"As an additional cost to play me, kill a friendly unit.\" To play that unit, a player must kill a friendly unit. See rule 363. Passive Abilities for more information."
+        },
+        {
+          "num": "356.2.a.2",
+          "text": "The cost imposed by the Deflect keyword is a Mandatory Additional Cost. See rule 809. Deflect for more information."
+        },
+        {
+          "num": "356.2.b",
+          "text": "Optional Additional Costs"
+        },
+        {
+          "num": "356.2.b.1",
+          "text": "Some Optional Costs specified by Passive Abilities on the card being played or another card are Non-Mandatory, and must be paid only if the player made the choice to pay them in step 2. They use the phrase \"as an additional cost\" and the word \"may.\" Example: A unit has the ability \"As you play me, you may discard 1 as an additional cost. If you do, reduce my cost by [2].\" While playing the unit, its controller declares their intention to pay the additional cost in step 2, applies that additional cost in rule 356.2, applies the discount granted by paying that cost in rule 356.4, and discards a card to pay that additional cost in rule 357.2. See rule 363. Passive Abilities for more information."
+        },
+        {
+          "num": "356.3",
+          "text": "Apply cost increases."
+        },
+        {
+          "num": "356.4",
+          "text": "Apply discounts."
+        },
+        {
+          "num": "356.4.a",
+          "text": "Discounts may be applied by the card being played or by any other card or effect."
+        },
+        {
+          "num": "356.4.b",
+          "text": "Discounts may say that cards \"cost [amount] less\" or that one or more of their costs are \"reduced by [amount].\""
+        },
+        {
+          "num": "356.4.c",
+          "text": "Discounts that only apply to a component of the cost will be applied when that component is added to the cost of the spell and before any other discounts. Example: Ezreal, Prodigy reads \"optional additional costs you pay cost [1] or [A] less.\" When playing a Frigid Touch and choosing to pay the additional cost in step 2, as soon as the additional cost is added to the cost of the spell, Ezreal, Prodigy's discount is applied to it."
+        },
+        {
+          "num": "356.4.c.1",
+          "text": "Discounts that apply to a given component of a spell's cost may be applied in any order to that component."
+        },
+        {
+          "num": "356.4.d",
+          "text": "Discounts that apply to the total cost of a spell and not any one component of the cost must be applied after any discount that applies only to a component of the cost."
+        },
+        {
+          "num": "356.4.d.1",
+          "text": "These discounts may be applied in any order as long as they are applied after component discounts."
+        },
+        {
+          "num": "356.4.e",
+          "text": "If a discount applies a minimum cost, that minimum applies only to that discount. Example: Eager Apprentice says \"While I'm at a battlefield, the Energy costs for spells you play is reduced by [1], to a minimum of [1].\" A player who controls Eager Apprentice and a unit with 7 Might plays Sky Splitter, a spell that costs 8 Energy and says \"This spell's Energy cost is reduced by the highest Might among units you control.\" That player can choose to apply Eager Apprentice's discount first, reducing Sky Splitter's Energy cost to 7, then apply Sky Splitter's discount, reducing its Energy cost to 0. If they applied these discounts in the other order, Sky Splitter's Energy cost would be 1."
+        },
+        {
+          "num": "356.4.f",
+          "text": "Discounts can reduce additional costs, including to 0."
+        },
+        {
+          "num": "356.4.f.1",
+          "text": "An optional additional cost was \"paid\" if the player made the decision to pay it. It doesn't matter how much the player actually paid. Example: Clockwork Keeper is a unit that costs 2 Energy and 0 Power and says \"As you play me, you may pay [C] as an additional cost. If you do, draw 1.\" A player controls a card that says \"Units you play cost [A] less.\" That player plays Clockwork Keeper and chooses to pay the optional additional cost of [C]. They will draw a card, even though the optional additional cost was reduced to 0."
+        },
+        {
+          "num": "356.5",
+          "text": "Apply modifications to the total cost in any order."
+        },
+        {
+          "num": "356.5.a",
+          "text": "If an effect allows a player to play a card ignoring \"any and all costs,\" set the total cost to [0], including any non-standard costs."
+        },
+        {
+          "num": "356.6",
+          "text": "Energy and Power costs can't be reduced below 0."
+        },
+        {
+          "num": "356.7",
+          "text": "Costs may be Energy costs, Power costs, or non-standard costs. Example: A card reads \"As an additional cost to play me, kill a friendly unit.\" Killing a friendly unit is an additional cost to play that card."
+        },
+        {
+          "num": "357",
+          "text": "4. Pay the card's costs."
+        },
+        {
+          "num": "357.1",
+          "text": "In total, pay the combined Energy cost (if any) and Power cost (if any)."
+        },
+        {
+          "num": "357.1.a",
+          "text": "During this step, the card's controller can use activated abilities with the Reaction tag that Add resources to add Energy and Power to pay the card's costs. See rule 165. Rune Pools and rule 429. Add for more information."
+        },
+        {
+          "num": "357.2",
+          "text": "In addition, pay any non-standard Cost summed in step 3 in any order. Example: A card reads in part \"As an additional cost to play me, kill a friendly unit and discard a unit.\" When paying the costs for that card, its controller can pay those two costs in any order; they can kill a friendly unit first and then discard a unit, or they can discard a unit and then kill a friendly unit."
+        },
+        {
+          "num": "357.2.a",
+          "text": "Costs that are replaced with other events by replacement effects are still considered paid. Example: A player plays Cruel Patron, which says \"As an additional cost to play me, kill a friendly unit.\" They also control Zhonya's Hourglass, which says \"If a friendly unit would die, kill this instead. Heal that unit, exhaust it, and recall it.\" They choose to kill a friendly unit during step 3, but as they pay the cost in step 4, Zhonya's Hourglass replaces that unit's death. The cost is considered paid, and the player can continue playing Cruel Patron."
+        },
+        {
+          "num": "357.3",
+          "text": "A player may not pay costs during this step that will deterministically result in illegal choices or actions later in this process unless they have no choice. Example: A player plays a card which reads \"as an additional cost to play this, you may kill a friendly unit. Give a friendly unit +2 [M] this turn. If you paid the cost, give that unit +7 [M] this turn instead\" If they chose to pay the cost, they must choose to kill a unit other than the targeted unit unless they have no choice."
+        },
+        {
+          "num": "358",
+          "text": "5. Check legality."
+        },
+        {
+          "num": "358.1",
+          "text": "Check that all chosen targets are legal."
+        },
+        {
+          "num": "358.2",
+          "text": "Check that all costs were paid."
+        },
+        {
+          "num": "358.3",
+          "text": "Check that the outcome of the effect of this card being played would not create an illegal state. Example: Check that a spell's execution does not create a state where a Battlefield has Units controlled by 3 different players."
+        },
+        {
+          "num": "358.3.a",
+          "text": "If a Game Effect prevents the performance of a game action, that effect doesn't prevent cards and abilities that instruct a player to perform that game action from being played or finalized. On resolution, that game action will be skipped as it is an impossible instruction. Example: A player plays Here to Help when their opponent controls a Mageseeker Warden at a battlefield. Here to Help is legal to play under these circumstances. On resolution, no unit will be played."
+        },
+        {
+          "num": "358.4",
+          "text": "Check that the card has the appropriate permissions to be played at this timing. Example: If the state is Showdown Closed and the card was the one that Closed the state, ensure that it has [Action] or [Reaction]. Example: If the state is Closed and the card wasn't the one that Closed the state, ensure that it has [Reaction]."
+        },
+        {
+          "num": "358.5",
+          "text": "If any of the above checks fail, the actions taken in this process are undone and the action is cancelled."
+        },
+        {
+          "num": "359",
+          "text": "6. Finish finalizing this card and proceed with the card's category of Play."
+        },
+        {
+          "num": "359.1",
+          "text": "This card is no longer Pending."
+        },
+        {
+          "num": "359.2",
+          "text": "A Permanent leaves the Chain and becomes a Game Object."
+        },
+        {
+          "num": "359.2.a",
+          "text": "Any passive abilities become active."
+        },
+        {
+          "num": "359.2.b",
+          "text": "Execute all rules text on the card, from top to bottom."
+        },
+        {
+          "num": "359.2.c",
+          "text": "If it is a Unit, it enters the Board exhausted at the Location that was chosen."
+        },
+        {
+          "num": "359.2.d",
+          "text": "If it is a Non-Unit Gear, it enters the Board Ready at the player's Base."
+        },
+        {
+          "num": "359.3",
+          "text": "A Spell lingers on the Chain."
+        },
+        {
+          "num": "359.3.a",
+          "text": "This card becomes a Finalized Chain Item."
+        },
+        {
+          "num": "359.3.b",
+          "text": "If there are other Pending Items on the Chain, then the controller of those Pending Items completes Steps 2 through 5 of Playing Cards for those items before continuing. See rule 327. Chains for more information."
+        },
+        {
+          "num": "359.3.c",
+          "text": "Other players have an opportunity to play Reactions before the resolution of spells. See rule 327. Chains for more information."
+        },
+        {
+          "num": "359.3.d",
+          "text": "Otherwise, execute the game effect of the spell, from top to bottom of the rules text of the card and then place the card in the Trash of the owning player."
+        },
+        {
+          "num": "359.3.e",
+          "text": "Handling illegal and impossible instructions"
+        },
+        {
+          "num": "359.3.e.1",
+          "text": "The spell resolves even if some or all of its targets are illegal."
+        },
+        {
+          "num": "359.3.e.2",
+          "text": "A target is illegal as the spell resolves if it no longer meets the targeting requirements of the spell, or if it has changed Zones to or from a Non-Board Zone."
+        },
+        {
+          "num": "359.3.e.3",
+          "text": "If a target ceases to meet the targeting requirements while the spell is on the chain, then meets them again, it's a legal target. Example: A spell targets \"a unit at a battlefield.\" A player reacts with a spell that moves the unit to base, then another player reacts with a spell that moves it back to that battlefield, then the original spell resolves. The unit is a legal target."
+        },
+        {
+          "num": "359.3.e.4",
+          "text": "If a target changes Zones to or from a Non-Board Zone and then returns to its original zone, it is no longer a legal target, because it's not treated as the same object. Examples: An enemy unit at a battlefield is no longer a legal target if it is no longer an enemy, no longer a unit, or no longer at a battlefield. A unit with 3 or less Might is no longer a legal target if it is no longer a unit or if its Might is greater than 3. Something that's exhausted is no longer a legal target if it is no longer exhausted. (It can't stop being \"something.\")"
+        },
+        {
+          "num": "359.3.e.5",
+          "text": "If any of the spell's targets are no longer legal, those game objects, players, or zones are unaffected by the spell as it resolves. Any instructions related to an illegal target can't be followed. Example: A player plays Void Seeker, a spell that says \"Deal 4 to a unit at a battlefield. Draw 1.\" The unit's controller uses a Reaction to move the unit to their base. Since the unit is no longer a legal target, it is not dealt any damage. Void Seeker's controller still draws 1. Example: A player plays Bellow's Breath targeting a unit in combat that reads in part \"I can't be chosen by enemy spells and abilities unless I'm in combat.\" In reaction, that unit's controller plays Flash, moving the unit to their base. The unit is no longer in combat, so it is no longer a legal target for Bellow's Breath. The unit will be unaffected by Bellow's Breath as it resolves. Example: A player plays Hidden Blade from the facedown zone at a battlefield, targeting an enemy unit. In reaction to Hidden Blade, their opponent plays Tideturner from facedown at another battlefield, choosing to swap locations with the unit Hidden Blade targeted. When Hidden Blade resolves, the chosen unit is no longer at the appropriate battlefield, so any instructions related to that unit are ignored."
+        },
+        {
+          "num": "359.3.e.6",
+          "text": "Instructions that can't be followed, either because of illegal targets or other circumstances, are ignored. Example: A player plays Ride the Wind choosing to move their unit at Vilemaw's Lair to base. Base is a legal move destination for Ride the Wind, but on resolution of Ride the Wind's effect, the move instruction will be ignored because Vilemaw's restriction makes the instruction impossible."
+        },
+        {
+          "num": "359.3.e.7",
+          "text": "If all of an instruction's Targets become Invalid or Unavailable by the time the spell begins resolving, that instruction will not execute."
+        },
+        {
+          "num": "359.3.e.8",
+          "text": "If an instruction has more than one Target and fewer than all of the Targets become Invalid or Unavailable by the time the spell begins resolving, the instruction will execute, with only the Targets available and valid being operated on. Example: Singularity reads \"deal 6 to each of up to two units.\" The instruction will execute even if one of those units is made unavailable before the spell begins."
+        },
+        {
+          "num": "359.3.e.9",
+          "text": "The process for a card's choice becoming Invalid or Unavailable is referred to as mistargeting. Example: A spell has the instruction \"Deal 2 to a unit at a battlefield.\" Before that instruction can execute, the chosen unit is moved to its base. The instruction will not be executed, because it specifies that the unit it chooses must be at a Battlefield, and by the time it attempted to execute, the unit was no longer valid as a choice."
+        },
+        {
+          "num": "359.3.e.9.a",
+          "text": "If another spell or ability attempts to reference the number of game objects, players, or zones that a Finalized Chain Item targets, it will include any mistargeted choices, but not any targets that have changed to a non-board zone. Example: When a player moves their Volibear, Furious to an occupied enemy battlefield and combat initiates, Volibear's attack trigger goes on the chain targeting three of the units at that battlefield. In reaction, the defending player plays Flash moving two of the three units back. That player cannot then target the attack trigger with Repulse, which reads \"Choose a friendly unit at a battlefield. Counter an enemy spell or ability that chooses it and no other friendly unit.\" If the defending player instead played Heedless Resurrection twice, killing the two units, Repulse can legally target the attack trigger, because two of the targets have changed to a non-board zone."
+        },
+        {
+          "num": "359.3.e.10",
+          "text": "It is possible for none of a spell's instructions to be executed as it resolves, due to all of them requiring targets to act on and all of those targets becoming Invalid or Unavailable. In this case, the spell has no effect but is still considered played. Example: A player plays a spell that reads \"Deal 2 to a unit at a battlefield\" with no other instructions, and chooses an enemy unit at a battlefield. They also control a unit with the ability \"When you play a spell, give me +1 [M] this turn.\" Before the spell resolves, the chosen unit is moved to its base. The spell resolves and its only instruction cannot be executed, but the unit's ability still triggers as the spell resolves and gives it +1 [M]."
+        },
+        {
+          "num": "359.3.e.11",
+          "text": "Instructions that can be partially followed are followed as much as possible and ignored otherwise. Example: A player plays a spell that says \"Discard 2, then draw 2.\" If their hand is empty, the instruction to discard 2 will be ignored. They'll still draw 2. If they had 1 card in hand, they would discard it and draw 2."
+        },
+        {
+          "num": "359.3.e.12",
+          "text": "If the spell checks information about a target that is no longer legal or a card or permanent whose location, zone, or status has changed such that that information is no longer available, that check returns \"null\" and all calculations based on it are ignored. Examples: A unit that is no longer on the board is treated as having null Might, null cost, etc. A unit that is no longer on the board has no location, is neither exhausted nor readied, etc. Baited Hook says \"[1][C], [E]: Kill a friendly unit. Look at the top 5 cards of your Main Deck. You may banish a unit from among them that has Might up to 1 more than the killed unit and play it, ignoring its cost. Then recycle the rest.\" While Baited Hook's ability is on the chain, an opponent reacts with a spell that returns the friendly unit to its owner's hand. Because the friendly unit is no longer a legal target, it can't be killed and its Might is treated as null. Baited Hook's controller looks at the top 5 cards of their Main Deck, but can't choose any unit from among them. Strike Down reads \"Choose an equipped friendly unit. It deals damage equal to its Might to an enemy unit. Then detach an Equipment from it.\" While Strike Down is on the chain targeting a unit with only one Equipment attached to it, that unit has its Equipment detached via Angle Shot. When Strike Down goes to resolve, the targeted unit is no longer legal, so the unit's Might will return as \"null\" and the instructions related to it are ignored."
+        },
+        {
+          "num": "359.3.e.12.a",
+          "text": "If the spell checks information about a target that is legal or a card or permanent whose location, zone, or status has not changed such that information is no longer available, that information is accessible."
+        },
+        {
+          "num": "359.3.e.13",
+          "text": "A spell or ability that moves something to a different zone as a cost or effect can \"look back\" at its characteristics before it changes zones."
+        },
+        {
+          "num": "359.3.e.14",
+          "text": "Some instructions may reference Game Objects affected by, or Game Actions performed in, other instructions in a card. The referenced and referencing instructions are called \"linked instructions.\" Example: Hidden Blade reads \"Kill a unit at a battlefield. Its controller draws 2.\" The \"its\" in the second instruction references the unit in the first, so the two instructions of the spell are linked."
+        },
+        {
+          "num": "359.3.e.14.a",
+          "text": "In order for a later linked instruction to execute, its earlier linked instruction must have executed. If the earlier linked instruction is ignored for any reason, the later linked instruction will also be ignored. Example: Hidden Blade reads \"Kill a unit at a battlefield. Its controller draws 2.\" If the chosen unit changes zones or moves to base in reaction to Hidden Blade, the spell will mistarget and the first instruction will be ignored. If the first instruction is ignored, the second instruction will not execute and the unit's controller will not draw 2."
+        },
+        {
+          "num": "359.3.e.14.b",
+          "text": "If the Game Action performed in an earlier linked instruction is replaced, this will not affect the later linked instruction, unless the later linked instruction directly references the Game Action being performed. Example: Hidden Blade reads \"Kill a unit at a battlefield. Its controller draws 2.\" This effect is split into two instructions: killing the unit and the targeted unit's controller drawing 2. The later linked instruction doesn't reference an action directly, so it will execute even if the kill action of the earlier linked action is replaced by some other event. Example: Deathgrip reads \"Kill a friendly unit. If you do, give +[M] equal to its Might to another friendly unit this turn.\" If the friendly unit in question is not killed by Deathgrip because its death is replaced with another event, the later linked instruction will not execute because \"if you do\" directly references the game action."
+        },
+        {
+          "num": "359.3.e.14.c",
+          "text": "Referencing a game action in this way only refers to the game action being performed and the object or player it was performed on, not the circumstances of its performance. Example: A spell reads \"Deal 3 to an enemy unit at a battlefield. If you do, heal units you control at the same location as that unit.\" If some but not all of that damage is prevented, the later linked instruction will still execute. Example: A spell reads \"Banish an enemy unit at a battlefield, then play it to any battlefield. Then if you do, do this: stun all enemy units there.\" A player plays it targeting a unit that has a passive replacement effect that reads \"I enter in base.\" The replacement effect causes the unit to enter in base, but this does not prevent the reflexive trigger of the spell from being placed on the chain. All that matters is that the unit was played."
+        },
+        {
+          "num": "359.3.e.15",
+          "text": "A spell or ability that leaves the chain during the process of its resolution will cease further execution of its instructions. This immediately causes the spell or ability to finish resolving."
+        },
+        {
+          "num": "359.3.e.16",
+          "text": "If a Delayed Ability's duration has ended before it was generated, the Delayed Ability is not generated and any instructions related to it are ignored. Example: Targon's Peak is a battlefield that reads in part \"When you conquer here, ready up to 2 runes at the end of this turn.\" If Targon's Peak is conquered during the Ending Phase after the beginning of the ending step, such as via an effect like thrill of the Hunt, the delayed trigger will not be generated. Example: Akshan, Mischievous reads in part \"When you play me, if you paid the additional cost, move an enemy gear to your base. You control it until I leave the board. If it's an Equipment, attach it to me.\" If Akshan leaves the board in reaction to his play effect, the delayed passive ability \"You control it until I leave the board,\" will not be generated. You will not gain control of the targeted gear even for a moment."
+        },
+        {
+          "num": "359.3.f",
+          "text": "Referents"
+        },
+        {
+          "num": "359.3.f.1",
+          "text": "Some information used by abilities is referenced from the source of those abilities, or from one or more targets of a spell or ability. This can usually be recognized by the presence of words like \"here,\" \"my,\" or \"its.\""
+        },
+        {
+          "num": "359.3.f.2",
+          "text": "Information referenced in an instruction in this way will be checked on execution of the instruction. Examples: A player moves Yasuo, Remorseful to an occupied enemy battlefield and initiates combat there. In reaction to the Yasuo, Remorseful attack trigger, their opponent plays Fight or Flight from hidden targeting Yasuo, moving him back to base. When the attack trigger resolves, \"here\" is no longer the battlefield where combat is ongoing and the attack trigger mistargets. In reaction to a Yasuo, Remorseful attack trigger, an opponent plays Stupefy targeting Yasuo. When Yasuo's attack trigger resolves, it will deal damage equal to his current Might of 5."
+        },
+        {
+          "num": "359.3.f.2.a",
+          "text": "When a referent checks information on execution of the instruction related to a target, and that target isn't legal, that referent will return \"null\" and all instructions related to it will be ignored."
+        },
+        {
+          "num": "359.3.f.3",
+          "text": "Some information used by triggered abilities is referenced from the trigger condition of the ability. This information is checked when the trigger condition is fulfilled. Example: Lillia, Fae Fawn reads \"when I move from a location, play a 3 [M] Sprite token with Temporary there.\" If Lillia moves to a battlefield, her triggered ability will be placed on the chain and it will note the location she moved from when it does so. If she moves to a non-board zone in reaction to the triggered ability on the chain, it will not affect where the Sprite token will be played when the triggered ability resolves."
+        },
+        {
+          "num": "359.3.f.3.a",
+          "text": "In the case of a delayed triggered ability, the information is referenced when the triggered ability is created unless specified otherwise."
+        },
+        {
+          "num": "359.3.f.3.b",
+          "text": "In the case of a linked ability that references information from a linked triggered ability, that information may be referenced from the trigger condition of the linked triggered ability if specified. Example: Iascylla reads \"When I hold, at the start of your next Main Phase, you may move an enemy unit to this battlefield.\" The \"this battlefield\" in her delayed triggered ability refers to the battlefield she held, and so will be referenced from the trigger condition, when the triggered ability is generated."
+        },
+        {
+          "num": "359.3.f.4",
+          "text": "Some information used by the effect of a triggered ability is referenced from the triggered ability itself, such as \"enemy\" and \"friendly\" status. This information is checked on execution of the referencing instruction. Example: Yasuo, Remorseful reads \"when I attack, deal damage equal to my Might to an enemy unit here.\" Yasuo moves to an occupied enemy battlefield and his attack trigger goes on the chain. In reaction to the attack trigger, the defending player plays a hidden Hostile Takeover and gains control of Yasuo. The triggered ability is unaffected by Yasuo changing controllers, and \"enemy\" is in reference to the triggered ability itself, so it will resolve with no issue. Example: In reaction to the same Yasuo, Remorseful trigger, say the defending player had instead played a spell that reads \"[Reaction]. Gain control of a triggered ability. You may make new choices for it.\" They chose the attack trigger. When Yasuo's attack trigger resolves, if they didn't make new choices for the trigger, the controller of the triggered ability will no longer be an enemy to the targeted unit, so the triggered ability will mistarget and do nothing. If they instead chose Yasuo with the attack trigger, he would be an enemy unit to the triggered ability and so it would deal damage equal to his Might to himself."
+        }
+      ]
+    },
+    {
+      "num": "360",
+      "title": "Abilities",
+      "rules": [
+        {
+          "num": "361",
+          "text": "An Ability is the structured rules and capabilities of Game Objects or Spells."
+        },
+        {
+          "num": "361.1",
+          "text": "An Ability has multiple structures. Passive Abilities Replacement Effects Activated Abilities Triggered Abilities Delayed Abilities"
+        },
+        {
+          "num": "362",
+          "text": "A card can have more than one Ability and more than one type of Ability."
+        },
+        {
+          "num": "363",
+          "text": "**Passive Abilities**"
+        },
+        {
+          "num": "364",
+          "text": "Conditions, rules, constraints, or statements that affect the course of regular play."
+        },
+        {
+          "num": "364.1",
+          "text": "These abilities have a wide variety of formats to recognize. Example: \"I get +1 [M] while you have 2 or more cards in your hand.\" Example: \"Friendly Yordles at my battlefield have [Shield].\""
+        },
+        {
+          "num": "364.2",
+          "text": "They can be recognized by being statements of fact."
+        },
+        {
+          "num": "364.3",
+          "text": "Passive Abilities can be conditional."
+        },
+        {
+          "num": "364.3.a",
+          "text": "Conditional Passive Abilities can be recognized by the occurrence of \"if\" or \"while\" as part of the statement of the ability. Example: \"While I'm attacking or defending alone, I have +2 [M].\" Example: \"If an opponent controls a battlefield, I enter ready.\""
+        },
+        {
+          "num": "365",
+          "text": "**Presence on Permanents**"
+        },
+        {
+          "num": "365.1",
+          "text": "Passive Abilities of Permanents are typically only active while on the Board."
+        },
+        {
+          "num": "366",
+          "text": "**Presence on Card outside of the Board**"
+        },
+        {
+          "num": "366.1",
+          "text": "Passive Abilities of cards in zones that are outside of the Board will self-describe their context. Example: The passive ability \"Play me only during an opponent's turn.\" applies in any zone from which that card can be played. Example: Undying Legion has a passive ability that reads \"[Legion][>] You may play me from your trash for [3][C].\" That passive ability only applies when Undying Legion is in the trash."
+        },
+        {
+          "num": "366.2",
+          "text": "Passive Abilities can alter the costs of cards as they are played."
+        },
+        {
+          "num": "366.2.a",
+          "text": "These apply at all times in any zone from which the card with the ability can be played."
+        }
+      ]
+    },
+    {
+      "num": "367",
+      "title": "Replacement Effects",
+      "rules": [
+        {
+          "num": "368",
+          "text": "An ability that alters the application of another game effect or game rule."
+        },
+        {
+          "num": "368.1",
+          "text": "Passive Abilities can be Replacement Effects."
+        },
+        {
+          "num": "369",
+          "text": "Replacement Effects intercede during the execution of a Game Effect and alter its execution."
+        },
+        {
+          "num": "369.1",
+          "text": "A Replacement Effect can usually be identified by the presence of the terms \"as,\" \"would,\" or \"instead.\" Example: Zhonya's Hourglass reads \"The next time a friendly unit would die, kill this instead. Heal that unit, exhaust it, and recall it.\" This is a replacement effect that alters the execution of any Game Effect that would kill a friendly unit. Example: Undertitan is a unit that reads in part \"As I'm revealed from your deck, [Add] [2].\" This is a replacement effect that alters the execution of any Game Effect that reveals Undertitan from your deck."
+        },
+        {
+          "num": "369.2",
+          "text": "Some Game Actions are themselves Replacement Effects. Example: Burning Out is a replacement effect. Example: Preventing Damage is a replacement effect."
+        },
+        {
+          "num": "369.3",
+          "text": "Replacement Effects that apply to a unit as it enters the Board can be identified by describing how the unit enters, or by describing a game action that occurs \"as\" a unit enters. Example: Master Yi, Honed reads \"I enter ready.\" This applies a replacement effect to the way that units normally enter. The event of him entering exhausted is replaced by one where he enters ready. Example: Baron Nashor reads \"As you play me, add the Baron Pit battlefield token to the board if it's not there already. If you do, I enter there.\" The last sentence of his ability is a replacement effect that replaces the event of him entering at his original play location with him entering at the Baron Pit if it was created."
+        },
+        {
+          "num": "370",
+          "text": "A Replacement Effect can alter the typical flow of play, including other cards' executions."
+        },
+        {
+          "num": "370.1",
+          "text": "Replacement Effects apply to any event or instruction that qualifies for their application. A Replacement Effect will specify the circumstances by which an event or instruction will qualify to be replaced."
+        },
+        {
+          "num": "370.1.a",
+          "text": "An event is the singular moment that results from a Game Action being performed or from a Game Object changing state. Example: The moment that results from a unit being killed is an event that can be referenced by game effects, or even skipped entirely. Example: The moment that results from a unit becoming Mighty is an event that can be referenced by game effects, or even skipped entirely."
+        },
+        {
+          "num": "370.1.a.1",
+          "text": "Modifying or replacing an event is the same as modifying or replacing that Game Action or change in state that generated that event. Example: Zhonya's Hourglass reads in part \"If a friendly unit would die, kill this instead. Heal that unit, exhaust it, and recall it.\" A unit's death being replaced by Zhonya's Hourglass is the same as the kill action that caused that death not occurring. Example: A card reads in part \"The next time an enemy unit would become Mighty this turn, banish it instead. Its controller plays a 3 [M] Mech unit token to its location.\" A unit becoming Mighty being replaced by this effect means the unit never became Mighty—no effects that trigger on units becoming Mighty will trigger."
+        },
+        {
+          "num": "370.1.a.2",
+          "text": "An event can occur simultaneously with other events only when those events are all the result of the same Game Action or change in state occurring. Example: A spell reads in part \"Kill up to two units at battlefields.\" When that spell resolves, the units targeted are killed simultaneously because their deaths result from the same game action. Example: A spell reads in part \"Kill a friendly unit. If you do, kill an enemy unit with no more Might than it.\" When that spell resolves, the units are not killed simultaneously. There are two kill game actions being performed in the instructions of the spell. The friendly unit is killed first, followed by the enemy unit."
+        },
+        {
+          "num": "370.1.b",
+          "text": "When a Replacement Effect applies, it replaces the qualifying event with one or more Game Actions or events, or the qualifying instruction with another instruction."
+        },
+        {
+          "num": "370.1.b.1",
+          "text": "In the case of Replacement Effects that describe a game action to occur \"as\" an event occurs, the described event is replaced by that same event plus the game action being performed. Example: Undertitan is a unit that reads in part \"As I'm revealed from your deck, [Add] [2].\" The event of Undertitan being revealed from your deck is replaced by Undertitan being revealed from your deck and adding [2] Energy to your Rune Pool."
+        },
+        {
+          "num": "370.1.c",
+          "text": "Replacement Effects are applied before any qualifying event has actually occurred."
+        },
+        {
+          "num": "370.2",
+          "text": "A Replacement Effect can only be applied once to an event, or to any Game Actions or events that replace that event. Example: A player plays a spell that reads \"gear you control become 1 [M] gear units this turn.\" They control two copies of Zhonya's Hourglass when the spell resolves. If one of those copies is killed, both of their Replacement Effects will be applied. Whichever is applied first, that Replacement Effect can't be applied again. When it is applied, it kills its source, which creates an event the other can apply its Replacement Effect to. Once they've both applied their Replacement Effect to the original death event and the event that replaced it, they cannot go any further. At that point, whichever Zhonya's Hourglass applied its Replacement Effect last will die."
+        },
+        {
+          "num": "370.3",
+          "text": "If a Game Object has a Replacement Effect that is active in a specific zone, it is evaluated and subsequently applied if it enters that zone before an event occurs that it could replace. Example: A unit that reads \"if a unit you control would die, you may banish me from your trash instead. If you do, heal that unit, exhaust it and recall it.\" The first unit dies simultaneously with a 1 [M] Recruit token. It does not enter the trash before the Recruit dies, so it will not be able to replace its death."
+        },
+        {
+          "num": "370.4",
+          "text": "A Game Object can apply its Replacement Effects to any qualifying events that occur simultaneously with it leaving the zone that its Replacement Effect is active in. Example: Soraka, Wanderer has a Replacement Effect that reads, \"If another unit you control here would die, if it has less Might than me, instead heal it, exhaust it, and recall it.\" Soraka's replacement can be applied to any qualifying event that occurs simultaneously with her leaving the board, including to units that die simultaneously with her."
+        },
+        {
+          "num": "371",
+          "text": "Some Replacement Effects will begin with \"once each turn,\" or \"N times each turn.\""
+        },
+        {
+          "num": "371.1",
+          "text": "These Replacement Effects may only be applied to the specified number of events each turn. Once they have been applied to that many events, they cannot be applied to a later event in the same turn."
+        },
+        {
+          "num": "371.2",
+          "text": "If the Replacement Effect says a player \"may\" apply the Replacement Effect, the player has the choice of whether or not to apply it."
+        },
+        {
+          "num": "371.2.a",
+          "text": "When an event the Replacement Effect could apply to occurs, the player who controls the Replacement Effect may choose to apply it to the event."
+        },
+        {
+          "num": "371.2.b",
+          "text": "If they do not, it has not been applied this turn. Example: Zilean, Time mage reads \"Once each turn, if you would play a token unit while I'm at a battlefield, you may play that token and an additional copy of it instead.\" When his controller plays a token, they can choose not to apply the replacement effect to that event. If they do, they can choose to apply it to a later event of a token being played."
+        },
+        {
+          "num": "372",
+          "text": "If more than one Replacement Effect applies to the same event being executed, then the controller of the object being acted on determines the order the Replacement Effects will apply."
+        },
+        {
+          "num": "372.1",
+          "text": "If it is a player being acted on, that player decides the order the Replacement Effects will apply."
+        },
+        {
+          "num": "372.2",
+          "text": "If the affected object is an Uncontrolled Battlefield then the Current Turn Player decides the order the Replacement Effects will apply."
+        },
+        {
+          "num": "373",
+          "text": "If more than one event occurs simultaneously that Replacement Effects could apply to, each event is treated separately and individually for the purposes of Replacement Effects, and Replacement Effects with the same controller are applied in the order of their controller's choosing. Example: Two units controlled by the same player die in the same cleanup. That player also controls Zhonya's Hourglass. They must decide which event to apply Zhonya's Hourglass to first."
+        },
+        {
+          "num": "373.1",
+          "text": "Although these events are simultaneous, the applied Replacement Effects are ordered. If multiple applied Replacement Effects with different controllers would execute simultaneously, they execute in turn order."
+        },
+        {
+          "num": "373.1.a",
+          "text": "When executing Replacement Effects, the Game Actions that comprise their instructions are performed before any simultaneous unmodified events. Example: Two units die simultaneously. One of those units has their death replaced by being healed, exhausted, and recalled. The healing, exhausting, and recalling of that unit will be performed before the other dies."
+        },
+        {
+          "num": "373.2",
+          "text": "When applying Replacement Effects to events that occur simultaneously, each Replacement Effect may only be applied in one sequence, to any number of events that are qualified to be replaced. Example: Soraka, Wanderer reads \"If another unit you control here would die, if it has less Might than me, instead heal it, exhaust it, and recall it.\" Soraka dies simultaneously with two 1 [M] Recruit tokens at the same battlefield and two 1 [M] Recruit tokens in base. Soraka has a Guardian Angel attached to her when she dies, which appends \"If I would die, kill Guardian Angel instead. Heal me, exhaust me, and recall me\" to Soraka's rules text. There are several possible ways to order the Replacement Effects being applied to the various events: If Soraka's Replacement Effect is applied first, it saves the Recruits at the same battlefield as her but not the Recruits in base. If the Replacement Effect appended by Guardian Angel then saves Soraka, she cannot apply her Replacement Effect to the Recruits in base as her Replacement Effect has already been applied to an event simultaneous with it dying. If the Replacement Effect appended by Guardian Angel is applied first, it saves Soraka and recalls her - then when Soraka's Replacement Effect is applied, it can only save the Recruits in base."
+        },
+        {
+          "num": "373.2.a",
+          "text": "A sequence of Replacement Effects is an uninterrupted series of applications to a set of simultaneous events."
+        },
+        {
+          "num": "373.2.a.1",
+          "text": "A Replacement Effect that replaces an event or Game Action that is part of another Replacement Effect will not interrupt the sequence of the replaced Replacement Effect's application."
+        },
+        {
+          "num": "374",
+          "text": "A Replacement Effect 's controller is the player that controls the source of the Replacement Effect."
+        },
+        {
+          "num": "375",
+          "text": "If an event that a Replacement Effect applies to would be modified by the Game Effect that generated that event, or the results of that event would be modified by a Game Action from a linked ability that references the replaced event, the Replacement Effect will inherit those modifications. Example: Treasure Hunter reads \"When I move, play a Gold gear token exhausted.\" A Replacement Effect that says \"if you would play a token gear, play that token and an additional copy instead\" is applied to the event of the Gold gear token being played. The additional copy will also be exhausted, as it inherits the \"exhausted\" modification. Example: Another Replacement Effect says \"if you would play a token, draw 1 instead.\" The modification from Treasure Hunter's ability cannot apply, so we ignore it. Example: A spell reads \"play a ready 3 [M] Mech token. Then do this: Give it Temporary.\" A Replacement Effect that says \"if you would play a unit token, play that token and a 1 [M] Recruit token instead\" is applied to the event of the Mech token being made. The Recruit token enters ready and is given Temporary."
+        }
+      ]
+    },
+    {
+      "num": "376",
+      "title": "Activated Abilities",
+      "rules": [
+        {
+          "num": "377",
+          "text": "Activated Abilities are repeatable effects with a cost. They follow a process of going onto the chain and resolving, similar to Playing a Card. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "377.1",
+          "text": "Activated Abilities are recognized by the presence of a \":\" in the text of the card, preceded by a cost and succeeded by an effect. Example: \"[2]: Draw 1\" is an activated ability. The cost is 2 energy. The effect is to draw 1 card."
+        },
+        {
+          "num": "377.2",
+          "text": "Card text will refer to activating Activated Abilities with the word \"use\" or \"play.\""
+        },
+        {
+          "num": "377.2.a",
+          "text": "If \"using\" or \"playing\" an Activated Ability is part of a trigger condition, that condition is fulfilled when the Activated Ability resolves."
+        },
+        {
+          "num": "377.2.b",
+          "text": "If an Activated Ability has a condition on \"using\" or \"playing\" it, that condition must be true in order to activate the ability in question. Example: Ultrasoft Poro reads \"[E]: Play two 1 [M] Bird unit tokens with [Deflect]. Use this ability only while I'm at a battlefield.\" In order to activate the ability, Ultrasoft Poro must be located at a battlefield."
+        },
+        {
+          "num": "377.3",
+          "text": "Activated Abilities use the chain."
+        },
+        {
+          "num": "377.3.a",
+          "text": "Declare activation of the Ability."
+        },
+        {
+          "num": "377.3.a.1",
+          "text": "The ability goes on the chain but has no card to represent it, so players need to take note that it is now a Closed State."
+        },
+        {
+          "num": "377.3.b",
+          "text": "Proceed with executing the Chain."
+        },
+        {
+          "num": "377.3.b.1",
+          "text": "Follow the steps of \"Playing or Activating Abilities\" in rule 398. This ability will become a Pending Chain Item."
+        },
+        {
+          "num": "377.3.b.2",
+          "text": "Opponents have an opportunity to respond, as appropriate, as if a card was played onto the chain."
+        },
+        {
+          "num": "377.3.b.3",
+          "text": "If no further action is taken, execute the Activated Ability."
+        },
+        {
+          "num": "378",
+          "text": "The controlling player chooses when and whether to activate an Activated Ability."
+        },
+        {
+          "num": "379",
+          "text": "Activated abilities are present on Game Objects and some Spells."
+        },
+        {
+          "num": "380",
+          "text": "Can primarily be activated while on the Board."
+        },
+        {
+          "num": "381",
+          "text": "All Activated Abilities can only be activated on the Controlling Player's Turn and during an Open State."
+        }
+      ]
+    },
+    {
+      "num": "382",
+      "title": "Triggered Abilities",
+      "rules": [
+        {
+          "num": "383",
+          "text": "Triggered Abilities are repeatable effects that happen when a Condition is met."
+        },
+        {
+          "num": "383.1",
+          "text": "Triggered Abilities can usually be recognized by the word \"when\" followed by a game action or event; the word \"at\" followed by a point in time during the turn sequence; or the phrase \"the [Nth] time\" followed by a game action or event. Examples: \"When you conquer here, you may spend a buff to draw 1.\" \"At the end of your turn, ready 2 runes.\" \"The first time I move each turn, you may ready something else that's exhausted.\""
+        },
+        {
+          "num": "383.1.a",
+          "text": "The phrases that identify triggered abilities do not always appear at the beginning of sentences or abilities."
+        },
+        {
+          "num": "383.1.b",
+          "text": "If an ability triggers \"the [Nth] time\" something happens and that trigger condition is met multiple times simultaneously, the ability's controller picks one of those instances to serve as the trigger condition. The ability triggers only once, due to the chosen condition. Example: Wraith of Echoes reads \"The first time another friendly unit dies each turn, draw 1.\" That ability hasn't triggered yet this turn. Two other friendly units die simultaneously (say, due to combat damage). The Wraith's controller chooses one of those deaths to trigger Wraith's ability."
+        },
+        {
+          "num": "383.2",
+          "text": "Triggered Abilities have a Condition and an Effect."
+        },
+        {
+          "num": "383.2.a",
+          "text": "The Condition is the clause with When, At, or the Nth Time."
+        },
+        {
+          "num": "383.2.a.1",
+          "text": "Any additional conditional statement immediately after the Condition must be true in order for the Condition to be fulfilled. Such a conditional statement is part of the Trigger Condition and not the Effect. Example: Sona, Harmonious reads \"At the end of your turn, if I'm at a battlefield, ready up to 4 friendly runes.\" Her Trigger Ability's Condition will be fulfilled in the Ending Step, but the Triggered Ability will only be placed on the chain if she is located at a battlefield when the Condition is fulfilled. If she is removed in reaction to the triggered ability, it will still resolve. Example: Loose Cannon reads \"At the start of your Beginning Phase, draw 1 if you have one or fewer cards in your hand.\" The \"if you have one or fewer cards in your hand\" conditional statement is not immediately after the trigger condition, so it is part of the effect and not the condition."
+        },
+        {
+          "num": "383.2.b",
+          "text": "The Effect is the Instructions that are not part of the Condition."
+        },
+        {
+          "num": "383.2.c",
+          "text": "The Condition of a Trigger is evaluated after a potentially inciting event has been processed."
+        },
+        {
+          "num": "383.2.c.1",
+          "text": "If a Game Object has a Triggered Ability that is active in a specific zone, it is evaluated and subsequently triggered if it enters that zone at the same time that its Trigger 's condition is met. Example: Immortal Phoenix says \"When you kill a unit with a spell, you may pay [1][C] to play me from your trash.\" This ability triggers if Immortal Phoenix is in your trash immediately after you kill a unit with a spell, even if the unit you killed with a spell was that Immortal Phoenix."
+        },
+        {
+          "num": "383.2.c.2",
+          "text": "A Game Object will not be able to successfully evaluate its Trigger Condition, however, if it leaves the zone that its Trigger is active from at the same time that its Trigger is satisfied. Example: Viktor, Leader says \"When another non-Recruit unit you control dies, play a 1 [M] Recruit unit token into your base.\" This ability triggers if Viktor is on the board immediately after another non-Recruit unit you control dies. It does not trigger if Viktor and another non-Recruit unit you control die during the same game action (for instance, if they are both killed in the same Cleanup due to the damage dealt by Unchecked Power)."
+        },
+        {
+          "num": "383.3",
+          "text": "When a Condition is met, a Triggered Ability behaves like an Activated Ability and is placed on the Chain."
+        },
+        {
+          "num": "383.3.a",
+          "text": "If a Triggered Ability says \"you may\"or \"they may\" as the first part of its Effect, the controller of its source will choose whether or not to perform the Triggered Ability during finalization. Example: Tideturner reads \"When you play me, you may choose a unit you control at another location. Move me to its location and it to my original location.\" This \"you may\" appears as the first part of its effect, so the choice represents whether or not to perform the triggered ability."
+        },
+        {
+          "num": "383.3.a.1",
+          "text": "The decision of \"may\" when it appears in this way is solely whether or not to perform said triggered ability."
+        },
+        {
+          "num": "383.3.a.2",
+          "text": "If the controller of the Triggered Ability chooses not to perform that Triggered Ability during finalization, it is removed from the chain and considered to have not triggered."
+        },
+        {
+          "num": "383.3.a.3",
+          "text": "If \"you may\" or \"they may\" appears in any later part of the Effect of a triggered ability, it is decided on resolution. Example: Ornn, Blacksmith reads \"When you play me or when I hold, look at the top 4 cards of your Main Deck. You may reveal a gear from among them and draw it. Then recycle the rest.\" This \"you may\" does not appear as the first part of its effect, so the choice is made on resolution. The ability is always finalized to the chain."
+        },
+        {
+          "num": "383.3.b",
+          "text": "If a Triggered Ability contains a cost within instructions at the beginning of the effect or immediately following the \"you may\" or \"they may\" that appears as the first part of the effect, that cost is treated as the base cost of the Triggered Ability. Example: Ekko, Recurrent reads \"[Deathknell][>] Recycle me to ready your runes.\" In this case, \"recycle me to ready your runes\" is a cost within instructions that appears at the beginning of the effect of the ability, and thus \"recycle me\" is taken as the base cost of the triggered ability. Example: Insightful Investigator reads \"When you play me, choose an opponent. They reveal their hand. You may pay 2 XP to choose a card from their hand. If you do, they discard that card and draw 1.\" The \"pay 2 XP\" is a cost within instructions, but because it does not appear in the first part of the effect, it is not taken as the base cost of the triggered ability. Paying 2 XP is performed on resolution."
+        },
+        {
+          "num": "383.3.b.1",
+          "text": "The cost must be paid in order to finalize the Triggered Ability to the Chain."
+        },
+        {
+          "num": "383.3.c",
+          "text": "Triggered Abilities can be put on the Chain during Closed States or Open States on any player's turn."
+        },
+        {
+          "num": "383.3.d",
+          "text": "If more than one Triggered Ability is Triggered simultaneously, then the player that controls the Abilities selects the order to place them on the Chain."
+        },
+        {
+          "num": "383.3.d.1",
+          "text": "If multiple players separately control Triggered Abilities that are Triggered simultaneously, then starting with the Turn Player and proceeding in Turn Order, each player orders their Triggered Abilities on the Chain."
+        },
+        {
+          "num": "383.3.e",
+          "text": "Some Triggered Abilities will trigger \"once each turn,\" or \"N times each turn.\""
+        },
+        {
+          "num": "383.3.e.1",
+          "text": "Such a Triggered Ability will only be performed the specified number of times each turn. If its trigger condition would be fulfilled and it has already been performed that many times, it does not trigger."
+        },
+        {
+          "num": "383.3.e.2",
+          "text": "If the Triggered Ability says \"you may\" or \"they may\" as the first part of its effect, its controller has the choice of whether or not it is performed."
+        },
+        {
+          "num": "383.3.e.2.a",
+          "text": "During finalization of the Triggered Ability, the player who controls the Triggered Ability may choose to perform it."
+        },
+        {
+          "num": "383.3.e.2.b",
+          "text": "If they do not, it is removed from the chain. Example: A player controls a unit that reads in part \"Once each turn, when an enemy unit dies, you may banish it.\" When an enemy Recruit token dies, the triggered ability goes on the chain. If they choose not to perform the ability on finalization, it is removed from the chain. When a Stalwart Poro dies later in the turn, they can choose to trigger it then."
+        },
+        {
+          "num": "383.4",
+          "text": "Some Conditions are commonly used and structured in a way that explicitly defines their use and other properties of the Effect that is associated with it."
+        },
+        {
+          "num": "383.4.a",
+          "text": "Play Effects are Triggered Abilities whose Condition includes the Permanent that has the Play Effect being played to the board."
+        },
+        {
+          "num": "383.4.a.1",
+          "text": "These are commonly structured as \"When you play me…\" for Units and \"When you play this…\" for Gear."
+        },
+        {
+          "num": "383.4.a.2",
+          "text": "These Triggered Abilities are put on the Chain as Pending Items after the Permanent these effects correspond to is finalized and enters the board."
+        },
+        {
+          "num": "383.4.a.3",
+          "text": "These Triggered Abilities can be referred to as Play Effects."
+        },
+        {
+          "num": "383.4.a.4",
+          "text": "Abilities that trigger when another object is played are not considered Play Effects."
+        },
+        {
+          "num": "383.4.b",
+          "text": "Targeting Effects are Triggered Abilities whose Condition includes a Game Object becoming targeted."
+        },
+        {
+          "num": "383.4.b.1",
+          "text": "These are commonly structured as \"When you choose me …\" or \"When you choose a [Game Object] …\""
+        },
+        {
+          "num": "383.4.b.2",
+          "text": "These Triggered Abilities are put on the Chain as Pending Items after a spell or ability that targets an appropriate Game Object is Finalized."
+        },
+        {
+          "num": "383.4.b.3",
+          "text": "Although these abilities say \"choose\" in their Condition, they trigger specifically when an appropriate Game Object is Targeted. See rule 355.6. Targeting for more information on what counts as Targeting."
+        },
+        {
+          "num": "383.4.b.4",
+          "text": "These Triggered Abilities can be referred to as Targeting Effects."
+        },
+        {
+          "num": "383.4.c",
+          "text": "Conquer Effects are Triggered Abilities whose Condition includes a Unit participating in, and successfully Conquering a Battlefield."
+        },
+        {
+          "num": "383.4.c.1",
+          "text": "These are commonly structured as \"When I conquer…\" and \"When you conquer…\""
+        },
+        {
+          "num": "383.4.c.2",
+          "text": "This category of Triggered Abilities encompasses only those that are triggered from Units that were present during the Conquer action, or Abilities that reference the player that performed the Conquer action."
+        },
+        {
+          "num": "383.4.c.2.a",
+          "text": "The Conquer Abilities of Units are put on the Chain as Pending Items after the Unit(s) these effects correspond to are present at a Battlefield when a player gains control of it and gains 1 Victory Point from Conquering."
+        },
+        {
+          "num": "383.4.c.2.b",
+          "text": "The Conquer Abilities of anything that references the player Conquering is put on the Chain as a Pending Item when the Condition that the player that controls the triggering source has performed a Conquer and gained 1 Victory Point."
+        },
+        {
+          "num": "383.4.c.2.c",
+          "text": "If the act of gaining one point from Conquering is negated or replaced in any way, the Conquer Effect will still trigger."
+        },
+        {
+          "num": "383.4.c.3",
+          "text": "These Triggered Abilities can be referred to as Conquer Effects."
+        },
+        {
+          "num": "383.4.d",
+          "text": "Hold Effects are Triggered Abilities whose Condition includes a Unit being present at a Battlefield during the Beginning phase when a player scores Victory Points from Holding."
+        },
+        {
+          "num": "383.4.d.1",
+          "text": "These are commonly structured as \"When I hold…\" or \"When you hold…\""
+        },
+        {
+          "num": "383.4.d.2",
+          "text": "This category of Triggered Abilities encompasses only those that are triggered from Units that were present during the Hold action, or Abilities that reference the player that performed the Hold action."
+        },
+        {
+          "num": "383.4.d.2.a",
+          "text": "The Hold Abilities of Units are put on the Chain as Pending Items after the Unit these effects correspond to are present at a Battlefield when a player maintains control of it and Gains 1 Victory Point during their Beginning Phase from Holding."
+        },
+        {
+          "num": "383.4.d.2.b",
+          "text": "The Hold Abilities of anything that references the player Holding is put on the Chain as a Pending Item when the Condition that the player that controls the triggering source has performed a Hold and gained 1 Victory Point."
+        },
+        {
+          "num": "383.4.d.2.c",
+          "text": "If the act of gaining one point from Holding is negated or replaced in any way, the Hold Effect will still trigger."
+        },
+        {
+          "num": "383.4.d.3",
+          "text": "These Triggered Abilities can be referred to as Hold Effects."
+        },
+        {
+          "num": "383.4.e",
+          "text": "Attack Triggers are Triggered Abilities that trigger when a Unit or Player gains the Attacker designation for the first time during a combat."
+        },
+        {
+          "num": "383.4.e.1",
+          "text": "These are commonly structured as \"When I attack…\" or \"When you attack…\""
+        },
+        {
+          "num": "383.4.e.2",
+          "text": "These Triggered Abilities are put on the Chain as Pending Items after the Unit these effects correspond to gains the Attacker designation during Combat."
+        },
+        {
+          "num": "383.4.e.2.a",
+          "text": "These triggers will only have their condition checked once per combat, despite a Unit being able to gain and lose the Attacker designation multiple times in the same combat."
+        },
+        {
+          "num": "383.4.e.2.b",
+          "text": "If the trigger condition contains other requirements besides attacking and if those requirements are not fulfilled when the unit gains the Attacker designation, it will not trigger in that combat."
+        },
+        {
+          "num": "383.4.e.3",
+          "text": "These Triggered Abilities can be referred to as Attack Triggers."
+        },
+        {
+          "num": "383.4.f",
+          "text": "Defend Triggers are Triggered Abilities that trigger when a Unit or Player gains the Defender designation for the first time during a combat."
+        },
+        {
+          "num": "383.4.f.1",
+          "text": "These are commonly structured as \"When I defend…\" or \"When you defend…\""
+        },
+        {
+          "num": "383.4.f.2",
+          "text": "These Triggered Abilities are put on the Chain as Pending Items after the Unit these effects correspond to gains the Defender designation during Combat."
+        },
+        {
+          "num": "383.4.f.2.a",
+          "text": "These triggers will only have their condition checked once per combat, despite a Unit being able to gain and lose the Defender designation multiple times in the same combat."
+        },
+        {
+          "num": "383.4.f.2.b",
+          "text": "If the trigger condition contains other requirements besides defending and if those requirements are not fulfilled when the unit gains the Defender designation, it will not trigger in that combat."
+        },
+        {
+          "num": "383.4.f.3",
+          "text": "These Triggered Abilities can be referred to as Defend Triggers."
+        },
+        {
+          "num": "383.4.g",
+          "text": "Some effects may instruct a player to \"activate\" one of these named triggered abilities."
+        },
+        {
+          "num": "383.4.g.1",
+          "text": "To do so, that player checks the condition of all of the specified effects, as if they had fulfilled the named part of the condition. Example: Reckoner's Arena reads \"When you hold here, activate the conquer effects of units here.\" For each unit at the battlefield, you will check the trigger condition of their conquer effects to see if the condition has been fulfilled, treating the conquer portion of the condition as having been fulfilled. If all of the conditions are fulfilled for a conquer effect, it is placed on the chain as if it had just triggered. If any of the non-conquer parts of the condition are not fulfilled, it will not be placed on the chain. Example: A spell reads \"Activate the play effects of your gear.\" For each gear you control, you will treat it as if you had just played the gear and check the other conditions of that gear. If all of the conditions are fulfilled for a play effect, it is placed on the chain as if it had just triggered."
+        },
+        {
+          "num": "384",
+          "text": "**Presence on Permanents**"
+        },
+        {
+          "num": "384.1",
+          "text": "Typically active while on the Board."
+        },
+        {
+          "num": "384.2",
+          "text": "Triggered Abilities of Permanents are only able to have their Conditions evaluated while on the Board."
+        },
+        {
+          "num": "385",
+          "text": "**Presence on Cards outside of the Board**"
+        },
+        {
+          "num": "385.1",
+          "text": "Triggered Abilities on cards outside of the Board rely on the Information Level of the zone they are in."
+        },
+        {
+          "num": "385.2",
+          "text": "Triggered Abilities outside of the Board will self-describe their context. Example: The triggered ability \"When you conquer, you may discard 1 to return this from your trash to your hand.\" triggers while the card it's on is in the trash, and not anywhere else."
+        }
+      ]
+    },
+    {
+      "num": "386",
+      "title": "Reflexive Triggers",
+      "rules": [
+        {
+          "num": "387",
+          "text": "Reflexive Triggers are a type of Triggered Ability that create one or more Chain Items when their condition is met."
+        },
+        {
+          "num": "387.1",
+          "text": "Reflexive Triggers can be recognized by the phrase \"Do this:\" or \"Do one of the following:\"."
+        },
+        {
+          "num": "387.1.a",
+          "text": "\"Do this\" can be followed by \"N times.\" The Reflexive Trigger will thus be added to the chain N times when its condition is met."
+        },
+        {
+          "num": "387.1.b",
+          "text": "\"Do one of the following\" can instead be \"Do X of the following\" or \"Do the following\". The effect will specify which of the related Reflexive Triggers will go on the chain when the condition is met."
+        },
+        {
+          "num": "387.2",
+          "text": "Reflexive Triggers will be preceded by their conditions, if any. If no condition is present in the ability then the Reflexive Trigger will always be added to the Chain."
+        },
+        {
+          "num": "387.3",
+          "text": "If present, the Condition of a Reflexive Trigger will follow the same format as a Triggered Ability."
+        },
+        {
+          "num": "388",
+          "text": "Reflexive Triggers use the Chain."
+        },
+        {
+          "num": "388.1",
+          "text": "A new ability is created and added to the chain as a Pending Item. See rule 398. Playing or Activating Abilities for more information."
+        },
+        {
+          "num": "388.2",
+          "text": "If a Reflexive Trigger creates more than one Pending Item it creates them all in order, but does not go beyond the first step of adding them to the Chain. See rule 398. Playing or Activating Abilities for more information."
+        }
+      ]
+    },
+    {
+      "num": "389",
+      "title": "Delayed Abilities",
+      "rules": [
+        {
+          "num": "390",
+          "text": "Delayed Abilities are a type of Ability that specifies a window of applicability during which they are active."
+        },
+        {
+          "num": "390.1",
+          "text": "Delayed Abilities can be any other type of Ability, and contain all of the properties of that type in addition to the properties of Delayed Abilities."
+        },
+        {
+          "num": "390.2",
+          "text": "Delayed Triggers are Triggered Abilities that can be recognized by describing a specific time of the turn, or by structuring a Triggered Ability with a specific frame of time as a restriction."
+        },
+        {
+          "num": "390.3",
+          "text": "Delayed Replacements are Replacement Effects that can be recognized by specifying the effect they are replacing at a specific time, or \"the [Nth] time\" in the description of the effect as it resolves."
+        },
+        {
+          "num": "390.3.a",
+          "text": "Some Delayed Replacements take the form \"then recycle it,\" or \"then banish it,\" in reference to chain items being played by linked abilities or instructions. These are short for \"if it would leave the chain after becoming a finalized chain item, and leaving the chain wasn't instructed by its own execution, perform the specified game action instead.\""
+        },
+        {
+          "num": "390.4",
+          "text": "Delayed Passive Abilities are Passive Abilities that are applicable only during a specified window of time. The time that the Delayed Passive Ability applies will be recognized in the effect that initiates it."
+        },
+        {
+          "num": "390.5",
+          "text": "Delayed Linked Abilities are Linked Abilities that are generated by another Ability and reference that Ability or Game Objects it affects instead of a window of time."
+        },
+        {
+          "num": "390.5.a",
+          "text": "If that Ability affects a Game Object, the Delayed Linked Ability's window will be as long as that Game Object is in an appropriate zone."
+        },
+        {
+          "num": "390.5.b",
+          "text": "If the Delayed Linked Ability references the source of the abilities, its window will be as long as the source is in an appropriate zone."
+        },
+        {
+          "num": "390.5.c",
+          "text": "The appropriate zones for these Delayed Linked Abilities will be determined implicitly by the Linked Ability that generated them."
+        },
+        {
+          "num": "390.5.c.1",
+          "text": "If the Linked Ability causes the affected Game Objects to change zone to a non-board zone, the appropriate zone for the Delayed Linked Ability will be the zone the Game Object is moved to."
+        },
+        {
+          "num": "390.5.c.2",
+          "text": "Otherwise, the appropriate zone is whatever zone the Linked Ability triggered or was played from, or whatever zone the affected Game Object is located in when it is affected."
+        },
+        {
+          "num": "391",
+          "text": "Delayed Abilities will resolve or be active just like the ability they augment, but only during the specified time in the effect that created the Delayed Ability. Example: Ravenborn Tome reads \"The next spell you play this turn deals 1 Bonus Damage.\" This is a Delayed Passive Ability that passively adds 1 Bonus Damage to just the next spell played. The next spell is a specific time, and the 1 Bonus Damage is a passive ability. Example: Noxian Guillotine reads \"Choose a unit. Kill it the next time it takes damage this turn.\" When the chosen unit takes damage is the specified time, and killing it is the condition for a Delayed Triggered Ability."
+        },
+        {
+          "num": "392",
+          "text": "Delayed Abilities are not associated with Units or Gear; they are created by other Abilities or Spells. As such they are executed when their condition and/or specified time occurs regardless of whether the source of the Delayed Ability is still on the board or not."
+        }
+      ]
+    },
+    {
+      "num": "393",
+      "title": "Linked Abilities",
+      "rules": [
+        {
+          "num": "394",
+          "text": "Linked Abilities are a set of Abilities with one or more of the component Abilities referencing the other Abilities in the set."
+        },
+        {
+          "num": "394.1",
+          "text": "Component Abilities can reference other Abilities in the set by means of referencing those Abilities directly or by referencing Game Objects affected by or mentioned in another Ability in the set."
+        },
+        {
+          "num": "395",
+          "text": "In order for a set of Abilities to be Linked, they must be present in the printed Effect or Rules Text of the same Game Object, or be granted by the same source to another Game Object. Example: The Zero Drive is an Equipment gear whose rules text reads in part \"[3][B], Banish this: Play all units banished with this, ignoring their costs.\" The Zero Drive's effect text reads \"[Deathnkell][>] Banish me.\" The granted deathknell ability is linked with the Zero Drive's activated ability."
+        },
+        {
+          "num": "396",
+          "text": "Linked Abilities can contain component Abilities of any type."
+        },
+        {
+          "num": "397",
+          "text": "A component Linked Ability that references a Game Object affected by another Ability in the set may only interact with Game Objects affected by the Abilities it is Linked with. Example: The Zero Drive is an Equipment gear whose rules text reads in part \"[3][B], Banish this: Play all units banished with this, ignoring their costs.\" Any units banished by effects other than component Linked Abilities in the same set as the activated ability cannot be played when resolving the activated ability."
+        }
+      ]
+    },
+    {
+      "num": "398",
+      "title": "Playing or Activating Abilities",
+      "rules": [
+        {
+          "num": "399",
+          "text": "Playing or activating Abilities follows the same steps of playing cards."
+        },
+        {
+          "num": "400",
+          "text": "Abilities when added to the Chain become Pending Items until they complete the steps of Playing."
+        },
+        {
+          "num": "400.1",
+          "text": "When an Ability finishes the steps of playing it becomes a Finalized Chain Item just like a Spell."
+        },
+        {
+          "num": "400.2",
+          "text": "When an Ability with the [Add] action is finalized it resolves immediately, like a Unit or Gear."
+        },
+        {
+          "num": "401",
+          "text": "**1. Activate or trigger the Ability**"
+        },
+        {
+          "num": "401.1",
+          "text": "Add a Pending Item to the chain representing the Ability that is either being Activated or Triggered. Notably, although this Chain Item will not have a card representing it, this will create a Closed State. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "401.2",
+          "text": "If there is currently a game effect being resolved, continue resolving the game effect instead of continuing the following steps."
+        },
+        {
+          "num": "402",
+          "text": "**2. Make relevant choices**"
+        },
+        {
+          "num": "402.1",
+          "text": "If the first part of a Triggered Ability's effect is \"you may,\" or \"they may,\" its controller decides whether or not to perform the Triggered Ability now."
+        },
+        {
+          "num": "402.1.a",
+          "text": "If they choose not to perform the Triggered Ability now, it is removed from the chain."
+        },
+        {
+          "num": "402.2",
+          "text": "Make all choices required for this ability, such as targets, modes, or other relevant decisions. See rule 349. Playing Cards for more information"
+        },
+        {
+          "num": "402.3",
+          "text": "If legal options are not available for an Activated Ability, it is not legal to activate it."
+        },
+        {
+          "num": "402.4",
+          "text": "If there are not enough options to make legal choices for a Triggered Ability that has been put on the chain, remove it from the Chain now. It ceases to be a Pending Item but never becomes a Finalized Chain Item."
+        },
+        {
+          "num": "402.4.a",
+          "text": "This is not an Ability being countered."
+        },
+        {
+          "num": "402.4.b",
+          "text": "If there are legal options to choose, the ability's controller must choose them. They may not decline this stage of playing a Trigger."
+        },
+        {
+          "num": "403",
+          "text": "**3. Determine Total Cost**"
+        },
+        {
+          "num": "403.1",
+          "text": "Determine the base cost of the Ability."
+        },
+        {
+          "num": "403.1.a",
+          "text": "Activated Abilities will have a cost listed before the \":\" in their text."
+        },
+        {
+          "num": "403.1.b",
+          "text": "Triggered Abilities will typically not have a base cost associated with them when placed on the chain due to their conditions."
+        },
+        {
+          "num": "403.1.b.1",
+          "text": "If a Triggered Ability has a cost within instructions (e.g. \"[do X] to [do Y]\"), the cost is taken as the base cost. See rule 740.2.a. for more information on costs within instructions."
+        },
+        {
+          "num": "403.2",
+          "text": "Apply cost increases and decreases as a result of choices made in the prior step. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "403.3",
+          "text": "Apply any other cost increases or decreases as necessary. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "404",
+          "text": "**4. Pay Costs**"
+        },
+        {
+          "num": "404.1",
+          "text": "Pay costs as determined in the prior step. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "404.2",
+          "text": "At this stage, players may decline to pay for Triggered Abilities that have incurred a cost. If they do, the ability will cease being a Pending Item and be removed from the Chain. It never becomes a Finalized Chain Item."
+        },
+        {
+          "num": "404.2.a",
+          "text": "This is not an Ability being countered."
+        },
+        {
+          "num": "405",
+          "text": "**5. Check Legality**"
+        },
+        {
+          "num": "405.1",
+          "text": "Ensure that the Ability's targets are still legal."
+        },
+        {
+          "num": "405.2",
+          "text": "Ensure that the Ability's effect would not create an illegal state. If it would, resolve in the same way you would resolve a Card that creates an illegal state. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "406",
+          "text": "**6. Proceed with Play**"
+        },
+        {
+          "num": "406.1",
+          "text": "This Ability is no longer Pending."
+        },
+        {
+          "num": "406.2",
+          "text": "This Ability becomes a Finalized Chain Item."
+        },
+        {
+          "num": "406.3",
+          "text": "If there are other Pending Chain Items on the Chain, their controllers perform the remaining steps of playing now."
+        },
+        {
+          "num": "406.4",
+          "text": "Other players have an opportunity to play Reactions before the resolution of spells and abilities. See rule 327. Chains for more information."
+        },
+        {
+          "num": "406.5",
+          "text": "Otherwise, execute the Ability just like a Spell, then clear the Chain Item from the Chain."
+        }
+      ]
+    },
+    {
+      "num": "407",
+      "title": "Game Actions",
+      "rules": [
+        {
+          "num": "408",
+          "text": "Game Actions are actions players may perform at any given time during the game."
+        },
+        {
+          "num": "409",
+          "text": "A player, unless otherwise specified or prompted, may only perform actions on their turn."
+        },
+        {
+          "num": "410",
+          "text": "**There are two types of Game Actions:**"
+        },
+        {
+          "num": "410.1",
+          "text": "Discretionary Actions"
+        },
+        {
+          "num": "410.1.a",
+          "text": "A Discretionary Action is a Game Action that may be performed at any time during a player's turn during a Neutral Open State. See rule 307. States of the Turn for more information."
+        },
+        {
+          "num": "410.1.b",
+          "text": "A player may take any number of Discretionary Actions available to them during their turn."
+        },
+        {
+          "num": "410.1.b.1",
+          "text": "As long as any conditions, if applicable, are met."
+        },
+        {
+          "num": "410.1.b.2",
+          "text": "As long as any costs, if applicable, are paid."
+        },
+        {
+          "num": "410.1.b.3",
+          "text": "As long as it does not result in any forbidden action being taken or game state being created. Example: A player can't use the Standard Move discretionary action to move a unit to a Battlefield that's already occupied by Units controlled by two other players."
+        },
+        {
+          "num": "410.2",
+          "text": "Limited Actions"
+        },
+        {
+          "num": "410.2.a",
+          "text": "A Limited Action is a game action that a spell, ability, or circumstance of the turn's progression causes the player to perform. A player cannot perform these actions at-will."
+        },
+        {
+          "num": "410.2.b",
+          "text": "These actions can only be taken when a player is instructed to do so as the execution of an effect or during their specified occasion during the turn. Example: A player may Draw during the Draw Phase on their turn or when instructed to do so by a spell or ability. They can't choose to Draw at any other time."
+        },
+        {
+          "num": "411",
+          "text": "**Responsibility**"
+        },
+        {
+          "num": "411.1",
+          "text": "Game Actions may be the responsibility of up to one player. The player that performs the Game Action is responsible for it. Example: Cull the Weak is a spell that reads \"Each player kills one of their units.\" When the spell resolves, each player chooses a unit they control and kills that unit. They are responsible for the death of their own unit."
+        },
+        {
+          "num": "411.2",
+          "text": "In the case where a Game Action is performed by procedures of the game and not by any player, that Game Action is not the responsibility of any player."
+        },
+        {
+          "num": "411.3",
+          "text": "Certain rules assign responsibility to players for Game Actions that they are not normally responsible for."
+        },
+        {
+          "num": "411.4",
+          "text": "If an ability triggers when \"you\" do something, it triggers when a Game Action that you are responsible for occurs. Example: A gear reads \"When you move an enemy unit, you may exhaust this to [Stun] it.\" It will trigger whenever a move game action that you are responsible for causes an enemy unit to move. If an opponent plays a spell that reads \"choose a Battlefield. Each player may move a unit they don't control to that battlefield,\" and a player that controls the gear chooses to move an enemy unit, their gear will trigger."
+        },
+        {
+          "num": "411.5",
+          "text": "Note that certain Game Actions, specifically Kill, can be attributed to spells and abilities. This attribution is not the same as the responsibility a given player has for the kill game action."
+        },
+        {
+          "num": "411.5.a",
+          "text": "Spells and abilities have attribution for game actions, while players have responsibility."
+        },
+        {
+          "num": "411.6",
+          "text": "Some Game Effects may check if a player has performed a Game Action \"with\" a Game Object. In order to do so, the Game Action must be attributed to the spell or ability of that Game Object if necessary, the player must control that spell or the ability of that Game Object, and the player must be responsible for the Game Action."
+        },
+        {
+          "num": "411.6.a",
+          "text": "Abilities granted via the effect text of a Game Object to another Game Object count for both Game Objects for this purpose."
+        },
+        {
+          "num": "412",
+          "text": "**Types of Actions**"
+        }
+      ]
+    },
+    {
+      "num": "413",
+      "title": "Draw",
+      "rules": [
+        {
+          "num": "413.1",
+          "text": "Drawing a card takes a single card from a zone and adds it to the player's Hand."
+        },
+        {
+          "num": "413.1.a",
+          "text": "Unless specified otherwise, drawing takes cards from the top of the Main Deck."
+        },
+        {
+          "num": "413.2",
+          "text": "This is a Limited Action."
+        },
+        {
+          "num": "413.2.a",
+          "text": "Each player draws 1 during the Draw Phase on their turn."
+        },
+        {
+          "num": "413.2.b",
+          "text": "The player may draw cards when instructed to do so by other game effects."
+        },
+        {
+          "num": "413.3",
+          "text": "This action, when instructed, is formatted as \"Draw X.\""
+        },
+        {
+          "num": "413.4",
+          "text": "If a player attempts to draw more cards than are available in their Main Deck, they do the following:"
+        },
+        {
+          "num": "413.4.a",
+          "text": "Draw as many as possible."
+        },
+        {
+          "num": "413.4.b",
+          "text": "Perform a Burn Out. See rule 431. Burn Out for more information."
+        },
+        {
+          "num": "413.4.c",
+          "text": "Draw the remaining cards needed to complete the Draw action."
+        }
+      ]
+    },
+    {
+      "num": "414",
+      "title": "Exhaust",
+      "rules": [
+        {
+          "num": "414.1",
+          "text": "Exhausting is an action that marks a non-spell Game Object on the board as \"spent.\""
+        },
+        {
+          "num": "414.1.a",
+          "text": "To mark it, rotate the card 90 degrees opposite of Readying, so that the orientation of the card is lengthwise in front of you."
+        },
+        {
+          "num": "414.1.b",
+          "text": "A Game Object that is already Exhausted cannot be Exhausted again."
+        },
+        {
+          "num": "414.1.c",
+          "text": "If a Game Object is instructed to be Exhausted while it is already Exhausted, nothing additional happens."
+        },
+        {
+          "num": "414.2",
+          "text": "\"Exhausted\" is a state for Game Objects on the board that other game effects and rules can reference."
+        },
+        {
+          "num": "414.3",
+          "text": "This is a Limited Action."
+        },
+        {
+          "num": "414.3.a",
+          "text": "Most Exhaust actions will be costs for Activated Abilities or Discretionary Actions. Example: A unit's Standard Move exhausts the unit as a cost."
+        },
+        {
+          "num": "414.4",
+          "text": "When Exhausting is listed as a Cost, then the Action must be able to be completed for the cost to be paid. Example: A spell says \"As an additional cost to play this, you may exhaust a friendly unit.\" An exhausted friendly unit may not be exhausted again as the additional cost for the spell, and the additional cost has not been paid."
+        },
+        {
+          "num": "414.5",
+          "text": "In abilities, the Exhaust symbol represents the cost \"Exhaust this\" or \"Exhaust me.\" It resembles a card turning sideways."
+        }
       ]
     },
+    {
+      "num": "415",
+      "title": "Ready",
+      "rules": [
+        {
+          "num": "415.1",
+          "text": "Readying is an action that marks a non-spell Game Object on the board as available for action."
+        },
+        {
+          "num": "415.1.a",
+          "text": "To mark it, rotate the card 90 degrees opposite of Exhausting, so that it is vertically oriented in front of you."
+        },
+        {
+          "num": "415.1.b",
+          "text": "A Unit that is already Ready cannot be Readied again."
+        },
+        {
+          "num": "415.1.c",
+          "text": "If a Unit is instructed to be Readied while it is already Ready, nothing additional happens."
+        },
+        {
+          "num": "415.2",
+          "text": "\"Ready\" is a state for Game Objects on the board that other game effects and rules can reference."
+        },
+        {
+          "num": "415.3",
+          "text": "This is a Limited Action."
+        },
+        {
+          "num": "415.3.a",
+          "text": "A player Readies all non-spell Game Objects they Control during the Awakening Phase on their turn."
+        },
+        {
+          "num": "415.3.b",
+          "text": "Players may also Ready Game Objects on the board when effects or spells instruct them to do so."
+        }
+      ]
+    },
+    {
+      "num": "416",
+      "title": "Recycle",
+      "rules": [
+        {
+          "num": "416.1",
+          "text": "Recycling cards is the action in which a player takes one or more cards from a specific zone and then puts it on the bottom of the corresponding deck."
+        },
+        {
+          "num": "416.1.a",
+          "text": "Main Deck cards are Recycled to the Main Deck."
+        },
+        {
+          "num": "416.1.b",
+          "text": "Runes are Recycled to the Rune Deck."
+        },
+        {
+          "num": "416.1.c",
+          "text": "Each player Recycles cards to their own Main Deck and Rune Deck, regardless of which player is instructed to perform the Recycle action."
+        },
+        {
+          "num": "416.2",
+          "text": "This is a Limited Action."
+        },
+        {
+          "num": "416.2.a",
+          "text": "The player must Recycle cards from the specified zones when instructed to do so by game effects or costs."
+        },
+        {
+          "num": "416.3",
+          "text": "When Recycling is listed as a Cost, the action must be able to be completed for the cost to be paid. Example: Vi, Destructive has the ability \"Recycle 1 from your trash: Give me +1 [M] this turn.\" Each time a player activates the ability, they must recycle 1 card from their trash to pay its cost. If they have no cards in their trash, they can't activate the ability, because they can't pay its cost."
+        },
+        {
+          "num": "416.4",
+          "text": "When Recycling is part of an effect, a player must Recycle as many cards as possible from the specified zone or zones."
+        },
+        {
+          "num": "416.5",
+          "text": "If 2 or more cards are Recycled to the Main Deck simultaneously, they are placed on the bottom of that deck in a random order. Example: Garbage Grabber has the ability \"Recycle 3 from your trash, [1], [E]: Draw \"To pay the cost of activating this ability, its controller chooses 3 cards from their trash and places them on the bottom of their Main Deck in a random order."
+        },
+        {
+          "num": "416.5.a",
+          "text": "If 2 or more cards are Recycled to the Rune Deck simultaneously, they are placed on the bottom of that deck in the order of their owner's choosing."
+        },
+        {
+          "num": "416.6",
+          "text": "This action, when instructed, is sometimes formatted as \"Recycle X from [Zone].\" That means to take X cards of the instructed player's choice from the relevant zone and recycle them. Such an instruction does not target the recycled cards. Example: Dr. Mundo, Expert has the ability \"At the start of your Beginning Phase, recycle 3 from your trash.\" As that ability resolves, its controller recycles 3 cards from their trash. If there are fewer than 3 cards in that player's trash, they recycle as many as they can."
+        }
+      ]
+    },
+    {
+      "num": "417",
+      "title": "Deal",
+      "rules": [
+        {
+          "num": "417.1",
+          "text": "Spells, Units, Abilities, and other game effects may Deal Damage to units."
+        },
+        {
+          "num": "417.1.a",
+          "text": "Assigning Damage during the Combat Damage Step is not Dealing Damage, but will cause Damage to be Dealt when assignment is complete."
+        },
+        {
+          "num": "417.1.b",
+          "text": "To Deal Damage to Units, mark the specified amount of Damage on the Unit."
+        },
+        {
+          "num": "417.1.c",
+          "text": "Damage is marked on each unit separately."
+        },
+        {
+          "num": "417.1.d",
+          "text": "Damage can be Dealt to more than one Unit at the same time."
+        },
+        {
+          "num": "417.1.e",
+          "text": "Valid Damage is a positive integer amount, greater than or equal to 1 Damage."
+        },
+        {
+          "num": "417.1.e.1",
+          "text": "Only Valid Damage is Dealt. Example: A unit reads \"when I take damage, give me +2 [M] this turn.\" A spell is played that Prevents the next 3 damage the unit would take. If a player plays Hextech Ray targeting the unit, it will take no damage and its triggered ability will not trigger. If that player had played Void Seeker instead, it would be Dealt 1 and trigger its ability."
+        },
+        {
+          "num": "417.2",
+          "text": "Only Damage can be Dealt."
+        },
+        {
+          "num": "417.3",
+          "text": "Dealing Damage is a Limited Action."
+        },
+        {
+          "num": "417.3.a",
+          "text": "Assigning Damage causes Damage to be dealt outside of being directed to Deal Damage. See rule 459. Combat for more information."
+        },
+        {
+          "num": "417.4",
+          "text": "Dealing can have the intrinsic property of Bonus Damage."
+        },
+        {
+          "num": "417.5",
+          "text": "Bonus Damage is a property granted to the action of Dealing and alters the amount of Damage distributed by this action. See rule 712. Bonus Damage for more information."
+        },
+        {
+          "num": "417.6",
+          "text": "Deal actions can originate from one or more sources."
+        },
+        {
+          "num": "417.6.a",
+          "text": "If a game effect does not specify a source, the game effect describing the Deal action is the source. Example: Void Seeker is a spell that reads \"Deal 4 to a unit at a battlefield. Draw 1.\" The damage that Void Seeker instructs you to deal is dealt by Void Seeker."
+        },
+        {
+          "num": "417.6.b",
+          "text": "If a game effect does specify a source, then that source is what is considered the origin of the Damage for this Deal action."
+        },
+        {
+          "num": "417.6.b.1",
+          "text": "Units and Spells can be the source of Damage for Deal actions."
+        },
+        {
+          "num": "417.6.b.2",
+          "text": "Abilities can be the source of Damage for Deal actions."
+        },
+        {
+          "num": "417.6.b.2.a",
+          "text": "When an Ability is the source of Damage for a Deal action, it is in addition to the Spell or Unit that created that Ability. Example: Iron Ballista is a gear that says \"[E]: Deal 2 to a unit at a battlefield.\" This damage is dealt both by a gear and by an ability."
+        },
+        {
+          "num": "417.6.b.3",
+          "text": "When a spell or ability specifies a Unit as the source of the Damage for the Deal action, it is not in addition to the spell or ability that instructed it. Example: Challenge is a spell that reads \"Choose a friendly unit and an enemy unit. They deal damage equal to their Mights to each other.\" The damage that Challenge causes to be dealt is dealt by the chosen units, not by Challenge."
+        },
+        {
+          "num": "417.6.b.4",
+          "text": "The controller of the source of a Deal action is responsible for that Deal action unless the player performing the Deal action is otherwise specified. Example: If a player plays Challenge targeting a friendly unit and an enemy unit, the controller of the enemy unit is responsible for the damage dealt by their unit. Any effects that trigger \"when you deal damage\" that that player controls will trigger."
+        },
+        {
+          "num": "417.6.c",
+          "text": "Damage Dealt as a result of being assigned during Combat has the Units as its source."
+        },
+        {
+          "num": "417.6.c.1",
+          "text": "The Damage assigned, and subsequently Dealt, to attackers has the defenders as the source and vice versa."
+        },
+        {
+          "num": "417.7",
+          "text": "Deal actions can distribute Damage as part of combat actions or non-combat actions."
+        }
+      ]
+    },
+    {
+      "num": "418",
+      "title": "Heal",
+      "rules": [
+        {
+          "num": "418.1",
+          "text": "Damage being cleared from Units is Healing."
+        },
+        {
+          "num": "418.1.a",
+          "text": "If Damage is cleared for any reason it is considered Healing."
+        },
+        {
+          "num": "418.2",
+          "text": "More than one Unit can be Healed at the same time."
+        },
+        {
+          "num": "418.3",
+          "text": "Healing is a Limited Action."
+        },
+        {
+          "num": "418.3.a",
+          "text": "Players may only Heal units when game effects instruct them to, or at specific points in the turn."
+        }
+      ]
+    },
+    {
+      "num": "419",
+      "title": "Play",
+      "rules": [
+        {
+          "num": "419.1",
+          "text": "A player Plays cards by placing them on the chain and queuing them to be finalized. See rule 349. Playing Cards for more information on playing cards. See rule 337. Finalize for more information on finalizing cards."
+        },
+        {
+          "num": "419.1.a",
+          "text": "By default, a player can only Play cards from their hand or their Chosen Champion zone."
+        },
+        {
+          "num": "419.2",
+          "text": "This is a Discretionary Action."
+        },
+        {
+          "num": "419.2.a",
+          "text": "As long as a player has the resources to pay the costs associated with the card and legal choices to make for their cards, they may Play cards."
+        },
+        {
+          "num": "419.3",
+          "text": "Game effects may result in cards being played as part of their resolution."
+        },
+        {
+          "num": "419.3.a",
+          "text": "This treats Play as a Limited Action."
+        },
+        {
+          "num": "419.3.b",
+          "text": "Treat all steps of Play as normal, except as noted by the game effect creating this Limited Play Effect."
+        },
+        {
+          "num": "419.3.c",
+          "text": "If there are no eligible cards to Play when instructed to Play in this manner, then nothing happens and resolution continues."
+        },
+        {
+          "num": "419.4",
+          "text": "Some Abilities trigger when cards are played or otherwise check whether cards have been played."
+        },
+        {
+          "num": "419.4.a",
+          "text": "Any such triggered abilities trigger when the act of playing the card has been completed by the resolution of the card."
+        },
+        {
+          "num": "419.4.a.1",
+          "text": "If a game effect prevents the resolution of the card—for example, because the card was countered —abilities that trigger on playing cards will not trigger. See rule 425. Counter for more information."
+        },
+        {
+          "num": "419.4.b",
+          "text": "Non-triggered abilities that check cards being played do so by means of referencing whether said cards have been Finalized. Example: A player plays a spell, which is countered by Defy. Any Legion abilities of game objects controlled by that same player will be active. Example: A player plays a spell, which is countered by Defy. If that player plays Battering Ram and has played no other cards that turn, it will cost [4] Energy."
+        }
+      ]
+    },
+    {
+      "num": "420",
+      "title": "Move",
+      "rules": [
+        {
+          "num": "420.1",
+          "text": "Moving is the act of a Game Object moving between two Locations on The Board. See rule 445. Movement for more information on movement."
+        },
+        {
+          "num": "420.2",
+          "text": "Moving is a Limited Action."
+        },
+        {
+          "num": "420.2.a",
+          "text": "Players may only move Game Objects when instructed to do so by Game Effects or costs."
+        },
+        {
+          "num": "420.2.b",
+          "text": "The Standard Move inherent to Units may also cause Movement. See rule 144. for more information on the Standard Move."
+        },
+        {
+          "num": "420.3",
+          "text": "The Standard Move inherent to Units is a Discretionary Action."
+        },
+        {
+          "num": "420.3.a",
+          "text": "The Cost is Exhausting one or more Units."
+        },
+        {
+          "num": "420.3.b",
+          "text": "The Effect is Moving those Units."
+        }
+      ]
+    },
+    {
+      "num": "421",
+      "title": "Hide",
+      "rules": [
+        {
+          "num": "421.1",
+          "text": "Hiding a card is the act of placing a card facedown at a Battlefield you control."
+        },
+        {
+          "num": "421.2",
+          "text": "Hiding is a Discretionary Action."
+        },
+        {
+          "num": "421.2.a",
+          "text": "The Hidden keyword allows a player to pay a cost to Hide a card any time they have a Hidden card in their hand or Champion Zone and meet the prerequisites. See rule 811. Hidden for more information."
+        },
+        {
+          "num": "421.3",
+          "text": "Cards that are facedown at Battlefields have their gameplay properties and permissions defined by the effect that put them there. Example: Cards that players Hide with the Hidden keyword can be Played for [0] on any subsequent turn as a property of the Hidden keyword."
+        },
+        {
+          "num": "421.4",
+          "text": "If a facedown card would change zones or if the game ends, its owner reveals it to all players. See rule 128. Privacy for more information."
+        }
+      ]
+    },
+    {
+      "num": "422",
+      "title": "Discard",
+      "rules": [
+        {
+          "num": "422.1",
+          "text": "Discarding a card is moving it from a player's hand directly into their trash without activating or executing its normal rules text."
+        },
+        {
+          "num": "422.1.a",
+          "text": "The player who is performing the action chooses which cards to send to their Trash, and may use Private Information to do so."
+        },
+        {
+          "num": "422.1.b",
+          "text": "\"When I am discarded\" abilities or other Triggered Abilities that trigger on discarding are executed after discarding has occurred."
+        },
+        {
+          "num": "422.2",
+          "text": "Discarding is a Limited Action."
+        },
+        {
+          "num": "422.2.a",
+          "text": "A player must Discard cards when instructed to do so by game effects or costs."
+        },
+        {
+          "num": "422.3",
+          "text": "When Discarding is listed as a Cost, then the Action must be able to be completed for the cost to be paid. Example: A card has the ability \"Discard 2: Deal 2 damage to a unit at a battlefield.\" To activate the ability, the card's controller must have at least 2 cards in hand and must be able to discard them."
+        },
+        {
+          "num": "422.4",
+          "text": "When Discarding is part of an effect, then a player must Discard as many cards as possible from their hand. If instructed to discard more cards than they have in their hand, further discard instructions are ignored. Example: Undercover Agent has the ability \"[Deathknell][>] Discard 2, then draw 2. (When I die, get the effect.)\" If Undercover Agent's controller has 2 or more cards in hand, they must discard 2. If they have 1 card in hand, they discard 1, and the rest of the discard instruction is ignored. If they have no cards in hand, the entire discard instruction is ignored. Regardless of how many cards they discard, they then draw 2."
+        },
+        {
+          "num": "422.5",
+          "text": "This action is formatted as \"Discard X.\""
+        }
+      ]
+    },
+    {
+      "num": "423",
+      "title": "Stun",
+      "rules": [
+        {
+          "num": "423.1",
+          "text": "Stunning is the act of selecting one or more Units on the Board and rendering them Stunned."
+        },
+        {
+          "num": "423.1.a",
+          "text": "Stunned is a binary state. A Unit is Stunned or it isn't."
+        },
+        {
+          "num": "423.1.a.1",
+          "text": "A Stunned Unit can not be Stunned again. Example: Eclipse Herald has the ability \"When you stun an enemy unit, ready me and give me +1 [M] this turn.\" Its controller plays a spell that reads \"Stun a unit.\" They may choose a unit that's already stunned, but if they do, Eclipse Herald will not trigger."
+        },
+        {
+          "num": "423.1.a.2",
+          "text": "Stunned Units lose the Stunned status during step 3d of the end of turn cleanup."
+        },
+        {
+          "num": "423.1.b",
+          "text": "A Stunned Unit does not contribute its might to damage in the combat damage step. See rule 465. The Combat Damage Step for more information."
+        },
+        {
+          "num": "423.1.c",
+          "text": "A Stunned Unit must still have damage applied to it equal to, or greater than, its full might value to be killed."
+        },
+        {
+          "num": "423.2",
+          "text": "Stunning is a Limited Action."
+        },
+        {
+          "num": "423.2.a",
+          "text": "Players may only Stun Units when directed to by Game Effects."
+        }
+      ]
+    },
+    {
+      "num": "424",
+      "title": "Reveal",
+      "rules": [
+        {
+          "num": "424.1",
+          "text": "Revealing is the act of presenting a card to all players from a zone that one or more players do not have access to the information of."
+        },
+        {
+          "num": "424.1.a",
+          "text": "Revealed is a temporary state and is not a zone."
+        },
+        {
+          "num": "424.1.a.1",
+          "text": "Other cards, including the card being revealed, can reference the act of being Revealed."
+        },
+        {
+          "num": "424.1.a.2",
+          "text": "Cards remain in the zone they are being Revealed from. Example: If a card is being Revealed from the top of a player's Main Deck, it is still the top card of that player's Main Deck."
+        },
+        {
+          "num": "424.1.a.3",
+          "text": "The state of being Revealed lasts for the duration specified by the game effect that applied the state; if there is no duration specified and the state was caused by a Reveal action as instructed by a spell or ability, it lasts until the resolution of that spell or ability finishes."
+        },
+        {
+          "num": "424.1.b",
+          "text": "Unless otherwise described, Revealed cards do nothing else beyond become temporarily known information to all players."
+        },
+        {
+          "num": "424.2",
+          "text": "Revealing is a Limited Action."
+        },
+        {
+          "num": "424.2.a",
+          "text": "Players may only Reveal cards from Private or Secret zones when instructed to do so by Game Effects."
+        },
+        {
+          "num": "424.2.b",
+          "text": "During the course of a game of Riftbound, a player may choose to show Private information to one or more other players. This does not count as revealing and does not trigger any effects that trigger when cards are revealed."
+        },
+        {
+          "num": "424.3",
+          "text": "This action is formatted as \"Reveal cards from [zone].\" or \"Reveal [Zone].\" Example: \"Reveal 2 cards from the top of your Main Deck\" would be executed by taking the two cards from the top of your Main Deck, and then presenting them to all players to clearly read and understand at the table. Then, when all players have had a chance to understand the revealed information, return them to the top of the Main Deck in the same order."
+        },
+        {
+          "num": "424.3.a",
+          "text": "When the zone is instructed to be Revealed without indicating a number of cards, that refers to \"All cards currently in the specified zone.\" Example: A card reads \"Choose an opponent and reveal your hand. That player picks a card in your hand. You may play the rest this turn, ignoring their costs.\" When instructed to reveal their hand, that player reveals the cards currently in their hand."
+        },
+        {
+          "num": "424.3.a.1",
+          "text": "The Revealed state is applied to those cards. Any further cards added to that zone after the instruction has been executed do not become Revealed."
+        },
+        {
+          "num": "424.4",
+          "text": "Game Effects can manipulate or modify the cards Revealed while they are Revealed"
+        },
+        {
+          "num": "424.4.a",
+          "text": "While cards are Revealed, those cards can be further manipulated, or accessed. They can even have their destination modified for when the Reveal ends. Example: \"Reveal 2 cards from the top of your Main Deck. Put one into your hand and Recycle the other\" would be executed by taking the top two cards from your Main Deck, presenting them to the table, and once every player present has had a chance to understand them you would make the selection of one of them to add to your hand. The one you did not select would then be Recycled to the bottom of the Main Deck."
+        }
+      ]
+    },
+    {
+      "num": "425",
+      "title": "Counter",
+      "rules": [
+        {
+          "num": "425.1",
+          "text": "Countering is the act of negating the execution, activation, or otherwise playing of a card or ability by a player."
+        },
+        {
+          "num": "425.1.a",
+          "text": "A card or ability that is Countered does nothing and is cleared from the chain."
+        },
+        {
+          "num": "425.1.a.1",
+          "text": "Cards that are cleared from the chain in this way are placed in the trash."
+        },
+        {
+          "num": "425.1.b",
+          "text": "A card that is Countered is not considered to have been played for abilities that trigger on cards being played."
+        },
+        {
+          "num": "425.1.c",
+          "text": "Countering does not refund any costs paid to play a card, activate an ability, or trigger an ability."
+        },
+        {
+          "num": "425.1.c.1",
+          "text": "This includes additional costs."
+        },
+        {
+          "num": "425.2",
+          "text": "Countering is a Limited Action."
+        },
+        {
+          "num": "425.2.a",
+          "text": "Players may only Counter cards and abilities when directed to by Game Effects."
+        },
+        {
+          "num": "425.3",
+          "text": "This action is formatted as \"Counter [a card or ability on the chain].\""
+        }
+      ]
+    },
+    {
+      "num": "426",
+      "title": "Buff",
+      "rules": [
+        {
+          "num": "426.1",
+          "text": "Buffing is the action of placing a Buff counter on a Unit. See rule 701. Buffs for more information."
+        },
+        {
+          "num": "426.1.a",
+          "text": "A Buff is also an object."
+        },
+        {
+          "num": "426.1.b",
+          "text": "To Buff a unit, place a Buff Counter on it if it does not have one already"
+        },
+        {
+          "num": "426.1.b.1",
+          "text": "If the unit already has a Buff Counter on it, it does not get another one."
+        },
+        {
+          "num": "426.1.b.2",
+          "text": "Some effects may grant a Game Object permission to be Buffed multiple times. Such an effect ignores this restriction."
+        },
+        {
+          "num": "426.1.c",
+          "text": "Units with Buff Counters can still be chosen for actions that Buff units, but will not be Buffed as part of the execution. Example: A spell reads \"Buff a unit. Then, if it was buffed this way, draw a card.\" It will place a buff counter on a unit that has no buff counter, and then its controller will draw a card. However, if the player chooses a unit with a buff counter on it already, then the card will not be drawn. Example: A unit reads \"When you buff me, ready me.\" If that unit is chosen for a game effect that would buff it and it is already buffed, its ability will not trigger."
+        },
+        {
+          "num": "426.2",
+          "text": "Buffing is a Limited Action."
+        },
+        {
+          "num": "426.2.a",
+          "text": "Players may only Buff units when Game Effects direct them to do so."
+        },
+        {
+          "num": "426.3",
+          "text": "This action is formatted as \"Buff [one or more units].\" e.g., \"Buff a unit.\" e.g., \"Buff a friendly unit.\" e.g., \"Buff two friendly units at the same battlefield.\""
+        }
+      ]
+    },
+    {
+      "num": "427",
+      "title": "Banish",
+      "rules": [
+        {
+          "num": "427.1",
+          "text": "Banishing is the action of placing a card from any other zone into Banishment. See 108.6. Banishment for more information."
+        },
+        {
+          "num": "427.2",
+          "text": "When a card is Banished it is placed directly into the Banishment zone from its origin."
+        },
+        {
+          "num": "427.2.a",
+          "text": "Banish is not a subset of Kill."
+        },
+        {
+          "num": "427.2.b",
+          "text": "Banish is not a subset of Discard."
+        },
+        {
+          "num": "427.3",
+          "text": "Cards and effects can refer to cards that were banished by the same object."
+        },
+        {
+          "num": "427.3.a",
+          "text": "Separate instances of an object or effect banishing cards do not reference other banished cards by objects of the same name or effects originating from cards of the same name. Example: A spell reads \"Banish the top card of your Main Deck. When you conquer this turn, draw it.\" This card effect allows you to draw the banished card from banishment if a condition is met. If more than one of these effects is played, each one triggers separately. Each card will be drawn separately. If the turn player passes the turn without playing the card, the card remains in banishment indefinitely. If the same player plays another copy of the same spell, banishes another card, and satisfies its condition, they could play the new banished card, but not the original banished card. See rule 393. Linked Abilities for more information."
+        },
+        {
+          "num": "427.4",
+          "text": "Banishing is a Limited Action."
+        },
+        {
+          "num": "427.4.a",
+          "text": "Players may only Banish cards or permanents when Game Effects direct them to do so."
+        },
+        {
+          "num": "427.5",
+          "text": "This action is formatted as \"Banish [one or more permanents or cards].\" e.g., \"Banish a card from your hand.\" e.g., \"Banish 2 cards from your trash.\" e.g., \"Look at the top 2 cards of your Main Deck. Draw one of them and banish the other.\""
+        }
+      ]
+    },
+    {
+      "num": "428",
+      "title": "Kill",
+      "rules": [
+        {
+          "num": "428.1",
+          "text": "Killing is the action of a Permanent going to the trash from the board."
+        },
+        {
+          "num": "428.1.a",
+          "text": "This can be Active or Passive."
+        },
+        {
+          "num": "428.1.a.1",
+          "text": "Active Kill is when the action is taken when instructed by a game effect or as a cost for a card or ability."
+        },
+        {
+          "num": "428.1.a.1.a",
+          "text": "This is referred to as a Kill Instruction."
+        },
+        {
+          "num": "428.1.a.1.b",
+          "text": "When a unit with a Deathknell or other ability that triggers on its own death is to be put in the Trash due to a Kill Instruction, it first has any such ability added to the chain as a Pending Item. Note the unit's location, attributes, and other relevant information to process those abilities when finalized before completing this Kill Instruction. Example: Draven, Audacious reads in part \"When I die in combat, choose an opponent. They gain 1 point.\" The ability triggers when Draven himself dies, so it will go on the chain first when a kill instruction is performed on Draven, before he is put in the trash."
+        },
+        {
+          "num": "428.1.a.2",
+          "text": "Passive Kill is when the action is taken as a result of Lethal Damage or as a consequence for any other state."
+        },
+        {
+          "num": "428.2",
+          "text": "When a permanent is killed it is placed directly in the trash from its place of origin."
+        },
+        {
+          "num": "428.2.a",
+          "text": "It is only considered Killed if its origin was any zone on the board."
+        },
+        {
+          "num": "428.2.b",
+          "text": "This is not a subset of Move."
+        },
+        {
+          "num": "428.3",
+          "text": "Killing is a Limited Action."
+        },
+        {
+          "num": "428.3.a",
+          "text": "Players may only Kill units when Game Effects direct them to do so."
+        },
+        {
+          "num": "428.4",
+          "text": "Killing can also be the result of resolving a Cleanup."
+        },
+        {
+          "num": "428.5",
+          "text": "Killing can be attributed to one or more Game Objects."
+        },
+        {
+          "num": "428.5.a",
+          "text": "The Killed Unit or Gear is said to be Killed by that Game Object."
+        },
+        {
+          "num": "428.5.b",
+          "text": "A spell or ability that contains a Kill instruction is responsible for Killing the Unit or Gear."
+        },
+        {
+          "num": "428.5.c",
+          "text": "When one or more Units is killed due to a Cleanup, that kill action is attributed to the spell or ability that resolved immediately prior to that Cleanup that dealt damage to the Unit or Units."
+        },
+        {
+          "num": "428.5.c.1",
+          "text": "The player responsible for the deal action is responsible for the kill action."
+        },
+        {
+          "num": "428.5.c.2",
+          "text": "If the Cleanup that caused the units to be killed was the Combat Cleanup, the sources of the Combat Damage are attributed the kill action, and their controller is responsible for the kill action."
+        },
+        {
+          "num": "428.5.d",
+          "text": "Abilities originating from Game Objects that are attributed Kill Actions are attributed in addition to the Game Object that created them. Example: There is a spell that says \"Do this twice: Deal 3 to a unit.\" Immortal Phoenix is a unit that says \"When you kill a unit with a spell, you may pay [1][C] to play me from your trash.\" A player plays the spell while Immortal Phoenix is in their trash. The \"do this\" phrasing means that it has a reflexive triggered ability, which places two triggered abilities on the chain. As each of those triggered abilities resolve, it deals damage to the unit chosen for that ability. If one of these abilities deals lethal damage to a unit, both the spell and its ability are considered sources of the damage, and so both the spell and its ability receive attribution for killing the unit. This means that the spell's controller killed a unit with a spell, so Immortal Phoenix's ability will trigger."
+        },
+        {
+          "num": "428.6",
+          "text": "This action is formatted as \"Kill [one or more permanents].\" e.g., \"Kill an enemy unit.\" e.g., \"Kill this, [2]: Draw 1.\" e.g., \"Kill all gear.\""
+        }
+      ]
+    },
+    {
+      "num": "429",
+      "title": "Add",
+      "rules": [
+        {
+          "num": "429.1",
+          "text": "Adding is the action of putting resources into a player's Rune Pool."
+        },
+        {
+          "num": "429.2",
+          "text": "Triggered and activated abilities that Add resources resolve as soon as they are finalized."
+        },
+        {
+          "num": "429.2.a",
+          "text": "Priority and Focus will not pass from Add abilities being finalized or resolving, and will resolve before any other outstanding items on the chain are finalized."
+        },
+        {
+          "num": "429.2.b",
+          "text": "Spells that Add resources will linger on the chain as normal when they are finalized."
+        },
+        {
+          "num": "429.3",
+          "text": "Activated abilities that Add resources and have the Reaction tag can be activated at any time that spells or abilities require resources be paid. Example: A player can add Energy and Power through any means before initiating the process of playing a spell. After initiating that process, in the Pay Costs step, they may activate Add Reactions to add Energy or Power to pay costs. Example: A player moves two units to a battlefield where their opponent controls a Mageseeker Investigator. Although they have no window of priority, they may activate Add Reactions to pay for the applied cost from Mageseeker Investigator, and those abilities finalize and resolve immediately."
+        },
+        {
+          "num": "429.3.a",
+          "text": "When an Add ability is activated in this way, it immediately finalizes and resolves, even during the resolution of spells and abilities."
+        },
+        {
+          "num": "429.4",
+          "text": "Adding is a Limited Action."
+        },
+        {
+          "num": "429.4.a",
+          "text": "Players may only Add resources when Game Effects direct them to do so."
+        },
+        {
+          "num": "429.5",
+          "text": "This action is formatted as \"Add [one or more resources].\" e.g., \"Add [2].\" means \"Add 2 Energy.\" e.g., \"[E]: Add [Y].\" means \"Add 1 Power of the Order domain.\" e.g., \"Add [1][G].\" means \"Add 1 Energy and 1 Power of the Calm domain.\""
+        }
+      ]
+    },
+    {
+      "num": "430",
+      "title": "Channel",
+      "rules": [
+        {
+          "num": "430.1",
+          "text": "Channeling is the action of taking one or more Runes from the top of a player's Rune Deck and putting them on the board."
+        },
+        {
+          "num": "430.2",
+          "text": "The Game Effect that instructs a player to channel 1 or more runes may specify the conditions or circumstances under which those runes enter the board. Example: A spell reads \"Channel 1 rune exhausted.\" As that spell resolves, its controller puts the top rune of their rune deck onto the board and that rune enters the board exhausted rather than ready."
+        },
+        {
+          "num": "430.2.a",
+          "text": "By default, runes are channeled readied."
+        },
+        {
+          "num": "430.3",
+          "text": "If there aren't sufficient runes in the Rune Deck, channel as many as possible."
+        },
+        {
+          "num": "430.4",
+          "text": "Channeling is a Limited Action."
+        },
+        {
+          "num": "430.4.a",
+          "text": "A player Channels two Runes during the Channel Phase on their turn."
+        },
+        {
+          "num": "430.4.b",
+          "text": "Players may also Channel runes when Game Effects direct them to do so."
+        },
+        {
+          "num": "430.5",
+          "text": "This action is formatted as \"Channel X rune(s),\" optionally followed by conditions or stipulations. e.g., \"Channel 1 rune.\" e.g., \"When you play me, channel 1 rune exhausted.\" e.g., \"Channel 2 runes exhausted. If you couldn't channel 2 runes this way, draw 1.\""
+        }
+      ]
+    },
+    {
+      "num": "431",
+      "title": "Burn Out",
+      "rules": [
+        {
+          "num": "431.1",
+          "text": "Burning Out is an action a player must perform if they attempt to move one or more cards from their Main Deck to any other zone in excess of the number of cards remaining in their Main Deck:"
+        },
+        {
+          "num": "431.1.a",
+          "text": "If a player must Draw cards in excess to the number of cards in their Main Deck, they will Draw as many as possible, perform this action, then Draw the remaining amount instructed."
+        },
+        {
+          "num": "431.1.b",
+          "text": "If a player must put one or more cards from their Main Deck in any other zone, such as the Trash, in excess of the number of cards in their deck they will do so as much as possible, perform this action, and then complete the remaining number required by the instruction."
+        },
+        {
+          "num": "431.1.c",
+          "text": "If an instruction directs a player to look at or reveal cards in excess to the number of cards in a player's Main Deck, that player looks at or Reveals as many as possible, but does not Burn Out, then proceeds with the rest of the instruction."
+        },
+        {
+          "num": "431.1.c.1",
+          "text": "If there are insufficient cards among the looked at or revealed cards to perform subsequent actions to the revealed or looked at cards, any further instructions are ignored. This does not cause a Burn Out, even if those instructions would cause those cards to change zones. Reminder: Cards are considered in the zone of origin while being looked at or revealed, in this case the Main Deck."
+        },
+        {
+          "num": "431.2",
+          "text": "To Burn Out, a player does the following in sequence:"
+        },
+        {
+          "num": "431.2.a",
+          "text": "Performs as much of the prescribed action as possible."
+        },
+        {
+          "num": "431.2.b",
+          "text": "Recycles their trash into their Main Deck. Reminder: When multiple cards are Recycled to the Main Deck at the same time, those cards must be randomized"
+        },
+        {
+          "num": "431.2.c",
+          "text": "Chooses an opponent to gain 1 point."
+        },
+        {
+          "num": "431.2.d",
+          "text": "Completes the remainder of the action that caused them to burn out. Example: A player attempts to draw 1 during their Draw Phase while their Main Deck is empty. That player instead recycles their trash into their Main Deck, randomizing it as normal, then chooses an opponent to gain 1 point, and then draws 1."
+        },
+        {
+          "num": "431.3",
+          "text": "A player's Main Deck may remain empty as they Burn Out, usually because their trash is also empty. When they attempt to perform the original action again, it will cause another Burn Out."
+        },
+        {
+          "num": "431.3.a",
+          "text": "Unless some effect intervenes, this will result in them burning out repeatedly, giving 1 point to an opponent each time, until an opponent passes the Victory Score and wins the game."
+        },
+        {
+          "num": "431.3.b",
+          "text": "Points gained after the first Burn Out being processed in sequence cannot be replaced or prevented by any means."
+        },
+        {
+          "num": "431.3.c",
+          "text": "Points gained after the first Burn Out being processed in sequence that cause a player to reach or surpass the Victory Score for their game mode will cause that player to win the game if they also have more points than any opponent. Example: If a player has no cards in their deck or their trash and they go to draw 1, they will begin to burn out repeatedly. After the first burn out is processed, any subsequent burnout that brings a player to a number of points greater than the Victory Score and more than any opponent will cause them to win the game."
+        },
+        {
+          "num": "431.3.c.1",
+          "text": "The player wins immediately, without needing to wait for a cleanup to occur."
+        },
+        {
+          "num": "431.4",
+          "text": "Burning Out is a Limited Action."
+        },
+        {
+          "num": "431.4.a",
+          "text": "Players may only burn out when Game Effects direct them to do so."
+        },
+        {
+          "num": "431.5",
+          "text": "Burning Out is a Replacement Effect. See rule 367. Replacement Effects for more information."
+        }
+      ]
+    },
+    {
+      "num": "432",
+      "title": "Double, Swap, Attach, Detach",
+      "rules": [
+        {
+          "num": "432",
+          "text": "**Double**"
+        },
+        {
+          "num": "432.1",
+          "text": "Doubling is the act of increasing a numeric attribute by an amount equal to that attribute's current value."
+        },
+        {
+          "num": "432.1.a",
+          "text": "This creates an effect that modulates that attribute by that specific amount for the duration specified by the Game Effect that instructed the player to perform this action. Example: A unit with 3 base Might and Shield 2 is in combat as a Defender. Since Shield applies, its current Might is 5. A player chooses it as the target for Last Stand, a spell that reads in part \"Double a friendly unit's Might this turn.\" Its current Might is 5, so it gets +5 Might this turn, for a current Might of 10. After combat, Shield no longer applies, but the +5 Might from Last Stand does, so the unit's Might is 8."
+        },
+        {
+          "num": "432.2",
+          "text": "Doubling is a Limited Action."
+        },
+        {
+          "num": "432.2.a",
+          "text": "Players may only Double when Game Effects direct them to do so."
+        },
+        {
+          "num": "433",
+          "text": "**Swap**"
+        },
+        {
+          "num": "433.1",
+          "text": "Swapping is the act of increasing one numeric value and decreasing another numeric value on some number of Game Objects such that their values are reversed."
+        },
+        {
+          "num": "433.1.a",
+          "text": "Swapping creates two different effects that apply to each attribute. One that Increases one value and one that Decreases the other. These effects last for the duration specified by the effect that instructed the Swap."
+        },
+        {
+          "num": "433.1.b",
+          "text": "To accomplish this, determine the difference between these values and then apply an Increase for that amount to the lower value of the two attributes, and a Decrease of that amount to the higher value of the two attributes."
+        },
+        {
+          "num": "433.1.c",
+          "text": "If both attributes are the same numeric value, Swapping has no effect."
+        },
+        {
+          "num": "433.2",
+          "text": "Swapping is a Limited Action."
+        },
+        {
+          "num": "433.2.a",
+          "text": "Players may only swap when Game Effects direct them to do so."
+        },
+        {
+          "num": "434",
+          "text": "**Attach**"
+        },
+        {
+          "num": "434.1",
+          "text": "Attaching is the act of linking two cards on the board together to combine their effects in some way. This causes one or more cards to become Attached and at least one card to become a Top-Most Card. See rule 716. Attachment for more information."
+        },
+        {
+          "num": "434.1.a",
+          "text": "Attaching affects two cards at once."
+        },
+        {
+          "num": "434.1.a.1",
+          "text": "One card will be designated as the one being Attached, and thus become Attached. The other will become the Top-Most Card."
+        },
+        {
+          "num": "434.1.b",
+          "text": "This is represented by physically laying the Top-Most card on top of the other or others such that all Effect Texts and Might Bonuses are showing, but nothing else from the card or cards Attached."
+        },
+        {
+          "num": "434.1.b.1",
+          "text": "In the situation where there is more than one card attached to the Top-Most card, they should be stacked in such a way that all Effect Text boxes and Might Bonuses are readable. The order of the Attached cards has no bearing on the application of effects."
+        },
+        {
+          "num": "434.1.c",
+          "text": "The Top-Most card has all Effect Text of all cards Attached to it appended to its Rules Text."
+        },
+        {
+          "num": "434.1.d",
+          "text": "The Top-Most Card has its Might modulated by the Might Bonus of all cards Attached to it."
+        },
+        {
+          "num": "434.1.e",
+          "text": "Attaching one or more cards will cause those cards' printed Rules Text to become Inactive for as long as they remain Attached. See rule 716. Attachment for more information."
+        },
+        {
+          "num": "434.1.f",
+          "text": "Attaching a card to a new Top-Most Card will cause it to Detach from the card to which it is currently Attached."
+        },
+        {
+          "num": "434.1.g",
+          "text": "Attaching a card to its current Top-Most Card will not have any effect."
+        },
+        {
+          "num": "434.1.h",
+          "text": "If a Game Effect instructs a player to Attach a card to its current Top-Most Card, nothing additional happens."
+        },
+        {
+          "num": "434.2",
+          "text": "Attaching is a Limited Action."
+        },
+        {
+          "num": "434.2.a",
+          "text": "Players may only Attach cards when directed to by Game Effects."
+        },
+        {
+          "num": "434.3",
+          "text": "Attaching cards does not inherently choose or specify a target. However, Game Effects that Attach cards may do so."
+        },
+        {
+          "num": "434.4",
+          "text": "When a card Attaches to a card, its location becomes the same as the new Top-Most Card."
+        },
+        {
+          "num": "434.4.a",
+          "text": "This is not a Move."
+        },
+        {
+          "num": "434.5",
+          "text": "Attaching a card to another card does not modify either card's state except in making those cards Attached and the Top-Most Card, and causing the Attached card to change locations. Example: An exhausted equipment being attached to a unit does not ready the equipment."
+        },
+        {
+          "num": "435",
+          "text": "**Detach**"
+        },
+        {
+          "num": "435.1",
+          "text": "Detaching is the act of unlinking two cards that are currently linked through the act of Attaching. This causes one to cease being Attached, and potentially causes the other to cease being a Top-Most card."
+        },
+        {
+          "num": "435.1.a",
+          "text": "Detaching affects only cards that are currently Attached to another card."
+        },
+        {
+          "num": "435.1.a.1",
+          "text": "Game effects that instruct a player to Detach a card that is currently not Attached to anything will do nothing."
+        },
+        {
+          "num": "435.1.b",
+          "text": "When one or more cards become Detached, they cease to be in the Attached state."
+        },
+        {
+          "num": "435.1.b.1",
+          "text": "To represent this, these cards should no longer be placed under the card they were previously placed under as Top-Most Card."
+        },
+        {
+          "num": "435.1.b.2",
+          "text": "If the Top-Most Card no longer has any cards Attached to it after this, it is no longer a Top-Most Card."
+        },
+        {
+          "num": "435.1.c",
+          "text": "The card being Detached has its Effect Text become Inactive and its Rules Text cease being Inactive."
+        },
+        {
+          "num": "435.1.d",
+          "text": "The Top-Most Card ceases to have the Effect Text of the card being Detached appended to its Rules Text."
+        },
+        {
+          "num": "435.1.e",
+          "text": "The Top-Most Card ceases to have its Might modulated by the Might Bonus of the card being Detached."
+        },
+        {
+          "num": "435.2",
+          "text": "Detaching is a Limited Action."
+        },
+        {
+          "num": "435.2.a",
+          "text": "Players may only Detach cards when directed to by Game Effects."
+        },
+        {
+          "num": "435.3",
+          "text": "Detaching cards does not inherently choose, or specify a target. However, Game Effects that Detach cards may."
+        },
+        {
+          "num": "435.4",
+          "text": "When a card Detaches from a Top-Most Card, its location is the same as the Top-Most Card from which it Detached."
+        },
+        {
+          "num": "435.4.a",
+          "text": "If the Detached card was a Gear and this causes it to become present at a Battlefield, it will be Recalled during the next Cleanup. See rule 318. Cleanups for more information."
+        },
+        {
+          "num": "435.4.b",
+          "text": "If the Attached card was Detached because the Top-Most Card changed zones from a board zone to a non-board zone, then the location that the Attached Card will Detach to is the last location the Top-Most Card was at before changing from a board zone to a non-board zone."
+        }
+      ]
+    },
+    {
+      "num": "436",
+      "title": "Predict, Prevent, Replace, Create",
+      "rules": [
+        {
+          "num": "436",
+          "text": "**Predict**"
+        },
+        {
+          "num": "436.1",
+          "text": "Predicting a card is the act of looking at a single card from the top of the Main Deck and choosing whether or not to Recycle it."
+        },
+        {
+          "num": "436.1.a",
+          "text": "When more than one card is Predicted, the Predicting player looks at that many cards and Recycles any number of them before putting the rest back on top of their Main Deck in any order."
+        },
+        {
+          "num": "436.2",
+          "text": "Predicting is a Limited Action."
+        },
+        {
+          "num": "436.2.a",
+          "text": "Players may only Predict cards when instructed to do so by game effects."
+        },
+        {
+          "num": "436.3",
+          "text": "This action, when instructed, is formatted as \"Predict X.\""
+        },
+        {
+          "num": "436.3.a",
+          "text": "If omitted, X is presumed to be 1."
+        },
+        {
+          "num": "436.4",
+          "text": "If a player attempts to Predict more cards than are available in their Main Deck, they will Predict as many as possible instead."
+        },
+        {
+          "num": "436.4.a",
+          "text": "The Player will not perform a Burn Out as a result of Predicting with too few cards in their deck."
+        },
+        {
+          "num": "437",
+          "text": "**Prevent**"
+        },
+        {
+          "num": "437.1",
+          "text": "Preventing damage is the act of reducing the Damage a set of game objects would take."
+        },
+        {
+          "num": "437.1.a",
+          "text": "Prevent is an action that interacts with Damage."
+        },
+        {
+          "num": "437.1.a.1",
+          "text": "Prevent includes any applied Bonus Damage when determining the total damage being prevented."
+        },
+        {
+          "num": "437.1.b",
+          "text": "Prevent appears in statements that define an amount of damage and the source of the damage it will affect, as well as the timespan it will be relevant for."
+        },
+        {
+          "num": "437.1.b.1",
+          "text": "Prevent actions are usually formatted as \"Prevent the next X [source] damage that would be dealt to a [unit] this turn.\""
+        },
+        {
+          "num": "437.1.b.1.a",
+          "text": "The X is referred to as the Prevent Value."
+        },
+        {
+          "num": "437.1.b.1.b",
+          "text": "X can be \"All,\" which specifies an infinite amount of damage."
+        },
+        {
+          "num": "437.1.b.2",
+          "text": "Prevent will always apply to the next damage that would be dealt to a unit affected by the Prevent action."
+        },
+        {
+          "num": "437.2",
+          "text": "When damage is Prevented, it is replaced with an event where it deals that much damage reduced by the Prevent Value tracked on the Unit specifically."
+        },
+        {
+          "num": "437.2.a",
+          "text": "The damage being dealt as a result of Preventing can never be less than 0, but can be 0. This is equivalent to not dealing damage."
+        },
+        {
+          "num": "437.3",
+          "text": "When damage is dealt this way, reduce the Prevent Value being tracked on the Unit affected by the Prevent action by the prevented amount."
+        },
+        {
+          "num": "437.3.a",
+          "text": "If the Prevent Value is 0 or less, then Prevent is no longer being tracked on the Unit in question, and the effect expires."
+        },
+        {
+          "num": "437.3.b",
+          "text": "The reduced value is the newly tracked Prevent Value."
+        },
+        {
+          "num": "437.3.c",
+          "text": "If the Prevent Value is \"All\" then it remains \"All.\""
+        },
+        {
+          "num": "437.4",
+          "text": "Damage dealt to a Unit that has that all of that damage Prevented is not considered to have been dealt to it at all."
+        },
+        {
+          "num": "437.5",
+          "text": "Damage can still be assigned to Units in combat that are affected by Prevent. The damage dealt as a result of that assignment will be affected by the Prevent action."
+        },
+        {
+          "num": "437.5.a",
+          "text": "Damage can be assigned to a Unit up to a value that would be Lethal considering the Prevent Value of all Prevent Actions on a Unit, following the normal rules for damage assignment. Example: A unit with 2 [M] is being assigned damage in the combat damage step. The unit has \"prevent the first 3 damage I would take each combat.\" The unit would need to be assigned 5 damage in order to have lethal damage assigned to it."
+        },
+        {
+          "num": "437.5.b",
+          "text": "No amount of damage is ever considered lethal if the Prevent Value is \"All.\""
+        },
+        {
+          "num": "437.6",
+          "text": "Prevent is a Limited Action."
+        },
+        {
+          "num": "437.6.a",
+          "text": "Players may only Prevent Damage when directed to by Game Effects."
+        },
+        {
+          "num": "437.7",
+          "text": "Prevent is a Delayed Replacement Effect. See rule 367. Replacement Effects for more information. See rule 389. Delayed Abilities for more information."
+        },
+        {
+          "num": "438",
+          "text": "**Replace**"
+        },
+        {
+          "num": "438.1",
+          "text": "Replacing is the act of Creating a token in the place of another card or token without playing it while inheriting all effects or statuses of the game object it replaced."
+        },
+        {
+          "num": "438.1.a",
+          "text": "The replacing token is treated as the same Game Object as the card or token it replaced for the purposes of Game Effects that target or reference that game object. Example: A player with Green Father as their legend conquers Navori Fighting Pit. They choose to place the Green Father conquer effect on the chain after the Navori Fighting Pit conquer effect. When the Green Father trigger resolves, Navori Fighting Pit is replaced with Brush. Although the Navori Fighting Pit has been replaced, the \"here\" in its triggered ability still can have its information referenced, because the Brush inherited all statuses and conditions. The unit Navori Fighting Pit's triggered ability has targeted will still be a legal target on resolution."
+        },
+        {
+          "num": "438.2",
+          "text": "Replacing is a Limited Action."
+        },
+        {
+          "num": "438.2.a",
+          "text": "The player may Replace cards and tokens when instructed to do so by other game effects."
+        },
+        {
+          "num": "438.3",
+          "text": "This action, when instructed, is formatted as \"Replace [X] with [Y].\""
+        },
+        {
+          "num": "438.3.a",
+          "text": "The [X] is the target to be Replaced."
+        },
+        {
+          "num": "438.3.b",
+          "text": "The [Y] is the object that will Replace the target."
+        },
+        {
+          "num": "438.3.b.1",
+          "text": "This will always specify a Token to create."
+        },
+        {
+          "num": "438.4",
+          "text": "Replacing is not a subset of Banishing."
+        },
+        {
+          "num": "438.5",
+          "text": "The card or token that is Replaced is placed in Banishment."
+        },
+        {
+          "num": "438.5.a",
+          "text": "While it resides in Banishment, it is considered to have been Replaced and not Banished."
+        },
+        {
+          "num": "438.6",
+          "text": "If a token is Replaced it will stop existing once it begins its occupancy in Banishment."
+        },
+        {
+          "num": "438.6.a",
+          "text": "This does not invalidate the token created, or the act of Replacement."
+        },
+        {
+          "num": "438.7",
+          "text": "Tokens that have been Created through a Replace action can be instructed to be \"Swapped back.\" This may also appear as \"replace [the token] with the [Game Object] it replaced.\""
+        },
+        {
+          "num": "438.7.a",
+          "text": "Swapping Back is an extension of the Replace action."
+        },
+        {
+          "num": "438.7.b",
+          "text": "To Swap Back, the token stops existing and the original card is returned to the space that the token just occupied, inheriting all current effects and statuses."
+        },
+        {
+          "num": "438.7.b.1",
+          "text": "Any card that has been Replaced by that token or any tokens it Replaced is eligible to swap back in this way."
+        },
+        {
+          "num": "438.7.c",
+          "text": "If there is nothing in Banishment to swap back to then this object can never swap back."
+        },
+        {
+          "num": "439",
+          "text": "**Create**"
+        },
+        {
+          "num": "439.1",
+          "text": "Creating is the act of producing a Game Object that previously did not exist in the game."
+        },
+        {
+          "num": "439.2",
+          "text": "Effects that Create one or more Game Objects will direct where those Game Objects must go - the Game Objects are Created directly to the zones in question."
+        },
+        {
+          "num": "439.2.a",
+          "text": "Prior to being Created, these Game Objects did not exist outside of the zone they were Created to. After being Created, they may change zones as appropriate for Game Objects of their type."
+        },
+        {
+          "num": "439.2.b",
+          "text": "If a zone is not specified by the effect, the Game Object will be created to the appropriate zone for its type."
+        },
+        {
+          "num": "439.2.b.1",
+          "text": "Permanents will be Created at any location on the Board that they can be played to."
+        },
+        {
+          "num": "439.2.b.2",
+          "text": "Spells will be Created on the Chain."
+        },
+        {
+          "num": "439.2.b.3",
+          "text": "Runes will be Created at base."
+        },
+        {
+          "num": "439.2.b.4",
+          "text": "Legends will be Created in the Legend Zone."
+        },
+        {
+          "num": "439.2.b.5",
+          "text": "Battlefields will be Created in the Battlefield Zone."
+        },
+        {
+          "num": "439.2.c",
+          "text": "The zone a Game Object is created to can be specified implicitly by the Game Action being performed. Example: \"Play a 1 [M] Recruit token\" specifies a zone where the token is Created to implicitly, by specifying the token is played and thus created on the chain. Example: \"Create a 1 [M] Recruit token\" does not specify a zone, so the Recruit token will be created at any location on the board that it can be played to."
+        },
+        {
+          "num": "439.3",
+          "text": "An effect that Creates a Game Object will specify the state and nature of the Game Object created."
+        },
+        {
+          "num": "439.3.a",
+          "text": "If the Game Object is a token, it will follow the normal rules for tokens. See rule 179. Tokens for more information."
+        },
+        {
+          "num": "439.4",
+          "text": "Unless specified otherwise by the Game Effect that Creates a Game Object, any such Game Object is owned by the player who Created it. Control is established as usual for Game Objects of the appropriate type."
+        },
+        {
+          "num": "439.4.a",
+          "text": "A Created permanent, rune, legend, or spell is controlled by its owner as it is Created."
+        },
+        {
+          "num": "439.4.b",
+          "text": "A Created battlefield is uncontrolled as it is Created."
+        },
+        {
+          "num": "439.5",
+          "text": "This action, when instructed, is usually formatted as \"Create [X] at [Y]\" or \"Add [X] to [Y].\""
+        },
+        {
+          "num": "439.6",
+          "text": "Creating is a Limited Action."
+        },
+        {
+          "num": "439.6.a",
+          "text": "Players may only Create Game Objects when directed to by Game Effects."
+        }
+      ]
+    },
+    {
+      "num": "440",
+      "title": "Burn, Empower, Disempower, Skip, Pay",
+      "rules": [
+        {
+          "num": "440",
+          "text": "**Burn**"
+        },
+        {
+          "num": "440.1",
+          "text": "Burning is the act of moving cards from the top of a player's Main Deck to their trash."
+        },
+        {
+          "num": "440.1.a",
+          "text": "\"When you burn\" abilities or other Triggered Abilities that trigger on burning are executed after burning has occurred."
+        },
+        {
+          "num": "440.2",
+          "text": "This action is formatted as \"Burn X.\""
+        },
+        {
+          "num": "440.2.a",
+          "text": "X is the number of cards to be Burned."
+        },
+        {
+          "num": "440.3",
+          "text": "Burning is a Limited Action."
+        },
+        {
+          "num": "440.3.a",
+          "text": "A player must Burn cards when instructed to do so by game effects or costs."
+        },
+        {
+          "num": "440.4",
+          "text": "When Burning is part of an effect, then a player must Burn as many cards as possible. If instructed to burn more cards than they have in their main deck, they burn that many cards, burn out and then burn the rest. See rule 431. Burn Out for more information."
+        },
+        {
+          "num": "441",
+          "text": "**Empower**"
+        },
+        {
+          "num": "441.1",
+          "text": "Empowering is the act of rendering one or more Game Objects Empowered."
+        },
+        {
+          "num": "441.1.a",
+          "text": "Empowered is a binary state. A Game Object is Empowered or it isn't."
+        },
+        {
+          "num": "441.1.b",
+          "text": "An Empowered Game Object can not be Empowered."
+        },
+        {
+          "num": "441.1.c",
+          "text": "If a Game Object is instructed to be Empowered when it is already Empowered, nothing additional happens."
+        },
+        {
+          "num": "441.1.c.1",
+          "text": "Some effects may grant a Game Object permission to be Empowered multiple times. Such an effect ignores this restriction."
+        },
+        {
+          "num": "441.2",
+          "text": "\"Empowered\" is a state for Game Objects on the board that other game effects and abilities can reference."
+        },
+        {
+          "num": "441.2.a",
+          "text": "When a Game Object becomes Empowered as a result of the Empower game action, that is an event that can similarly be referenced by game effects and abilities."
+        },
+        {
+          "num": "441.3",
+          "text": "Empowering is a Limited Action."
+        },
+        {
+          "num": "441.3.a",
+          "text": "Players may only Empower Game Objects when directed to by Game Effects."
+        },
+        {
+          "num": "442",
+          "text": "**Disempower**"
+        },
+        {
+          "num": "442.1",
+          "text": "Disempowering is the act of removing the Empowered status from one or more Game Objects."
+        },
+        {
+          "num": "442.1.a",
+          "text": "Disempowering affects only cards that are currently Empowered."
+        },
+        {
+          "num": "442.1.a.1",
+          "text": "Game effects that instruct a player to Disempower a card that is not currently Empowered will do nothing."
+        },
+        {
+          "num": "442.2",
+          "text": "Disempowering is a Limited Action."
+        },
+        {
+          "num": "442.2.a",
+          "text": "Players may only Disempower Game Objects when directed to by Game Effects."
+        },
+        {
+          "num": "443",
+          "text": "**Skip**"
+        },
+        {
+          "num": "443.1",
+          "text": "Skipping an event is the act of replacing that event with nothing."
+        },
+        {
+          "num": "443.1.a",
+          "text": "Skip is an action that interacts with events and procedures of the turn. Example: A card reads in part \"Choose an enemy unit. Skip the next time that unit would move this turn.\" This is a replacement effect that replaces the event of a unit moving with nothing. Example: A card reads in part \"Skip your Draw phase.\" This is a replacement effect that replaces a player's Draw Phase with nothing. Example: A card reads in part \"Choose a player. They skip their next point from conquering this turn.\" This is a replacement effect that replaces the 1 point gained when conquering with nothing."
+        },
+        {
+          "num": "443.1.a.1",
+          "text": "An event is the singular moment that results from a Game Action being performed or from a Game Object changing state. See rule 367. Replacement Effects for more information."
+        },
+        {
+          "num": "443.1.a.2",
+          "text": "Procedures of the turn include turns, phases, steps, and substeps."
+        },
+        {
+          "num": "443.1.b",
+          "text": "Skip actions are usually formatted as \"Skip [event or procedure of the turn].\""
+        },
+        {
+          "num": "443.2",
+          "text": "When an event or procedure of the turn is Skipped, it is replaced with nothing. Play proceeds accordingly."
+        },
+        {
+          "num": "443.2.a",
+          "text": "Anything that triggers on the occurrence of the event or procedure of the turn does not trigger."
+        },
+        {
+          "num": "443.3",
+          "text": "Skip is a Limited Action."
+        },
+        {
+          "num": "443.3.a",
+          "text": "Players may only Skip events or procedures of the turn when directed to by Game Effects."
+        },
+        {
+          "num": "443.4",
+          "text": "Skip is a Replacement Effect. See rule 367. Replacement Effects for more information."
+        },
+        {
+          "num": "444",
+          "text": "**Pay**"
+        },
+        {
+          "num": "444.1",
+          "text": "Paying a resource is the act of removing that resource from your Rune Pool."
+        },
+        {
+          "num": "444.1.a",
+          "text": "Pay is an action that interacts with Energy and Power."
+        },
+        {
+          "num": "444.2",
+          "text": "When a player is instructed to Pay a resource, that player may remove that resource from their Rune Pool if it exists there. If they choose not to, the instruction is ignored. Example: When Diana, Lunari's triggered ability resolves, if its controller has [1] Energy in their rune pool, they choose whether or not to pay that Energy as instructed. If they choose not to pay the Energy, they will not perform the additional effects of the triggered ability."
+        },
+        {
+          "num": "444.2.a",
+          "text": "If the instruction to Pay resources is part of paying costs for a card or ability, choosing not to pay those resources will cause the act of playing the card or ability to be undone. See rule 358. Check Legality for more information."
+        },
+        {
+          "num": "444.2.b",
+          "text": "If the instruction to Pay resources is part of paying any other cost, choosing not to pay those resources will prevent the execution of the associated effect. See rule 201. Costs for more information."
+        },
+        {
+          "num": "444.2.c",
+          "text": "Players may activate abilities that Add resources with the Reaction keyword at any time that they are instructed to Pay resources. Those abilities finalize and resolve immediately, ignoring normal restrictions. See rule 429. Add for more information."
+        },
+        {
+          "num": "444.3",
+          "text": "Pay is a Limited Action."
+        },
+        {
+          "num": "444.3.a",
+          "text": "Players may only Pay resources when directed to by Game Effects."
+        }
+      ]
+    },
+    {
+      "num": "445",
+      "title": "Movement",
+      "rules": [
+        {
+          "num": "446",
+          "text": "Moving is a Limited Action."
+        },
+        {
+          "num": "446.1",
+          "text": "A Permanent changing its position from any space on the Board to another space on the Board is a Move, unless it is caused by a corrective Recall or an Attached Permanent changing locations to or with its Top-Most Card. See rule 420. Move for more information."
+        },
+        {
+          "num": "446.2",
+          "text": "A card changing game zones does not in itself constitute a Move."
+        },
+        {
+          "num": "446.3",
+          "text": "Moving is instantaneous."
+        },
+        {
+          "num": "446.3.a",
+          "text": "There is no state for Permanents between locations."
+        },
+        {
+          "num": "446.3.b",
+          "text": "Permanents are either at their Origin before Moving or their Destination after Moving."
+        },
+        {
+          "num": "446.3.c",
+          "text": "Moving does not use the Chain, nor is it able to be Reacted to."
+        },
+        {
+          "num": "447",
+          "text": "Moving is defined by the Origin and Destination of the Permanent that is changing locations."
+        },
+        {
+          "num": "447.1",
+          "text": "The Origin is where the Permanent is starting from."
+        },
+        {
+          "num": "447.2",
+          "text": "The Destination is where the Permanent is going to."
+        },
+        {
+          "num": "447.2.a",
+          "text": "In Modes of Play with more than two players, Battlefields with Staged Combats or Combats in Progress are Invalid Destinations for Moves of all kinds (Standard Moves or otherwise) by Units controlled by Players not involved in those Combats or who don't already have units at that Battlefield."
+        },
+        {
+          "num": "447.2.b",
+          "text": "In Modes of Play with teammates, Battlefields occupied by a player's teammates are Invalid Destinations for Moves of all kinds (Standard Moves or otherwise) by Units that player controls."
+        },
+        {
+          "num": "447.2.c",
+          "text": "If an action would require a Move that would cause a Unit to become present in a Location where it cannot move for any reason, such as a Battlefield with two players that are not the controller of the Unit performing this Move action are in a Combat or such a Combat is Staged, it instead Recalls. See rule 454. Recalls for more information."
+        },
+        {
+          "num": "448",
+          "text": "Players may choose to move their Units with the Standard Move. See rule 144. for more information on the Standard Move."
+        },
+        {
+          "num": "449",
+          "text": "Spells, Abilities, or other effects may cause a Move to occur."
+        },
+        {
+          "num": "449.1",
+          "text": "The source of the Move will provide details on any restrictions on legality for Destination."
+        },
+        {
+          "num": "449.2",
+          "text": "Units cannot Move to a Battlefield that already has units from 2 other players present by any means."
+        },
+        {
+          "num": "450",
+          "text": "The Destination becomes Contested if it is an Uncontested Battlefield not controlled by the controller of the Unit or Units that moved."
+        },
+        {
+          "num": "451",
+          "text": "Units may cause a Non-Combat Showdown when they Move. See rule 341. Showdowns for more information."
+        },
+        {
+          "num": "452",
+          "text": "Units may cause Combat when they Move. See rule 459. Combat for more information."
+        },
+        {
+          "num": "453",
+          "text": "When a Move action is complete, perform a Cleanup."
+        }
+      ]
+    },
+    {
+      "num": "454",
+      "title": "Recalls",
+      "rules": [
+        {
+          "num": "455",
+          "text": "A Recall is when a Permanent is relocated from anywhere to its Base without it being a Move."
+        },
+        {
+          "num": "456",
+          "text": "Recalls are not Moves."
+        },
+        {
+          "num": "456.1",
+          "text": "They do not cause Triggered Abilities to trigger that are triggered by Move actions."
+        },
+        {
+          "num": "456.2",
+          "text": "A Recall causes a Permanent to change locations."
+        },
+        {
+          "num": "456.3",
+          "text": "A Recall cannot be prevented by actions and Game Effects that restrict or block Movement."
+        },
+        {
+          "num": "457",
+          "text": "Gear can be Recalled."
+        },
+        {
+          "num": "457.1",
+          "text": "When an un-attached non- Unit Gear is created or played at a battlefield, or is at a battlefield for any other reason, it is Recalled to its controller's base during the next Cleanup. Example: An Equipment is attached to a unit at a battlefield, so the Equipment is present at that battlefield. If the unit dies, the Equipment will be recalled during the next cleanup."
+        },
+        {
+          "num": "458",
+          "text": "Recalls do not affect the state of the Permanent being recalled."
+        },
+        {
+          "num": "458.1",
+          "text": "Unless otherwise stated by the source of the Recall, Damage and statuses of a permanent will all remain unaffected by a Recall."
+        }
+      ]
+    },
+    {
+      "num": "459",
+      "title": "Combat",
+      "rules": [
+        {
+          "num": "460",
+          "text": "A Combat occurs when a Cleanup occurs, there are no items on the Chain, there is a staged Combat at a Battlefield, and no Showdown or Combat is ongoing at any other Battlefield. See rule 318. Cleanups for more information."
+        },
+        {
+          "num": "460.1",
+          "text": "If there is an ongoing Showdown at the Battlefield where the Combat is staged, that Showdown will become a Combat Showdown and a Combat will be initiated there."
+        },
+        {
+          "num": "461",
+          "text": "Combat is considered Staged if there are units controlled by two opposing players at a Battlefield but the Steps of Combat have not been initiated."
+        },
+        {
+          "num": "461.1",
+          "text": "If more than one Battlefield has Units controlled by opposing players at it at the same time, the Turn Player decides which Combat to resolve first."
+        },
+        {
+          "num": "461.2",
+          "text": "If Staged Combats stop being Staged before the Steps of Combat are initiated, they are not resolved or executed."
+        },
+        {
+          "num": "461.3",
+          "text": "If a Combat and Showdown are staged at the same Battlefield and the turn player initiates the Showdown, it will open as a Combat Showdown."
+        },
+        {
+          "num": "462",
+          "text": "Combat can only occur between Units controlled by exactly two players."
+        },
+        {
+          "num": "462.1",
+          "text": "In Modes of Play with more than two players, Battlefields with Staged Combats or Combats in Progress are Invalid Destinations for Moves of all kinds (Standard Moves or otherwise) by Units controlled by Players not involved in those Combats or who don't already have Units at that Battlefield. See rule 447.2.a. for more information on Invalid Destinations."
+        },
+        {
+          "num": "462.2",
+          "text": "In Modes of Play with more than two players, Battlefields with Staged Combats or Combats in Progress are Invalid to be chosen as a location to play one or more Units by a player not involved in that Combat by any means."
+        },
+        {
+          "num": "462.2.a",
+          "text": "If an effect would require a Unit be played to a Battlefield with a Staged Combat or a Combat in Progress, where the controller of the played unit is not a participant, instead the Unit is played to its controller's Base."
+        },
+        {
+          "num": "462.2.b",
+          "text": "Any subsequent reference to \"here\" in the corresponding effect is reassigned to the Controller's Base, where the Unit was played. Any further effects that may be invalidated are invalidated as if the effect was mistargeted. See rule 355.6. Targeting for more information on Mistargeting."
+        },
+        {
+          "num": "462.3",
+          "text": "All choices that would result in a Combat occurring between more than two players simultaneously are invalid and ineligible to be completed."
+        },
+        {
+          "num": "463",
+          "text": "**The Steps of Combat**"
+        },
+        {
+          "num": "464",
+          "text": "**Step 1: The Combat Showdown Step**"
+        },
+        {
+          "num": "464.1",
+          "text": "Combat will open in one of two ways: when a Combat and Showdown are staged at the same Battlefield and the turn player initiates the Showdown; or when the turn is in a Showdown Open State and a Combat is staged at the Battlefield where the current Showdown is ongoing. See rule 318. Cleanups for more information."
+        },
+        {
+          "num": "464.2",
+          "text": "When Combat opens, it either opens with a Combat Showdown, or the current Showdown becomes a Combat Showdown."
+        },
+        {
+          "num": "464.2.a",
+          "text": "The following Tasks become Outstanding, in the order described:"
+        },
+        {
+          "num": "464.2.b",
+          "text": "1. Start of combat or showdown effects happen now."
+        },
+        {
+          "num": "464.2.c",
+          "text": "2. Establish who is Attacker and who is Defender."
+        },
+        {
+          "num": "464.2.c.1",
+          "text": "The Attacker is the player whose unit(s) applied the Contested status to the Battlefield."
+        },
+        {
+          "num": "464.2.c.1.a",
+          "text": "If a showdown opens as part of combat, this player gains Focus as the showdown begins."
+        },
+        {
+          "num": "464.2.c.1.b",
+          "text": "If a showdown was already ongoing when the combat opens, the player who has Focus maintains their Focus."
+        },
+        {
+          "num": "464.2.c.2",
+          "text": "The Defender is the player who did not apply the Contested status to the Battlefield."
+        },
+        {
+          "num": "464.2.c.3",
+          "text": "The attacker and defender gain the Attacker or Defender designation now, as appropriate. Units at the Contested Battlefield controlled by the Attacker or Defender gain the Attacker or Defender designation now, as appropriate."
+        },
+        {
+          "num": "464.2.c.3.a",
+          "text": "If a Unit controlled by the Attacker or Defender becomes present at this Battlefield after this moment, it will gain the Attacker or Defender designation during the Cleanup phase following the action that caused it to become present, as appropriate for its controller."
+        },
+        {
+          "num": "464.2.d",
+          "text": "3. The Attacker gains Focus."
+        },
+        {
+          "num": "464.2.e",
+          "text": "4. Add items to the Combat Chain if establishing Attacker and Defender has caused Triggered Abilities to become Pending."
+        },
+        {
+          "num": "464.2.e.1",
+          "text": "The Attacking player, who has Focus, places Triggered Abilities on the Chain first, followed by all non- Defender players in Turn Order, followed by the Defending Player."
+        },
+        {
+          "num": "464.2.f",
+          "text": "The State Closes if a Combat Chain was created."
+        },
+        {
+          "num": "464.2.f.1",
+          "text": "Otherwise the Combat Showdown continues, with the State Open as normal."
+        },
+        {
+          "num": "464.2.g",
+          "text": "Players proceed with any play on the Chain as normal."
+        },
+        {
+          "num": "465",
+          "text": "**Step 2: The Combat Damage Step**"
+        },
+        {
+          "num": "465.1",
+          "text": "If both Attacking and Defending units remain at this battlefield, the following Tasks become Outstanding, in the specified order:"
+        },
+        {
+          "num": "465.2",
+          "text": "1. When the Showdown closes, Attackers and Defenders resolve Combat Damage at the Battlefield that was attacked, using their current Might."
+        },
+        {
+          "num": "465.2.a",
+          "text": "Sum the Might of all Attacking Units."
+        },
+        {
+          "num": "465.2.b",
+          "text": "Sum the Might of all Defending Units."
+        },
+        {
+          "num": "465.2.c",
+          "text": "Starting with the Attacker, each player assigns an amount of damage equal to their summed Might among the other's Units."
+        },
+        {
+          "num": "465.2.c.1",
+          "text": "Assigning Damage is not Dealing Damage."
+        },
+        {
+          "num": "465.2.c.1.a",
+          "text": "When all Damage is assigned, it will be Dealt simultaneously. These actions are not synonymous."
+        },
+        {
+          "num": "465.2.c.2",
+          "text": "Abilities or effects may influence the order in which damage is assigned. Reminder: Lethal Damage is non-zero damage equaling or exceeding the Might of a Unit."
+        },
+        {
+          "num": "465.2.c.3",
+          "text": "Units must have lethal damage assigned to them in full before damage is assigned to a different Unit. Example: If a player has 5 damage to distribute among four 3 Might units, they may not choose to assign 2 damage to one of the units and 1 damage to each of the remaining 3. They must assign at least 3 damage to one, and the remaining 2 to another."
+        },
+        {
+          "num": "465.2.c.4",
+          "text": "Units cannot have more damage assigned to them than the minimum required to constitute lethal damage unless no further units remain to have damage assigned to them. Example: If a player has 5 damage to distribute among four 3 Might units and those units each have 1 damage already marked on them, that player may not assign more than 2 damage to any of those units."
+        },
+        {
+          "num": "465.2.c.4.a",
+          "text": "If the damage assigned to a Unit is modified to or replaced by an amount of damage larger than the initial value, the assigning player must choose the minimum applied value such that the unit would take lethal damage. Example: A unit with 3 [M] is being assigned damage in the combat damage step. There are other units without damage assigned to them with the same controller. The unit has a delayed replacement effect applied to it that reads \"Double all damage that would be dealt to it this turn.\" When assigning damage, the assigning player can only choose to assign 1 or 2 damage to this unit—when doing so, the assigned damage is doubled to 2 or 4 damage respectively. The minimum applied value such that the unit would take lethal damage in this way is 4 damage."
+        },
+        {
+          "num": "465.2.c.5",
+          "text": "When assigning damage in this way, replacement effects that would apply to the resulting damage are considered to apply to the assignment instead. Example: A unit with 2 [M] is being assigned damage in the combat damage step. The unit has \"prevent the first 3 damage I would take each combat.\" The unit would need to be assigned 5 damage in order to have lethal damage assigned to it. Example: The attacking player is assigning their 3 [M] worth of damage to two defending units with 2 [M] each. One of the units has a delayed replacement effect applied to it that reads \"Double all damage that would be dealt to it this turn.\" The attacking player assigns two damage to the other defending unit, then when assigning damage to the unit with the delayed replacement effect they assign 2 damage to it; 1 damage that doubles to 2 damage as it is assigned to the unit. When that damage is dealt, it doesn't get doubled again—the doubling is considered to have already happened during damage assignment. Example: The attacking player is assigning their 3 [M] worth of damage to a 2 [M] unit. That unit has a prevent value of two being applied to it, as well as the effect of Lotus Trap, doubling the damage dealt to them. Both of these replacement effects apply to the assignment of damage, in the order of the controller of the 2 [M] unit's choice. If they choose to order the replacement effects so that the prevent value is applied first, the unit will prevent 2 of the assigned damage, then the last 1 point of damage will be doubled to 2. The unit will have 4 damage assigned to it. When damage is dealt, the unit will take 2 damage. If they choose the other order, the unit will have 6 damage assigned to it, 2 of which will be prevented. When damage is dealt, the unit will take 4 damage."
+        },
+        {
+          "num": "465.2.c.6",
+          "text": "A player must obey all requirements and restrictions on damage assignment if able. Example: A player is assigning damage to the following units: a unit with Tank (\"I must be assigned combat damage first.\"); a unit with Backline (\"I must be assigned combat damage last.\"); and another unit without any abilities. That player must assign combat damage first to the unit with Tank, then to the unit with no abilities, then to the unit with Backline."
+        },
+        {
+          "num": "465.2.c.7",
+          "text": "If multiple Units have abilities or effects that require a player to assign them damage with the same priority, that player may assign damage to those units in any order. Example: A player is assigning damage to the following units: two units with Tank (\"I must be assigned combat damage first.\") and one unit with no abilities. That player chooses one of the units with Tank and assigns combat damage to it. Then they must assign any remaining damage first to the other unit with Tank, then to the unit with no abilities."
+        },
+        {
+          "num": "465.2.c.8",
+          "text": "If a Unit has one or more Abilities or effects applying to it that demand it be assigned damage in a specific way that is exclusionary, then the assigning player chooses only one of those abilities to apply when assigning damage. Example: Caitlyn, Patrolling with the Backline ability (\"I must be assigned combat damage last.\") has been given the Tank ability (\"I must be assigned combat damage first.\"). A player is assigning damage to this Caitlyn with Tank and two units with no abilities. That player can't fulfill both of Caitlyn's damage requirements, so they may choose to assign damage to Caitlyn first, fulfilling the Tank requirement, or last, fulfilling the Backline requirement. They can't choose to apply damage to Caitlyn in between the other two units, because that wouldn't fulfill either requirement."
+        },
+        {
+          "num": "465.2.c.9",
+          "text": "If there is more than one unit in which this situation applies to, each unit is dealt with individually. The assigning player chooses which ability or effect applies, and then resolves the assignment. If this creates a situation where now more than one unit must be assigned with the same priority, those units may be assigned damage in any order as normal within that priority. Example: Two copies of Caitlyn, Patrolling with the Backline ability (\"I must be assigned combat damage last.\") have been given the Tank ability (\"I must be assigned combat damage first.\"). A player assigning damage to these two Caitlyns and one unit with no abilities could choose to fulfill both Caitlyns' Tank requirements by assigning them both damage before the other unit."
+        },
+        {
+          "num": "465.2.c.10",
+          "text": "If a unit cannot be dealt damage, then no amount of damage can be considered lethal. Such a unit is exempt from any considerations of mandatory assignment. Example: Kayn, Unleashed says \"If I have moved twice this turn, I don't take damage.\" While Kayn can't take damage, it is ignored for the purposes of assigning lethal damage in combat. Example: Counter Strike says \"Choose a unit. The next time that unit would be dealt damage this turn, prevent it.\" The unit in question has a replacement effect applied to it, but it still can be dealt damage. Thus, it is not exempt from considerations of mandatory assignment."
+        },
+        {
+          "num": "465.2.d",
+          "text": "Deal Damage to each unit equal to the amount assigned to it."
+        },
+        {
+          "num": "465.3",
+          "text": "2. Skip the FEPR process and cancel any outstanding tasks. Proceed to the Resolution Step."
+        },
+        {
+          "num": "466",
+          "text": "**Step 3: The Resolution Step**"
+        },
+        {
+          "num": "466.1",
+          "text": "1. Perform a Combat Cleanup."
+        },
+        {
+          "num": "466.1.a",
+          "text": "Invoke a Combat Special Cleanup."
+        },
+        {
+          "num": "466.1.a.1",
+          "text": "Insert \"3c. Heal all Units. \""
+        },
+        {
+          "num": "466.1.a.2",
+          "text": "Insert \"3d. Recall Attackers present at the Battlefield if Defenders are still present.\" See rule 454. Recalls for more information."
+        },
+        {
+          "num": "466.2",
+          "text": "**The following Task becomes Outstanding**: Reminder: Resolve any items on the chain from dealing combat damage and the Combat Cleanup and associated FEPR before performing this step."
+        },
+        {
+          "num": "466.3",
+          "text": "1. Determine Combat Result"
+        },
+        {
+          "num": "466.3.a",
+          "text": "A Player has won a combat if they received either the attacker or defender designation and are the only Player that has units remaining at this battlefield during this step."
+        },
+        {
+          "num": "466.3.b",
+          "text": "A Player has lost a combat if they received either the attacker or defender designation and are the only Player that does not have any units remaining at this battlefield during this step."
+        },
+        {
+          "num": "466.3.c",
+          "text": "Units at this battlefield inherit the same combat result as their controllers"
+        },
+        {
+          "num": "466.3.d",
+          "text": "There is \"No Result\" if units were recalled during step 3d of the Combat Cleanup, if both Players have units present during this task, or if neither player has units present during this task."
+        },
+        {
+          "num": "466.3.d.1",
+          "text": "If \"No Result\" was reached, and both players have units remaining, stage a Showdown and a Combat at this battlefield."
+        },
+        {
+          "num": "466.4",
+          "text": "**The following Task becomes Outstanding**: Reminder: Resolve any items on the chain from determining combat result and associated FEPR before performing this step."
+        },
+        {
+          "num": "466.5",
+          "text": "1. If no Showdown or Combat is staged at this location, the player with Units remaining here Establishes Control if they didn't already control this Battlefield."
+        },
+        {
+          "num": "466.5.a",
+          "text": "Clear the Contested Status."
+        },
+        {
+          "num": "466.5.b",
+          "text": "If there are no Units remaining here controlled by any player, the Battlefield becomes Uncontrolled."
+        },
+        {
+          "num": "466.5.c",
+          "text": "Remove all Hidden cards from this Battlefield that do not share a controller with the Battlefield."
+        },
+        {
+          "num": "466.5.d",
+          "text": "Establishing Control results in a Conquer if that player has not yet scored this Battlefield this turn. See rule 188. Control for more information on Control. See rule 469.1. for more information on Conquering."
+        },
+        {
+          "num": "466.5.e",
+          "text": "This does not have to be the player that applied Contested to the Battlefield."
+        },
+        {
+          "num": "466.6",
+          "text": "**The following Task becomes Outstanding**: Reminder: Resolve any items on the chain from establishing control and associated FEPR before performing this step."
+        },
+        {
+          "num": "466.7",
+          "text": "1. Combat ends."
+        },
+        {
+          "num": "466.7.a",
+          "text": "Remove Attacker and Defender Designation from all Units and Players."
+        },
+        {
+          "num": "466.7.b",
+          "text": "At the end of Combat or Combat ends effects take place."
+        },
+        {
+          "num": "466.7.c",
+          "text": "All \"this combat\" effects expire simultaneously."
+        }
+      ]
+    },
+    {
+      "num": "467",
+      "title": "Scoring",
+      "rules": [
+        {
+          "num": "468",
+          "text": "Scoring is the act of a Player gaining a point through the process of seizing or maintaining control over Battlefields."
+        },
+        {
+          "num": "468.1",
+          "text": "Every instance of Scoring is also an instance of Gaining points"
+        },
+        {
+          "num": "469",
+          "text": "**A player Scores in one of two ways:**"
+        },
+        {
+          "num": "469.1",
+          "text": "**Conquer**: A player gains Control of a Battlefield they did not yet Score this turn."
+        },
+        {
+          "num": "469.1.a",
+          "text": "In Modes of Play with teammates, Battlefields under the Control of a teammate during the scoring step of the Beginning Phase of a player's turn are also disqualified from being Scored through Conquer by any means by that player's team."
+        },
+        {
+          "num": "469.1.b",
+          "text": "A player will gain control of a Battlefield after establishing Control."
+        },
+        {
+          "num": "469.2",
+          "text": "**Hold**: A player maintains Control of a Battlefield they did not yet Score this turn during their Beginning Phase."
+        },
+        {
+          "num": "470",
+          "text": "A player may only Score, from either method, once per Battlefield per turn."
+        },
+        {
+          "num": "471",
+          "text": "**When a player Scores, two things occur:**"
+        },
+        {
+          "num": "471.1",
+          "text": "The player Gains up to one Point, depending on their current score."
+        },
+        {
+          "num": "471.1.a",
+          "text": "The Final Point has additional restrictions."
+        },
+        {
+          "num": "471.1.a.1",
+          "text": "Notably, points Gained from sources that are not Conquer are not beholden to these restrictions."
+        },
+        {
+          "num": "471.1.b",
+          "text": "When a player tries to Gain a Point through a Conquer, and their current Point Total is 1 point from the Victory Score of the Mode of Play or higher, the following occurs:"
+        },
+        {
+          "num": "471.1.b.1",
+          "text": "If the player has Scored every Battlefield this turn, that player Gains the Final Point. If the player has not Scored every Battlefield this turn, that player draws a card instead."
+        },
+        {
+          "num": "471.2",
+          "text": "Trigger Score abilities at the Battlefield that Scored."
+        },
+        {
+          "num": "471.2.a",
+          "text": "Conquer abilities trigger at a Battlefield that was Conquered."
+        },
+        {
+          "num": "471.2.b",
+          "text": "Hold abilities trigger at a Battlefield that was Held."
+        },
+        {
+          "num": "471.2.c",
+          "text": "These will only trigger when the Battlefield is Scored; I.E. These cannot be triggered more than once per turn for a player."
+        },
+        {
+          "num": "472",
+          "text": "When a cleanup occurs and a player has accrued Points greater than or equal to the Victory Score for their Mode of Play, and if they have more points than any opponent, they Win the Game."
+        }
+      ]
+    },
+    {
+      "num": "473",
+      "title": "Layers",
+      "rules": [
+        {
+          "num": "474",
+          "text": "Layers are the mechanism in which Game Effects alter the Traits, Intrinsic Abilities, or other properties of Game Objects."
+        },
+        {
+          "num": "475",
+          "text": "Layers are an organizational structure."
+        },
+        {
+          "num": "475.1",
+          "text": "Layers only serve to structure the application and order that Game Effects apply to Game Objects to maintain consistency."
+        },
+        {
+          "num": "476",
+          "text": "The layers are applied repeatedly until all effects operating on objects have been applied once and no changes have been processed."
+        },
+        {
+          "num": "476.1",
+          "text": "Layers are applied in sequence. Each effect in them is applied as soon as able, and only a single time across all sequences."
+        },
+        {
+          "num": "476.2",
+          "text": "When a sequence of applications completes, recur the process, and evaluate each layer again applying any effects that may now be applicable."
+        },
+        {
+          "num": "476.3",
+          "text": "The removal or disqualification of an effect is separate from the application of the effect, but still can only be applied once. Example: Fiora, Victorious has printed Might 4 and says \"While I'm Mighty, I have Deflect, Ganking, and Shield.\" If a player places a buff on Fiora, her Might is increased in the Arithmetic layer, after the layer for Ability-Altering Effects. The Ability-Altering Effect layer is then re-checked and the abilities Deflect, Ganking, and Shield applied. Since each effect has been applied once and there are no other effects to apply, Fiora's characteristics are finalized as 5 Might with Deflect, Ganking, and Shield. While a buffed Fiora, Victorious is in combat as a defender, an additional +1 Might will be applied in the Arithmetic layer, giving her 6 Might and the 3 keywords. Example: A buffed Fiora, Victorious is in combat as a defender when her buff is removed. Reevaluating the layers in sequence, she no longer gains Deflect, Ganking, and Shield during the Ability-Altering Effect layer, so when the Arithmetic layer is evaluated, neither the buff (which is gone) nor Shield (which she no longer has) apply. She goes directly from 6 Might with three keywords to 4 Might with no keywords."
+        },
+        {
+          "num": "477",
+          "text": "**Layers are applied in the following order:**"
+        },
+        {
+          "num": "477.1",
+          "text": "1. Trait-Altering Effects"
+        },
+        {
+          "num": "477.1.a",
+          "text": "This layer deals with effects that grant, remove, or replace inherent traits of Game Objects. Name Super Type Type Tags Controller Cost Domain"
+        },
+        {
+          "num": "477.1.a.1",
+          "text": "Assignment of Might is dealt with in this layer. Example: A spell reads \"A unit's Might becomes 4 this turn.\" The unit's Might is set to 4 in this layer."
+        },
+        {
+          "num": "477.1.b",
+          "text": "Copy effects are applied in this layer."
+        },
+        {
+          "num": "477.1.b.1",
+          "text": "When one Game Object becomes a copy of another, all copyable traits replace or are added to those of the original Game Object as specified by the Game Effect directing the Copy. This is applied in this layer."
+        },
+        {
+          "num": "477.1.b.1.a",
+          "text": "**Copyable traits are**: Name Super Type Type Tags Cost Domain Rules Text"
+        },
+        {
+          "num": "477.1.b.1.b",
+          "text": "Copy effects will copy the copyable traits of a Game Object. By default, those are the printed traits of the Game Object. When a Game Object becomes a copy of something, its copyable traits are updated to the new traits it has received. Example: A player triggers Leblanc, Deceiver's hold effect and plays a Reflection token, making it a copy of Honest Broker. That player then plays Mirror Image, targeting the Reflection token. When the Mirror Image Reflection token is played, it copies all of the copyable traits of the original Reflection token - which are currently those of Honest Broker which it is a copy of. That player will have three units named Honest Broker in play, two of which are token Copies with Temporary."
+        },
+        {
+          "num": "477.1.b.2",
+          "text": "Some Game Effects may specify copying certain traits of a card. Only the traits specified by the Game Effect will be copied."
+        },
+        {
+          "num": "477.1.c",
+          "text": "Effects for this layer can be identified by the phrase \"become(s)\", \"give,\" \"is,\" or \"are\" in the text. Example: A permanent has the ability \"Other friendly units are Yordles.\" Other friendly units gain the Yordle tag in this layer."
+        },
+        {
+          "num": "477.2",
+          "text": "2. Ability-Altering Effects"
+        },
+        {
+          "num": "477.2.a",
+          "text": "This layer deals with non-Copy effects that grant, remove, or replace the abilities or rules text of Game Objects. Keywords Passive Abilities Appending rules text Removing rules text"
+        },
+        {
+          "num": "477.2.b",
+          "text": "Effects for this layer can be identified by the phrase \"become(s),\" \"give,\" \"lose(s),\" \"have,\" \"has,\" \"is,\" or \"are\" in the text. Example: A permanent has the ability \"Other friendly units have [Vision].\" Other friendly units gain the Vision keyword in this layer."
+        },
+        {
+          "num": "477.2.c",
+          "text": "Abilities of Effect Text of Attached cards are appended in this layer."
+        },
+        {
+          "num": "477.3",
+          "text": "3. Arithmetic"
+        },
+        {
+          "num": "477.3.a",
+          "text": "This layer deals with the mathematics of increasing and decreasing the numeric values of the traits of Game Objects. Might Energy Cost Power Cost"
+        },
+        {
+          "num": "477.3.b",
+          "text": "When an arithmetic effect from a source that is not a passive ability has a limitation that applies, it is limited at the time of its application, and is \"remembered\" at that limited level for the duration of its effect. This process is called \"snapshotting.\" Example: If an effect gives a unit \"-4 [M] to a min of 1 this turn\" choosing a unit with 2 [M], then the effect will generate -1 [M] this turn. Example: A unit reads \"Units you control here have their Might increased to 5 [M].\" This is a passive ability, so it will not snapshot. Example: A spell reads \"Increase a friendly unit's Might to 5 [M].\" This effect is applied once, with an unlimited duration. Because it isn't from a passive ability, it will snapshot."
+        },
+        {
+          "num": "477.3.c",
+          "text": "Players cannot increase a numeric attribute by a negative amount. If an effect would instruct a player to do so, they increase it by 0 instead. Example: A player plays Last Stand, which reads \"Double a friendly unit's Might this turn. Give it Temporary.\" The player declares a 2 [M] unit as the target during finalization. In reaction to Last Stand, an opponent plays Eclipse targeting the 2 [M] unit. When Last Stand resolves, the unit is -2 [M]. Last Stand instructs its controller to increase the unit's Might by its current amount, -2, when the double action is performed. This is not possible, so the unit's Might is increased by 0 instead."
+        },
+        {
+          "num": "477.3.d",
+          "text": "Might Bonuses of Attached cards are applied in this layer."
+        },
+        {
+          "num": "477.3.e",
+          "text": "This layer applies arithmetic in the following way."
+        },
+        {
+          "num": "477.3.e.1",
+          "text": "1. Increases"
+        },
+        {
+          "num": "477.3.e.1.a",
+          "text": "Positive values, or increases, to Might are applied first."
+        },
+        {
+          "num": "477.3.e.1.b",
+          "text": "If there is a restriction or limitation to this increase and it isn't from a passive ability, the limitation is \"snapshotted\" for the duration of the effect."
+        },
+        {
+          "num": "477.3.e.2",
+          "text": "2. Decreases"
+        },
+        {
+          "num": "477.3.e.2.a",
+          "text": "Negative values, or decreases, to Might are applied last."
+        },
+        {
+          "num": "477.3.e.2.b",
+          "text": "If there is a restriction or limitation to this decrease and it isn't from a passive ability, the limitation is snapshotted for the duration of the effect."
+        },
+        {
+          "num": "478",
+          "text": "If more than one effect applies to the same Game Object in the Same Layer, or to each other in the same layer, then both effects will apply but their order may be determined by Dependency."
+        },
+        {
+          "num": "478.1",
+          "text": "A Dependency is established if:"
+        },
+        {
+          "num": "478.1.a",
+          "text": "Applying one of the effects alters the existence of the other; or"
+        },
+        {
+          "num": "478.1.b",
+          "text": "Applying one of the effects alters the number of objects the other effect can influence; or"
+        },
+        {
+          "num": "478.1.c",
+          "text": "Applying one of the effects alters the outcome when applying the other."
+        },
+        {
+          "num": "479",
+          "text": "To determine which effect Depends on another, determine which of the prior criteria applies, and then also which effect's evaluation is altered by the sequence of applications. That effect is said to Depend on the other. Example: A unit with 4 [M] is under the effects of a passive ability that reads \"Units you control here have their Might increased to 5 [M].\" Its controller plays Discipline on the unit, giving it +2 [M]. When applying Layer alterations, both effects are applied in the same layer. If we apply the passive ability first, the passive ability will give +1 [M] while the Discipline effect will give +2 [M]. If we apply them in the other order, the Discipline effect will give +2 [M], and the passive ability will give +0 [M]. The passive ability is altered by the sequence of applications, so it depends on the Discipline effect."
+        },
+        {
+          "num": "479.1",
+          "text": "If both effects are altered by the application of the other, no Dependency can be established. Example: A unit with 4 [M] is under the effects of a passive ability that reads \"Units you control here have their Might increased to 5 [M].\" Its controller plays a spell that reads \"Give a unit +2 [M], to a maximum of 5 [M].\" If we apply the passive ability first, the passive ability will apply +1 [M] and the spell effect will apply +0 [M]. If we apply the spell effect first, it will apply +1 [M] while the passive ability applies +0 [M]. Both effects are altered by the sequence of applications, so we can't establish a dependency."
+        },
+        {
+          "num": "479.2",
+          "text": "To resolve a dependency, the effects within the same layer that created the dependency must be applied such that: 1. Identify which effect Depends on the other within the Layer. 2. Apply the effect that is depended on first. 3. Immediately apply the effect that Depends on the first effect next. Example: A unit with 4[M] is under the effects of a passive ability that reads \"Units you control here have their Might increased to 5 [M].\" Its controller plays Discipline on the unit. As previously established, the passive ability depends on the Discipline effect. We apply the Discipline effect first, giving the unit +2 [M], and then immediately apply the passive ability that depends on it. The unit's final Might is 6 [M]."
+        },
+        {
+          "num": "480",
+          "text": "If more than one effect applies in the same layer but no dependency is established, then Timestamp order is applied to the effects within that layer and sublayer"
+        },
+        {
+          "num": "480.1",
+          "text": "When an effect begins applying, it establishes a time for which it is compared against other Game Effects for purposes of resolving Layered effects as its Timestamp."
+        },
+        {
+          "num": "480.1.a",
+          "text": "Timestamps are not rote values."
+        },
+        {
+          "num": "480.1.b",
+          "text": "Timestamps are relative comparisons between effects and when they began applying to the game."
+        },
+        {
+          "num": "480.1.c",
+          "text": "Timestamps are not referenced by Game Effects in any way. They are only used to finalize layered effects."
+        },
+        {
+          "num": "480.2",
+          "text": "When Rules Text becomes Inactive for any reason, it loses its Timestamp. When it ceases to be Inactive, a new Timestamp is established."
+        },
+        {
+          "num": "480.3",
+          "text": "Effects are applied such that the earliest Timestamp within each Layer and Sublayer applies first, followed by other Effects in that Layer and Sublayer in chronological order."
+        }
+      ]
+    },
+    {
+      "num": "481",
+      "title": "Modes of Play",
+      "rules": [
+        {
+          "num": "482",
+          "text": "There are multiple methods of playing Riftbound."
+        },
+        {
+          "num": "483",
+          "text": "A Mode of Play must define several variables for the game."
+        },
+        {
+          "num": "483.1",
+          "text": "**Number of Players**: How many people are playing the game."
+        },
+        {
+          "num": "483.2",
+          "text": "**Formation of Players**: How the players are organized while playing."
+        },
+        {
+          "num": "483.2.a",
+          "text": "This defines if a player is alone or on a team."
+        },
+        {
+          "num": "483.2.b",
+          "text": "This defines the number of opponents."
+        },
+        {
+          "num": "483.3",
+          "text": "**Victory Score**: The point total a player or team must reach to win."
+        },
+        {
+          "num": "483.3.a",
+          "text": "Victory Scores can be any positive number."
+        },
+        {
+          "num": "483.4",
+          "text": "**Battlefield Count**: Determines how many Battlefields are in play, contributed by players, during play."
+        },
+        {
+          "num": "483.4.a",
+          "text": "This may influence deck building requirements in competitive settings."
+        },
+        {
+          "num": "483.4.b",
+          "text": "This may involve utilizing less Battlefields than there are players."
+        },
+        {
+          "num": "483.5",
+          "text": "**Setup**: Any changes to initial setup required for this mode."
+        },
+        {
+          "num": "483.6",
+          "text": "**Format**: Conditions to win or additional rules added over play."
+        },
+        {
+          "num": "483.7",
+          "text": "**First Turn Process**: Adjustments to each player's first turn."
+        },
+        {
+          "num": "483.8",
+          "text": "Unique Rules"
+        },
+        {
+          "num": "483.8.a",
+          "text": "If any, they will be appended here."
+        },
+        {
+          "num": "484",
+          "text": "**Sanctioned Modes**"
+        },
+        {
+          "num": "485",
+          "text": "**1v1 (Duel)**"
+        },
+        {
+          "num": "485.1",
+          "text": "2 Players"
+        },
+        {
+          "num": "485.2",
+          "text": "1v1 1 opponent each No teams"
+        },
+        {
+          "num": "485.3",
+          "text": "**Victory Score**: 8"
+        },
+        {
+          "num": "485.4",
+          "text": "**Battlefield Count**: 2"
+        },
+        {
+          "num": "485.4.a",
+          "text": "Each player provides three (3) Battlefields, included in their deck during deck building. Only 1 will be used, chosen during setup."
+        },
+        {
+          "num": "485.5",
+          "text": "**Setup**: Each player randomly selects one (1) of their three (3) Battlefields. The other two are removed and will not be used for this game. The selected Battlefields are placed simultaneously in the Battlefield Zone."
+        },
+        {
+          "num": "485.6",
+          "text": "**Format**: Best of 1. The first player to reach the Victory Score in Points wins the Match."
+        },
+        {
+          "num": "485.7",
+          "text": "**First Turn Process**: The player going second channels an extra Rune from their Rune Deck during their first Channel Phase of the game."
+        },
+        {
+          "num": "486",
+          "text": "**1v1 (Match)**"
+        },
+        {
+          "num": "486.1",
+          "text": "2 Players"
+        },
+        {
+          "num": "486.2",
+          "text": "1v1 1 opponent each No teams"
+        },
+        {
+          "num": "486.3",
+          "text": "**Victory Score**: 8"
+        },
+        {
+          "num": "486.4",
+          "text": "**Battlefield Count**: 2"
+        },
+        {
+          "num": "486.4.a",
+          "text": "Each player provides three (3) Battlefields, included in their deck during deck building. Only 1 will be used, chosen during setup."
+        },
+        {
+          "num": "486.5",
+          "text": "**Setup**: Each player selects one (1) of their three (3) Battlefields. The other two are set aside and will not be used for this round of play. The selected Battlefields are placed simultaneously in the Battlefield Zone. After this game, if a player won, the Battlefields that were used are to be removed and not selected again for this Match. One of the remaining Battlefields that were set aside must be chosen instead."
+        },
+        {
+          "num": "486.5.a",
+          "text": "If no player won a game, the battlefields presented for that game may be reused in a subsequent game."
+        },
+        {
+          "num": "486.6",
+          "text": "**Format**: Best of 3. The first player to reach the Victory Score in Points wins the game. The winner of that game earns One Game Win. Players then reset the game state, remove the Battlefields in play from the game, choose new Battlefields from those set aside, and play again. The first player to earn Two Game Wins wins the match."
+        },
+        {
+          "num": "486.6.a",
+          "text": "This format may be played as best of 5. In such a case, during games 4 and 5 of the match players may present a battlefield that has been removed from the game."
+        },
+        {
+          "num": "486.6.a.1",
+          "text": "Players may only re-use a battlefield in this way if they have already presented each of their battlefields at least once during the match."
+        },
+        {
+          "num": "486.6.a.2",
+          "text": "Players may not present a battlefield more than twice in a match when re-using battlefields in this way."
+        },
+        {
+          "num": "486.7",
+          "text": "**First Turn Process**: The player going second channels an extra Rune from their Rune Deck during their first Channel Phase of the game."
+        },
+        {
+          "num": "487",
+          "text": "**FFA3 (Skirmish)**"
+        },
+        {
+          "num": "487.1",
+          "text": "3 Players"
+        },
+        {
+          "num": "487.2",
+          "text": "FFA 2 opponents each No teams"
+        },
+        {
+          "num": "487.3",
+          "text": "**Victory Score**: 8"
+        },
+        {
+          "num": "487.4",
+          "text": "**Battlefield Count**: 3"
+        },
+        {
+          "num": "487.4.a",
+          "text": "Each player provides three (3) Battlefields, included in their deck during deck building. Only 1 will be used, chosen during setup."
+        },
+        {
+          "num": "487.5",
+          "text": "**Setup**: Each player randomly selects one (1) of their three (3) Battlefields. The other two are discarded and will not be used for this game. The selected Battlefields are placed simultaneously between the three Players before play and will be used for this game."
+        },
+        {
+          "num": "487.6",
+          "text": "**Format**: Best of 1. The first player to reach the Victory Score in Points wins the Match."
+        },
+        {
+          "num": "487.7",
+          "text": "**First Turn Process**: The player going first does not draw a card during their first Draw Phase of the game. The player going last channels an extra Rune from their Rune Deck during their first Channel Phase of the game."
+        },
+        {
+          "num": "488",
+          "text": "**FFA4 (War)**"
+        },
+        {
+          "num": "488.1",
+          "text": "4 Players"
+        },
+        {
+          "num": "488.2",
+          "text": "FFA 3 opponents each No teams"
+        },
+        {
+          "num": "488.3",
+          "text": "**Victory Score**: 8"
+        },
+        {
+          "num": "488.4",
+          "text": "**Battlefield Count**: 3"
+        },
+        {
+          "num": "488.4.a",
+          "text": "Each player provides three (3) Battlefields, included in their deck during deck building."
+        },
+        {
+          "num": "488.4.b",
+          "text": "The player who is taking the first turn removes their Battlefields. They will not be used."
+        },
+        {
+          "num": "488.5",
+          "text": "**Setup**: Each player who is not going first randomly selects one (1) of their three (3) Battlefields. The other two are removed and will not be used for this game. The selected Battlefields are placed simultaneously between the players before play and will be used for this game."
+        },
+        {
+          "num": "488.6",
+          "text": "**Format**: Best of 1. The first player to reach the Victory Score in Points wins the Match."
+        },
+        {
+          "num": "488.7",
+          "text": "**First Turn Process**: The player going first does not draw a card during their first Draw Phase of the game. The player going last channels an extra Rune from their Rune Deck during their first Channel Phase of the game."
+        },
+        {
+          "num": "489",
+          "text": "**2v2 (Magma Chamber)**"
+        },
+        {
+          "num": "489.1",
+          "text": "4 Players"
+        },
+        {
+          "num": "489.2",
+          "text": "2v2 2 opponents each 1 teammate"
+        },
+        {
+          "num": "489.3",
+          "text": "**Victory Score**: 11"
+        },
+        {
+          "num": "489.4",
+          "text": "**Battlefield Count**: 3"
+        },
+        {
+          "num": "489.4.a",
+          "text": "Each player provides three (3) Battlefields, included in their deck during deck building."
+        },
+        {
+          "num": "489.5",
+          "text": "Setup:"
+        },
+        {
+          "num": "489.5.a",
+          "text": "Each player who is not going first randomly selects one (1) of their three (3) Battlefields. The other two are removed and will not be used for this game. The selected Battlefields are placed simultaneously between the players before play and will be used for this game."
+        },
+        {
+          "num": "489.5.b",
+          "text": "The player who is taking the first turn removes their Battlefields. They will not be used."
+        },
+        {
+          "num": "489.5.c",
+          "text": "Turn order alternates teams."
+        },
+        {
+          "num": "489.5.c.1",
+          "text": "The first player will be followed by an opponent, then the first player's teammate, then the first opponent's teammate, and so on."
+        },
+        {
+          "num": "489.5.c.2",
+          "text": "If allies are sitting across from each other, turn order proceeds clockwise as normal."
+        },
+        {
+          "num": "489.5.c.3",
+          "text": "If allies are sitting next to each other, turn order is passed across the table."
+        },
+        {
+          "num": "489.6",
+          "text": "**Format**: Best of 1. The first team to reach the Victory Score in Points wins the Match."
+        },
+        {
+          "num": "489.6.a",
+          "text": "Teammates win or lose together."
+        },
+        {
+          "num": "489.6.a.1",
+          "text": "If one player Concedes, then the entire team loses."
+        },
+        {
+          "num": "489.6.a.2",
+          "text": "If one player Loses, then the entire team loses."
+        },
+        {
+          "num": "489.6.a.3",
+          "text": "If one player Wins, then the entire team wins."
+        },
+        {
+          "num": "489.7",
+          "text": "**First Turn Process**: The player going first does not draw a card during their first Draw Phase of the game. The player going last channels an extra Rune from their Rune Deck during their first Channel Phase of the game."
+        },
+        {
+          "num": "489.8",
+          "text": "Unique Rules"
+        },
+        {
+          "num": "489.8.a",
+          "text": "Players may play spells or activate abilities during their Teammate's Turn. In order to do so, their Teammate will invite them to play a spell or activate an ability using their own Priority."
+        },
+        {
+          "num": "489.8.b",
+          "text": "Battlefields controlled during the Beginning Phase of a player's turn by that player's teammate are disqualified from being scored by that Team, that turn. Example: A player may not induce their partner to retreat, and then conquer a Battlefield their teammate was controlling."
+        },
+        {
+          "num": "489.8.c",
+          "text": "Control is not shared."
+        },
+        {
+          "num": "489.8.c.1",
+          "text": "Players may not Hide cards at Battlefields controlled by their Teammate."
+        },
+        {
+          "num": "489.8.c.2",
+          "text": "Players may not issue Standard Movement to their Teammate's Units."
+        },
+        {
+          "num": "489.8.d",
+          "text": "Points are shared by a team."
+        },
+        {
+          "num": "489.8.d.1",
+          "text": "Both players on a team have the same number of Victory Points."
+        },
+        {
+          "num": "489.8.d.2",
+          "text": "If a player gains or loses points, their team gains or loses those points."
+        },
+        {
+          "num": "489.8.d.3",
+          "text": "If a spell or ability references or checks a player gaining or losing points, that ability checks whether that player's team gains or loses points."
+        },
+        {
+          "num": "489.8.e",
+          "text": "Friendly describes controlled Game Objects by a player or their Teammate. Example: \"When you play me, ready a friendly unit \"could target a player's own Units or their teammate's Units."
+        },
+        {
+          "num": "489.8.f",
+          "text": "Hands are Private Information. Players may show their Private Information to one or more players at any time during play, including their teammate."
+        },
+        {
+          "num": "489.8.f.1",
+          "text": "Revealing Cards is still a game action and cannot be done unless instructed. See rule 424. Reveal for more information."
+        },
+        {
+          "num": "489.8.g",
+          "text": "The Final Point has an adjustment to the criteria when scoring."
+        },
+        {
+          "num": "489.8.g.1",
+          "text": "When scoring the Final Point from Conquer, a player must Score each Battlefield in the same turn, excepting any that were occupied by their ally during the scoring step of that turn's Beginning Phase. See rule 467. Scoring for more information."
+        },
+        {
+          "num": "489.8.g.2",
+          "text": "No other changes to Final Point restrictions."
+        },
+        {
+          "num": "489.8.h",
+          "text": "Teammates may not utilize the same Champion Legend."
+        },
+        {
+          "num": "489.8.i",
+          "text": "Teammates may not utilize the same Battlefields."
+        }
+      ]
+    },
+    {
+      "num": "649",
+      "title": "Conceding",
+      "rules": [
+        {
+          "num": "650",
+          "text": "A player may concede at any time."
+        },
+        {
+          "num": "651",
+          "text": "When a player concedes, they are removed from the game in progress."
+        },
+        {
+          "num": "651.1",
+          "text": "If only one other player is remaining after a player has conceded, the player remaining Wins."
+        },
+        {
+          "num": "651.2",
+          "text": "If more than one player remains after a concession, follow the steps for the Removal of a Player."
+        },
+        {
+          "num": "651.3",
+          "text": "Removal of a player involves them no longer being able to make choices or otherwise influence the game."
+        },
+        {
+          "num": "651.4",
+          "text": "If the player has Teammates due to the Mode of Play, that player's Teammates also lose and are removed from the game."
+        },
+        {
+          "num": "652",
+          "text": "If the game continues, follow these steps for Removal of a Player."
+        },
+        {
+          "num": "652.1",
+          "text": "Banish all permanents, runes, and facedown cards they currently control and all permanents, runes, and facedown cards they own."
+        },
+        {
+          "num": "652.2",
+          "text": "Remove the Battlefield they contributed to the game if it is in use."
+        },
+        {
+          "num": "652.2.a",
+          "text": "If it was in use, Replace it with a token battlefield with no abilities."
+        },
+        {
+          "num": "652.2.b",
+          "text": "Any units or hidden cards there do not move and are otherwise unaffected by this process. See rule 438. Replace for more information."
+        },
+        {
+          "num": "652.2.c",
+          "text": "If the removed battlefield was applying any continuous effects, those continuous effects immediately cease, which may cause changes in the characteristics of units or hidden cards there. Example: A battlefield reads \"Units here have +1 [M].\" If that battlefield's owner concedes and the battlefield is removed from the game as a result, units there immediately cease to get +1 [M]."
+        },
+        {
+          "num": "652.3",
+          "text": "Remove all cards they own from the game."
+        },
+        {
+          "num": "652.4",
+          "text": "Counter all spells and abilities of all types controlled by the player that has conceded."
+        },
+        {
+          "num": "652.5",
+          "text": "Proceed with the game."
+        },
+        {
+          "num": "652.5.a",
+          "text": "Turn"
+        },
+        {
+          "num": "652.5.a.1",
+          "text": "If the removed player was the Turn Player, play proceeds in Turn Order to the next available player in order."
+        },
+        {
+          "num": "652.5.b",
+          "text": "Focus"
+        },
+        {
+          "num": "652.5.b.1",
+          "text": "If the removed player had Focus in a Showdown, the next Player in order receives Focus."
+        },
+        {
+          "num": "652.5.b.2",
+          "text": "If the player being removed creates a state where all Players have Passed their Focus, the Showdown ends and play proceeds as necessary, E.G. Combat is resolved or a Cleanup is completed."
+        },
+        {
+          "num": "652.5.c",
+          "text": "Priority"
+        },
+        {
+          "num": "652.5.c.1",
+          "text": "If the removed player had Priority during a Chain, the next Player in order receives Priority."
+        },
+        {
+          "num": "652.5.c.2",
+          "text": "If the player being removed creates a state where all Players have passed Priority, then the most recent spell or ability on the Chain will resolve with Priority being re-established as appropriate for the state after the resolution of that spell or ability."
+        }
+      ]
+    },
+    {
+      "num": "700",
+      "title": "Additional Rules",
+      "rules": [
+        {
+          "num": "701",
+          "text": "**Buffs**"
+        },
+        {
+          "num": "702",
+          "text": "Buffs are counters placed on Units."
+        },
+        {
+          "num": "702.1",
+          "text": "Buffs can be tracked with a buff reminder card from a Riftbound booster pack or with any spare object in your surroundings."
+        },
+        {
+          "num": "702.2",
+          "text": "Buffs can be added or spent."
+        },
+        {
+          "num": "702.2.a",
+          "text": "To Buff a Unit, a player chooses a Unit and then places a buff on it. That Unit is Buffed for as long as the buff remains on it."
+        },
+        {
+          "num": "702.2.b",
+          "text": "Spending a Buff removes a single Buff counter from a Unit."
+        },
+        {
+          "num": "702.2.b.1",
+          "text": "A buff cannot be spent from a Unit that does not have a buff."
+        },
+        {
+          "num": "702.2.b.2",
+          "text": "A player can only spend buffs on units they control."
+        },
+        {
+          "num": "702.3",
+          "text": "There can only be one Buff on a Unit at a time."
+        },
+        {
+          "num": "702.3.a",
+          "text": "If a Buff is added, or instructed to be added, on a Unit that already has a Buff, it is not placed instead."
+        },
+        {
+          "num": "703",
+          "text": "Each Buff individually contributes +1 Might to a Unit."
+        },
+        {
+          "num": "704",
+          "text": "Buffs are Game Objects and may be referenced, counted, or affected by other effects as specified."
+        },
+        {
+          "num": "704.1",
+          "text": "Buffs are counters, and thus are not targeted by spells and abilities. See rule 741. Counters for more information."
+        },
+        {
+          "num": "705",
+          "text": "If a Unit leaves play, remove all Buffs from it."
+        },
+        {
+          "num": "705.1",
+          "text": "Champions do not retain Buffs in the Champion Zone, even if they return there somehow."
+        },
+        {
+          "num": "706",
+          "text": "**Mighty**"
+        },
+        {
+          "num": "707",
+          "text": "Mighty is a description that applies to some units. Other game effects can check whether a unit is Mighty."
+        },
+        {
+          "num": "708",
+          "text": "A Unit \"is Mighty\" as long as its Might is 5 or greater."
+        },
+        {
+          "num": "709",
+          "text": "A Unit \"becomes Mighty\" at the moment its Might changes from being less than 5 to being 5 or greater. Example: A Unit with Might 4 that gets +1 [M] becomes Mighty. Example: A Unit with Might 5 that gets +1 [M] does not become Mighty, because it was already Mighty."
+        },
+        {
+          "num": "710",
+          "text": "Units on the board are evaluated according to their current Might. Example: A unit with a base Might of 3 is targeted by a spell that reads \"A unit gets +3 [M] this turn.\" As that spell resolves, its Might changes from 3 to 6, and it becomes Mighty. When that effect expires at the end of the turn, it will no longer be Mighty."
+        },
+        {
+          "num": "711",
+          "text": "Units in Non-Board Zones are evaluated according to their printed Might. Example: A unit in the trash is Mighty if its printed Might is 5 or greater. It doesn't matter if there were effects raising or lowering its might while it was on the board."
+        },
+        {
+          "num": "712",
+          "text": "**Bonus Damage**"
+        },
+        {
+          "num": "713",
+          "text": "Bonus Damage is an intrinsic property that can be granted to Deal actions that influence the amount of Damage that the action is distributing."
+        },
+        {
+          "num": "714",
+          "text": "If more than one instance of Bonus Damage is applied or granted to a Deal action, all instances are summed and applied once."
+        },
+        {
+          "num": "714.1",
+          "text": "Bonus Damage can only be a positive value, and can only increase the amount of Damage being distributed."
+        },
+        {
+          "num": "714.2",
+          "text": "If, for any reason, Bonus Damage would be a negative number, then no Bonus Damage is applied to the action."
+        },
+        {
+          "num": "715",
+          "text": "Bonus Damage applies to the total damage Dealt by one instance of the action."
+        },
+        {
+          "num": "715.1",
+          "text": "If the Deal action has a single target, the amount of Damage to that target will be increased by the Bonus Damage granted to it."
+        },
+        {
+          "num": "715.2",
+          "text": "If the Deal action has multiple targets, the amount of Damage dealt to each target is increased by Bonus Damage individually and separately. Example: Singularity is a spell that says \"Deal 6 to each of up to two units.\" A player plays Singularity while they also control Annie, Fiery, a unit that says \"Your spells and abilities deal 1 Bonus Damage.\" Singularity deals 1 Bonus Damage to both of its targets, dealing 7 to each."
+        },
+        {
+          "num": "715.3",
+          "text": "If the Deal action Splits damage, then the Bonus Damage applies to the amount of Damage that will be Split. This can alter the number of targets eligible to be chosen. Example: Volibear, Furious is a unit that says in part \"When I attack, deal 5 damage split among any number of enemy units here.\" A player attacks with Volibear, Furious while they also control Annie, Fiery, a unit that says \"Your spells and abilities deal 1 Bonus Damage.\" Volibear, Furious now deals 6 damage split among any number of enemy units at its location, and can choose to split that damage among up to 6 units rather than the usual 5."
+        },
+        {
+          "num": "715.4",
+          "text": "If no damage was Dealt, then Bonus Damage will not apply. Example: Teemo, Strategist is a unit that reads in part \"When I defend, choose an enemy unit here and reveal the top 5 cards of your Main Deck. Deal 1 to that unit for each card with Hidden revealed this way, then recycle the revealed cards.\" He has Rabadon's Deathcrown attached to him. An enemy unit moves to the battlefield where Teemo is located and a combat opens there. Teemo's controller reveals the top 5 cards of their Main Deck and reveals no cards with Hidden. Although the ability has 3 Bonus Damage from Rabadon's Deathcrown, no deal action is performed for the Bonus Damage to apply to."
+        },
+        {
+          "num": "715.4.a",
+          "text": "If Damage is replaced or reduced by any means, the replacing or reducing action will include the Bonus Damage in the total damage when determining how much damage is to be dealt. Example: A unit has prevent 3 applied to them. The unit is located at the Void Gate battlefield. An opponent targets the unit with Hextech Ray. Hextech Ray deals 4 damage to the unit, including the Bonus Damage from Void Gate, which the prevent effect will prevent 3 of. The unit takes 1 damage."
+        },
+        {
+          "num": "716",
+          "text": "**Attachment**"
+        },
+        {
+          "num": "717",
+          "text": "Attaching is a limited action that causes cards to become linked to each other to combine their effects in some way. This causes one card to become Attached and the other to become A Top-Most Card. See rule 434. Attach for more information."
+        },
+        {
+          "num": "718",
+          "text": "Attached is the state of a card being linked to another card in this way."
+        },
+        {
+          "num": "718.1",
+          "text": "A card remains in this state until Detached."
+        },
+        {
+          "num": "718.2",
+          "text": "While in this state, the card's printed Rules Text is Inactive. See rule 720. Inactive for more information."
+        },
+        {
+          "num": "718.3",
+          "text": "While in this state, Abilities in the card's Effect Text are appended to the Rules Text of the Top-Most Card."
+        },
+        {
+          "num": "718.4",
+          "text": "While in this state, the card's Might Bonus modulates the Top-Most Card 's Might by the value listed."
+        },
+        {
+          "num": "718.5",
+          "text": "Attached cards still have all properties of being a card on the board while in this state."
+        },
+        {
+          "num": "718.5.a",
+          "text": "Attached cards still have all Types and Tags while Attached."
+        },
+        {
+          "num": "718.5.b",
+          "text": "Attached cards still can be chosen or targeted by game effects while Attached."
+        },
+        {
+          "num": "718.5.c",
+          "text": "Attached cards cannot be moved separately from the Top-Most Card they are Attached to."
+        },
+        {
+          "num": "718.5.d",
+          "text": "A card may be Attached only to a single Top-Most card at a time."
+        },
+        {
+          "num": "718.5.e",
+          "text": "Attached cards may have different Controllers from their Top-Most card."
+        },
+        {
+          "num": "718.5.f",
+          "text": "Changes in Control of the Top-Most card do not impact Control of Attached cards and vice versa."
+        },
+        {
+          "num": "718.5.g",
+          "text": "An Attached card still appends the abilities in its Effect Text to the Rules Text of the Top-Most card and modulates the Top-Most Card 's Might by its Might Bonus."
+        },
+        {
+          "num": "719",
+          "text": "A Top-Most Card is a card that has one or more cards linked to it through the process of Attaching."
+        },
+        {
+          "num": "719.1",
+          "text": "The Effect Text of all cards Attached to this card are appended to the Rules Text of this card for as long as they remain Attached."
+        },
+        {
+          "num": "719.2",
+          "text": "This card ceases being a Top-Most Card when there are no longer any cards Attached to it."
+        },
+        {
+          "num": "719.3",
+          "text": "A Top-Most Card and all cards Attached to it are at the same location."
+        },
+        {
+          "num": "719.3.a",
+          "text": "When the Top-Most Card changes locations, all Attached cards change locations with it."
+        },
+        {
+          "num": "719.4",
+          "text": "The Exhausted and Ready state of the Top-Most card does not affect nor change the status of the Attached cards and vice versa."
+        },
+        {
+          "num": "719.4.a",
+          "text": "This is true of all statuses aside from location, Attached, and Top-Most. Example: If the top-most card becomes stunned, it does not affect the state of any attached cards. Example: If an attached card becomes empowered, it does not affect the state of its top-most card."
+        },
+        {
+          "num": "719.5",
+          "text": "When a Top-Most Card changes zones from a board zone to a non-board zone, all Attached cards Detach from it, remaining in their current zones."
+        },
+        {
+          "num": "719.5.a",
+          "text": "The player that controls the Top-Most Card that changed zones decides the order these cards Detach in, and thus the order of any relevant effects that occur due to the Detach occurring."
+        },
+        {
+          "num": "720",
+          "text": "**Inactive**"
+        },
+        {
+          "num": "721",
+          "text": "Card text can occasionally be assigned to be ignored, disregarded, or otherwise rendered as not applicable during the course of play. This state is referred to as Inactive."
+        },
+        {
+          "num": "721.1",
+          "text": "Text marked this way is not applied at all while in this state."
+        },
+        {
+          "num": "721.2",
+          "text": "Inactive Abilities do not trigger, do not apply, and cannot be activated. Inactive instructions are not processed."
+        },
+        {
+          "num": "722",
+          "text": "Inactive text is still present on cards."
+        },
+        {
+          "num": "722.1",
+          "text": "Cards with Inactive text still have keywords for the sake of Game Effects that want to reference or see if a card has a keyword."
+        },
+        {
+          "num": "722.2",
+          "text": "Game Effects that parse or interpret text to determine target eligibility may still parse Inactive text for the sake of eligibility. Example: Spinning Axe is a gear with [Temporary]. While it's attached and its rules text is inactive, its [Temporary] ability doesn't trigger. However, a spell that reads \"Destroy a gear with [Temporary]\" could still choose and destroy Spinning Axe."
+        },
+        {
+          "num": "723",
+          "text": "Rules Text is never Inactive by default."
+        },
+        {
+          "num": "724",
+          "text": "Effect Text is Inactive unless the card with the Effect Text is Attached."
+        },
+        {
+          "num": "725",
+          "text": "Inactive text can partially cease to be Inactive under specific circumstances and exceptions."
+        },
+        {
+          "num": "725.1",
+          "text": "If an Attached card has a Passive or Replacement ability that applies during the process of Attaching or a Triggered ability that triggers off of Attaching, that text exists and can be processed as it Attaches."
+        },
+        {
+          "num": "725.2",
+          "text": "If an Attached card has a Passive or Replacement ability that applies during the process of Detaching or a Triggered ability that triggers off of Detaching, that text exists and can be processed as it Detaches."
+        },
+        {
+          "num": "725.3",
+          "text": "If an Attached card has an Equip ability, the Weaponmaster keyword can reference that Equip ability and any abilities that passively modify that Equip ability."
+        },
+        {
+          "num": "725.4",
+          "text": "If a Dependent Ability is a Triggered Ability whose condition occurs at the same time as the Dependent Keyword's condition being fulfilled, that text exists and can be processed as it is fulfilled."
+        }
+      ]
+    },
+    {
+      "num": "726",
+      "title": "Dependent Keywords",
+      "rules": [
+        {
+          "num": "727",
+          "text": "**Keywords can be Dependent Keywords**"
+        },
+        {
+          "num": "727.1",
+          "text": "A Dependent Keyword is comprised of both a Condition that it is short for, and an ability of some format immediately after the Keyword itself. Example: Noxus Hopeful has \"[Legion][>] I cost [2] less.\" [Legion] is short for the condition \"if you have played another card this turn, this card gains [Text],\" while \"I cost [2] less\" is the dependent ability."
+        },
+        {
+          "num": "727.1.a",
+          "text": "A Dependent Keyword will always be functionally short for a Condition."
+        },
+        {
+          "num": "727.1.a.1",
+          "text": "This Condition may also have a determined Duration, Time, or Limitation as part of its definition. Example: Legion specifies the duration of its condition: \"if you have played another card this turn.\" This turn is the duration. Example: A dependent keyword that is short for \"Until you have spent [3] this turn\" would include a limitation on its condition. Example: A dependent keyword that is short for \"After you've attacked this turn\" would include a time after which the condition is active."
+        },
+        {
+          "num": "727.1.b",
+          "text": "The Dependent Ability associated with the Dependent Keyword is Inactive on the card with the Dependent Keyword until the Condition is met, when it becomes Active"
+        },
+        {
+          "num": "727.1.b.1",
+          "text": "The Dependent Ability is present on the card for the sake of reference or evaluation until the Condition is met See rule 720. Inactive for more information"
+        },
+        {
+          "num": "727.1.b.2",
+          "text": "The Dependent Ability is Active exactly as written while the Condition is true Example: Gustwalker has \"[Level 3][>] I have +1 [M] and Ganking.\" As long as its controller has 3 XP, Gustwalker's Ganking is active."
+        },
+        {
+          "num": "727.1.b.3",
+          "text": "If an ability has multiple Dependent Keywords, all of them must have their Condition met in order for the ability to be active. Example: A unit reads \"[Level 11][>>][Legion][>] When you conquer, gain 1 point.\" In order for the conquer effect of the unit to be active, its controller must have 11 XP and have finalized a card other than the unit that turn."
+        },
+        {
+          "num": "727.1.c",
+          "text": "The Dependent Abilities of Dependent Keywords can be of any type"
+        },
+        {
+          "num": "727.1.c.1",
+          "text": "Triggered Abilities of Dependent Keywords must be Active for their trigger to be evaluated."
+        },
+        {
+          "num": "727.1.c.1.a",
+          "text": "If a Triggered Ability becomes active at the same time as its trigger condition would be fulfilled, it triggers."
+        },
+        {
+          "num": "727.1.c.2",
+          "text": "Passive Abilities begin applying at the same time the Dependent Keyword becomes true."
+        },
+        {
+          "num": "727.1.c.3",
+          "text": "Activated Abilities that become Active from Dependent Keywords can be activated at their associated timing after that ability has been granted"
+        },
+        {
+          "num": "727.1.c.3.a",
+          "text": "If the condition for the Dependent Keyword causes the Activated Ability to become Inactive after it has been added to the chain as a Pending Item, that chain item will not be affected and will proceed with being played as normal."
+        }
+      ]
+    },
+    {
+      "num": "728",
+      "title": "XP",
+      "rules": [
+        {
+          "num": "729",
+          "text": "XP is a resource that is accrued, spent, or otherwise modified by Players through the course of play."
+        },
+        {
+          "num": "729.1",
+          "text": "The amount of XP that a player has should be marked clearly."
+        },
+        {
+          "num": "729.1.a",
+          "text": "XP is a value that can be tracked by counters, dice, cards, or any method that clearly displays the specific value of XP that is currently on a Player."
+        },
+        {
+          "num": "729.2",
+          "text": "The amount of XP a Player has is Public Information."
+        },
+        {
+          "num": "730",
+          "text": "XP can be Gained and Spent."
+        },
+        {
+          "num": "730.1",
+          "text": "To Gain XP, increase the value of XP marked on the Player gaining it."
+        },
+        {
+          "num": "730.2",
+          "text": "To Spend XP, reduce the value of XP marked on the Player spending it."
+        },
+        {
+          "num": "731",
+          "text": "XP is not a Game Object."
+        },
+        {
+          "num": "731.1",
+          "text": "XP cannot be targeted, readied, or exhausted."
+        },
+        {
+          "num": "732",
+          "text": "XP is not shared between Allies in Game Modes with Teammates."
+        },
+        {
+          "num": "733",
+          "text": "There is no limit to an amount of XP a player can accrue."
+        }
+      ]
+    },
+    {
+      "num": "734",
+      "title": "Additional Turns",
+      "rules": [
+        {
+          "num": "735",
+          "text": "Certain Game Effects will instruct a player to \"take a turn after this.\" These effects create a temporary Additional Turn owned by that player that is inserted into the turn queue after the current turn."
+        },
+        {
+          "num": "736",
+          "text": "Turn order is established when the game begins as a repeating set of players. This populates a looping queue of turns that each player will take, starting with the first turn taken by the First Player, and repeating indefinitely."
+        },
+        {
+          "num": "737",
+          "text": "When an Additional Turn is inserted into this queue, it does not change the Turn Order of the game. The owner of the Additional Turn just has the next queued turn. After that turn is completed, it will be removed and the queue will proceed with its previously queued turns."
+        },
+        {
+          "num": "738",
+          "text": "If multiple Additional Turns are queued, they are added to the queue in the order the Game Effects that generated them occurred. Example: The First Player plays, through some means, two Time Warps during their turn. The Time Warps create two Additional Turns for their controller and insert them into the turn queue after the current turn. If the turn queue is represented as [> A > B > C > D >], then these Additional Turns will appear as [> A > A* > A* > B > C > D >]. After the last Additional Turn is played, the queue returns to its previously queued turns. The \"*\" denotes that a turn is an Additional Turn. Example: The First Player plays Promising Future during their turn, during the resolution of which the Second and Fourth Player choose, banish, and play one Time Warp each. The Fourth Player's Time Warp resolves first, inserting an Additional Turn for them in the queue as such: [> A > D* > B > C > D >]. The Second Player's Time Warp resolves afterwards, inserting that turn: [> A > B* > D* > B > C > D >]. When the First Player passes the turn, the Second Player will take their turn, followed by the Fourth Player, after which the queue returns to its previously queued turns."
+        }
+      ]
+    },
+    {
+      "num": "739",
+      "title": "Special Terms",
+      "rules": [
+        {
+          "num": "740",
+          "text": "Card text and this rules document use certain terms in specific ways that are different from their common usage."
+        },
+        {
+          "num": "740.1",
+          "text": "Some card text refers to Game Objects in particular ways:"
+        },
+        {
+          "num": "740.1.a",
+          "text": "Two Game Objects are friendly if they share a controller, or if one's controller is teammates with the other's."
+        },
+        {
+          "num": "740.1.b",
+          "text": "Two Game Objects are enemies if one's controller is an opponent of the other's."
+        },
+        {
+          "num": "740.2",
+          "text": "Some card text refers to Units in particular ways:"
+        },
+        {
+          "num": "740.2.a",
+          "text": "A unit is alone when there are no other friendly units at the same location."
+        },
+        {
+          "num": "740.2.b",
+          "text": "A unit is one on one when it and the enemy unit at the same location are both alone."
+        },
+        {
+          "num": "740.2.c",
+          "text": "A unit is in combat if it is occupying a battlefield where combat is ongoing and has a combat designation."
+        },
+        {
+          "num": "740.3",
+          "text": "Some card text refers to specific terminology:"
+        },
+        {
+          "num": "740.3.a",
+          "text": "A tie occurs when there are units controlled by different players located at a battlefield where combat is taking place during the step 3d of the combat cleanup."
+        },
+        {
+          "num": "740.4",
+          "text": "Some terms in this document are used in particular ways:"
+        },
+        {
+          "num": "740.4.a",
+          "text": "Costs within instructions are instructions that take a particular form (\"[do X] to [do Y]\"). [Do X] is the cost associated with the instruction, and [do Y] is the effect."
+        },
+        {
+          "num": "740.4.a.1",
+          "text": "For spells, costs within instructions are paid on resolution of the spell. In order to get the effect, the cost must be paid."
+        },
+        {
+          "num": "740.4.a.2",
+          "text": "For triggered abilities, costs within instructions that appear in the first part of the trigger effect are paid on finalization of the triggered ability. In order to place the triggered ability on the chain, the cost must be paid."
+        },
+        {
+          "num": "740.4.a.2.a",
+          "text": "Costs within instructions that appear in any later part of the trigger effect are paid on resolution."
+        },
+        {
+          "num": "741",
+          "text": "**Counters**"
+        },
+        {
+          "num": "742",
+          "text": "Counters are Game Objects generated by and given to other Game Objects on the board during play."
+        },
+        {
+          "num": "743",
+          "text": "Counters serve to track semi-permanent effects on Game Objects."
+        },
+        {
+          "num": "744",
+          "text": "Counters can have game effects themselves, or serve as the prerequisite for game effects."
+        },
+        {
+          "num": "745",
+          "text": "Counters can be spent by game effects."
+        },
+        {
+          "num": "745.1",
+          "text": "In order to do so, that player must remove that many counters of the specified type from the specified Game Objects."
+        },
+        {
+          "num": "745.1.a",
+          "text": "If no type of counter is specified, any counter can be removed this way."
+        },
+        {
+          "num": "745.1.b",
+          "text": "If no type of Game Object is specified, then counters can be removed from any Game Objects with the specified counter."
+        },
+        {
+          "num": "745.2",
+          "text": "In order to spend a Counter, the spending player must control the Game Object the Counter is placed on."
+        },
+        {
+          "num": "746",
+          "text": "Some effects may move a Counter between two Game Objects. The Counter is either on the first Game Object or the second. There is no state for a Counter being between either object."
+        },
+        {
+          "num": "747",
+          "text": "Counters that leave a Game Object without being placed on another game object cease to exist."
+        },
+        {
+          "num": "748",
+          "text": "Game Objects that change zones to a non-board zone lose all of their Counters. See rule 124. for more information on temporary modifications."
+        },
+        {
+          "num": "749",
+          "text": "Counters do not have a controller."
+        },
+        {
+          "num": "750",
+          "text": "**Making New Choices**"
+        },
+        {
+          "num": "751",
+          "text": "Some Game Effects will instruct a player to make new choices for a finalized item on the chain."
+        },
+        {
+          "num": "751.1",
+          "text": "Making new choices in this way requires a player to choose Game Objects, players, zones, or modes that were previously not being chosen by the chain item."
+        },
+        {
+          "num": "752",
+          "text": "This refers to the choices normally made during finalization, with some exclusions. See rule 355. Make Relevant Choices for more information."
+        },
+        {
+          "num": "752.1",
+          "text": "The relevant choices that can be remade for these Game Effects are locations to be played to, modes, destinations, and targets."
+        },
+        {
+          "num": "752.2",
+          "text": "This does not refer to any choices made \"as you play this\" or \"as I am played,\" or any choices made for Optional Additional Costs."
+        },
+        {
+          "num": "753",
+          "text": "When making new choices in this way, a player can choose any subset of the possible choices to remake, so long as doing so doesn't lead to an illegal state."
+        },
+        {
+          "num": "753.1",
+          "text": "A player may not make new choices this way that would be illegal or that would lead to an illegal state, even if there are no other options."
+        },
+        {
+          "num": "753.2",
+          "text": "A player may not choose to make new choices for a spell or ability if there aren't legal choices that they could make in this way."
+        },
+        {
+          "num": "754",
+          "text": "If, as a result of new choices, the spell or ability targets a Game Object it previously did not target, any Targeting Effects of that Game Object will trigger as appropriate at that time."
+        },
+        {
+          "num": "755",
+          "text": "Any costs \"to play\" the spell or ability that are incurred as a result of new choices made in this way are ignored."
+        },
+        {
+          "num": "755.1",
+          "text": "The spell or ability is already played and its costs paid. Any further costs incurred have no effect on the finalized chain item."
+        },
+        {
+          "num": "756",
+          "text": "**Untargetability**"
+        },
+        {
+          "num": "757",
+          "text": "Some Game Effects declare that a Game Object can't be chosen by a certain set of spells and abilities. Those effects designate the Game Object as Untargetable."
+        },
+        {
+          "num": "757.1",
+          "text": "These passive abilities will usually take the form \"[Game Object] can't be chosen by [Category] spells and abilities.\" Example: Ruin Runner's passive ability reads \"I can't be chosen by enemy spells and abilities.\""
+        },
+        {
+          "num": "758",
+          "text": "Untargetable Game Objects are not legal targets for the indicated spells and abilities. See rule 355.6. Targeting for more information."
+        },
+        {
+          "num": "758.1",
+          "text": "If a Game Object becomes untargetable for a spell or ability after becoming its target and before it resolves, the spell or ability will mistarget on resolution. Any instructions related to that Game Object will be ignored as the spell resolves."
+        },
+        {
+          "num": "758.2",
+          "text": "If the spell or ability changes for any reason such that it will no longer fall under the category of spells or abilities for which a Game Object is untargetable, the Game Object will become a legal target for that spell or ability. Example: A 1 [M] unit reads \"I can't be chosen by enemy spells or abilities with Energy cost less than my Might.\" That unit is targeted by an enemy Falling Star; in reaction to the Falling Star, the unit's controller plays Discipline targeting that unit, bringing its Might to 3 [M]. If Falling Star resolved at that point, the unit would be unaffected by it as it resolves. Falling Star's controller plays Eclipse before Falling Star resolves, bringing the unit's Might to -1 [M]. When Falling Star resolves now, the unit is affected by the spell and has 6 damage marked. It dies in the following cleanup."
+        },
+        {
+          "num": "758.2.a",
+          "text": "This will also occur if the Game Object is no longer among the set of objects that are made untargetable by a Game Effect. Example: Alpha Wildclaw and Vilemaw are controlled by the same player and located at a battlefield. An opponent targets Vilemaw with Rebuke. Before Rebuke resolves, Vilemaw's controller plays Discipline targeting Alpha Wildclaw, making Vilemaw no longer a legal target. Rebuke's controller then targets Alpha Wildclaw with Star-Crossed. When Star-Crossed resolves, Alpha Wildclaw's passive ability no longer applies to Vilemaw, making it a legal target for Rebuke. After all spells and abilities have resolved, both Vilemaw and Alpha Wildclaw will be returned to hand."
+        },
+        {
+          "num": "759",
+          "text": "**Naming Cards, Types, and Tags**"
+        },
+        {
+          "num": "760",
+          "text": "Some Game Effects may instruct a player to name or guess a card, type, or tag."
+        },
+        {
+          "num": "761",
+          "text": "The act of naming a card in this way may be accomplished in one of two ways:"
+        },
+        {
+          "num": "761.1",
+          "text": "1. Stating the exact name of the card. Example: \"Kai'Sa, Evolutionary\" identifies the card Kai'Sa, Evolutionary."
+        },
+        {
+          "num": "761.2",
+          "text": "2. Identifying a combination of traits and characteristics that can identify that card uniquely. Example: \"The blue Kai'Sa,\" \"the 6 [M] Kai'Sa\" or \"the [6] Energy Kai'Sa\" are sufficient to identify Kai'Sa, Evolutionary when there are no other cards that satisfy those traits. Example: If there is only one unit with Kato in their name, saying \"Kato\" is sufficient to identify the card in question even if the exact name of the card is \"Kato the Arm.\""
+        },
+        {
+          "num": "762",
+          "text": "When instructed to name a card, a player must name a card that is legal in the Format being played."
+        },
+        {
+          "num": "762.1",
+          "text": "They cannot name a card that doesn't exist."
+        },
+        {
+          "num": "762.2",
+          "text": "A player cannot choose the name of a token when instructed to name a card."
+        },
+        {
+          "num": "763",
+          "text": "When instructed to name a tag, a player cannot choose to name a tag that does not exist on cards or tokens in Riftbound."
+        },
+        {
+          "num": "763.1",
+          "text": "The following tags exist in Riftbound: Ahri, Akali, Akshan, Ambessa, Anivia, Annie, Aphelios, Ashe, Azir, Bandle City, Bard, Bilgewater, Bird, Blitzcrank, Caitlyn, Cat, Darius, Demacia, Demon, Diana, Dog, Dr. Mundo, Dragon, Draven, Ekko, Elite, Equipment, Evelynn, Ezreal, Fae, Fiora, Fizz, Freljord, Galio, Gangplank, Garen, Heimerdinger, Hwei, Icathia, Illaoi, Ionia, Irelia, Ivern, Ixtal, Janna, Jax, Jayce, Jhin, Jinx, Kai'Sa, Karma, Karthus, Katarina, Kathkan, Kayle, Kayn, Kennen, Kha'Zix, Kog'Maw, LeBlanc, Lee Sin, Leona, Lillia, Lucian, Lux, Malzahar, Master Yi, Mech, Mel, Miss, Fortune, Morgana, Mount Targon, Nami, Nasus, Nidalee, Nilah, Nocturne, Noxus, Ornn, Piltover, Pirate, Poppy, Poro, Pyke, Qiyana, Recruit, Rek'Sai, Rell, Renata Glasc, Renekton, Rengar, Riven, Rumble, Sentinel, Sett, Shadow Isles, Shen, Shurima, Sivir, Sona, Soraka, Spider, Spirit, Swain, Syndra, Taric, Teemo, The Void, Trifarian, Tryndamere, Twisted Fate, Udyr, Vayne, Vex, Vi, Viktor, Volibear, Warwick, Xerath, Xin Zhao, Yasuo, Yone, Yordle, Yuumi, Zaun, Zed, Zilean."
+        },
+        {
+          "num": "764",
+          "text": "**Ignoring Effects**"
+        },
+        {
+          "num": "765",
+          "text": "Some Game Effects may instruct players to ignore abilities while performing a game action or procedure."
+        },
+        {
+          "num": "766",
+          "text": "Any abilities ignored in this way are treated as inactive for the purposes of the game action or procedure. Example: A spell reads \"Ignore Deflect while paying this spell's costs.\" Any instances of the Deflect keyword on relevant units are treated as inactive while paying the costs of the spell. Example: A unit reads \"You ignore Backline while assigning combat damage here.\" While assigning combat damage in the combat damage step with this unit present, any instances of Backline on enemy units is treated as inactive. The unit's controller can assign damage to any units with Backline as if they didn't have it."
+        },
+        {
+          "num": "767",
+          "text": "Ignored abilities are only treated as inactive for the specific game action or procedure described, and only by the players directed by the ability. Example: A spell reads in part \"Ignore Deflect while paying this spell's costs.\" If another player attempts to play a spell targeting the same units that the above spell does, that other spell will not ignore Deflect. Example: A unit reads \"You ignore Backline while assigning combat damage here.\" Any other player assigning combat damage at the same location as that unit will not be able to ignore Backline."
+        }
+      ]
+    },
+    {
+      "num": "800",
+      "title": "Keywords",
+      "rules": [
+        {
+          "num": "801",
+          "text": "A Keyword is a specific term that appears on Cards that acts as a shorthand for a specific game effect, or ability of any variety."
+        },
+        {
+          "num": "801.1",
+          "text": "A Keyword can be an ability."
+        },
+        {
+          "num": "801.2",
+          "text": "Keywords can be identified by having a colored highlight behind them."
+        },
+        {
+          "num": "801.2.a",
+          "text": "The color of the highlight has no effect on gameplay."
+        },
+        {
+          "num": "801.3",
+          "text": "Keywords can be referenced or specified by other Game Effects."
+        },
+        {
+          "num": "801.3.a",
+          "text": "Other effects may grant Keywords."
+        },
+        {
+          "num": "801.3.a.1",
+          "text": "The definition and rules of the specific Keyword will determine the behavior if a Keyword is granted while it is already present."
+        },
+        {
+          "num": "801.3.a.2",
+          "text": "The effect that granted the Keyword will specify the duration for which it is granted."
+        },
+        {
+          "num": "801.3.a.3",
+          "text": "If an effect that grants a Keyword does not specify a duration, the duration is as long as that Game Object remains on the Board or in its current Non-Board Zone."
+        },
+        {
+          "num": "801.3.b",
+          "text": "Other effects may remove Keywords."
+        },
+        {
+          "num": "801.3.b.1",
+          "text": "The effect that removed the Keyword will specify the duration it is removed."
+        },
+        {
+          "num": "801.3.b.2",
+          "text": "If an effect that removes a Keyword does not specify a duration, the duration is as long as that Game Object remains on the Board or in its current Non-Board Zone."
+        },
+        {
+          "num": "802",
+          "text": "A card can have any number of Keywords."
+        },
+        {
+          "num": "803",
+          "text": "Similar to other rules text, execute any effects of Keywords in the order listed when reading the card from top to bottom of the rules text."
+        },
+        {
+          "num": "804",
+          "text": "**Keyword Glossary**"
+        },
+        {
+          "num": "805",
+          "text": "**Accelerate**"
+        },
+        {
+          "num": "805.1",
+          "text": "Accelerate is a Unit ability."
+        },
+        {
+          "num": "805.1.a",
+          "text": "Accelerate is functionally short for \"As you play me, you may pay [1][C] as an additional cost. If you do, I enter ready.\""
+        },
+        {
+          "num": "805.1.a.1",
+          "text": "If the unit has one or more domains, the Power portion of the Accelerate cost can be paid only with a Power that matches one of the domains of the unit."
+        },
+        {
+          "num": "805.1.a.2",
+          "text": "If the unit has no domain, the Power portion of the Accelerate cost can be paid with [A] (a Power of any domain)."
+        },
+        {
+          "num": "805.2",
+          "text": "Accelerate is an Optional Additional Cost to be paid as a player plays the unit with the ability."
+        },
+        {
+          "num": "805.2.a",
+          "text": "Accelerate costs cannot be paid while the unit is on the board, only as part of the steps of playing a card."
+        },
+        {
+          "num": "805.2.b",
+          "text": "Paying the cost generates a delayed Replacement Effect. Even if the unit loses the accelerate keyword during the finalization process, as long as the cost was paid, that unit will still enter ready."
+        },
+        {
+          "num": "805.3",
+          "text": "Accelerate has no function while on the board."
+        },
+        {
+          "num": "805.4",
+          "text": "Multiple instances of Accelerate are redundant."
+        },
+        {
+          "num": "805.5",
+          "text": "Accelerate, and whether or not a unit has Accelerate, is a characteristic of the Unit and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "805.6",
+          "text": "Accelerate generates a delayed replacement effect that replaces a unit entering the board exhausted with it entering ready. It does not enter exhausted and then become ready."
+        },
+        {
+          "num": "805.6.a",
+          "text": "Accelerate will not interact with, or trigger, abilities that are affected by units becoming ready."
+        },
+        {
+          "num": "806",
+          "text": "**Action**"
+        },
+        {
+          "num": "806.1",
+          "text": "Action is a Permissive keyword."
+        },
+        {
+          "num": "806.1.a",
+          "text": "It is present on Cards, Rune Abilities, Legend Abilities or Permanent Abilities."
+        },
+        {
+          "num": "806.1.b",
+          "text": "Action grants the corresponding card or effect permission to be played or activated during Showdowns, even when it is not the Controlling player's turn."
+        },
+        {
+          "num": "806.1.c",
+          "text": "Action is functionally short for the following:"
+        },
+        {
+          "num": "806.1.c.1",
+          "text": "**On Cards**: \"This can be played during showdowns on any player's turn.\""
+        },
+        {
+          "num": "806.1.c.2",
+          "text": "**On Activated Abilities**: \"This can be activated during showdowns on any player's turn.\""
+        },
+        {
+          "num": "806.1.d",
+          "text": "Action is formatted as \"[Action]\" on spells, or \"[Action][>]\" on abilities."
+        },
+        {
+          "num": "806.2",
+          "text": "The card or effect with this keyword is not restricted to showdowns. This permission is inclusive of all other timings and options available to the ability as written or by default."
+        },
+        {
+          "num": "806.3",
+          "text": "Action does not alter the function of any instruction of the corresponding card or effect it is on. It is only permission. Example: Playing a Unit with Action still has the inherent restrictions of playing Units without Action. It can only be played to the controlling player's base or a battlefield they control."
+        },
+        {
+          "num": "806.4",
+          "text": "Some passive abilities may grant a card or ability Action under certain conditions. The card or ability does not have the Action keyword unless and until those circumstances are true."
+        },
+        {
+          "num": "806.4.a",
+          "text": "Those conditions might only be fulfilled while the card or ability is on the chain. In such a case, it can still be played or activated at the appropriate timing as long as doing so could fulfill the conditions."
+        },
+        {
+          "num": "806.4.b",
+          "text": "If the chain item does not fulfill the conditions by the time step 5: check legality has been reached, the actions taken while playing it are undone and it is returned to the zone it was played from if it is a card."
+        },
+        {
+          "num": "806.5",
+          "text": "Action is a referenceable characteristic."
+        },
+        {
+          "num": "806.5.a",
+          "text": "Whether or not a Game Object has Action is a characteristic of that Game Object and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "806.5.b",
+          "text": "Whether or not a Spell has Action is a characteristic of that Spell and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "806.5.c",
+          "text": "Whether or not an Ability has Action is a characteristic of that Ability and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "807",
+          "text": "**Assault**"
+        },
+        {
+          "num": "807.1",
+          "text": "Assault is a Passive Ability keyword."
+        },
+        {
+          "num": "807.1.a",
+          "text": "It is present on Units."
+        },
+        {
+          "num": "807.1.b",
+          "text": "Assault is formatted as \"Assault [X]\"."
+        },
+        {
+          "num": "807.1.b.1",
+          "text": "The X is referenced in the functional text of the ability."
+        },
+        {
+          "num": "807.1.b.2",
+          "text": "The X is referred to as the Assault Value."
+        },
+        {
+          "num": "807.1.b.3",
+          "text": "If X is omitted, it is presumed to be 1."
+        },
+        {
+          "num": "807.1.c",
+          "text": "It is functionally short for \"While I am an attacker, I have +X [M].\""
+        },
+        {
+          "num": "807.1.d",
+          "text": "Being an attacker means the Unit has gained the Attacker designation during Combat. See rule 459. Combat for more information."
+        },
+        {
+          "num": "807.1.d.1",
+          "text": "Assault remains in effect as long as the Unit maintains the Attacker designation."
+        },
+        {
+          "num": "807.2",
+          "text": "If a Unit has Assault or has been granted Assault and is granted Assault by an additional source, the Assault Value of all granted Assault keywords is summed. Example: Petty Officer has Assault. It is chosen as the target of Cleave, which says \"Give a unit [Assault 3] this turn.\" After Cleave resolves, Petty Officer has Assault 4 this turn."
+        },
+        {
+          "num": "807.3",
+          "text": "Assault, and whether or not a unit has Assault, is a characteristic of the Unit and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "808",
+          "text": "**Deathknell**"
+        },
+        {
+          "num": "808.1",
+          "text": "Deathknell is a Triggered Ability keyword."
+        },
+        {
+          "num": "808.1.a",
+          "text": "It is present on Permanents."
+        },
+        {
+          "num": "808.1.b",
+          "text": "It is formatted as \"[Deathknell][>] [Effect]\"."
+        },
+        {
+          "num": "808.1.b.1",
+          "text": "[Effect] is the rules text for the specific instance of Deathknell. This is referred to as the Deathknell effect."
+        },
+        {
+          "num": "808.1.c",
+          "text": "It is functionally short for \"When I die, [Effect].\""
+        },
+        {
+          "num": "808.1.c.1",
+          "text": "[Effect] is the rules text of the Deathknell effect."
+        },
+        {
+          "num": "808.1.d",
+          "text": "The Trigger for this and similar effects that trigger on their source's death is the Permanent being Killed and sent to the Trash."
+        },
+        {
+          "num": "808.1.d.1",
+          "text": "If the Permanent with the effect is not sent to the Trash, for example because its \"killed\" event was replaced with a recall, the triggered ability will be removed from the chain. Example: Draven, Audacious is killed in combat. Draven reads in part \"When I die in combat, choose an opponent. They gain 1 point.\" Draven's controller has a Zhonya's Hourglass in base. Draven's death is replaced by him being healed, recalled, and exhausted. Draven's triggered ability will be removed from the chain."
+        },
+        {
+          "num": "808.1.d.2",
+          "text": "The trigger will be added to the chain as a Pending Item before the card with an ability that triggers on its own death is moved to the trash due to a Kill instruction or a Cleanup."
+        },
+        {
+          "num": "808.1.d.3",
+          "text": "Before the card is moved to the Trash, note its location, its attributes, and any other details related to the effect of its triggered ability to process the trigger after it has been Finalized."
+        },
+        {
+          "num": "808.2",
+          "text": "Each instance of Deathknell a Permanent may have will trigger separately."
+        },
+        {
+          "num": "808.2.a",
+          "text": "The controller will choose the order to add these Triggers to the chain."
+        },
+        {
+          "num": "808.3",
+          "text": "Deathknell, and whether or not a permanent has Deathknell, is a characteristic of the permanent and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "809",
+          "text": "**Deflect**"
+        },
+        {
+          "num": "809.1",
+          "text": "Deflect is a Passive Ability keyword."
+        },
+        {
+          "num": "809.1.a",
+          "text": "It is normally present on Permanents."
+        },
+        {
+          "num": "809.1.b",
+          "text": "It is formatted as \"Deflect [X]\"."
+        },
+        {
+          "num": "809.1.b.1",
+          "text": "The X is referenced in the functional text of the ability."
+        },
+        {
+          "num": "809.1.b.2",
+          "text": "The X is referred to as the Deflect Value."
+        },
+        {
+          "num": "809.1.b.3",
+          "text": "If X is omitted, it is presumed to be 1."
+        },
+        {
+          "num": "809.1.c",
+          "text": "It is functionally short for \"Spells and abilities an opponent controls that target [me/this] cost an amount of Power equal to [Deflect Value] more to play as an additional cost for each time they choose [me/this].\""
+        },
+        {
+          "num": "809.1.c.1",
+          "text": "The Power used to pay this cost may always be of any Domain. Example: A Fury spell targets an Order unit with Deflect. The Power used to pay the Deflect cost can be any Domain; it does not need to match the Domain of the spell or the target."
+        },
+        {
+          "num": "809.1.d",
+          "text": "It is an effect that imposes a Mandatory Additional Cost on Spells and Abilities that choose the Game Object that has this ability. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "809.2",
+          "text": "If a Game Object has Deflect, or has been granted Deflect, and is granted Deflect by an additional source, the Deflect Value of all granted Deflect keywords is summed."
+        },
+        {
+          "num": "809.3",
+          "text": "Deflect, and whether or not a Game Object has Deflect, is a characteristic of the permanent and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "810",
+          "text": "**Ganking**"
+        },
+        {
+          "num": "810.1",
+          "text": "Ganking is a Passive Ability keyword."
+        },
+        {
+          "num": "810.1.a",
+          "text": "It is present on Units."
+        },
+        {
+          "num": "810.1.b",
+          "text": "It is functionally short for \"I may move to a battlefield from another battlefield with a standard move.\""
+        },
+        {
+          "num": "810.1.c",
+          "text": "It is a passive ability that adds permissions to the Unit's Standard Move."
+        },
+        {
+          "num": "810.1.c.1",
+          "text": "It does not restrict or remove options from the Unit's Standard Move."
+        },
+        {
+          "num": "810.1.c.2",
+          "text": "It does not have an activation cost."
+        },
+        {
+          "num": "810.1.c.3",
+          "text": "It does not give additional abilities or activations of Movement, only new options for the Standard Move."
+        },
+        {
+          "num": "810.2",
+          "text": "Multiple instances of Ganking are redundant."
+        },
+        {
+          "num": "810.3",
+          "text": "Ganking, and whether or not a unit has Ganking, is a characteristic of the Unit and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "811",
+          "text": "**Hidden**"
+        },
+        {
+          "num": "811.1",
+          "text": "Hidden is a keyword that acts as a prerequisite to perform the Hide Discretionary Action."
+        },
+        {
+          "num": "811.1.a",
+          "text": "It is present on Spells, Units, and Gear."
+        },
+        {
+          "num": "811.1.b",
+          "text": "It is functionally short for \"While this card is in your hand or in your Champion Zone on your turn during an Open State, you may pay [A] to hide this facedown at a battlefield you control that doesn't already have a facedown card hidden there for as long as you control that battlefield. Beginning on the next turn, this gains [Reaction] and you may play this, ignoring its base cost.\""
+        },
+        {
+          "num": "811.1.c",
+          "text": "It allows the player to take the Discretionary Action Hide."
+        },
+        {
+          "num": "811.1.c.1",
+          "text": "Hide is not a subset of Play."
+        },
+        {
+          "num": "811.1.c.2",
+          "text": "Hiding a card does not open a chain."
+        },
+        {
+          "num": "811.1.c.3",
+          "text": "Playing a card from facedown (or \"from Hidden\") does open a chain."
+        },
+        {
+          "num": "811.1.d",
+          "text": "Some choices made while playing a card from Hidden are restricted to the battlefield where it was hidden. A card cannot be played from Hidden if it is a spell with no valid targets under these restrictions. See rule 355.6. Targeting for more information."
+        },
+        {
+          "num": "811.1.d.1",
+          "text": "A hidden permanent must be played to that battlefield."
+        },
+        {
+          "num": "811.1.d.1.a",
+          "text": "This includes hidden gear, and overrides the normal restriction that gear have in only being allowed to be played to base."
+        },
+        {
+          "num": "811.1.d.2",
+          "text": "If a hidden spell or a play effect of a hidden permanent chooses any targets, those targets must be chosen from among options at that battlefield, unless the ability explicitly restricts targeting in a way that makes this impossible. Example: Blastcone Fae is a unit with Hidden and \"When you play me, give a unit -2 [M] this turn, to a minimum of 1 [M].\" Because this is a play effect, its target must be chosen from among units at the same battlefield if Blastcone Fae was played from Hidden. Example: Tideturner is a unit with Hidden and \"When you play me, you may choose a unit you control at another location. Move me to its location and it to my original location.\" Because its play effect has a targeting restriction that can never be fulfilled by a unit at its battlefield, its target may be chosen freely from among the available options."
+        },
+        {
+          "num": "811.1.d.2.a",
+          "text": "Each target is treated separately and individually when processing this rule. Example: Smoke and Mirrors is a spell that reads in part \"Choose a unit you control and another unit you control at a different location.\" If Smoke and Mirrors is played from hidden, the first unit chosen can be chosen at the battlefield Smoke and Mirrors was played from, so it must be. The second unit chosen explicitly restricts targeting in a way that makes this impossible, so it can be chosen from any location."
+        },
+        {
+          "num": "811.1.d.3",
+          "text": "If a hidden spell or a play effect of a hidden permanent causes you to play a unit, you must choose to play that unit at that battlefield."
+        },
+        {
+          "num": "811.2",
+          "text": "Abilities and instructions of hidden cards other than the choices listed above function as normal. Example: Stand United is a spell that has Hidden and says \"Buff a friendly unit. Buffs give an additional +1 might to friendly units this turn.\" If it's played from Hidden, the first part of its ability must choose a friendly unit at the same battlefield, but the second part of its ability affects all friendly units with buffs, no matter where they are."
+        },
+        {
+          "num": "811.3",
+          "text": "Instead of being hidden, a card with Hidden may be played for its cost as normal, at its normal timing with no restrictions on targeting."
+        },
+        {
+          "num": "811.4",
+          "text": "Multiple instances of Hidden are redundant."
+        },
+        {
+          "num": "811.5",
+          "text": "Hidden, and whether or not a card has Hidden, is a characteristic of the card and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "811.5.a",
+          "text": "This is independent of the state of being facedown."
+        },
+        {
+          "num": "811.6",
+          "text": "A card that is Hidden gains Reaction while facedown or played from facedown, and may be played any time a card with Reaction may be played as a result."
+        },
+        {
+          "num": "811.6.a",
+          "text": "The property is granted to the card in its facedown state, and is not publicly known."
+        },
+        {
+          "num": "812",
+          "text": "**Legion**"
+        },
+        {
+          "num": "812.1",
+          "text": "Legion is a Dependent Keyword."
+        },
+        {
+          "num": "812.1.a",
+          "text": "It is formatted as \"[Legion][>] [Text]\"."
+        },
+        {
+          "num": "812.1.b",
+          "text": "Starting from the Keyword to the end of the clause, the entire statement is the Legion Ability."
+        },
+        {
+          "num": "812.1.b.1",
+          "text": "Legion is functionally short for \"If you have played another card this turn, this card gains [Text].\""
+        },
+        {
+          "num": "812.1.b.2",
+          "text": "The [Text] is the Dependent Ability."
+        },
+        {
+          "num": "812.1.c",
+          "text": "As long as a card different than the one with the Legion ability has been Finalized by you on the same turn then the Dependent Ability is Active on the card with Legion."
+        },
+        {
+          "num": "812.2",
+          "text": "All instances of Legion on cards a player controls are satisfied by that player playing a single card. Example: One card has three different Legion Abilities. The Legion Text of all three abilities will be active as long as one card has been finalized by the card's controller earlier in the same turn."
+        },
+        {
+          "num": "812.3",
+          "text": "Legion, and whether or not a card has Legion, is a characteristic of the card and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "813",
+          "text": "**Reaction**"
+        },
+        {
+          "num": "813.1",
+          "text": "Reaction is a Permissive keyword."
+        },
+        {
+          "num": "813.1.a",
+          "text": "It can be present on Cards, Rune Abilities, Legend Abilities and Permanent Abilities."
+        },
+        {
+          "num": "813.1.b",
+          "text": "Reaction grants the corresponding card or effect all abilities and permissions of Action."
+        },
+        {
+          "num": "813.1.c",
+          "text": "Reaction, additionally, is functionally short for the following:"
+        },
+        {
+          "num": "813.1.c.1",
+          "text": "**On Cards**: \"This can be played during Closed States on any player's turn.\""
+        },
+        {
+          "num": "813.1.c.2",
+          "text": "**On Activated Abilities**: \"This can be activated during Closed States on any player's turn.\""
+        },
+        {
+          "num": "813.1.d",
+          "text": "Reaction is formatted as \"[Reaction]\" on cards, or \"[Reaction][>]\" on abilities."
+        },
+        {
+          "num": "813.2",
+          "text": "The corresponding card or effect with this keyword is not restricted to Closed States or Showdowns. This permission is inclusive of all other timings and options available to the ability as written, Action's permissions, or by default."
+        },
+        {
+          "num": "813.3",
+          "text": "Reaction does not alter the function of any instruction of the Card, Rune, or Effect it is on. It is only Permission."
+        },
+        {
+          "num": "813.3.a",
+          "text": "Playing Units with Reaction still has the inherent restrictions of playing Units without Reaction. It can only be played to the controlling player's base or a battlefield they control."
+        },
+        {
+          "num": "813.4",
+          "text": "Some passive abilities may grant a card or ability Reaction under certain conditions. The card or ability does not have the Reaction keyword unless and until those circumstances are true."
+        },
+        {
+          "num": "813.4.a",
+          "text": "Those conditions might only be fulfilled while the card or ability is on the chain. In such a case, it can still be played or activated at the appropriate timing as long as doing so could fulfill the conditions."
+        },
+        {
+          "num": "813.4.b",
+          "text": "If the chain item does not fulfill the conditions by the time step 5: check legality has been reached, the actions taken while playing it are undone and it is returned to the zone it was played from if it is a card."
+        },
+        {
+          "num": "813.5",
+          "text": "Reaction is a referencable characteristic."
+        },
+        {
+          "num": "813.5.a",
+          "text": "Whether or not a Game Object has Reaction is a characteristic of that Game Object and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "813.5.b",
+          "text": "Whether or not a Spell has Reaction is a characteristic of that Spell and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "813.5.c",
+          "text": "Whether or not an Ability has Reaction is a characteristic of that Ability and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "814",
+          "text": "**Shield**"
+        },
+        {
+          "num": "814.1",
+          "text": "Shield is a Passive Ability keyword."
+        },
+        {
+          "num": "814.1.a",
+          "text": "It is present on Units."
+        },
+        {
+          "num": "814.1.b",
+          "text": "Shield is formatted as \"Shield [X]\"."
+        },
+        {
+          "num": "814.1.b.1",
+          "text": "The X is referenced in the functional text of the ability."
+        },
+        {
+          "num": "814.1.b.2",
+          "text": "The X is referred to as the Shield Value."
+        },
+        {
+          "num": "814.1.b.3",
+          "text": "If X is omitted, it is presumed to be 1."
+        },
+        {
+          "num": "814.1.c",
+          "text": "It is functionally short for \"While I am a defender, I have +X [M].\""
+        },
+        {
+          "num": "814.1.d",
+          "text": "Being a defender means the Unit has gained the Defender designation during Combat. See rule 459. Combat for more information."
+        },
+        {
+          "num": "814.1.d.1",
+          "text": "Shield remains in effect as long as the Unit maintains the Defender designation."
+        },
+        {
+          "num": "814.2",
+          "text": "If a Unit has Shield, or has been granted Shield, and is granted Shield by an additional source, the Shield Value of all granted Shield keywords is summed. Example: Stalwart Poro has Shield. It is chosen as the target of Block, which says \"Give a unit [Shield 3] and [Tank] this turn.\" After Block resolves, Stalwart Poro has Shield 4 this turn."
+        },
+        {
+          "num": "814.3",
+          "text": "Shield, and whether or not a unit has Shield, is a characteristic of the Unit and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "815",
+          "text": "**Tank**"
+        },
+        {
+          "num": "815.1",
+          "text": "Tank is a Passive Ability keyword."
+        },
+        {
+          "num": "815.1.a",
+          "text": "It is present on Units."
+        },
+        {
+          "num": "815.1.b",
+          "text": "It is functionally short for \"I must be assigned lethal damage before any other unit with the same controller as me that does not have [Tank] during the Combat Damage step.\""
+        },
+        {
+          "num": "815.1.c",
+          "text": "It alters how players can elect to assign combat damage during combat."
+        },
+        {
+          "num": "815.1.c.1",
+          "text": "Players must still assign lethal damage to a unit before moving to the next when assigning their damage."
+        },
+        {
+          "num": "815.1.c.2",
+          "text": "If more than one unit with Tank is present with the same controller in Combat, damage may be assigned to any of them. Units without Tank are invalid assignments until all units with Tank have lethal damage assigned to them."
+        },
+        {
+          "num": "815.2",
+          "text": "Multiple instances of Tank are redundant."
+        },
+        {
+          "num": "815.3",
+          "text": "Tank, and whether or not a unit has Tank, is a characteristic of the Unit and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "816",
+          "text": "**Temporary**"
+        },
+        {
+          "num": "816.1",
+          "text": "Temporary is a Triggered Ability keyword."
+        },
+        {
+          "num": "816.1.a",
+          "text": "It is present on Permanents."
+        },
+        {
+          "num": "816.1.b",
+          "text": "It is functionally short for \"At the start of this permanent's controller's Beginning Phase, before scoring, kill this.\""
+        },
+        {
+          "num": "816.1.c",
+          "text": "The Trigger Condition is the controller of the permanent's Beginning Phase starting."
+        },
+        {
+          "num": "816.2",
+          "text": "Multiple instances of Temporary are redundant."
+        },
+        {
+          "num": "816.2.a",
+          "text": "Regardless of how many instances there are, the ability will only trigger once."
+        },
+        {
+          "num": "816.3",
+          "text": "Temporary, and whether or not a permanent has Temporary, is a characteristic of the permanent and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "817",
+          "text": "**Vision**"
+        },
+        {
+          "num": "817.1",
+          "text": "Vision is a Triggered Ability keyword."
+        },
+        {
+          "num": "817.1.a",
+          "text": "It is present on Permanents."
+        },
+        {
+          "num": "817.1.b",
+          "text": "It is functionally short for \"When this is played, predict.\""
+        },
+        {
+          "num": "817.1.c",
+          "text": "The trigger is the permanent entering the Board."
+        },
+        {
+          "num": "817.2",
+          "text": "Multiple instances of Vision trigger separately."
+        },
+        {
+          "num": "817.2.a",
+          "text": "The player may choose to recycle or not recycle for each instance of Vision separately."
+        },
+        {
+          "num": "817.2.b",
+          "text": "If the player does not recycle the top card and nothing else happens in between the triggers resolving, each instance of Vision will see the same card."
+        },
+        {
+          "num": "817.3",
+          "text": "Vision, and whether or not a permanent has Vision, is a characteristic of the permanent and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "818",
+          "text": "**Equip**"
+        },
+        {
+          "num": "818.1",
+          "text": "Equip is an Activated Ability keyword."
+        },
+        {
+          "num": "818.1.a",
+          "text": "Equip is present on Gear with the tag Equipment."
+        },
+        {
+          "num": "818.1.b",
+          "text": "Equip has a cost to activate and Attaches the card with Equip to a chosen Unit when the cost is paid."
+        },
+        {
+          "num": "818.1.b.1",
+          "text": "Equip's choice is a Target."
+        },
+        {
+          "num": "818.1.b.2",
+          "text": "The chosen Unit will become the Top-Most Card for the Attach action."
+        },
+        {
+          "num": "818.1.c",
+          "text": "Equip is formatted as \"Equip [Cost]\""
+        },
+        {
+          "num": "818.1.c.1",
+          "text": "If paying costs or making choices for this ability causes triggered abilities to trigger, they will be placed on the chain above this ability in a Pending state. See rule 376. Activated Abilities for more information."
+        },
+        {
+          "num": "818.1.c.2",
+          "text": "Equip is functionally short for \"[Cost]: Attach this gear to a unit you control.\""
+        },
+        {
+          "num": "818.1.c.3",
+          "text": "Equip costs may include both resource costs and non-resource costs."
+        },
+        {
+          "num": "818.1.c.4",
+          "text": "Equip abilities may also include text that alters the Equip cost. Such text is taken into account when determining a card's Equip cost when paying for the ability."
+        },
+        {
+          "num": "818.1.c.5",
+          "text": "Equip abilities may include text that alters the timing or targeting of the Equip ability."
+        },
+        {
+          "num": "818.2",
+          "text": "When the Attach action completes from this keyword, the Unit that was chosen is considered to have been Equipped by the Gear with this ability."
+        },
+        {
+          "num": "818.2.a",
+          "text": "This is an event other Game Effects and Triggered Abilities can reference."
+        },
+        {
+          "num": "818.3",
+          "text": "Equipped is the state of a Top-Most Card being Attached by one or more cards that are Equipment."
+        },
+        {
+          "num": "818.3.a",
+          "text": "The state of being Equipped is synchronous with that of the Attached state of the Equipment."
+        },
+        {
+          "num": "818.3.b",
+          "text": "A Top-Most Card is Equipped as long as one or more of its Attached cards are Equipment."
+        },
+        {
+          "num": "818.3.c",
+          "text": "The state of being Equipped corresponds to a Top-Most card having a card with Equip that is Attached to it."
+        },
+        {
+          "num": "818.4",
+          "text": "Multiple instances of Equip are equivalent to multiple Activated Abilities and can each be activated separately by paying the corresponding costs."
+        },
+        {
+          "num": "818.5",
+          "text": "Equip, and whether or not a Gear has Equip, is a characteristic of the Gear and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "818.5.a",
+          "text": "Whether or not a Gear has Equip may be referenced even if the Rules Text of the Gear is Inactive. See rule 716. Attachment for more information."
+        },
+        {
+          "num": "819",
+          "text": "**Quick-Draw**"
+        },
+        {
+          "num": "819.1",
+          "text": "Quick-Draw is a Triggered Ability keyword. It is also a Permissive keyword."
+        },
+        {
+          "num": "819.1.a",
+          "text": "Quick-Draw is present on Gear with Equip abilities."
+        },
+        {
+          "num": "819.1.b",
+          "text": "Cards with Quick-Draw have Reaction inherently."
+        },
+        {
+          "num": "819.1.c",
+          "text": "Quick-Draw allows cards to be played and Attached using Reaction timing."
+        },
+        {
+          "num": "819.1.d",
+          "text": "Quick-Draw is functionally short for \" [Reaction] \"and \"When you play this, attach it to a Unit you control.\" See rule 716. Attachment for more information."
+        },
+        {
+          "num": "819.2",
+          "text": "Multiple instances of Quick-Draw do not trigger separately and have no effect beyond the first."
+        },
+        {
+          "num": "819.3",
+          "text": "Quick-Draw, and whether or not a gear has Quick-Draw, is a characteristic of the Gear and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "820",
+          "text": "**Repeat**"
+        },
+        {
+          "num": "820.1",
+          "text": "Repeat is an Optional Additional Cost keyword."
+        },
+        {
+          "num": "820.1.a",
+          "text": "Repeat is present on Spells and Abilities."
+        },
+        {
+          "num": "820.1.b",
+          "text": "Repeat is an optional cost that a player may pay to execute the effect of their spells and abilities a second time."
+        },
+        {
+          "num": "820.1.c",
+          "text": "Repeat is formatted as \"Repeat [Cost]\""
+        },
+        {
+          "num": "820.1.c.1",
+          "text": "The Cost is an Additional Cost to be paid during the steps of playing the spell or ability."
+        },
+        {
+          "num": "820.1.c.2",
+          "text": "If a spell or ability has more than one instance of Repeat, each Cost may be paid or not paid individually."
+        },
+        {
+          "num": "820.1.c.3",
+          "text": "Each Repeat Cost can be paid only a single time."
+        },
+        {
+          "num": "820.1.d",
+          "text": "Repeat is functionally short for \"You may pay [Cost] as an additional cost as you play this. If you do, execute the instructions of this chain item one additional time during resolution.\""
+        },
+        {
+          "num": "820.1.d.1",
+          "text": "When the additional cost is paid, the effect of the spell or ability, upon resolution, will be performed an additional time. Example: Desert's Call is a spell with [Repeat] [2] and \"Play a 2 [M] Sand Soldier unit token.\" If its controller pays its Repeat cost as they play it, the card's instruction to play a Sand Soldier is executed twice, as though the card says \"Play a 2 [M] Sand Soldier unit token. Play a 2 [M] Sand Soldier unit token.\" Example: A unit reads in part \"When I attack or defend, you may deal damage equal to my Might to an enemy unit here,\" and \"My abilities have [Repeat] — Discard 1.\" When its ability triggers, if its controller pays the Repeat cost as they play it, the ability's instruction to deal damage equal to the unit's Might is executed twice, as though the ability says \"Deal damage equal to my Might to an enemy unit here. Deal damage equal to my Might to an enemy unit here.\""
+        },
+        {
+          "num": "820.1.d.2",
+          "text": "Any instructions not performed on resolution of the spell or ability are ignored."
+        },
+        {
+          "num": "820.2",
+          "text": "When a spell or ability's effect is performed an additional time with Repeat, choices must be made at the usual time during the Make Relevant Choices step of Playing a Card. See rule 349. Playing Cards for more information."
+        },
+        {
+          "num": "820.2.a",
+          "text": "Choices made for the additional execution do not have to be the same as the choices made for the initial execution. Example: Rocket Barrage is a spell with [Repeat] [4][C] and \"Choose one — Deal 4 to a unit in a base. [or] Kill a gear.\" If Rocket Barrage's controller pays its Repeat cost as they play it, they may choose the same mode or a different one, and if they choose the same mode, may choose the same target or a different one. If they choose \"Kill a gear\" twice and choose two different gear, they must specify which gear is the first target and which is the second. As the spell resolves, those two gear will be killed in the chosen order."
+        },
+        {
+          "num": "820.3",
+          "text": "Multiple instances of Repeat can be paid for separately. The spell or ability's instructions will be executed an additional time on resolution for each instance of Repeat that is paid for."
+        },
+        {
+          "num": "820.3.a",
+          "text": "Regardless of the number of times a spell or ability's instructions are executed with this keyword, it is only Played once."
+        },
+        {
+          "num": "820.4",
+          "text": "Repeat, and whether or not a spell or ability has Repeat, is a characteristic of the spell or ability and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "821",
+          "text": "**Weaponmaster**"
+        },
+        {
+          "num": "821.1",
+          "text": "Weaponmaster is a Triggered Ability keyword."
+        },
+        {
+          "num": "821.1.a",
+          "text": "Weaponmaster is present on Units."
+        },
+        {
+          "num": "821.1.b",
+          "text": "Weaponmaster is a Play Effect that chooses an Equipment you control and allows you to pay its Equip cost at a discount, regardless of the usual timing of the Equip ability, to Attach that Equipment to the unit with Weaponmaster."
+        },
+        {
+          "num": "821.1.c",
+          "text": "**Weaponmaster is functionally short for**: \"When you play me, you may choose a Card you control with the Equipment tag. Necessary portions of its Rules Text are no longer Inactive if they are currently Inactive. Pay the cost of its Equip ability, reduced by [A], to attach it to this unit.\" See rule 716. Attachment for more information."
+        },
+        {
+          "num": "821.1.c.1",
+          "text": "Weaponmaster can choose an Equipment whether it has an Equip ability or not."
+        },
+        {
+          "num": "821.1.c.2",
+          "text": "The cost of the Equip ability is determined as though that Equip ability was being activated choosing the unit with the Weaponmaster ability, as modulated by any abilities that alter Equip costs."
+        },
+        {
+          "num": "821.1.c.3",
+          "text": "If the chosen card's Equip cost does not contain [A], it can still be paid, but will not be reduced."
+        },
+        {
+          "num": "821.1.c.4",
+          "text": "If the chosen card doesn't have an Equip cost, it can't be paid."
+        },
+        {
+          "num": "821.1.c.5",
+          "text": "If the chosen card's Equip cost can't be paid, if it can't be detached from its current Top-Most card, or if it can't be attached to the unit with the Weaponmaster ability, it stays in its current location, Attached to anything it was already Attached to."
+        },
+        {
+          "num": "821.1.c.6",
+          "text": "The Equip ability is not activated this way, and the unit with the Weaponmaster ability is not chosen."
+        },
+        {
+          "num": "821.1.c.7",
+          "text": "Multiple instances of Weaponmaster trigger separately, and can choose different targets."
+        },
+        {
+          "num": "821.1.d",
+          "text": "If you choose the same target with multiple instances of Weaponmaster, each will resolve separately."
+        },
+        {
+          "num": "821.2",
+          "text": "Weaponmaster has no function while on the board."
+        },
+        {
+          "num": "821.3",
+          "text": "Weaponmaster, and whether or not a unit has Weaponmaster, is a characteristic of the Unit and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "822",
+          "text": "**Ambush**"
+        },
+        {
+          "num": "822.1",
+          "text": "Ambush is a Passive Ability keyword."
+        },
+        {
+          "num": "822.1.a",
+          "text": "It is normally present on Units."
+        },
+        {
+          "num": "822.1.b",
+          "text": "It is functionally short for \"I may be played to a battlefield where you control Units \"and \"I have [Reaction] as long as I'm being played to a battlefield where you control Units.\""
+        },
+        {
+          "num": "822.1.c",
+          "text": "It is a passive ability that adds options to locations that are valid for a Unit to be played to during the Make Relevant Choices step of Playing a Card See rule 349. Playing Cards for more information"
+        },
+        {
+          "num": "822.1.d",
+          "text": "Ambush can also appear as a verb on a card. In such a case, the verb is taken to mean \"play with the permissions of the Ambush keyword.\" Example: Rengar, Trophy Hunter reads in part \"I can [Ambush] to a battlefield where there are enemy units, even if you don't have units there.\" This ability expands the normal permissions of the Ambush keyword to include battlefields where there are enemy units. Example: A card reads in part \"Opponents can only [Ambush] at any time they could play cards with [Action].\" This ability introduces a restriction to when opponents can play cards with Ambush."
+        },
+        {
+          "num": "822.2",
+          "text": "Multiple instances of Ambush are redundant."
+        },
+        {
+          "num": "822.3",
+          "text": "If there are no units at the location chosen before Finalization completes for any reason, then it is no longer a valid location by Ambush 's reasoning and cannot be played there"
+        },
+        {
+          "num": "822.3.a",
+          "text": "Other effects and permissions may still enable this Unit to be able to be played to the selected location, but Ambush's permission will not be valid"
+        },
+        {
+          "num": "822.4",
+          "text": "Ambush, and whether or not a unit has Ambush, is a characteristic of the Unit and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "823",
+          "text": "**Hunt**"
+        },
+        {
+          "num": "823.1",
+          "text": "Hunt is a Triggered Ability keyword."
+        },
+        {
+          "num": "823.1.a",
+          "text": "Hunt is present on Units."
+        },
+        {
+          "num": "823.1.b",
+          "text": "Hunt is both a Conquer and a Hold effect."
+        },
+        {
+          "num": "823.1.c",
+          "text": "Hunt is formatted as \"Hunt X\""
+        },
+        {
+          "num": "823.1.c.1",
+          "text": "**Hunt is functionally short for**: \"When I Conquer or Hold, my controller gains X XP.\" See rule 728. XP for more information"
+        },
+        {
+          "num": "823.1.c.2",
+          "text": "If X is omitted, it is presumed to be 1."
+        },
+        {
+          "num": "823.1.c.3",
+          "text": "X is referred to as the Hunt Value."
+        },
+        {
+          "num": "823.2",
+          "text": "If a Unit has Hunt, or has been granted Hunt, and is granted Hunt by an additional source, the Hunt Value of all granted Hunt keywords is summed."
+        },
+        {
+          "num": "823.3",
+          "text": "Hunt, and whether or not a unit has Hunt, is a characteristic of the Unit and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "824",
+          "text": "**Level**"
+        },
+        {
+          "num": "824.1",
+          "text": "Level is a Dependent Keyword."
+        },
+        {
+          "num": "824.1.a",
+          "text": "It is formatted as \"[Level [N][>] [Text]\"."
+        },
+        {
+          "num": "824.1.b",
+          "text": "Starting from the Keyword to the end of the clause, the entire statement is the Level Ability."
+        },
+        {
+          "num": "824.1.b.1",
+          "text": "It is functionally short for \"While you have [N] or more XP, this card gains '[Text]'.\""
+        },
+        {
+          "num": "824.1.b.2",
+          "text": "The [Text] here is the Dependent Ability"
+        },
+        {
+          "num": "824.1.c",
+          "text": "As long as the controlling player has [N] XP, then the Dependent Ability will be be Active on the card with Level"
+        },
+        {
+          "num": "824.1.c.1",
+          "text": "If the controller of the card with Level changes, then the Dependent Ability will be rendered Active or Inactive based on the new controller's XP."
+        },
+        {
+          "num": "824.1.d",
+          "text": "The Dependent Ability will be Inactive as soon as the controlling player has less than [N] XP."
+        },
+        {
+          "num": "824.2",
+          "text": "Level, and whether or not a card has Level is a characteristic of the card and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "825",
+          "text": "**Unique**"
+        },
+        {
+          "num": "825.1",
+          "text": "Unique is a Deck Constraint Permission."
+        },
+        {
+          "num": "825.2",
+          "text": "It is normally present on main deck cards."
+        },
+        {
+          "num": "825.3",
+          "text": "Unique is not functionally short for any rules text, and instead provides a restriction to players during Deck Construction."
+        },
+        {
+          "num": "825.3.a",
+          "text": "A deck can contain only one card of a given name if the card has Unique"
+        },
+        {
+          "num": "825.3.b",
+          "text": "If a card is a Signature card and is also Unique, then that deck can contain any combination of three Signature cards, but still only one of each named Unique card."
+        },
+        {
+          "num": "825.4",
+          "text": "Cards with Unique have no additional effects during gameplay."
+        },
+        {
+          "num": "825.5",
+          "text": "Unique, and whether or not a Card has Unique, is a characteristic of the Unit and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "826",
+          "text": "**Backline**"
+        },
+        {
+          "num": "826.1",
+          "text": "Backline is a Passive Ability keyword."
+        },
+        {
+          "num": "826.2",
+          "text": "It is present on Units."
+        },
+        {
+          "num": "826.3",
+          "text": "It is functionally short for \"I must be assigned lethal damage after any other unit with the same controller as me that does not have [Backline] during the Combat Damage step.\""
+        },
+        {
+          "num": "826.4",
+          "text": "It alters how players can elect to assign combat damage during combat."
+        },
+        {
+          "num": "826.4.a",
+          "text": "Players must still assign lethal damage to a unit before moving to the next when assigning their damage."
+        },
+        {
+          "num": "826.4.b",
+          "text": "If more than one unit with Backline is present with the same controller in Combat, damage may be assigned to any of them. Units with Backline are invalid assignments until all units without Backline have lethal damage assigned to them."
+        },
+        {
+          "num": "826.5",
+          "text": "Multiple Instances of Backline are redundant."
+        },
+        {
+          "num": "826.6",
+          "text": "Backline, and whether or not a unit has Backline, is a characteristic of the Unit and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "827",
+          "text": "**Empower**"
+        },
+        {
+          "num": "827.1",
+          "text": "Empower is an Activated Ability keyword."
+        },
+        {
+          "num": "827.1.a",
+          "text": "Empower is normally present on permanents and legends."
+        },
+        {
+          "num": "827.1.b",
+          "text": "Empower has a cost to activate and Empowers the source of the ability when the cost is paid. See rule 441. Empower (Game Action) for more information."
+        },
+        {
+          "num": "827.1.b.1",
+          "text": "The source game object is not a target of the Empower ability."
+        },
+        {
+          "num": "827.1.c",
+          "text": "Empower is formatted as \"Empower [Cost]\""
+        },
+        {
+          "num": "827.1.c.1",
+          "text": "Empower is functionally short for \"[Cost]: Empower this. Play only if not Empowered.\""
+        },
+        {
+          "num": "827.1.c.2",
+          "text": "Empower costs may include both resource costs and non-resource costs."
+        },
+        {
+          "num": "827.1.c.3",
+          "text": "Empower abilities may also include text that alters the Empower cost. Such text is taken into account when determining a card's Empower cost for any reason."
+        },
+        {
+          "num": "827.1.c.4",
+          "text": "Empower abilities may include text that alters the timing of the Empower ability."
+        },
+        {
+          "num": "827.2",
+          "text": "When the Empower action completes from this keyword, the source permanent or legend becomes Empowered."
+        },
+        {
+          "num": "827.2.a",
+          "text": "This is an event other Game Effects and Triggered Abilities can reference."
+        },
+        {
+          "num": "827.3",
+          "text": "Multiple instances of Empower are equivalent to multiple activated abilities and can each be activated separately by paying the corresponding costs."
+        },
+        {
+          "num": "827.4",
+          "text": "Empower and whether a permanent or legend has Empower are a characteristic of those Game Objects and may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "828",
+          "text": "**Empowered**"
+        },
+        {
+          "num": "828.1",
+          "text": "Empowered is a Dependent Keyword."
+        },
+        {
+          "num": "828.1.a",
+          "text": "It is formatted as \"[Empowered][>] [Text].\""
+        },
+        {
+          "num": "828.1.b",
+          "text": "Starting from the keyword to the end of the clause, the entire statement is the Empowered Ability."
+        },
+        {
+          "num": "828.1.b.1",
+          "text": "It is functionally short for \"While I have the Empowered status, this card gains '[Text]'.\""
+        },
+        {
+          "num": "828.1.b.2",
+          "text": "The [Text] here is the Dependent Ability."
+        },
+        {
+          "num": "828.1.c",
+          "text": "As long as the Game Object has the Empowered status, then the Dependent Ability will be active."
+        },
+        {
+          "num": "828.1.d",
+          "text": "If the Dependent Ability is a Triggered Ability whose condition is \"When I become Empowered,\" or a permutation thereof, it will be active and trigger when its source becomes Empowered."
+        },
+        {
+          "num": "828.2",
+          "text": "Empowered and whether or not a card has an Empowered Ability is a characteristic of the card that may be checked or referenced by other Game Effects."
+        },
+        {
+          "num": "829",
+          "text": "**Flow**"
+        },
+        {
+          "num": "829.1",
+          "text": "Flow is a passive ability keyword."
+        },
+        {
+          "num": "829.1.a",
+          "text": "Flow is present on Spells."
+        },
+        {
+          "num": "829.1.b",
+          "text": "It is functionally short for \"You may play this from your trash for its flow cost. Then banish it.\""
+        },
+        {
+          "num": "829.1.b.1",
+          "text": "Banishing the spell in this way is a delayed replacement effect. If the spell would leave the chain after becoming a finalized chain item, and leaving the chain wasn't instructed by its own execution, banish it instead. See rule 367. Replacement Effects for more information. See rule 389. Delayed Abilities for more information."
+        },
+        {
+          "num": "829.1.b.2",
+          "text": "Playing a spell for its Flow cost does not change the timing at which it can be played, nor any permissions for the spell aside from the zone from which it can be played."
+        },
+        {
+          "num": "829.1.c",
+          "text": "Flow is formatted as \"Flow [Cost]\""
+        },
+        {
+          "num": "829.1.c.1",
+          "text": "The cost is an alternate cost that replaces the base cost of the spell to be paid during finalization."
+        },
+        {
+          "num": "829.1.c.2",
+          "text": "Flow costs may include both resource costs and non-resource costs."
+        },
+        {
+          "num": "829.1.c.3",
+          "text": "If a spell has multiple instances of the Flow keyword with different costs, its controller may choose which cost to apply as they play it."
+        },
+        {
+          "num": "829.2",
+          "text": "Flow, and whether or not a spell has Flow, is a characteristic of the Spell and may be checked or referenced by other Game Effects."
+        }
+      ]
+    }
   ]
 };
