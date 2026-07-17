@@ -5,7 +5,7 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
-  const APP_VERSION = '1.1.0';
+  const APP_VERSION = '1.2.0';
 
   // Navigation stack: [{view, title, render()}]
   const navStack = [];
@@ -165,6 +165,13 @@
             <span class="menu-item-text">Card Errata</span>
             <span class="menu-item-chevron">›</span>
           </div>
+          <div class="menu-item" data-action="ban-list">
+            <span class="menu-item-text">
+              Ban List
+              <div class="menu-item-subtitle">updated ${BAN_LIST_DATA.lastUpdated}</div>
+            </span>
+            <span class="menu-item-chevron">›</span>
+          </div>
           <div class="menu-item" data-action="penalty-guide">
             <span class="menu-item-text">Penalty Quick Reference</span>
             <span class="menu-item-chevron">›</span>
@@ -194,6 +201,7 @@
     go('[data-action="keywords"]', 'Keyword Glossary', renderKeywords);
     go('[data-action="oracle"]', 'Oracle Cards', renderOracleView);
     go('[data-action="errata"]', 'Card Errata', renderErrataView);
+    go('[data-action="ban-list"]', 'Ban List', renderBanList);
     go('[data-action="penalty-guide"]', 'Penalty Guide', renderPenaltyGuide);
     go('[data-action="patch-notes"]', PATCH_NOTES_DATA.title, renderPatchNotes);
     go('[data-action="swiss-rounds"]', 'Swiss Rounds', renderSwissRounds);
@@ -605,6 +613,48 @@
       </div>`;
   }
 
+  // === BAN LIST ===
+  function renderBanList(container) {
+    const today = new Date().toISOString().slice(0, 10);
+    const entryCard = (e, q = '') => {
+      const hl = (s) => q ? highlightText(s, q) : escapeHtml(s);
+      const lookup = (e.card || e.name).toLowerCase();
+      const hasCard = cardIndex()[lookup];
+      const upcoming = e.banned > today;
+      const badge = upcoming
+        ? `<span class="penalty-badge matchloss">effective ${e.banned}</span>`
+        : `<span class="penalty-badge dq">banned</span>`;
+      return `
+        <div class="kw-card">
+          <div class="kw-name">${hl(e.name)} ${badge}</div>
+          <div class="kw-desc">${hl(e.type)} · ${hl(e.set)} · banned ${escapeHtml(e.banned)}</div>
+          ${e.reason ? `<div class="kw-desc">${hl(e.reason)}</div>` : ''}
+          ${hasCard ? `<div class="link-chip" data-jump-card="${escapeHtml(e.card || e.name)}">View card →</div>` : ''}
+        </div>`;
+    };
+
+    const renderAll = (q = '') => {
+      let html = '';
+      BAN_LIST_DATA.formats.forEach(f => {
+        const entries = q
+          ? f.entries.filter(e => (e.name + ' ' + e.type + ' ' + e.set + ' ' + (e.reason || '')).toLowerCase().includes(q))
+          : f.entries;
+        if (q && !entries.length) return;
+        html += `<div class="menu-list" style="margin-bottom:0"><div class="menu-group-label">${escapeHtml(f.name)} — ${entries.length} entries</div></div>`;
+        if (f.note && !q) html += `<div class="about-note" style="margin:4px 0 8px">${escapeHtml(f.note)}</div>`;
+        entries.forEach(e => { html += entryCard(e, q); });
+      });
+      if (!html) { container.innerHTML = `<div class="no-results">No banned cards found for "${escapeHtml(q)}"</div>`; return; }
+      if (!q && BAN_LIST_DATA.note) html += `<div class="about-note">${escapeHtml(BAN_LIST_DATA.note)}</div>`;
+      container.innerHTML = html;
+    };
+
+    renderAll();
+    currentSearchFn = (q) => renderAll((q || '').toLowerCase());
+    $('#search-container').classList.remove('hidden');
+    $('#search-input').placeholder = 'Search ban list...';
+  }
+
   // === PENALTY GUIDE ===
   function renderPenaltyGuide(container) {
     // Extract penalties from tournament policy data
@@ -853,6 +903,7 @@
       ['Tournament Rules', `updated ${escapeHtml(TOURNAMENT_RULES_DATA.lastUpdated || '')}`],
       ['Patch Notes', `${escapeHtml(PATCH_NOTES_DATA.title || '')} — ${escapeHtml(PATCH_NOTES_DATA.date || '')}`],
       ['Errata', `${ERRATA_DATA.length} entries — latest ${escapeHtml(errataDate)}`],
+      ['Ban List', `${BAN_LIST_DATA.formats.reduce((a, f) => a + f.entries.length, 0)} entries — updated ${escapeHtml(BAN_LIST_DATA.lastUpdated)}`],
       ['Cards', `${CARDS_DATA.length} cards${setLines ? ' — ' + setLines : ''}`],
     ];
     container.innerHTML = `<div class="about-view">` +

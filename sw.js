@@ -1,4 +1,4 @@
-const CACHE_NAME = 'riftbound-judge-v7';
+const CACHE_NAME = 'riftbound-judge-v8';
 const ASSETS = [
   './',
   './index.html',
@@ -7,6 +7,7 @@ const ASSETS = [
   './data/core-rules.js',
   './data/tournament-rules.js',
   './data/errata.js',
+  './data/ban-list.js',
   './data/patch-notes.js',
   './data/swiss-rounds.js',
   './data/cards.json',
